@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioDAO" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52896/ServicioDAO.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52896/ServicioDAO.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52896/ServicioDAO.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioDAO_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IServicioDAO_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioDAO_setCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:setCompra" />
+  </wsdl:message>
+  <wsdl:message name="IServicioDAO_setCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioDAO_getListaCategoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:getListaCategoria" />
+  </wsdl:message>
+  <wsdl:message name="IServicioDAO_getListaCategoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getListaCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioDAO">
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioDAO/GetData" message="tns:IServicioDAO_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioDAO/GetDataResponse" message="tns:IServicioDAO_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioDAO/setCompra" message="tns:IServicioDAO_setCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioDAO/setCompraResponse" message="tns:IServicioDAO_setCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getListaCategoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioDAO/getListaCategoria" message="tns:IServicioDAO_getListaCategoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioDAO/getListaCategoriaResponse" message="tns:IServicioDAO_getListaCategoria_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioDAO" type="tns:IServicioDAO">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IServicioDAO/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCompra">
+      <soap:operation soapAction="http://tempuri.org/IServicioDAO/setCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListaCategoria">
+      <soap:operation soapAction="http://tempuri.org/IServicioDAO/getListaCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioDAO">
+    <wsdl:port name="BasicHttpBinding_IServicioDAO" binding="tns:BasicHttpBinding_IServicioDAO">
+      <soap:address location="http://localhost:52896/ServicioDAO.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
