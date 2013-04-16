@@ -34,12 +34,12 @@ namespace AeiWebServices.Permanencia
 
         public int agregarMetodoPago(MetodoPago metodo, int idUsuario)
         {
-            return conexion.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,pk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario);
+            return conexion.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,fk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario);
         }
 
         public List<MetodoPago> consultarAllMetodosPago(int idUsuario)
         {
-            SqlDataReader tabla = conexion.consultar("select * from Metodo_Pago where id=" + idUsuario.ToString() + ";");
+            SqlDataReader tabla = conexion.consultar("select * from Metodo_Pago where fk_usuario=" + idUsuario.ToString() + ";");
             List<MetodoPago> lista = new List<MetodoPago>();
             while (tabla.Read())
             {
@@ -50,7 +50,7 @@ namespace AeiWebServices.Permanencia
 
         public int modificarMetodoPago(MetodoPago metodoModificado, int idMetodoActual, int idUsuario) 
         {
-            return conexion.insertar("UPDATE METODO_PAGO SET numero=" + metodoModificado.Numero.ToString() + ",marca='" + metodoModificado.Marca + "',fecha_vencimiento='" + metodoModificado.FechaVencimiento.ToString() + " where id=" + idMetodoActual.ToString() + " and pk_usuario=" + idUsuario.ToString() + "");
+            return conexion.insertar("UPDATE METODO_PAGO SET numero=" + metodoModificado.Numero.ToString() + ",marca='" + metodoModificado.Marca + "',fecha_vencimiento='" + metodoModificado.FechaVencimiento.ToString() + " where id=" + idMetodoActual.ToString() + " and fk_usuario=" + idUsuario.ToString() + "");
         }
 
         public int AgregarDireccionUsuario(int idUsuario, int idDireccion, Direccion direccion)
