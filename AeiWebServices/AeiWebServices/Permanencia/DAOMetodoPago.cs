@@ -10,6 +10,7 @@ namespace AeiWebServices.Permanencia
     {
         int agregarMetodoPago(MetodoPago metodo, int idUsuario);
         List<MetodoPago> consultarAllMetodosPago(int idUsuario);
+        MetodoPago consultarMetodosPagoDeCompra(int idCompra);
         int modificarMetodoPago(MetodoPago metodoModificado, int idMetodoActual, int idUsuario);
     }
 }

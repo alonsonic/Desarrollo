@@ -9,5 +9,6 @@ namespace AeiWebServices.Permanencia
     interface DAOCategoria
     {
         List<Categoria> categorias();
+        Categoria buscarCategoriaPorProducto(int idProducto);
     }
 }

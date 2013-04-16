@@ -15,14 +15,14 @@ namespace AeiWebServices
         private string nombre;
         private string descripcion;
         private float precio;
-        private string imagenProducto;
+        private string imagenMiniatura;
         private string imagenDetalle;
         private int cantidad;
         private Categoria categoria;
         private List<Tag> etiquetas;
         private List<Calificacion> calificaciones;
 
-        public Producto(int id, string nombre, string descripcion, float precio, string imagenProducto, string imagenDetalle, 
+        public Producto(int id, string nombre, string descripcion, float precio, string imagenMiniatura, string imagenDetalle, 
             Categoria categoria, int cantidad)
         {
             this.id = id;
@@ -30,7 +30,7 @@ namespace AeiWebServices
             this.descripcion = descripcion;
             this.precio = precio;
             this.cantidad = cantidad;
-            this.imagenProducto = imagenProducto;
+            this.imagenMiniatura = imagenMiniatura;
             this.imagenDetalle = imagenDetalle;
             this.categoria = categoria;
             this.etiquetas = null;
@@ -85,10 +85,10 @@ namespace AeiWebServices
         }
 
         [DataMember]
-        public string ImagenProducto
+        public string ImagenMiniatura
         {
-            get { return imagenProducto; }
-            set { imagenProducto = value; }
+            get { return imagenMiniatura; }
+            set { imagenMiniatura = value; }
         }
 
         [DataMember]

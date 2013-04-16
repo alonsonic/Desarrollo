@@ -12,24 +12,25 @@ namespace AeiWebServices
     {
         private int id;
         private int puntaje;
-        private string detalle;
+        private string comentario;
         private DateTime fecha;
         private Usuario usuario;
 
-        Calificacion(int id, int puntaje, string detalle, DateTime fecha, Usuario usuario)
+
+        Calificacion(int id, int puntaje, string comentario, DateTime fecha, Usuario usuario)
         {
             this.id = id;
             this.puntaje = puntaje;
-            this.detalle = detalle;
+            this.comentario = comentario;
             this.fecha = fecha;
             this.usuario = usuario;
         }
 
         [DataMember]
-        public string Detalle
+        public string Comentario
         {
-            get { return detalle; }
-            set { detalle = value; }
+            get { return comentario; }
+            set { comentario = value; }
         }
 
         [DataMember]
@@ -44,6 +45,12 @@ namespace AeiWebServices
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public Usuario Usuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
         }
     }
 }

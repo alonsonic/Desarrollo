@@ -14,7 +14,7 @@ namespace AeiWebServices
         private int cantidad;
         private Producto producto;
 
-        DetalleCompra(float monto, int cantidad, Producto producto)
+        public DetalleCompra(float monto, int cantidad, Producto producto)
         {
             this.monto = monto;
             this.cantidad = cantidad;

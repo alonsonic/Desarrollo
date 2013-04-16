@@ -19,16 +19,17 @@ namespace AeiWebServices
         private MetodoPago pago;
         private Direccion direccion;
 
-        public Compra(int id, float montoTotal, DateTime fechaSolicitud, DateTime fechaEntrega, string status, 
-             MetodoPago pago)
+        public Compra(int id, float montoTotal, DateTime fechaSolicitud, DateTime fechaEntrega, string status,
+             MetodoPago pago, List<DetalleCompra> productos, Direccion direccion)
         {
             this.id = id;
             this.montoTotal = montoTotal;
             this.fechaSolicitud = fechaSolicitud;
             this.fechaEntrega = fechaEntrega;
             this.status = status;
-            this.productos = null;
+            this.productos = productos;
             this.pago = pago;
+            this.direccion = direccion;
         }
 
         public void AgregarDetallesCompra(DetalleCompra detallecompra)

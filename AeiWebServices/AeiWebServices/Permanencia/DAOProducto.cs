@@ -8,11 +8,11 @@ namespace AeiWebServices.Permanencia
 {
     interface DAOProducto
     {
-        int updateCantidad(Producto producto, int cantidadVendida);
-        List<Producto> consultarTodos();
+        int updateCantidad(Producto producto, int cantidadEnExistencia);
+        List<Producto> consultarProductos();
         List<Producto> buscarPorNombre(String nombre);
-        List<Producto> buscarPorCategoria(String categoria);
-        List<Producto> buscarPorTag(List<Tag> tags, String categoria);
+        List<Producto> buscarPorCategoria(String nombreCategoria);
+        Producto buscarPorCompra(int idCompra);
         int agregarCalificacion(Producto producto, Calificacion calificacion);
     }
 }

@@ -7,6 +7,6 @@ namespace AeiWebServices.Permanencia
 {
     public interface DAOTag
     {
-        List<Tag> buscarProductosPorTag(int idproducto);
+        List<Tag> buscarTagPorProducto(int idproducto);
     }
 }

@@ -11,13 +11,14 @@ namespace AeiWebServices.Permanencia
         private ConexionSqlServer conexion = new ConexionSqlServer();
         public int agregarCalificacion(Calificacion calificacion, int idUsuario, int idProducto)
         {
-            return conexion.insertar("INSERT INTO CALIFICACION (id,puntaje, detalle, pk_usuario, pk_producto, fecha) VALUES(NEXT VALUE FOR SEQ_CALIFICACION,"+calificacion.Puntaje.ToString()+",'"+calificacion.Detalle+"',"+idUsuario.ToString()+",'"+DateTime.Today.ToString("yyyy-MM-dd")+"'); "); 
+            return conexion.insertar("INSERT INTO id, puntaje, comentario, usuario, fecha VALUES(NEXT VALUE FOR SEQ_CALIFICACION,"+calificacion.Puntaje.ToString()+",'"+calificacion.Comentario+"',"+idUsuario.ToString()+",'"+DateTime.Today.ToString("yyyy-MM-dd")+"'); "); 
+
         }
 
         public List<Calificacion> consultarCalificacionesPorProducto(int idProducto)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT * FROM CALIFICACION WHERE PK_PRODUCTO ="+idProducto.ToString()+";");
+            SqlDataReader tabla = conexion.consultar("SELECT * FROM CALIFICACION WHERE ID ="+idProducto.ToString()+";");
             List<Calificacion> listaresultado = new List<Calificacion>();
             while (tabla.Read())
             {         

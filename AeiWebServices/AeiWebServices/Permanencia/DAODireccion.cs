@@ -10,6 +10,7 @@ namespace AeiWebServices.Permanencia
     {
         int AgregarDireccionUsuario(int idUsuario, int idDireccion, Direccion direccion);
         List<Direccion> ConsultarDireccion(int idUsuario);
+        Direccion ConsultarDireccionDeCompra(int idCompra);
         int modificarDireccion(int idDireccion, Direccion direccionModificada);
     }
 }
