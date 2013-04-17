@@ -35,7 +35,7 @@ namespace AeiCliente
             {
                 for (int indexProducto = 0 ; indexProducto < ListaProducto.ListaProductos.Count; indexProducto++)
                 {
-                    ItemProducto itemProducto = new ItemProducto(indexProducto);
+                    ItemProducto itemProducto = new ItemProducto(indexProducto,this);
                     listaItemProducto.Items.Add(itemProducto);
                 }
             }

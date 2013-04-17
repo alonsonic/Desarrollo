@@ -13,16 +13,35 @@
   <wsdl:message name="IIMPLEMENTAR_buscarListaProducto_OutputMessage">
     <wsdl:part name="parameters" element="tns:buscarListaProductoResponse" />
   </wsdl:message>
+  <wsdl:message name="IIMPLEMENTAR_buscarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IIMPLEMENTAR_buscarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUsuarioResponse" />
+  </wsdl:message>
   <wsdl:portType name="IIMPLEMENTAR">
     <wsdl:operation name="buscarListaProducto">
       <wsdl:input wsaw:Action="http://tempuri.org/IIMPLEMENTAR/buscarListaProducto" message="tns:IIMPLEMENTAR_buscarListaProducto_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IIMPLEMENTAR/buscarListaProductoResponse" message="tns:IIMPLEMENTAR_buscarListaProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIMPLEMENTAR/buscarUsuario" message="tns:IIMPLEMENTAR_buscarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIMPLEMENTAR/buscarUsuarioResponse" message="tns:IIMPLEMENTAR_buscarUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IIMPLEMENTAR" type="tns:IIMPLEMENTAR">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="buscarListaProducto">
       <soap:operation soapAction="http://tempuri.org/IIMPLEMENTAR/buscarListaProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IIMPLEMENTAR/buscarUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

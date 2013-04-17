@@ -43,21 +43,11 @@ namespace AeiCliente
         {
         }
 
-        //public async void ClasePrueba()
-        //{
-        //    Service1Client servicio = new Service1Client();
-        //    ClasePrueba prueba = await servicio.servicioPruebaAsync();
-        //    textUsuario.Text = prueba.nombre;
-
-        //    List<Producto> listaProductos = await servicio.getListaProductoAsync();
-        //    textUsuario.Text = listaProductos.ElementAt(1).Nombre;
-        //}
-
         private void botonCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para llevar una lista de compras.");;
 
-            if (Usuario.isConectado())
+            if (BufferUsuario.isConectado())
                 mensajeError.ShowAsync();
             else
             {
@@ -69,8 +59,10 @@ namespace AeiCliente
         {
             MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para acceder a su perfil."); ;
 
-            if (Usuario.isConectado())
-                mensajeError.ShowAsync();
+            if (BufferUsuario.isConectado())
+            {
+                this.Frame.Navigate(typeof(PerfilPage));
+            }
             else
             {
                 mensajeError.ShowAsync();
@@ -82,9 +74,22 @@ namespace AeiCliente
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
-        private void botonInicioSesion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void botonInicioSesion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	// AGREGAR EL INICIO DE SESION POR OPENID AQUI  
+        	// AGREGAR EL INICIO DE SESION POR OPENID AQUI
+            if (botonInicioSesion.Content.Equals("Ingresar"))
+            {
+                BufferUsuario.Usuario = await servicioWeb.buscarUsuarioAsync("alosnonic");
+                if (BufferUsuario.Usuario != null)
+                    botonInicioSesion.Content = "Salir";
+            }
+            else
+            {
+                BufferUsuario.Usuario = null;
+                botonInicioSesion.Content = "Ingresar";
+            }
+           
+           
         }
 
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

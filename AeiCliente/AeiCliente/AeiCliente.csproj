@@ -161,6 +161,9 @@
     <None Include="Service References\ServiceReference2\AeiCliente.ServiceReference2.Producto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServiceReference2\AeiCliente.ServiceReference2.Usuario.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference2\IMPLEMENTAR.wsdl" />
     <None Include="Service References\ServiceReference2\IMPLEMENTAR.xsd">
       <SubType>Designer</SubType>
@@ -202,6 +205,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Imagenes\Botones MainPage\botonVehiculosNegativo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\Botones Varios\BotonDetalle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\Botones Varios\BotonDetalleNegativo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Imagenes\Detalle.png">

@@ -21,6 +21,8 @@ namespace AeiCliente
 {
     public sealed partial class ItemProducto : UserControl
     {
+        Producto producto = null;
+        Page padre = null;
 
         public ItemProducto()
         {
@@ -28,11 +30,12 @@ namespace AeiCliente
             this.InitializeComponent();
         }
 
-        public ItemProducto(int indexProducto)
+        public ItemProducto(int indexProducto, Page padre)
         {
             this.InitializeComponent();
+            this.padre = padre;
 
-            Producto producto = ListaProducto.ListaProductos.ElementAt(indexProducto);
+            producto = ListaProducto.ListaProductos.ElementAt(indexProducto);
             textoNombreProducto.Text = producto.Nombre;
             //TODO: SETEAR LA IMAGEN
             //this.setImagenProducto("ms-appx:/App_Data/item.png.png");
@@ -46,9 +49,9 @@ namespace AeiCliente
             this.imagenProducto.Source = newImage;
         }
 
-        private void ButtonDetail_Click(object sender, RoutedEventArgs e)
+        private void botonDetalle_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            //TODO
+            padre.Frame.Navigate(typeof(DetalleProductoPage), producto);
         }
 
     }

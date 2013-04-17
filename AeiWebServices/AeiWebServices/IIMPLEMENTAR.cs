@@ -14,8 +14,8 @@ namespace AeiWebServices
         [OperationContract]
         List<Producto> buscarListaProducto(string busqueda);
 
-        //[OperationContract]
-        //Usuario getUsuario(string email);
+        [OperationContract]
+        Usuario buscarUsuario(string correo);
 
 
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f2a6637f-73ae-40cc-96d5-4609bbe791e9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="48bce300-beeb-434f-a271-e3b671e046bb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -24,11 +24,11 @@
     <MetadataSource Address="http://localhost:52896/IMPLEMENTAR.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="IMPLEMENTAR.xsd" MetadataType="Schema" ID="7322d429-bd95-4dc4-afd1-fb73602f4c28" SourceId="1" SourceUrl="http://localhost:52896/IMPLEMENTAR.svc?xsd=xsd2" />
-    <MetadataFile FileName="IMPLEMENTAR1.xsd" MetadataType="Schema" ID="be18de97-ec51-4b32-a7ce-5ac93b3598bd" SourceId="1" SourceUrl="http://localhost:52896/IMPLEMENTAR.svc?xsd=xsd1" />
-    <MetadataFile FileName="IMPLEMENTAR2.xsd" MetadataType="Schema" ID="3a05d330-3e1d-4b97-81e3-046684149090" SourceId="1" SourceUrl="http://localhost:52896/IMPLEMENTAR.svc?xsd=xsd0" />
-    <MetadataFile FileName="IMPLEMENTAR.disco" MetadataType="Disco" ID="97114eaf-2339-4662-9353-d85f07f903de" SourceId="1" SourceUrl="http://localhost:52896/IMPLEMENTAR.svc?disco" />
-    <MetadataFile FileName="IMPLEMENTAR.wsdl" MetadataType="Wsdl" ID="b1abd0cc-d71d-4931-8f03-acde101bc228" SourceId="1" SourceUrl="http://localhost:52896/IMPLEMENTAR.svc?wsdl" />
+    <MetadataFile FileName="IMPLEMENTAR.xsd" MetadataType="Schema" ID="344cd449-7cf9-4308-a80f-564b821440de" SourceId="1" SourceUrl="http://localhost:52896/IMPLEMENTAR.svc?xsd=xsd2" />
+    <MetadataFile FileName="IMPLEMENTAR1.xsd" MetadataType="Schema" ID="313f33b7-894a-49ff-bac4-8c9956934389" SourceId="1" SourceUrl="http://localhost:52896/IMPLEMENTAR.svc?xsd=xsd1" />
+    <MetadataFile FileName="IMPLEMENTAR2.xsd" MetadataType="Schema" ID="cdec47df-c680-49ff-aeec-f3682d646b0a" SourceId="1" SourceUrl="http://localhost:52896/IMPLEMENTAR.svc?xsd=xsd0" />
+    <MetadataFile FileName="IMPLEMENTAR.disco" MetadataType="Disco" ID="dd2ca7d5-39bf-46e9-b48a-9c1acf58f564" SourceId="1" SourceUrl="http://localhost:52896/IMPLEMENTAR.svc?disco" />
+    <MetadataFile FileName="IMPLEMENTAR.wsdl" MetadataType="Wsdl" ID="3ef6193a-df58-42ec-9828-7d796c452453" SourceId="1" SourceUrl="http://localhost:52896/IMPLEMENTAR.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

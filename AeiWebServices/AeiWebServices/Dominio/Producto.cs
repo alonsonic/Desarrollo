@@ -37,11 +37,6 @@ namespace AeiWebServices
             this.calificaciones = null;
         }
 
-        public Producto(){
-        
-            this.nombre = "prueba";
-        }
-
 
         public int Cantidad
         {

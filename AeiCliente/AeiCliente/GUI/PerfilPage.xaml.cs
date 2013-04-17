@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AeiCliente.ServiceReference2;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,6 +25,22 @@ namespace AeiCliente
         public PerfilPage()
         {
             this.InitializeComponent();
+            cargarUsuario();
+        }
+
+        private void cargarUsuario()
+        {
+            Usuario usuario = BufferUsuario.Usuario;
+
+            textCorreoEditable.Text = usuario.Email;
+            textPasaporteEditable.Text = usuario.Pasaporte;
+            textNombre.Text = usuario.Nombre + " " + usuario.Apellido;
+
+            for (int indexCompra = 0; indexCompra < usuario.Compras.Count(); indexCompra++)
+            {
+                listBoxHistorial.Items.Add("Compra solicitada el: " + usuario.Compras.ElementAt(indexCompra).FechaSolicitud.ToString());
+            }
+            
         }
 
         /// <summary>

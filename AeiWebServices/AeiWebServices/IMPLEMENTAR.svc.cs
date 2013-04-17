@@ -11,9 +11,11 @@ namespace AeiWebServices
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione IMPLEMENTAR.svc o IMPLEMENTAR.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class IMPLEMENTAR : IIMPLEMENTAR
     {
+        List<Producto> listaProducto;
+
         public List<Producto> buscarListaProducto(string busqueda)
         {
-            List<Producto> listaProducto = new List<Producto>();
+            listaProducto = new List<Producto>();
 
             listaProducto.Add(new Producto(1,"Lego","Descripcion",10,"Imagen","imagen",null,32));
             listaProducto.Add(new Producto(2,"Muñeca","Descripcion",45,"imagen","imagen",null,20));
@@ -28,5 +30,27 @@ namespace AeiWebServices
 
             return listaProducto;
         }
+
+        public Usuario buscarUsuario(string correo)
+        {
+            this.buscarListaProducto("");
+            List<DetalleCompra> listaDetalle = new List<DetalleCompra>();
+
+            listaDetalle.Add(new DetalleCompra(10, 5, listaProducto.ElementAt(1)));
+            listaDetalle.Add(new DetalleCompra(2, 7, listaProducto.ElementAt(2)));
+            listaDetalle.Add(new DetalleCompra(51, 3, listaProducto.ElementAt(3)));
+            listaDetalle.Add(new DetalleCompra(23, 1, listaProducto.ElementAt(4)));
+
+            Compra carrito = new Compra(1, 10, new DateTime(), new DateTime(), "status", null, listaDetalle, null);
+            List<Compra> listaCompra = new List<Compra>();
+            listaCompra.Add(carrito);
+
+            Usuario usuario = new Usuario(1, "Alonso", "Araujo", "10203040", "alonsonic@asd.com", 
+                                         new DateTime(), new DateTime(), "Status", carrito, listaCompra, null, null);
+
+
+            return usuario;
+        }
+
     }
 }

@@ -13,7 +13,7 @@
 		<ControlTemplate x:Key="ButtonDetail" TargetType="Button">
 			<Grid x:Name="grid" Margin="4,4,2,4">
 				<Grid.Background>
-					<ImageBrush ImageSource="Assets/BotonDetalle.png"/>
+					<ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/BotonDetalle.png"/>
 				</Grid.Background>
 				<VisualStateManager.VisualStateGroups>
 					<VisualStateGroup x:Name="CommonStates">
@@ -22,7 +22,7 @@
 								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
 									<DiscreteObjectKeyFrame KeyTime="0">
 										<DiscreteObjectKeyFrame.Value>
-											<ImageBrush ImageSource="Assets/BotonDetalleNegativo.png"/>
+											<ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/BotonDetalleNegativo.png"/>
 										</DiscreteObjectKeyFrame.Value>
 									</DiscreteObjectKeyFrame>
 								</ObjectAnimationUsingKeyFrames>
@@ -185,7 +185,7 @@
     <Grid Width="1366" Height="132">
     	<Image x:Name="imagenFondo" Source="ms-appx:///Imagenes/fondoItem.png" Stretch="Fill"/>
     	<Image x:Name="imagenProducto" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="114" Source="Assets/tomato.png" Margin="20,0,0,0" Stretch="UniformToFill"/>
-    	<Button x:Name="botonDetalle" Content="" HorizontalAlignment="Left" Margin="1224,11,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="87" Height="87" Template="{StaticResource ButtonDetail}" >
+    	<Button x:Name="botonDetalle" Content="" HorizontalAlignment="Left" Margin="1224,11,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="87" Height="87" Template="{StaticResource ButtonDetail}" Click="botonDetalle_Click" >
     		<Button.Background>
     			<ImageBrush ImageSource="Assets/BotonDetalle.png"/>
     		</Button.Background>
