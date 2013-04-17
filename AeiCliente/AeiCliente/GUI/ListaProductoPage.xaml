@@ -526,7 +526,7 @@
     	<Image x:Name="imagenFondo" Grid.RowSpan="2" Source="ms-appx:///Imagenes/fondoBusquedaAEI.png" Stretch="Fill"/>
 
     	<ListView x:Name="listaItemProducto" HorizontalAlignment="Left" Height="613" Margin="0,1.716,0,0" VerticalAlignment="Top" Width="1366" ItemContainerStyle="{StaticResource ListViewItemStyle1}" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False" IsTapEnabled="False" ManipulationMode="None" SelectionMode="None" FontFamily="Global User Interface" Grid.Row="1"/>
-    	<TextBox x:Name="textBoxBusqueda" HorizontalAlignment="Left" Height="76" Margin="304,10,0,0" TextWrapping="Wrap" Text="Texto&#xD;&#xA;" VerticalAlignment="Top" Width="772" FontSize="48" FontFamily="Gill Sans MT Condensed"/>
+    	<TextBox x:Name="textBoxBusqueda" HorizontalAlignment="Left" Height="76" Margin="304,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="772" FontSize="48" FontFamily="Gill Sans MT Condensed" InputScope="Search"/>
     	<Button x:Name="botonLupa" Content="" HorizontalAlignment="Left" Height="75" Margin="1090,10,0,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent"/>
     	<Button x:Name="botonPerfil" Content="" HorizontalAlignment="Left" Height="75" Margin="1184,10,0,0" VerticalAlignment="Top" Width="69" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent"/>
     	<Button x:Name="botonCarrito" Content="" HorizontalAlignment="Left" Height="78" Margin="1271,7,0,0" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent"/>

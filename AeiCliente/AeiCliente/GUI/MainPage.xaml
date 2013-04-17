@@ -503,22 +503,22 @@
     	<Grid HorizontalAlignment="Left" Height="674" Margin="0,94,-896,0" VerticalAlignment="Top" Width="2260">
     		<ScrollViewer HorizontalAlignment="Right" Height="606" Style="{StaticResource HorizontalScrollViewerStyle}" VerticalAlignment="Bottom" Width="1375" Margin="-6,0,891,0">
     			<StackPanel HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="3617" Orientation="Horizontal" Style="{StaticResource StackPanelStyle}" >
-    				<Button x:Name="botonBloques" Content="" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="365" BorderBrush="{x:Null}" Foreground="White" Margin="50,0,-13,0" Style="{StaticResource EstiloBotonBloques}">
+    				<Button x:Name="botonBloques" Content="" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="365" BorderBrush="{x:Null}" Foreground="White" Margin="50,0,-13,0" Style="{StaticResource EstiloBotonBloques}" Click="botonBloques_Click">
     					<Button.Background>
     						<ImageBrush ImageSource="ms-appx:///Imagenes/botonLego.png"/>
     					</Button.Background>
     				</Button>
-    				<Button x:Name="botonVehiculos" Content="" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="365" BorderBrush="{x:Null}" Margin="0,0,-13,0" Foreground="{x:Null}" Style="{StaticResource EstiloBotonVehiculos}">
+    				<Button x:Name="botonVehiculos" Content="" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="365" BorderBrush="{x:Null}" Margin="0,0,-13,0" Foreground="{x:Null}" Style="{StaticResource EstiloBotonVehiculos}" Click="botonVehiculos_Click">
     					<Button.Background>
     						<ImageBrush ImageSource="ms-appx:///Imagenes/Botones MainPage/botonVehiculos.png"/>
     					</Button.Background>
     				</Button>
-    				<Button x:Name="botonMunecas" Content="" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="365" BorderBrush="{x:Null}" Foreground="White" Margin="0,0,-13,0" Style="{StaticResource EstiloBotonMunecas}">
+    				<Button x:Name="botonMunecas" Content="" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="365" BorderBrush="{x:Null}" Foreground="White" Margin="0,0,-13,0" Style="{StaticResource EstiloBotonMunecas}" Click="botonMunecas_Click">
     					<Button.Background>
     						<ImageBrush ImageSource="ms-appx:///Imagenes/botonLego.png"/>
     					</Button.Background>
     				</Button>
-    				<Button x:Name="botonJuegosMesa" Content="" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="365" BorderBrush="{x:Null}" Foreground="White" Margin="0,0,-13,0" Style="{StaticResource EstiloBotonJUegos}">
+    				<Button x:Name="botonJuegosMesa" Content="" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="365" BorderBrush="{x:Null}" Foreground="White" Margin="0,0,-13,0" Style="{StaticResource EstiloBotonJUegos}" Click="botonJuegosMesa_Click">
     					<Button.Background>
     						<ImageBrush ImageSource="ms-appx:///Imagenes/botonLego.png"/>
     					</Button.Background>

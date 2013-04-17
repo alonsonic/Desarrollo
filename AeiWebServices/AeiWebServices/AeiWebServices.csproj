@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\item.png" />
+    <Content Include="IMPLEMENTAR.svc" />
     <Content Include="ServicioDAO.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -94,6 +95,10 @@
     <Compile Include="Dominio\Direccion.cs" />
     <Compile Include="Dominio\MetodoPago.cs" />
     <Compile Include="Dominio\Producto.cs" />
+    <Compile Include="IIMPLEMENTAR.cs" />
+    <Compile Include="IMPLEMENTAR.svc.cs">
+      <DependentUpon>IMPLEMENTAR.svc</DependentUpon>
+    </Compile>
     <Compile Include="Permanencia\DAOCalificacion.cs" />
     <Compile Include="Permanencia\DAOCategoria.cs" />
     <Compile Include="Permanencia\DAOCompra.cs" />

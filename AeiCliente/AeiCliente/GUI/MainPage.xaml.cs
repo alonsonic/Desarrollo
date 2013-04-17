@@ -1,5 +1,4 @@
-﻿using AeiCliente.ServiceReference1;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using AeiCliente.ServiceReference2;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,6 +23,10 @@ namespace AeiCliente
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        IMPLEMENTARClient servicioWeb = new IMPLEMENTARClient();
+        
+        
+        
         public MainPage()
         {
             this.InitializeComponent();
@@ -80,7 +84,35 @@ namespace AeiCliente
 
         private void botonInicioSesion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	// TODO: Agregar implementación de controlador de eventos aquí.
+        	// AGREGAR EL INICIO DE SESION POR OPENID AQUI  
+        }
+
+        private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("bloques");
+            ListaProducto.TextoBusqueda = "Bloques";
+            this.Frame.Navigate(typeof(ListaProductoPage));
+        }
+
+        private async void botonVehiculos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("vehiculos");
+            ListaProducto.TextoBusqueda = "Vehiculos";
+            this.Frame.Navigate(typeof(ListaProductoPage));
+        }
+
+        private async void botonMunecas_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("muñecas");
+            ListaProducto.TextoBusqueda = "Muñecas";
+            this.Frame.Navigate(typeof(ListaProductoPage));
+        }
+
+        private async void botonJuegosMesa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("juegos de mesa");
+            ListaProducto.TextoBusqueda = "Juegos de Mesa";
+            this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
     }

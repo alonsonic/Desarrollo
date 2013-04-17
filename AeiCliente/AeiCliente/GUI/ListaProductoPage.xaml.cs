@@ -26,19 +26,26 @@ namespace AeiCliente
         public ListaProductoPage()
         {
             this.InitializeComponent();
-            
-            
+            cargarProductos();
         }
 
         private void cargarProductos()
         {
-
+            if (ListaProducto.ListaProductos != null)
+            {
+                for (int indexProducto = 0 ; indexProducto < ListaProducto.ListaProductos.Count; indexProducto++)
+                {
+                    ItemProducto itemProducto = new ItemProducto(indexProducto);
+                    listaItemProducto.Items.Add(itemProducto);
+                }
+            }
             
-
+            textBoxBusqueda.Text = ListaProducto.TextoBusqueda;
         }
        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+
         }
 
     }

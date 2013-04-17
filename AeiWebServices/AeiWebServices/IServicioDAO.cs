@@ -20,6 +20,6 @@ namespace AeiWebServices
 
         [OperationContract]
         List<Categoria> getListaCategoria();
-        // TODO: agregue aquí sus operaciones de servicio
+
     }
 }
