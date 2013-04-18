@@ -45,8 +45,8 @@ namespace AeiWebServices
             List<Compra> listaCompra = new List<Compra>();
             listaCompra.Add(carrito);
 
-            Usuario usuario = new Usuario(1, "Alonso", "Araujo", "10203040", "alonsonic@asd.com", 
-                                         new DateTime(), new DateTime(), "Status", carrito, listaCompra, null, null);
+            Usuario usuario = new Usuario(1, "Alonso", "Araujo", "10203040", "alonsonic@asd.com",
+                                         new DateTime(), new DateTime(), "Status", carrito, listaCompra, null, null, null);
 
 
             return usuario;

@@ -10,7 +10,6 @@ namespace AeiCliente
     public static class BufferUsuario
     {
         static Usuario bufferUsuario = null;
-
         public static Usuario Usuario
         {
             get { return BufferUsuario.bufferUsuario; }

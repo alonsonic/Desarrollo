@@ -79,14 +79,13 @@ namespace AeiWebServices
             Calificacion cal = new Calificacion(2, 100, "me gusto 3", DateTime.ParseExact("2013-03-03", "yyyy-MM-dd", null),user);
             return resultado.agregarCalificacion(idProducto,cal);
         }
-       //falta
-        public int setAgregarCompra()
+        public int setAgregarCompra(Compra compra)
         {             
             SqlServerUsuario resultado = new SqlServerUsuario();
             Usuario user= new Usuario();
-            user=resultado.consultarUsuario("alonsonic@hotmail.com","2222");
-            Compra c = new Compra(1, 200, DateTime.ParseExact("2013-03-03", "yyyy-MM-dd", null), DateTime.ParseExact("2013-03-03", "yyyy-MM-dd", null), "C", user.MetodosPago[0], null, user.Direcciones[0]);
-            return resultado.agregarCompra(c);
+            //user=resultado.consultarUsuario("alonsonic@hotmail.com","2222");
+            //Compra c = new Compra(1, 200, DateTime.ParseExact("2013-03-03", "yyyy-MM-dd", null), DateTime.ParseExact("2013-03-03", "yyyy-MM-dd", null), "C", user.MetodosPago[0], null, user.Direcciones[0]);
+            return resultado.agregarCompra(compra);
         }
 
        public int setEstadoDeCompra(String status, int idCompra) 
@@ -118,7 +117,6 @@ namespace AeiWebServices
        public int setAgregarDetalleDireccion (int idUsuario, int idDireccion, Direccion direccion)
        {
            SqlServerUsuario resultado = new SqlServerUsuario();
-           //Direccion d= new Direccion(1,'Vzla',
            return resultado.AgregarDireccionUsuario(idUsuario, idDireccion, direccion);
        }
        public Direccion getDireccionDeCompra(int idCompra)

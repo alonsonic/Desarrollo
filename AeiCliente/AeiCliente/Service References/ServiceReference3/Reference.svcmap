@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1d13f8a6-ea55-4670-8dcf-6323cd3d08d5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52896/ServicioDAO.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioDAO.disco" MetadataType="Disco" ID="a0f68b06-e8ff-4de0-bd4d-5af284acc091" SourceId="1" SourceUrl="http://localhost:52896/ServicioDAO.svc?disco" />
+    <MetadataFile FileName="ServicioDAO.xsd" MetadataType="Schema" ID="f0474b8e-21f4-418b-99ed-b2f5d9787981" SourceId="1" SourceUrl="http://localhost:52896/ServicioDAO.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioDAO1.xsd" MetadataType="Schema" ID="e8064904-6cf6-49c4-9414-d43977bac623" SourceId="1" SourceUrl="http://localhost:52896/ServicioDAO.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioDAO2.xsd" MetadataType="Schema" ID="3b3a83af-83d1-4a62-a252-171760934844" SourceId="1" SourceUrl="http://localhost:52896/ServicioDAO.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioDAO.wsdl" MetadataType="Wsdl" ID="e051591b-b880-4a21-9298-e78da0981e86" SourceId="1" SourceUrl="http://localhost:52896/ServicioDAO.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

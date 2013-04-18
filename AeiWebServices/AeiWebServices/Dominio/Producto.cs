@@ -37,12 +37,8 @@ namespace AeiWebServices
             this.calificaciones = null;
         }
 
-<<<<<<< HEAD
         public Producto(){
         }
-
-=======
->>>>>>> 6c181e04ca67156f98178d92d34d194d3a1f9a7e
 
         public int Cantidad
         {

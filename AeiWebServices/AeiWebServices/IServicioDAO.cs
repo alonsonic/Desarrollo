@@ -21,7 +21,6 @@ namespace AeiWebServices
         [OperationContract]
         List<Categoria> getListaCategoria();
 
-<<<<<<< HEAD
         [OperationContract]
         Categoria buscarProductoPorCategoria(int idProducto);
 
@@ -67,7 +66,5 @@ namespace AeiWebServices
         [OperationContract]
         int setUsuario(Usuario usuarioModificado, int idUsuario);
         // TODO: agregue aquí sus operaciones de servicio
-=======
->>>>>>> 6c181e04ca67156f98178d92d34d194d3a1f9a7e
     }
 }

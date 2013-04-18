@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:52896/ServicioDAO.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices" />
+  <xs:element name="GetData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDataResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setCompra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="compra" nillable="true" type="q1:Compra" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setCompraResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="setCompraResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaCategoria">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaCategoriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="getListaCategoriaResult" nillable="true" type="q2:ArrayOfCategoria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarProductoPorCategoria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarProductoPorCategoriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="buscarProductoPorCategoriaResult" nillable="true" type="q3:Categoria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarTagPorProducto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idproducto" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarTagPorProductoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="buscarTagPorProductoResult" nillable="true" type="q4:ArrayOfTag" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setCantidadProducto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+        <xs:element minOccurs="0" name="cantidadEnExistencia" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setCantidadProductoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="setCantidadProductoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProductos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProductosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="getProductosResult" nillable="true" type="q5:ArrayOfProducto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProductoPorNombre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProductoPorNombreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="getProductoPorNombreResult" nillable="true" type="q6:ArrayOfProducto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProductoPorCategoria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreCategoria" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProductoPorCategoriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="getProductoPorCategoriaResult" nillable="true" type="q7:ArrayOfProducto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProductoPorDetalleCompra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idDetalleCompra" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProductoPorDetalleCompraResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="getProductoPorDetalleCompraResult" nillable="true" type="q8:Producto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setCalificacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="calificacion" nillable="true" type="q9:Calificacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setCalificacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="setCalificacionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setAgregarCompra">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setAgregarCompraResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="setAgregarCompraResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setEstadoDeCompra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="idCompra" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setEstadoDeCompraResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="setEstadoDeCompraResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setMetodoPago">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="metodo" nillable="true" type="q10:MetodoPago" />
+        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setMetodoPagoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="setMetodoPagoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMetodoPagoPorCompra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idCompra" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMetodoPagoPorCompraResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="getMetodoPagoPorCompraResult" nillable="true" type="q11:MetodoPago" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setModificarMetodoPago">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="metodoModificado" nillable="true" type="q12:MetodoPago" />
+        <xs:element minOccurs="0" name="idMetodoActual" type="xs:int" />
+        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setModificarMetodoPagoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="setModificarMetodoPagoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDireccionDeCompra">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idCompra" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getDireccionDeCompraResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="getDireccionDeCompraResult" nillable="true" type="q13:Direccion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuarioModificado" nillable="true" type="q14:Usuario" />
+        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="setUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="setUsuarioResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
