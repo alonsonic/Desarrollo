@@ -17,7 +17,7 @@ namespace AeiWebServices
         private Usuario usuario;
 
 
-        Calificacion(int id, int puntaje, string comentario, DateTime fecha, Usuario usuario)
+        public Calificacion(int id, int puntaje, string comentario, DateTime fecha, Usuario usuario)
         {
             this.id = id;
             this.puntaje = puntaje;

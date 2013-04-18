@@ -21,5 +21,53 @@ namespace AeiWebServices
         [OperationContract]
         List<Categoria> getListaCategoria();
 
+<<<<<<< HEAD
+        [OperationContract]
+        Categoria buscarProductoPorCategoria(int idProducto);
+
+        [OperationContract]
+        List<Tag> buscarTagPorProducto(int idproducto);
+
+        [OperationContract]
+        int setCantidadProducto(int idProducto, int cantidadEnExistencia);
+
+        [OperationContract]
+        List<Producto> getProductos();
+
+        [OperationContract]
+        List<Producto> getProductoPorNombre(String nombre);
+
+        [OperationContract]
+        List<Producto> getProductoPorCategoria(String nombreCategoria);
+
+        [OperationContract]
+        Producto getProductoPorDetalleCompra(int idDetalleCompra);
+
+        [OperationContract]
+        int setCalificacion(int idProducto, Calificacion calificacion);
+
+        [OperationContract]
+        int setAgregarCompra();
+
+        [OperationContract]
+        int setEstadoDeCompra(String status, int idCompra);
+
+        [OperationContract]
+        int setMetodoPago(MetodoPago metodo, int idUsuario);
+
+        [OperationContract]
+        MetodoPago getMetodoPagoPorCompra(int idCompra);
+
+        [OperationContract]
+        int setModificarMetodoPago(MetodoPago metodoModificado, int idMetodoActual, int idUsuario);
+
+        [OperationContract]
+        Direccion getDireccionDeCompra(int idCompra);
+
+        [OperationContract]
+        int setUsuario(Usuario usuarioModificado, int idUsuario);
+        // TODO: agregue aquí sus operaciones de servicio
+=======
+>>>>>>> 6c181e04ca67156f98178d92d34d194d3a1f9a7e
     }
 }

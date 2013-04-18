@@ -60,6 +60,8 @@ namespace AeiWebServices
                 {
                     SqlCommand comando = new SqlCommand(query, miConexion);
                     comando.CommandType = CommandType.Text;
+                    SqlCommand commit = new SqlCommand("commit;", miConexion);
+                    comando.CommandType = CommandType.Text;
                     return comando.ExecuteNonQuery();
 
                 }

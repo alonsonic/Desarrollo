@@ -22,10 +22,15 @@ namespace AeiWebServices
         private List<Compra> compras;
         private List<Direccion> direcciones;
         private List<MetodoPago> metodosPago;
+        private string codigoActivacion;
+
+        public Usuario() 
+        { 
+        }
 
         public Usuario(int id, string nombre, string apellido, string pasaporte, string email,DateTime fechaRegistro, 
             DateTime fechaNacimiento, string status, Compra carrito, List<Compra> compras,
-            List<Direccion> direcciones, List<MetodoPago> metodosPago)
+            List<Direccion> direcciones, List<MetodoPago> metodosPago, string codigoActivacion)
         {
             this.id = id;
             this.nombre = nombre;
@@ -39,6 +44,7 @@ namespace AeiWebServices
             this.compras = compras;
             this.direcciones = direcciones;
             this.metodosPago = metodosPago;
+            this.codigoActivacion = codigoActivacion;
         }
 
         public void AgregarDireccion(Direccion direccion)
@@ -54,6 +60,13 @@ namespace AeiWebServices
         public void AgregarMetodoPago(MetodoPago pago)
         {
             this.MetodosPago.Add(pago);
+        }
+
+        [DataMember]
+        public string CodigoActivacion
+        {
+            get { return codigoActivacion; }
+            set { codigoActivacion = value; }
         }
 
         [DataMember]

@@ -15,6 +15,9 @@ namespace AeiWebServices
         private DateTime fechaVencimiento;
         private string marca;
 
+        public MetodoPago()
+        {
+        }
         public MetodoPago(int id, int numero, DateTime fechaVencimiento, string marca)
         {
             this.id = id;

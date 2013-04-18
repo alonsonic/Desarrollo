@@ -19,6 +19,9 @@ namespace AeiWebServices
         private MetodoPago pago;
         private Direccion direccion;
 
+        public Compra()
+        {
+        }
         public Compra(int id, float montoTotal, DateTime fechaSolicitud, DateTime fechaEntrega, string status,
              MetodoPago pago, List<DetalleCompra> productos, Direccion direccion)
         {

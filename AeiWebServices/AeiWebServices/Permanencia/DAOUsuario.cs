@@ -8,8 +8,8 @@ namespace AeiWebServices.Permanencia
 {
     interface DAOUsuario
     {
-        Usuario consultarUsuario(string mail);
-        Boolean modificarUsuario(Usuario usuarioModificado, int id);
+        Usuario consultarUsuario(string mail, string CodigoActivacion);
+        int modificarUsuario(Usuario usuarioModificado, int idUsuario);
            
     }
 }
