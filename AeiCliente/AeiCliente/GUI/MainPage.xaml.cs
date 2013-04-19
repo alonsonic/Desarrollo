@@ -31,10 +31,6 @@ namespace AeiCliente
         public MainPage()
         {
             this.InitializeComponent();
-<<<<<<< HEAD
-=======
-
->>>>>>> 24c642fd3f3e7f2995b1d6b3b37567dd41cc4a75
         }
 
         /// <summary>
@@ -83,17 +79,12 @@ namespace AeiCliente
         	// AGREGAR EL INICIO DE SESION POR OPENID AQUI
             if (botonInicioSesion.Content.Equals("Ingresar"))
             {
-<<<<<<< HEAD
                 this.Frame.Navigate(typeof(ScenarioInput4));
 
                 //BufferUsuario.Usuario = await servicioWeb.buscarUsuarioAsync("alosnonic");
                 //if (BufferUsuario.Usuario != null)
                 //    botonInicioSesion.Content = "Salir";
-=======
-                BufferUsuario.Usuario = await servicioUsuario.ConsultarUsuarioAsync("alosnonic");
-                if (BufferUsuario.Usuario != null)
-                    botonInicioSesion.Content = "Salir";
->>>>>>> 24c642fd3f3e7f2995b1d6b3b37567dd41cc4a75
+
             }
             else
             {

@@ -1,4 +1,4 @@
-﻿using AeiCliente.ServiceReference2;
+﻿using AeiCliente.ServicioUsuario;
 using System;
 using System.Collections.Generic;
 using System.IO;
