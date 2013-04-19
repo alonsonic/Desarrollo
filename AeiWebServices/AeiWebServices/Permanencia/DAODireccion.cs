@@ -12,6 +12,8 @@ namespace AeiWebServices.Permanencia
         List<Direccion> ConsultarDireccion(int idUsuario);
         Direccion ConsultarDireccionDeCompra(int idCompra);
         int modificarDireccion(int idDireccion, Direccion direccionModificada);
+        List<Direccion> consultarEstados();
+        List<Direccion> consultarCiudad(int idEstado);
     }
 }
  

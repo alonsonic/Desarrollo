@@ -42,5 +42,29 @@ namespace AeiWebServices.Permanencia
         {
             return 0;
         }
+
+        public List<Direccion> consultarEstados()
+        {
+            SqlDataReader tabla = conexion.consultar("SELECT * FROM DIRECCION WHERE NIVEL = 'e';");
+            List<Direccion> listaDireccion = new List<Direccion>();
+            while (tabla.Read())
+            {
+                listaDireccion.Add( new Direccion(int.Parse(tabla["ID"].ToString()), null, tabla["NOMBRE"].ToString(), null, -1, null, null));
+            }
+            return listaDireccion;
+
+        }
+
+        public List<Direccion> consultarCiudad(int idEstado)
+        {
+            SqlDataReader tabla = conexion.consultar("SELECT e.NOMBRE as ESTADO , c.* FROM DIRECCION , DIRECCION c WHERE c.NIVEL = 'c' AND c.FKID = e.ID AND e.ID="+idEstado.ToString()+";");
+            List<Direccion> listaDireccion = new List<Direccion>();
+            while (tabla.Read())
+            {
+                listaDireccion.Add(new Direccion(int.Parse(tabla["ID"].ToString()), null,tabla["ESTADO"].ToString(), tabla["NOMBRE"].ToString(), -1, null, null));
+            }
+            return listaDireccion;
+
+        }
     }
 }
