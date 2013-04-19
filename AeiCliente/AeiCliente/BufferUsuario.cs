@@ -1,9 +1,9 @@
-﻿using AeiCliente.ServiceReference2;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AeiCliente.ServicioUsuario;
 
 namespace AeiCliente
 {

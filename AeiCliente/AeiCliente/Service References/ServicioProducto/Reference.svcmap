@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2d4cea91-0674-4f70-9723-002d33d2ef57" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52896/Logica/ServicioProducto.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioProducto.wsdl" MetadataType="Wsdl" ID="65dc428c-7930-4e26-a92f-9d421cd336d9" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioProducto.svc?wsdl" />
+    <MetadataFile FileName="ServicioProducto.xsd" MetadataType="Schema" ID="3338270f-513a-4453-9e27-96ba6279b6b5" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioProducto.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioProducto1.xsd" MetadataType="Schema" ID="0d5022b9-7bfa-4c6c-8e3c-7034a2b2019d" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioProducto.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioProducto2.xsd" MetadataType="Schema" ID="25d83b24-2599-49eb-8765-ea391c4dedb9" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioProducto.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioProducto.disco" MetadataType="Disco" ID="c3e2fcb4-fb5a-47d7-8a5b-21f6f4edf321" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioProducto.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -12,8 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using AeiCliente.ServiceReference2;
-using AeiCliente.ServiceReference3;
+using AeiCliente.ServicioUsuario;
+using AeiCliente.ServicioProducto;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -24,13 +24,17 @@ namespace AeiCliente
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        IMPLEMENTARClient servicioWeb = new IMPLEMENTARClient();
-        
+        ServicioProductoClient servicioProducto = new ServicioProductoClient();
+        ServicioUsuarioClient servicioUsuario = new ServicioUsuarioClient();
         
         
         public MainPage()
         {
             this.InitializeComponent();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 24c642fd3f3e7f2995b1d6b3b37567dd41cc4a75
         }
 
         /// <summary>
@@ -79,11 +83,17 @@ namespace AeiCliente
         	// AGREGAR EL INICIO DE SESION POR OPENID AQUI
             if (botonInicioSesion.Content.Equals("Ingresar"))
             {
+<<<<<<< HEAD
                 this.Frame.Navigate(typeof(ScenarioInput4));
 
                 //BufferUsuario.Usuario = await servicioWeb.buscarUsuarioAsync("alosnonic");
                 //if (BufferUsuario.Usuario != null)
                 //    botonInicioSesion.Content = "Salir";
+=======
+                BufferUsuario.Usuario = await servicioUsuario.ConsultarUsuarioAsync("alosnonic");
+                if (BufferUsuario.Usuario != null)
+                    botonInicioSesion.Content = "Salir";
+>>>>>>> 24c642fd3f3e7f2995b1d6b3b37567dd41cc4a75
             }
             else
             {
@@ -94,36 +104,31 @@ namespace AeiCliente
 
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("bloques");
+            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("bloques");
             ListaProducto.TextoBusqueda = "Bloques";
             this.Frame.Navigate(typeof(ListaCompraPage));
         }
 
         private async void botonVehiculos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("vehiculos");
+            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("vehiculos");
             ListaProducto.TextoBusqueda = "Vehiculos";
             this.Frame.Navigate(typeof(ListaCompraPage));
         }
 
         private async void botonMunecas_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("muñecas");
+            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("muñecas");
             ListaProducto.TextoBusqueda = "Muñecas";
             this.Frame.Navigate(typeof(ListaCompraPage));
         }
 
         private async void botonJuegosMesa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("juegos de mesa");
+            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("juegos de mesa");
             ListaProducto.TextoBusqueda = "Juegos de Mesa";
             this.Frame.Navigate(typeof(ListaCompraPage));
         }
-        private async void prueba()
-        {
-            ServicioDAOClient servicio = new ServicioDAOClient();
-            int u = await servicio.setAgregarCompraAsync();
-         
-        }
+        
     }
 }
