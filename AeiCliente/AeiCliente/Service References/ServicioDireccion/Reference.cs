@@ -144,6 +144,9 @@ namespace AeiCliente.ServicioDireccion {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioDireccion/consultarCiudad", ReplyAction="http://tempuri.org/IServicioDireccion/consultarCiudadResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AeiCliente.ServicioDireccion.Direccion>> consultarCiudadAsync(int idEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioDireccion/agregarDireccionUsuario", ReplyAction="http://tempuri.org/IServicioDireccion/agregarDireccionUsuarioResponse")]
+        System.Threading.Tasks.Task<int> agregarDireccionUsuarioAsync(int idUsuario, int idDireccion, string descripcion, int codigoPostal);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -195,6 +198,10 @@ namespace AeiCliente.ServicioDireccion {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<AeiCliente.ServicioDireccion.Direccion>> consultarCiudadAsync(int idEstado) {
             return base.Channel.consultarCiudadAsync(idEstado);
+        }
+        
+        public System.Threading.Tasks.Task<int> agregarDireccionUsuarioAsync(int idUsuario, int idDireccion, string descripcion, int codigoPostal) {
+            return base.Channel.agregarDireccionUsuarioAsync(idUsuario, idDireccion, descripcion, codigoPostal);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

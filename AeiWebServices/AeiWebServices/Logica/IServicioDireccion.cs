@@ -17,7 +17,7 @@ namespace AeiWebServices.Logica
         List<Direccion> consultarCiudad(int idEstado);
 
         [OperationContract]
-        int AgregarDireccionUsuario(int idUsuario, int idDireccion, Direccion direccion);
+        int agregarDireccionUsuario(int idUsuario, int idDireccion, string descripcion, int codigoPostal);
 
     }
 }

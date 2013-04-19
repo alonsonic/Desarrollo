@@ -19,6 +19,12 @@
   <wsdl:message name="IServicioDireccion_consultarCiudad_OutputMessage">
     <wsdl:part name="parameters" element="tns:consultarCiudadResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioDireccion_agregarDireccionUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:agregarDireccionUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioDireccion_agregarDireccionUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:agregarDireccionUsuarioResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioDireccion">
     <wsdl:operation name="consultarEstados">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioDireccion/consultarEstados" message="tns:IServicioDireccion_consultarEstados_InputMessage" />
@@ -27,6 +33,10 @@
     <wsdl:operation name="consultarCiudad">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioDireccion/consultarCiudad" message="tns:IServicioDireccion_consultarCiudad_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioDireccion/consultarCiudadResponse" message="tns:IServicioDireccion_consultarCiudad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarDireccionUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioDireccion/agregarDireccionUsuario" message="tns:IServicioDireccion_agregarDireccionUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioDireccion/agregarDireccionUsuarioResponse" message="tns:IServicioDireccion_agregarDireccionUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioDireccion" type="tns:IServicioDireccion">
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="consultarCiudad">
       <soap:operation soapAction="http://tempuri.org/IServicioDireccion/consultarCiudad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarDireccionUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioDireccion/agregarDireccionUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

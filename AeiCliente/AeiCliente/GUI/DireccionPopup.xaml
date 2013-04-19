@@ -9,27 +9,36 @@
     mc:Ignorable="d"
     d:DesignHeight="323"
     d:DesignWidth="413" Width="1366" Height="768">
-    
-     <custom:PopoverView Margin="57,0,-57,0">
+
+    <custom:PopoverView Margin="57,0,-57,0">
         <!-- Create your own dialog here instead of this simple button -->
         <Grid Height="260" Background="#FF78BA00" Margin="-51,254,51,254">
-        	<ComboBox x:Name="comboBoxEstado" HorizontalAlignment="Left" Margin="282,23,0,0" VerticalAlignment="Top" Width="160" SelectionChanged="comboBoxEstado_SelectionChanged">
-        		<ComboBox Width="120"/>
-        	</ComboBox>
-        	<ComboBox x:Name="comboBoxCiudad" HorizontalAlignment="Left" Margin="653,23,0,0" VerticalAlignment="Top" Width="160"/>
-        	<TextBox x:Name="textboxCodigoPostal" HorizontalAlignment="Left" Margin="1110,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91"/>
-        	<Button x:Name="buttonAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="877,212,0,0" VerticalAlignment="Top" Width="145" Click="buttonAgregar_Click"/>
-        	<TextBlock HorizontalAlignment="Left" Margin="156,17,0,0" TextWrapping="Wrap" Text="Estado" VerticalAlignment="Top" Height="32" Width="123" FontSize="35.556"/>
-        	<TextBlock HorizontalAlignment="Left" Margin="522,17,0,0" TextWrapping="Wrap" Text="Ciudad" VerticalAlignment="Top" Height="32" Width="126" FontSize="35.556"/>
-        	<TextBlock HorizontalAlignment="Left" Margin="897,17,0,0" TextWrapping="Wrap" Text="Codio Postal" VerticalAlignment="Top" Height="32" Width="213" FontSize="35.556"/>
-        	<ListBox x:Name="lisBoxDescripcion" HorizontalAlignment="Left" Height="92" Margin="240,113,0,0" VerticalAlignment="Top" Width="961"/>
-        	<Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="1049,212,0,0" VerticalAlignment="Top" Width="145"/>
-        	<TextBlock HorizontalAlignment="Left" Margin="159,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="523" FontSize="35.556">
+            <ComboBox x:Name="comboBoxEstado" HorizontalAlignment="Left" Margin="282,23,0,0" VerticalAlignment="Top" Width="160" SelectionChanged="comboBoxEstado_SelectionChanged">
+                <ComboBox Width="120"/>
+            </ComboBox>
+            <ComboBox x:Name="comboBoxCiudad" HorizontalAlignment="Left" Margin="653,23,0,0" VerticalAlignment="Top" Width="160"/>
+            <TextBox x:Name="textboxCodigoPostal" HorizontalAlignment="Left" Margin="1110,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91"/>
+            <Button x:Name="buttonAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="877,212,0,0" VerticalAlignment="Top" Width="145" Click="buttonAgregar_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="156,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="123" FontSize="35.556">
+        		<Run Text="*"/>
+        		<Run Text="Estado"/>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="522,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="126" FontSize="35.556">
+            	<Run Text="*"/>
+            	<Run Text="Ciudad"/>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="891,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="213" FontSize="35.556">
+            	<Run Text="*"/>
+            	<Run Text="Codio Postal"/>
+            </TextBlock>
+            <Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="1049,212,0,0" VerticalAlignment="Top" Width="145"/>
+            <TextBlock HorizontalAlignment="Left" Margin="159,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="523" FontSize="35.556">
         		<Run Text="Detalle "/>
         		<Run Text="de la Direcci"/>
         		<Run Text="ó"/>
         		<Run Text="n"/>
-        	</TextBlock>
+            </TextBlock>
+            <TextBox x:Name="textBoxDetalle" HorizontalAlignment="Left" Height="99" Margin="216,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="978"/>
         </Grid>
     </custom:PopoverView>
 

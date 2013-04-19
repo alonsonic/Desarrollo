@@ -56,7 +56,7 @@ namespace AeiCliente
 
         private void botonPerfil_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para acceder a su perfil."); ;
+            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para acceder a su perfil.");
 
             if (BufferUsuario.isConectado())
             {

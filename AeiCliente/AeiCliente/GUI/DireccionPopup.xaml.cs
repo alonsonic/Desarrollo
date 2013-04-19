@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioDireccion;
+using Windows.UI.Popups;
 
 namespace AeiCliente
 {
@@ -33,16 +34,19 @@ namespace AeiCliente
         private async void cargarEstados()
         {
             listaEstados = await servicioDireccion.consultarEstadosAsync();
+            comboBoxEstado.Items.Add("Selecione");
             for (int i = 0; i < listaEstados.Count(); i++)
             {
                 comboBoxEstado.Items.Add(listaEstados[i].Estado);
             }
+            comboBoxEstado.SelectedIndex = 0;
 
         }
 
         private async void comboBoxEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            listaCiudad = await servicioDireccion.consultarCiudadAsync(comboBoxEstado.SelectedIndex);
+            int idEstado = listaEstados[comboBoxEstado.SelectedIndex+1].Id;
+            listaCiudad = await servicioDireccion.consultarCiudadAsync(idEstado);
             for (int i = 0; i < listaCiudad.Count(); i++)
             {
                 comboBoxCiudad.Items.Add(listaCiudad[i].Ciudad);
@@ -51,8 +55,28 @@ namespace AeiCliente
 
         }
 
-        private void buttonAgregar_Click(object sender, RoutedEventArgs e)
+        private async void buttonAgregar_Click(object sender, RoutedEventArgs e)
         {
+            MessageDialog mensajeError = new MessageDialog("Los campos con * son OBLIGATORIOS");
+            int error = -1;
+
+            if (comboBoxCiudad.SelectedIndex != 0 && comboBoxEstado.SelectedIndex != 0 && textboxCodigoPostal.Text.Length != 0)
+            {
+                int idCiudad = listaCiudad[comboBoxCiudad.SelectedIndex].Id;
+                error = await servicioDireccion.agregarDireccionUsuarioAsync(-1, idCiudad, textBoxDetalle.Text, int.Parse(textboxCodigoPostal.Text));
+                
+            }
+            else
+            {
+                mensajeError.ShowAsync();
+            }
+
+            if (error == 0)
+            {
+                mensajeError.Content = "No se pudo agregar la nueva dirección";
+                mensajeError.ShowAsync();
+
+            }
 
         }
 

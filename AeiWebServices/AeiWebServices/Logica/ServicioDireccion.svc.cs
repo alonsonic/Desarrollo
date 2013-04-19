@@ -23,9 +23,11 @@ namespace AeiWebServices.Logica
         }
 
 
-        public int AgregarDireccionUsuario(int idUsuario, int idDireccion, Direccion direccion)
+        public int agregarDireccionUsuario(int idUsuario, int idDireccion, string descripcion, int codigoPostal)
         {
-            return FabricaDAO.setAgregarDetalleDireccion(idUsuario, idDireccion, direccion);
+            Direccion detalleDireccion = new Direccion(-1, null, null, null, codigoPostal, descripcion, "A");
+            
+            return FabricaDAO.setAgregarDetalleDireccion(idUsuario, idDireccion, detalleDireccion);
 
         }
 
