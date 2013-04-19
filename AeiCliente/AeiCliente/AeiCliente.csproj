@@ -161,6 +161,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="AeiCliente_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="Service References\ServiceReference1\AeiCliente.ServiceReference1.ClasePrueba.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -380,6 +381,11 @@
     <WCFMetadataStorage Include="Service References\ServiceReference2\" />
     <WCFMetadataStorage Include="Service References\ServicioProducto\" />
     <WCFMetadataStorage Include="Service References\ServicioUsuario\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.3\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

@@ -21,6 +21,10 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Security.Authentication.Web;
 using AeiCliente;
+using System.Net;
+using System.IO;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
 
 namespace AeiCliente
 {
@@ -28,6 +32,8 @@ namespace AeiCliente
 	{
 		// A pointer back to the main page which is used to gain access to the input and output frames and their content.
 		//MainPage rootPage = null;
+        string token = "";
+
 
 		public ScenarioInput4()
 		{
@@ -91,8 +97,9 @@ namespace AeiCliente
 
             try
             {
-                String GoogleURL = "https://accounts.google.com/o/oauth2/auth?client_id=" + Uri.EscapeDataString(GoogleClientID.Text) + "&redirect_uri=" + Uri.EscapeDataString(GoogleCallbackUrl.Text) + "&response_type=code&scope=" + Uri.EscapeDataString("http://picasaweb.google.com/data");
-
+                String GoogleURL = "https://accounts.google.com/o/oauth2/auth?client_id=" + Uri.EscapeDataString(GoogleClientID.Text) + "&redirect_uri=" + Uri.EscapeDataString(GoogleCallbackUrl.Text) + "&display=touch&response_type=code&scope= openid profile email&login_hint=alonsonic@gmail.com";
+                //openid profile email
+                //Uri.EscapeDataString("http://picasaweb.google.com/data"
                 System.Uri StartUri = new Uri(GoogleURL);
                 // When using the desktop flow, the success code is displayed in the html title of this end uri
                 System.Uri EndUri = new Uri("https://accounts.google.com/o/oauth2/approval?");
@@ -107,6 +114,8 @@ namespace AeiCliente
                 if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
                 {
                     OutputToken(WebAuthenticationResult.ResponseData.ToString());
+                    WebAuthenticationResult.ResponseData.ToString().Split('=').Last();
+                    getToken(WebAuthenticationResult.ResponseData.ToString().Split('=').Last());
                 }
                 else if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
                 {
@@ -116,6 +125,7 @@ namespace AeiCliente
                 {
                     OutputToken("Error returned by AuthenticateAsync() : " + WebAuthenticationResult.ResponseStatus.ToString());
                 }
+                
             }
             catch (Exception Error)
             {
@@ -124,6 +134,34 @@ namespace AeiCliente
                 //
                 DebugPrint(Error.ToString());
             }
-	}		        
+	}
+        public async void getToken(string code)
+        {
+
+            var form = new Dictionary<string, string>
+            {
+            {"code", code},
+            {"client_id", "484156375778.apps.googleusercontent.com"},
+            {"client_secret", "PH0hTcYgaOvpXKpeCyWW6690"},
+            {"redirect_uri", "urn:ietf:wg:oauth:2.0:oob"},
+            {"grant_type", "authorization_code"},
+            };
+               
+            var content = new FormUrlEncodedContent(form);               
+            var client = new HttpClient(); 
+            var response = await client.PostAsync("https://accounts.google.com/o/oauth2/token", content);
+            var json = await response.Content.ReadAsStringAsync();
+ 
+            JObject o = JObject.Parse(json);
+            token = (string)o.SelectToken("access_token");
+
+            var respuesta = await client.GetAsync("https://www.googleapis.com/oauth2/v1/userinfo?access_token=" + token);
+            json = await respuesta.Content.ReadAsStringAsync();
+ 
+                
+
+
+            return;
+        }
     }
 }
