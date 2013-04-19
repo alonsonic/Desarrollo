@@ -180,6 +180,34 @@
 				</VisualStateManager.VisualStateGroups>
 			</Grid>
 		</ControlTemplate>
+		<ControlTemplate x:Key="ButtonControlTemplate3" TargetType="Button">
+			<Grid x:Name="grid" Margin="4,4,2,4">
+				<Grid.Background>
+					<ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/BotonTwitter.png"/>
+				</Grid.Background>
+				<VisualStateManager.VisualStateGroups>
+					<VisualStateGroup x:Name="CommonStates">
+						<VisualState x:Name="Pressed">
+							<Storyboard>
+								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
+									<DiscreteObjectKeyFrame KeyTime="0">
+										<DiscreteObjectKeyFrame.Value>
+											<ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/BotonTwitterNegativo.png"/>
+										</DiscreteObjectKeyFrame.Value>
+									</DiscreteObjectKeyFrame>
+								</ObjectAnimationUsingKeyFrames>
+							</Storyboard>
+						</VisualState>
+						<VisualState x:Name="Disabled"/>
+						<VisualState x:Name="PointerOver"/>
+					</VisualStateGroup>
+					<VisualStateGroup x:Name="FocusStates">
+						<VisualState x:Name="Focused"/>
+						<VisualState x:Name="PointerFocused"/>
+					</VisualStateGroup>
+				</VisualStateManager.VisualStateGroups>
+			</Grid>
+		</ControlTemplate>
 	</UserControl.Resources>
     
     <Grid Width="1366" Height="132">
@@ -191,5 +219,10 @@
     		</Button.Background>
     	</Button>
     	<TextBlock x:Name="textoNombreProducto" HorizontalAlignment="Left" Height="103" Margin="250,8,0,0" TextWrapping="Wrap" Text="Rompecabezas" VerticalAlignment="Top" Width="681" FontSize="80" FontFamily="Gill Sans MT"/>
+    	<Button x:Name="botonTwitter" Content="" HorizontalAlignment="Left" Margin="1117,11,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="87" Height="87" Template="{StaticResource ButtonControlTemplate3}" Click="botonDetalle_Click" >
+    		<Button.Background>
+    			<ImageBrush ImageSource="Assets/BotonDetalle.png"/>
+    		</Button.Background>
+    	</Button>
     </Grid>
 </UserControl>
