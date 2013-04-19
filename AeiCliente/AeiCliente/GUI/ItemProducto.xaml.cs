@@ -24,13 +24,13 @@ namespace AeiCliente
         Producto producto = null;
         Page padre = null;
 
-        public ItemCompra()
+        public ItemProducto()
         {
             this.setImagenProducto("ms-appx:/App_Data/item.png.png");
             this.InitializeComponent();
         }
 
-        public ItemCompra(int indexProducto, Page padre)
+        public ItemProducto(int indexProducto, Page padre)
         {
             this.InitializeComponent();
             this.padre = padre;

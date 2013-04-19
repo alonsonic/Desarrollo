@@ -40,7 +40,6 @@ namespace AeiCliente
                 }
             }
             
-            textBoxBusqueda.Text = ListaProducto.TextoBusqueda;
         }
        
         protected override void OnNavigatedTo(NavigationEventArgs e)

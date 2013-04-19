@@ -130,6 +130,9 @@
     </Compile>
     <Compile Include="GUI\PopoverView.cs" />
     <Compile Include="ListaProducto.cs" />
+    <Compile Include="OpenId\ScenarioInput4.xaml.cs">
+      <DependentUpon>ScenarioInput4.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -153,7 +156,6 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="AeiCliente_TemporaryKey.pfx" />
-    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
     <None Include="Service References\ServiceReference1\AeiCliente.ServiceReference1.ClasePrueba.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -347,6 +349,15 @@
     <Page Include="GUI\PerfilPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OpenId\ScenarioInput4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Properties\DesignTimeResources.xaml" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <ContainsDesignTimeResources>true</ContainsDesignTimeResources>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">

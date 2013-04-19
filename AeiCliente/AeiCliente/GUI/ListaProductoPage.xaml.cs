@@ -23,7 +23,7 @@ namespace AeiCliente
     public sealed partial class ListaProductoPage : Page
     {
 
-        public ListaCompraPage()
+        public ListaProductoPage()
         {
             this.InitializeComponent();
             cargarProductos();
