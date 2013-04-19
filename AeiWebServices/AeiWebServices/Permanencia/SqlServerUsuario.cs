@@ -270,6 +270,24 @@ namespace AeiWebServices.Permanencia
             return null;
         }
 
+        public Usuario consultarUsuario(string mail)
+        {
+            SqlDataReader tabla = conexion.consultar("select u.*, (SELECT CONVERT(VARCHAR(19), u.fecha_nac, 120)) as fechaNac, (SELECT CONVERT(VARCHAR(19), u.fecha_ing, 120)) as fechaIng from usuario AS u where mail='" + mail + "'");
+            while (tabla.Read())
+            {
+                List<Direccion> direccion = ConsultarDireccion(int.Parse(tabla["ID"].ToString()));
+                List<MetodoPago> metodoPago = consultarAllMetodosPago(int.Parse(tabla["ID"].ToString()));
+                Compra carrito = consultarCarrito(int.Parse(tabla["ID"].ToString()));
+                List<Compra> compras = consultarHistorialCompras(int.Parse(tabla["ID"].ToString()));
+                Usuario usuario = new Usuario(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["APELLIDO"].ToString(),
+                    tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
+                    DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
+                    DateTime.ParseExact(tabla["FECHANAC"].ToString(), "yyyy-MM-dd", null),
+                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, null);
+                return usuario;
+            }
+            return null;
+        }
 
         public int modificarUsuario(Usuario usuarioModificado, int idUsuario)
         {

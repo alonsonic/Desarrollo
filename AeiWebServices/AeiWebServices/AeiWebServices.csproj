@@ -83,6 +83,8 @@
   <ItemGroup>
     <Content Include="App_Data\item.png" />
     <Content Include="IMPLEMENTAR.svc" />
+    <Content Include="Logica\ServicioUsuario.svc" />
+    <Content Include="Logica\ServicioProducto.svc" />
     <Content Include="ServicioDAO.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -98,6 +100,14 @@
     <Compile Include="IIMPLEMENTAR.cs" />
     <Compile Include="IMPLEMENTAR.svc.cs">
       <DependentUpon>IMPLEMENTAR.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Logica\IServicioUsuario.cs" />
+    <Compile Include="Logica\IServicioProducto.cs" />
+    <Compile Include="Logica\ServicioUsuario.svc.cs">
+      <DependentUpon>ServicioUsuario.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Logica\ServicioProducto.svc.cs">
+      <DependentUpon>ServicioProducto.svc</DependentUpon>
     </Compile>
     <Compile Include="Permanencia\DAOCalificacion.cs" />
     <Compile Include="Permanencia\DAOCategoria.cs" />
@@ -139,9 +149,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Logica\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
