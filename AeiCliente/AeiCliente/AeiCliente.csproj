@@ -104,8 +104,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ItemCompra.xaml.cs">
+      <DependentUpon>ItemCompra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ListaCompraPage.xaml.cs">
+      <DependentUpon>ListaCompraPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DetalleProductoPage.xaml.cs">
       <DependentUpon>DetalleProductoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DireccionPopup.xaml.cs">
+      <DependentUpon>DireccionPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\ItemProducto.xaml.cs">
       <DependentUpon>ItemProducto.xaml</DependentUpon>
@@ -119,6 +128,7 @@
     <Compile Include="GUI\PerfilPage.xaml.cs">
       <DependentUpon>PerfilPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\PopoverView.cs" />
     <Compile Include="ListaProducto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">
@@ -137,6 +147,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs" />
+    <Compile Include="BufferUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -298,7 +309,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GUI\ItemCompra.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ListaCompraPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="GUI\DetalleProductoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\DireccionPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

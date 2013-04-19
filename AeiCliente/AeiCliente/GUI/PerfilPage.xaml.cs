@@ -50,6 +50,15 @@ namespace AeiCliente
         /// se usa normalmente para configurar la página.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+
+        }
+
+        private void botonAgregarDireccion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+        	Popup popup = new Popup();
+            DireccionPopup direcPopup= new DireccionPopup(popup);
+            popup.Child = direcPopup;
+            popup.IsOpen = true;
         }
     }
 }

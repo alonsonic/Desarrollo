@@ -19,7 +19,7 @@ using AeiCliente.ServiceReference2;
 
 namespace AeiCliente
 {
-    public sealed partial class ItemProducto : UserControl
+    public sealed partial class ItemCompra : UserControl
     {
         Producto producto = null;
         Page padre = null;

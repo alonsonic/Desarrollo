@@ -60,7 +60,12 @@ namespace AeiCliente
 
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	this.Frame.Navigate(typeof(ListaProductoPage));
+        	this.Frame.Navigate(typeof(ListaCompraPage));
+        }
+
+        private void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+        	// TODO: Agregar implementación de controlador de eventos aquí.
         }
 	}
 }

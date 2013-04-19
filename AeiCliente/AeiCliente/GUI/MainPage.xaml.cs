@@ -72,7 +72,7 @@ namespace AeiCliente
 
         private void botonLupa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ListaProductoPage));
+            this.Frame.Navigate(typeof(ListaCompraPage));
         }
 
         private async void botonInicioSesion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -89,36 +89,34 @@ namespace AeiCliente
                 BufferUsuario.Usuario = null;
                 botonInicioSesion.Content = "Ingresar";
             }
-           
-           
         }
 
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("bloques");
             ListaProducto.TextoBusqueda = "Bloques";
-            this.Frame.Navigate(typeof(ListaProductoPage));
+            this.Frame.Navigate(typeof(ListaCompraPage));
         }
 
         private async void botonVehiculos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("vehiculos");
             ListaProducto.TextoBusqueda = "Vehiculos";
-            this.Frame.Navigate(typeof(ListaProductoPage));
+            this.Frame.Navigate(typeof(ListaCompraPage));
         }
 
         private async void botonMunecas_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("muñecas");
             ListaProducto.TextoBusqueda = "Muñecas";
-            this.Frame.Navigate(typeof(ListaProductoPage));
+            this.Frame.Navigate(typeof(ListaCompraPage));
         }
 
         private async void botonJuegosMesa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicioWeb.buscarListaProductoAsync("juegos de mesa");
             ListaProducto.TextoBusqueda = "Juegos de Mesa";
-            this.Frame.Navigate(typeof(ListaProductoPage));
+            this.Frame.Navigate(typeof(ListaCompraPage));
         }
         private async void prueba()
         {
