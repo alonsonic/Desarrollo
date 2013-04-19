@@ -218,7 +218,7 @@ namespace AeiWebServices.Permanencia
         {
             return conexion.insertar("UPDATE METODO_PAGO SET numero=" + metodoModificado.Numero.ToString() + ",marca='" + metodoModificado.Marca + "',fecha_vencimiento='" + metodoModificado.FechaVencimiento.ToString() + "' where id=" + idMetodoActual.ToString() + " and fk_usuario=" + idUsuario.ToString() + "");
         }
-        /*falta*/
+
         public int AgregarDireccionUsuario(int idUsuario, int idDireccion, Direccion direccion)
         {
             return conexion.insertar("INSERT INTO Detalle_Direccion (id,descripcion,codigo_postal,status,fk_direccion, fk_usuario)  VALUES (NEXT VALUE FOR seq_detalle_direccion, '"+direccion.Descripcion+"',"+direccion.CodigoPostal.ToString()+",'"+direccion.Status+"',"+idDireccion.ToString()+","+idUsuario.ToString()+");");
@@ -234,7 +234,7 @@ namespace AeiWebServices.Permanencia
             }
             return lista;
         }
-        //
+        
         public Direccion ConsultarDireccionDeCompra(int idCompra)
         {
             Direccion resultado = null;

@@ -46,7 +46,7 @@ namespace AeiWebServices
         int setCalificacion(int idProducto, Calificacion calificacion);
 
         [OperationContract]
-        int setAgregarCompra();
+        int setAgregarCompra(Compra compra);
 
         [OperationContract]
         int setEstadoDeCompra(String status, int idCompra);

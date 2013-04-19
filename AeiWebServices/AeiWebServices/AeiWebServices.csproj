@@ -108,8 +108,14 @@
     <Compile Include="Permanencia\DAOProducto.cs" />
     <Compile Include="Permanencia\DAOTag.cs" />
     <Compile Include="Permanencia\DAOUsuario.cs" />
+    <Compile Include="Permanencia\FabricaDAO.cs" />
+    <Compile Include="Permanencia\SqlServerDetalleCompra.cs" />
+    <Compile Include="Permanencia\SqlServerDireccion.cs" />
+    <Compile Include="Permanencia\SqlServerMetodoPago.cs" />
+    <Compile Include="Permanencia\SqlServerProducto.cs" />
     <Compile Include="Permanencia\SqlServerCalificacion.cs" />
     <Compile Include="Permanencia\SqlServerCategoria.cs" />
+    <Compile Include="Permanencia\SqlServerCompra.cs" />
     <Compile Include="Permanencia\SqlServerTag.cs" />
     <Compile Include="Permanencia\SqlServerUsuario.cs" />
     <Compile Include="Program.cs" />
