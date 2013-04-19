@@ -103,10 +103,23 @@ namespace AeiWebServices.Permanencia
             SqlServerDireccion resultado = new SqlServerDireccion();
             return resultado.AgregarDireccionUsuario(idUsuario, idDireccion, direccion);
         }
+
         static public Direccion getDireccionDeCompra(int idCompra)
         {
-            SqlServerUsuario resultado = new SqlServerUsuario();
-            return resultado.ConsultarDireccionDeCompra(3);
+            SqlServerDireccion resultado = new SqlServerDireccion();
+            return resultado.ConsultarDireccionDeCompra(idCompra);
+        }
+
+        static public List<Direccion> getEstado()
+        {
+            SqlServerDireccion resultado = new SqlServerDireccion();
+            return resultado.consultarEstados();
+        }
+
+        static public List<Direccion> getCiudad(int idEstado)
+        {
+            SqlServerDireccion resultado = new SqlServerDireccion();
+            return resultado.consultarCiudad(idEstado);
         }
 
         static public Usuario getUsuario(string mail, string codigoActivacion)
