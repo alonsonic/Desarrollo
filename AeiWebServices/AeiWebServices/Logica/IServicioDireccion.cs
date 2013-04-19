@@ -7,11 +7,17 @@ using System.Text;
 
 namespace AeiWebServices.Logica
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IServicioDireccion" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
     public interface IServicioDireccion
     {
         [OperationContract]
-        void DoWork();
+        List<Direccion> consultarEstados();
+
+        [OperationContract]
+        List<Direccion> consultarCiudad(int idEstado);
+
+        [OperationContract]
+        int AgregarDireccionUsuario(int idUsuario, int idDireccion, Direccion direccion);
+
     }
 }

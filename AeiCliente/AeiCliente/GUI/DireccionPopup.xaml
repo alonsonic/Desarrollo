@@ -13,12 +13,12 @@
      <custom:PopoverView Margin="57,0,-57,0">
         <!-- Create your own dialog here instead of this simple button -->
         <Grid Height="260" Background="#FF78BA00" Margin="-51,254,51,254">
-        	<ComboBox x:Name="comboBoxEstado" HorizontalAlignment="Left" Margin="282,23,0,0" VerticalAlignment="Top" Width="160">
+        	<ComboBox x:Name="comboBoxEstado" HorizontalAlignment="Left" Margin="282,23,0,0" VerticalAlignment="Top" Width="160" SelectionChanged="comboBoxEstado_SelectionChanged">
         		<ComboBox Width="120"/>
         	</ComboBox>
-        	<ComboBox x:Name="comboBoxCiudad" HorizontalAlignment="Left" Margin="655,23,0,0" VerticalAlignment="Top" Width="160"/>
+        	<ComboBox x:Name="comboBoxCiudad" HorizontalAlignment="Left" Margin="653,23,0,0" VerticalAlignment="Top" Width="160"/>
         	<TextBox x:Name="textboxCodigoPostal" HorizontalAlignment="Left" Margin="1110,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91"/>
-        	<Button x:Name="buttonAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="877,212,0,0" VerticalAlignment="Top" Width="145"/>
+        	<Button x:Name="buttonAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="877,212,0,0" VerticalAlignment="Top" Width="145" Click="buttonAgregar_Click"/>
         	<TextBlock HorizontalAlignment="Left" Margin="156,17,0,0" TextWrapping="Wrap" Text="Estado" VerticalAlignment="Top" Height="32" Width="123" FontSize="35.556"/>
         	<TextBlock HorizontalAlignment="Left" Margin="522,17,0,0" TextWrapping="Wrap" Text="Ciudad" VerticalAlignment="Top" Height="32" Width="126" FontSize="35.556"/>
         	<TextBlock HorizontalAlignment="Left" Margin="897,17,0,0" TextWrapping="Wrap" Text="Codio Postal" VerticalAlignment="Top" Height="32" Width="213" FontSize="35.556"/>
