@@ -75,16 +75,12 @@ namespace AeiCliente
 
         private async void botonInicioSesion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ScenarioInput4));
-        	// AGREGAR EL INICIO DE SESION POR OPENID AQUI
             if (botonInicioSesion.Content.Equals("Ingresar"))
             {
-                this.Frame.Navigate(typeof(ScenarioInput4));
-
-                //BufferUsuario.Usuario = await servicioWeb.buscarUsuarioAsync("alosnonic");
-                //if (BufferUsuario.Usuario != null)
-                //    botonInicioSesion.Content = "Salir";
-
+                OpenIdClient openId = new OpenIdClient();
+                openId.clickOpenID(sender, e);
+                if (BufferUsuario.Usuario != null)
+                    botonInicioSesion.Content = "Salir";
             }
             else
             {

@@ -130,8 +130,8 @@
     </Compile>
     <Compile Include="GUI\PopoverView.cs" />
     <Compile Include="ListaProducto.cs" />
-    <Compile Include="OpenId\ScenarioInput4.xaml.cs">
-      <DependentUpon>ScenarioInput4.xaml</DependentUpon>
+    <Compile Include="OpenId\OpenIdClient.xaml.cs">
+      <DependentUpon>OpenIdClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">
@@ -403,7 +403,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OpenId\ScenarioInput4.xaml">
+    <Page Include="OpenId\OpenIdClient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -424,7 +424,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>Jason.net\Bin\Portable40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>Jason.net\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
