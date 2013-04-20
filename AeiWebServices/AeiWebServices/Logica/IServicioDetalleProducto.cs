@@ -8,11 +8,8 @@ using System.Text;
 namespace AeiWebServices.Logica
 {
     [ServiceContract]
-    public interface IServicioProducto
+    public interface IServicioDetalleProducto
     {
-        [OperationContract]
-        List<Producto> BuscarProductoPorCategoria(string nombre);
-
         [OperationContract]
         Producto buscarInformacionProducto(int idProducto);
     }

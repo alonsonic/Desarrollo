@@ -36,11 +36,10 @@ namespace AeiCliente
             {
                 for (int indexProducto = 0 ; indexProducto < ListaProducto.ListaProductos.Count; indexProducto++)
                 {
-                    ItemCompra itemProducto = new ItemCompra(indexProducto,this);
+                    ItemProducto itemProducto = new ItemProducto(indexProducto,this);
                     listaItemProducto.Items.Add(itemProducto);
                 }
-            }
-            
+            }            
             textBoxBusqueda.Text = ListaProducto.TextoBusqueda;
         }
        

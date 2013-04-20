@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioUsuario;
 using AeiCliente.ServicioProducto;
+using AeiCliente.ServicioCompra;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,26 +27,22 @@ namespace AeiCliente
     {
         ServicioProductoClient servicioProducto = new ServicioProductoClient();
         ServicioUsuarioClient servicioUsuario = new ServicioUsuarioClient();
-        
-        
+        ServicioCompraClient servicioCompra = new ServicioCompraClient();
+
         public MainPage()
         {
             this.InitializeComponent();
         }
 
-        /// <summary>
-        /// Se invoca cuando esta página se va a mostrar en un objeto Frame.
-        /// </summary>
-        /// <param name="e">Datos de evento que describen cómo se llegó a esta página. La propiedad Parameter
-        /// se usa normalmente para configurar la página.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
 
-        private void botonCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void botonCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para llevar una lista de compras.");;
-
+            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para llevar una lista de compras.");
+            AeiCliente.ServicioCompra.Compra carrito= await servicioCompra.getCarritoAsync(15);
+            //ListaCompraPage.ListaProducto = carrito.Productos[0].Producto;
             if (BufferUsuario.isConectado())
                 mensajeError.ShowAsync();
             else
@@ -95,23 +92,23 @@ namespace AeiCliente
 
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("bloques");
+            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
             ListaProducto.TextoBusqueda = "Bloques";
-            this.Frame.Navigate(typeof(ListaCompraPage));
+            this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonVehiculos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("vehiculos");
             ListaProducto.TextoBusqueda = "Vehiculos";
-            this.Frame.Navigate(typeof(ListaCompraPage));
+            this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonMunecas_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("muñecas");
             ListaProducto.TextoBusqueda = "Muñecas";
-            this.Frame.Navigate(typeof(ListaCompraPage));
+            this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonJuegosMesa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

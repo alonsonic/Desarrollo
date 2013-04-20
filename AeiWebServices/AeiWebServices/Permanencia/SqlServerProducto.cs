@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System; 
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +10,24 @@ namespace AeiWebServices.Permanencia
     public class SqlServerProducto: DAOProducto,DAOTag,DAOCategoria, DAOMetodoPago
     {
         private ConexionSqlServer conexion = new ConexionSqlServer();
+
+        
+        public Producto buscarAllInformacionProducto(int idProducto)
+        {
+            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO WHERE ID=" + idProducto.ToString() + "");
+            List<Tag> listaTag = new List<Tag>();
+            List<Calificacion> listaCalificacion= new List<Calificacion>();
+            Producto producto = new Producto();
+            while (tabla.Read())
+            {
+                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
+                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
+                producto= new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
+                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
+                    int.Parse(tabla["CANTIDAD"].ToString()));
+            }
+            return producto;
+        }
 
         public int agregarMetodoPago(MetodoPago metodo, int idUsuario)
         {

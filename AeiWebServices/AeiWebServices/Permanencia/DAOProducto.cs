@@ -14,5 +14,6 @@ namespace AeiWebServices.Permanencia
         List<Producto> buscarPorCategoria(String nombreCategoria);
         Producto buscarPorCompra(int idCompra);
         int agregarCalificacion(int idProducto, Calificacion calificacion);
+        Producto buscarAllInformacionProducto(int idProducto);
     }
 }

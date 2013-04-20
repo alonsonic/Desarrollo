@@ -84,6 +84,8 @@
     <Content Include="App_Data\item.png" />
     <Content Include="IMPLEMENTAR.svc" />
     <Content Include="Logica\ServicioDireccion.svc" />
+    <Content Include="Logica\ServicioCompra.svc" />
+    <Content Include="Logica\ServicioDetalleProducto.svc" />
     <Content Include="Logica\ServicioUsuario.svc" />
     <Content Include="Logica\ServicioProducto.svc" />
     <Content Include="ServicioDAO.svc" />
@@ -108,6 +110,15 @@
     <Compile Include="Logica\IServicioProducto.cs" />
     <Compile Include="Logica\ServicioDireccion.svc.cs">
       <DependentUpon>ServicioDireccion.svc</DependentUpon>
+    <Compile Include="Logica\IServicioCompra.cs" />
+    <Compile Include="Logica\IServicioDetalleProducto.cs" />
+    <Compile Include="Logica\IServicioUsuario.cs" />
+    <Compile Include="Logica\IServicioProducto.cs" />
+    <Compile Include="Logica\ServicioCompra.svc.cs">
+      <DependentUpon>ServicioCompra.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Logica\ServicioDetalleProducto.svc.cs">
+      <DependentUpon>ServicioDetalleProducto.svc</DependentUpon>
     </Compile>
     <Compile Include="Logica\ServicioUsuario.svc.cs">
       <DependentUpon>ServicioUsuario.svc</DependentUpon>

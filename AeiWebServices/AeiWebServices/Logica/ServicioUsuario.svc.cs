@@ -15,5 +15,6 @@ namespace AeiWebServices.Logica
         {
             return FabricaDAO.getUsuario(mail);
         }
+
     }
 }

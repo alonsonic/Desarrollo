@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6d6825fe-5923-4f46-8373-3f323184ed27" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52896/Logica/ServicioCompra.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServicioCompra.disco" MetadataType="Disco" ID="0ba4b467-ecf8-4474-a3b8-257994c8adc4" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioCompra.svc?disco" />
+    <MetadataFile FileName="ServicioCompra.wsdl" MetadataType="Wsdl" ID="a687a229-431a-4791-863b-a250a185b455" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioCompra.svc?wsdl" />
+    <MetadataFile FileName="ServicioCompra.xsd" MetadataType="Schema" ID="0ced2aa3-d444-41a6-8e27-5a395e4e41a4" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioCompra.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioCompra1.xsd" MetadataType="Schema" ID="00462da2-16ef-4517-b8bb-a32f96cf2a7f" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioCompra.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioCompra2.xsd" MetadataType="Schema" ID="e60babb9-159f-4c9c-bc9c-e9b1c78309ec" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioCompra.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
