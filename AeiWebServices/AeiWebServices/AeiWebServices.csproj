@@ -110,6 +110,7 @@
     <Compile Include="Logica\IServicioProducto.cs" />
     <Compile Include="Logica\ServicioDireccion.svc.cs">
       <DependentUpon>ServicioDireccion.svc</DependentUpon>
+    </Compile>
     <Compile Include="Logica\IServicioCompra.cs" />
     <Compile Include="Logica\IServicioDetalleProducto.cs" />
     <Compile Include="Logica\IServicioUsuario.cs" />
