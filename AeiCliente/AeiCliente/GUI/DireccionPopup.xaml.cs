@@ -11,9 +11,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using AeiCliente.ServicioDireccion;
 using Windows.UI.Popups;
-
-
 
 namespace AeiCliente
 {

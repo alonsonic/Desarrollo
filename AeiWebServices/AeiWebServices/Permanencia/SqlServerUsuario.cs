@@ -11,22 +11,6 @@ namespace AeiWebServices.Permanencia
     {
         private ConexionSqlServer conexion = new ConexionSqlServer();
 
-        public Producto buscarAllInformacionProducto(int idProducto)
-        {
-            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO WHERE ID=" + idProducto.ToString() + "");
-            List<Tag> listaTag = new List<Tag>();
-            Producto producto = new Producto();
-            while (tabla.Read())
-            {
-                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
-                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
-                producto = new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
-                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
-                    int.Parse(tabla["CANTIDAD"].ToString()));
-            }
-            return producto;
-        }
-
         public List<Categoria> categorias()
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
@@ -329,24 +313,6 @@ namespace AeiWebServices.Permanencia
             return null;
         }
 
-        public Usuario consultarUsuario(int id)
-        {
-            SqlDataReader tabla = conexion.consultar("select u.*, (SELECT CONVERT(VARCHAR(19), u.fecha_nac, 120)) as fechaNac, (SELECT CONVERT(VARCHAR(19), u.fecha_ing, 120)) as fechaIng from usuario AS u where id='" + id.ToString() + "'");
-            while (tabla.Read())
-            {
-                List<Direccion> direccion = ConsultarDireccion(int.Parse(tabla["ID"].ToString()));
-                List<MetodoPago> metodoPago = consultarAllMetodosPago(int.Parse(tabla["ID"].ToString()));
-                Compra carrito = consultarCarrito(int.Parse(tabla["ID"].ToString()));
-                List<Compra> compras = consultarHistorialCompras(int.Parse(tabla["ID"].ToString()));
-                Usuario usuario = new Usuario(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["APELLIDO"].ToString(),
-                    tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
-                    DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
-                    DateTime.ParseExact(tabla["FECHANAC"].ToString(), "yyyy-MM-dd", null),
-                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, null);
-                return usuario;
-            }
-            return null;
-        }
         public int modificarUsuario(Usuario usuarioModificado, int idUsuario)
         {
             return conexion.insertar("UPDATE USUARIO SET nombre='" + usuarioModificado.Nombre + "', apellido= '" + usuarioModificado.Apellido + "',  fecha_nac='" + usuarioModificado.FechaNacimiento.ToString() + "', fecha_ing= '" + usuarioModificado.FechaRegistro.ToString() + "', status= '"+usuarioModificado.Status+"', codigoActivacion= '"+usuarioModificado.CodigoActivacion+"' where id=" + idUsuario + ";");

@@ -144,11 +144,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ServicioCompra\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\ServicioDireccion\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,18 +203,8 @@
     <None Include="Service References\ServiceReference2\IMPLEMENTAR2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioCompra\AeiCliente.ServicioCompra.Compra.datasource">
+    <None Include="Service References\ServicioDireccion\AeiCliente.ServicioDireccion.Direccion.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServicioCompra\ServicioCompra.wsdl" />
-    <None Include="Service References\ServicioCompra\ServicioCompra.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServicioCompra\ServicioCompra1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServicioCompra\ServicioCompra2.xsd">
-      <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServicioDireccion\ServicioDireccion.wsdl" />
     <None Include="Service References\ServicioDireccion\ServicioDireccion.xsd">
@@ -335,13 +320,6 @@
     <None Include="Service References\ServicioDireccion\configuration.svcinfo" />
     <None Include="Service References\ServicioDireccion\configuration91.svcinfo" />
     <None Include="Service References\ServicioDireccion\ServicioDireccion.disco" />
-    <None Include="Service References\ServicioCompra\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ServicioCompra\configuration.svcinfo" />
-    <None Include="Service References\ServicioCompra\configuration91.svcinfo" />
-    <None Include="Service References\ServicioCompra\ServicioCompra.disco" />
     <None Include="Service References\ServicioUsuario\ServicioUsuario.disco" />
     <None Include="Service References\ServicioUsuario\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
@@ -427,7 +405,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference2\" />
-    <WCFMetadataStorage Include="Service References\ServicioCompra\" />
     <WCFMetadataStorage Include="Service References\ServicioDireccion\" />
     <WCFMetadataStorage Include="Service References\ServicioProducto\" />
     <WCFMetadataStorage Include="Service References\ServicioUsuario\" />
