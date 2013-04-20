@@ -97,8 +97,7 @@ namespace AeiWebServices
        public int setMetodoPago (MetodoPago metodo, int idUsuario)
        {
            SqlServerUsuario resultado = new SqlServerUsuario();
-           MetodoPago m = new MetodoPago(1, 5555, DateTime.ParseExact("2013-03-03", "yyyy-MM-dd", null), "prueba");
-           return resultado.agregarMetodoPago(m, idUsuario);
+           return resultado.agregarMetodoPago(metodo, idUsuario);
        }
 
        public MetodoPago getMetodoPagoPorCompra(int idCompra)
@@ -110,8 +109,7 @@ namespace AeiWebServices
        public int setModificarMetodoPago(MetodoPago metodoModificado, int idMetodoActual, int idUsuario)
        {
            SqlServerUsuario resultado = new SqlServerUsuario();
-           MetodoPago m = new MetodoPago(1, 2222, DateTime.ParseExact("2013-10-03", "yyyy-MM-dd", null), "CAMBIE");
-           return resultado.modificarMetodoPago(m, idMetodoActual, idUsuario);
+           return resultado.modificarMetodoPago(metodoModificado, idMetodoActual, idUsuario);
        }
 
        public int setAgregarDetalleDireccion (int idUsuario, int idDireccion, Direccion direccion)

@@ -7,6 +7,11 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
+        static public List<Producto> getBusquedaProducto(string categoriaProducto, string busqueda)
+        {
+            SqlServerProducto lista = new SqlServerProducto();
+            return lista.busquedaProductos(categoriaProducto, busqueda);
+        }
         static public List<Categoria> getListaCategoria()
         {
             SqlServerCategoria lista = new SqlServerCategoria();
