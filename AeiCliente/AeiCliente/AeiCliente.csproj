@@ -149,6 +149,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ServicioDireccion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServicioProducto\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -214,6 +219,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServicioCompra\ServicioCompra2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioDireccion\ServicioDireccion.wsdl" />
+    <None Include="Service References\ServicioDireccion\ServicioDireccion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioDireccion\ServicioDireccion1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioDireccion\ServicioDireccion2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServicioProducto\AeiCliente.ServicioProducto.Producto.datasource">
@@ -313,6 +328,13 @@
     <Content Include="Imagenes\fondoPerfilAEI.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\ServicioDireccion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServicioDireccion\configuration.svcinfo" />
+    <None Include="Service References\ServicioDireccion\configuration91.svcinfo" />
+    <None Include="Service References\ServicioDireccion\ServicioDireccion.disco" />
     <None Include="Service References\ServicioCompra\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -406,6 +428,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference2\" />
     <WCFMetadataStorage Include="Service References\ServicioCompra\" />
+    <WCFMetadataStorage Include="Service References\ServicioDireccion\" />
     <WCFMetadataStorage Include="Service References\ServicioProducto\" />
     <WCFMetadataStorage Include="Service References\ServicioUsuario\" />
   </ItemGroup>

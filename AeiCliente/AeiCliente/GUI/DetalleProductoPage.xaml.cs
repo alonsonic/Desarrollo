@@ -38,6 +38,7 @@ namespace AeiCliente
             textCantidad.Text = producto.Cantidad.ToString() + " cantidades disponibles";
             cargarComentarios();
         }
+
         private void cargarComentarios()
         {
             List<Calificacion> listaCalificacion = producto.Calificaciones;
