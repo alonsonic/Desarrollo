@@ -11,6 +11,30 @@ namespace AeiWebServices.Permanencia
     {
         private ConexionSqlServer conexion = new ConexionSqlServer();
 
+        public List<Producto> busquedaProductos(string categoriaProducto, string busqueda)
+        {
+            //char[] separadores = { ' ', ',', '.', ':'};
+            //string[] tags = busqueda.Split(separadores);
+            //SqlDataReader tabla= conexion.consultar("");
+            //while (tabla.Read())
+            //{
+
+            //}
+            //return null;
+            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO;");
+            List<Tag> listaTag = new List<Tag>();
+            List<Producto> listaProductos = new List<Producto>();
+            while (tabla.Read())
+            {
+                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
+                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
+                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
+                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
+                    int.Parse(tabla["CANTIDAD"].ToString())));
+            }
+            return listaProductos;
+        }
+
         public int agregarMetodoPago(MetodoPago metodo, int idUsuario)
         {
             return conexion.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,fk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario + ")");
@@ -22,7 +46,7 @@ namespace AeiWebServices.Permanencia
             List<MetodoPago> lista = new List<MetodoPago>();
             while (tabla.Read())
             {
-                lista.Add(new MetodoPago(int.Parse(tabla["ID"].ToString()), int.Parse(tabla["NUMERO"].ToString()), DateTime.ParseExact(tabla["FECHA"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString()));
+                lista.Add(new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHA"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString()));
             }
             return lista;
         }
@@ -33,7 +57,7 @@ namespace AeiWebServices.Permanencia
             SqlDataReader tabla = conexion.consultar("SELECT mp.* , (SELECT CONVERT(VARCHAR(19), mp.fecha_vencimiento, 120)) as fechaVenc FROM Metodo_Pago mp, COMPRA c WHERE c.fk_METODOPAGO = mp.ID AND C.ID =" + idCompra + "");
             while (tabla.Read())
             {
-                resultado = new MetodoPago(int.Parse(tabla["ID"].ToString()), int.Parse(tabla["NUMERO"].ToString()), DateTime.ParseExact(tabla["FECHAVENC"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString());
+                resultado = new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHAVENC"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString());
             }
             return resultado;
 

@@ -11,14 +11,14 @@ namespace AeiWebServices
     public class MetodoPago
     {
         private int id;
-        private int numero;
+        private string numero;
         private DateTime fechaVencimiento;
         private string marca;
 
         public MetodoPago()
         {
         }
-        public MetodoPago(int id, int numero, DateTime fechaVencimiento, string marca)
+        public MetodoPago(int id, string numero, DateTime fechaVencimiento, string marca)
         {
             this.id = id;
             this.numero = numero;
@@ -27,7 +27,7 @@ namespace AeiWebServices
         }
 
         [DataMember]
-        public int Numero
+        public string Numero
         {
             get { return numero; }
             set { numero = value; }

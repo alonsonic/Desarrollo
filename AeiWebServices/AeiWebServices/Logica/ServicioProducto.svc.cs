@@ -13,7 +13,12 @@ namespace AeiWebServices.Logica
           public List<Producto> BuscarProductoPorCategoria(string nombre)
           {
               return FabricaDAO.getProductoPorCategoria(nombre);
-
           }
+
+          public List<Producto> BusquedaProducto(string categoriaProducto, string busqueda)
+          {
+              return FabricaDAO.getBusquedaProducto(categoriaProducto,busqueda);
+          }
+
     }
 }
