@@ -39,7 +39,12 @@ namespace AeiWebServices
 
         public Producto(){
         }
-        
+
+        public int Cantidad
+        {
+            get { return cantidad; }
+            set { cantidad = value; }
+        }
 
         public void agregarTag(Tag tag)
         {
@@ -50,8 +55,8 @@ namespace AeiWebServices
         {
             this.calificaciones.Add(calificacion);
         }
-        [DataMember]
-        public List<Calificacion> Calificaciones
+
+        internal List<Calificacion> Calificaciones
         {
             get { return calificaciones; }
             set { calificaciones = value; }
@@ -67,13 +72,6 @@ namespace AeiWebServices
         {
             get { return categoria; }
             set { categoria = value; }
-        }
-
-        [DataMember]
-        public int Cantidad
-        {
-            get { return cantidad; }
-            set { cantidad = value; }
         }
 
         [DataMember]

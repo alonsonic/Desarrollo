@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e6b17580-4030-4977-8223-18766642bfda" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cd747662-08fe-4c31-bc1b-dfa6cc81eb57" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -24,11 +24,11 @@
     <MetadataSource Address="http://localhost:52896/Logica/ServicioDireccion.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServicioDireccion.xsd" MetadataType="Schema" ID="563051af-67e8-41d2-909d-efe741c2b197" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioDireccion.svc?xsd=xsd2" />
-    <MetadataFile FileName="ServicioDireccion.disco" MetadataType="Disco" ID="71b22ba9-1840-4a8e-8394-3e3ec4dcd728" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioDireccion.svc?disco" />
-    <MetadataFile FileName="ServicioDireccion1.xsd" MetadataType="Schema" ID="1cf3f36b-de75-4333-9fce-0163f0be3fba" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioDireccion.svc?xsd=xsd1" />
-    <MetadataFile FileName="ServicioDireccion.wsdl" MetadataType="Wsdl" ID="ed17d4df-c3a5-441f-9917-d141c834c57f" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioDireccion.svc?wsdl" />
-    <MetadataFile FileName="ServicioDireccion2.xsd" MetadataType="Schema" ID="6ce61ac9-f1cc-45b3-8957-b4d559b871b7" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioDireccion.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioDireccion.xsd" MetadataType="Schema" ID="5539c1ba-9476-4a1b-96fc-7dd07901418c" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioDireccion.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioDireccion.disco" MetadataType="Disco" ID="8d6f958a-481f-4e14-903c-595b91d755a3" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioDireccion.svc?disco" />
+    <MetadataFile FileName="ServicioDireccion1.xsd" MetadataType="Schema" ID="4fc55006-ce0b-4d2c-a0e7-bde9a3d6fd35" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioDireccion.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioDireccion.wsdl" MetadataType="Wsdl" ID="0f9a1491-c789-4ead-b115-787c4b3390a2" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioDireccion.svc?wsdl" />
+    <MetadataFile FileName="ServicioDireccion2.xsd" MetadataType="Schema" ID="1daebcba-5e22-4d98-8f04-6312aca6abd4" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioDireccion.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

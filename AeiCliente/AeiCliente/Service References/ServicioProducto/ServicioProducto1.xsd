@@ -15,18 +15,4 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="buscarInformacionProducto">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="idProducto" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="buscarInformacionProductoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="buscarInformacionProductoResult" nillable="true" type="q2:Producto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
 </xs:schema>

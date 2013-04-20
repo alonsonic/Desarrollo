@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="AeiWebServices.Logica.ServicioDetalleProducto" CodeBehind="ServicioDetalleProducto.svc.cs" %>

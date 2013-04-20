@@ -21,7 +21,6 @@ namespace AeiCliente
 {
     public sealed partial class ItemProducto : UserControl
     {
-        ServicioProductoClient servicioProducto = new ServicioProductoClient();
         Producto producto = null;
         Page padre = null;
 
@@ -50,9 +49,8 @@ namespace AeiCliente
             this.imagenProducto.Source = newImage;
         }
 
-        private async void botonDetalle_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void botonDetalle_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            DetalleProductoPage.producto = await servicioProducto.buscarInformacionProductoAsync(producto.Id);
             padre.Frame.Navigate(typeof(DetalleProductoPage), producto);
         }
 

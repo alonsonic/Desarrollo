@@ -37,14 +37,7 @@ namespace AeiWebServices
 
         public void AgregarDetallesCompra(DetalleCompra detallecompra)
         {
-            this.Productos.Add(detallecompra);
-        }
-
-        [DataMember]
-        public List<DetalleCompra> Productos
-        {
-            get { return productos; }
-            set { productos = value; }
+            this.productos.Add(detallecompra);
         }
 
         [DataMember]

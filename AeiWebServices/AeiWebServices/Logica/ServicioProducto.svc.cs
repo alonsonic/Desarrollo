@@ -15,13 +15,5 @@ namespace AeiWebServices.Logica
               return FabricaDAO.getProductoPorCategoria(nombre);
 
           }
-
-          public Producto buscarInformacionProducto(int idProducto)
-          {
-              Producto p = new Producto();
-              p= FabricaDAO.getProducto(idProducto);
-              p.Calificaciones = FabricaDAO.getCalificacionesPorProducto(p.Id);
-              return p;
-          }
     }
 }

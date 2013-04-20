@@ -7,22 +7,6 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
-        static public Compra getCarrito(int idUsuario)
-        {
-            SqlServerCompra resultado = new SqlServerCompra();
-            return resultado.consultarCarrito(idUsuario);
-        }
-        static public List<Calificacion> getCalificacionesPorProducto(int idProducto)
-        {
-            SqlServerCalificacion lista = new SqlServerCalificacion();
-            return lista.consultarCalificacionesPorProducto(idProducto);
-        }
-        static public Producto getProducto(int idProducto)
-        {
-            SqlServerProducto resultado = new SqlServerProducto();
-            return resultado.buscarAllInformacionProducto(idProducto);
-        }
-
         static public List<Categoria> getListaCategoria()
         {
             SqlServerCategoria lista = new SqlServerCategoria();
