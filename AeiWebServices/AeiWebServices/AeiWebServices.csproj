@@ -103,6 +103,7 @@
     <Compile Include="IMPLEMENTAR.svc.cs">
       <DependentUpon>IMPLEMENTAR.svc</DependentUpon>
     </Compile>
+    <Compile Include="Logica\Comparer.cs" />
     <Compile Include="Logica\IServicioDireccion.cs" />
     <Compile Include="Logica\IServicioUsuario.cs" />
     <Compile Include="Logica\IServicioProducto.cs" />

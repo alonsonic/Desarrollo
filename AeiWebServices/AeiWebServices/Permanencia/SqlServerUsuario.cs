@@ -104,7 +104,21 @@ namespace AeiWebServices.Permanencia
             }
             return listaProductos;
         }
-
+        public List<Producto> buscarPorTag(String nombreTag)
+        {
+            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd  WHERE dd.pk_producto=p.id and t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + "%';");
+            List<Tag> listaTag = new List<Tag>();
+            List<Producto> listaProductos = new List<Producto>();
+            while (tabla.Read())
+            {
+                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
+                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
+                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
+                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
+                    int.Parse(tabla["CANTIDAD"].ToString())));
+            }
+            return listaProductos;
+        }
         public Producto buscarPorCompra(int idDetalleCompra)
         {
             SqlDataReader tabla = conexion.consultar("SELECT p.* FROM COMPRA c, PRODUCTO p, DETALLE_COMPRA dc WHERE p.ID = dc.FK_PRODUCTO AND C.id = dc.FK_COMPRA AND dc.id=" + idDetalleCompra.ToString() + ";");

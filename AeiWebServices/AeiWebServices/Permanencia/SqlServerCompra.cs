@@ -184,6 +184,22 @@ namespace AeiWebServices.Permanencia
             return null;
         }
 
+        public List<Producto> buscarPorTag(String nombreTag)
+        {
+            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd  WHERE dd.pk_producto=p.id and t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + "%';");
+            List<Tag> listaTag = new List<Tag>();
+            List<Producto> listaProductos = new List<Producto>();
+            while (tabla.Read())
+            {
+                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
+                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
+                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
+                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
+                    int.Parse(tabla["CANTIDAD"].ToString())));
+            }
+            return listaProductos;
+        }
+
         public int agregarCalificacion(int idProducto, Calificacion calificacion)
         {
             return conexion.insertar("INSERT INTO Calificacion ( ID, DETALLE, PUNTAJE, FK_USUARIO, FK_PRODUCTO, FECHA) VALUES (NEXT VALUE FOR SEQ_CALIFICACION,'" + calificacion.Comentario + "', " + calificacion.Puntaje.ToString() + ", " + calificacion.Usuario.Id.ToString() + ", " + idProducto.ToString() + ", '" + DateTime.Today.ToString("yyyy-MM-dd") + "');");
