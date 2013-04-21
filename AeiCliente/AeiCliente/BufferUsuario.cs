@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AeiCliente.ServicioUsuario;
+using AeiCliente.ServicioProducto;
 
 namespace AeiCliente
 {
@@ -29,7 +30,13 @@ namespace AeiCliente
             
         
         }
-        
+
+        static public void comprar(Producto compra)
+        {
+            //bufferUsuario.Carrito.
+
+
+        }
 
     }
 }
