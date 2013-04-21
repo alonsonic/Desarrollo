@@ -25,17 +25,19 @@ using System.Net;
 using System.IO;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
+using AeiCliente.ServicioUsuario;
+using System.Threading.Tasks;
 
 namespace AeiCliente
 {
-	public sealed partial class ScenarioInput4 : Page
+	public sealed partial class OpenIdClient : Page
 	{
 		// A pointer back to the main page which is used to gain access to the input and output frames and their content.
-		//MainPage rootPage = null;
         string token = "";
+        Button botonSender = null;
 
 
-		public ScenarioInput4()
+		public OpenIdClient()
 		{
 			InitializeComponent();
 		}
@@ -84,8 +86,9 @@ namespace AeiCliente
             GoogleReturnedToken.Text = TokenUri;
         }
 
-        private async void Launch_Click(object sender, RoutedEventArgs e)
-        {   
+        public async void clickOpenID(object sender, RoutedEventArgs e)
+        {
+            botonSender = sender as Button;
             if(GoogleClientID.Text == "")
             {
                 //rootPage.NotifyUser("Please enter an Client ID.", NotifyType.StatusMessage);
@@ -97,9 +100,7 @@ namespace AeiCliente
 
             try
             {
-                String GoogleURL = "https://accounts.google.com/o/oauth2/auth?client_id=" + Uri.EscapeDataString(GoogleClientID.Text) + "&redirect_uri=" + Uri.EscapeDataString(GoogleCallbackUrl.Text) + "&display=touch&response_type=code&scope= openid profile email&login_hint=alonsonic@gmail.com";
-                //openid profile email
-                //Uri.EscapeDataString("http://picasaweb.google.com/data"
+                String GoogleURL = "https://accounts.google.com/o/oauth2/auth?client_id=" + Uri.EscapeDataString(GoogleClientID.Text) + "&redirect_uri=" + Uri.EscapeDataString(GoogleCallbackUrl.Text) + "&display=touch&response_type=code&scope= openid profile email";
                 System.Uri StartUri = new Uri(GoogleURL);
                 // When using the desktop flow, the success code is displayed in the html title of this end uri
                 System.Uri EndUri = new Uri("https://accounts.google.com/o/oauth2/approval?");
@@ -120,10 +121,14 @@ namespace AeiCliente
                 else if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
                 {
                     OutputToken("HTTP Error returned by AuthenticateAsync() : " + WebAuthenticationResult.ResponseErrorDetail.ToString());
+                    botonSender.Content = "Ingresar";
+                    BufferUsuario.Usuario = null;
                 }
                 else
                 {
                     OutputToken("Error returned by AuthenticateAsync() : " + WebAuthenticationResult.ResponseStatus.ToString());
+                    botonSender.Content = "Ingresar";
+                    BufferUsuario.Usuario = null;
                 }
                 
             }
@@ -134,7 +139,8 @@ namespace AeiCliente
                 //
                 DebugPrint(Error.ToString());
             }
-	}
+            return;
+	    }
         public async void getToken(string code)
         {
 
@@ -152,14 +158,19 @@ namespace AeiCliente
             var response = await client.PostAsync("https://accounts.google.com/o/oauth2/token", content);
             var json = await response.Content.ReadAsStringAsync();
  
-            JObject o = JObject.Parse(json);
-            token = (string)o.SelectToken("access_token");
+            JObject respuestaJson = JObject.Parse(json);
+            token = (string)respuestaJson.SelectToken("access_token");
 
             var respuesta = await client.GetAsync("https://www.googleapis.com/oauth2/v1/userinfo?access_token=" + token);
             json = await respuesta.Content.ReadAsStringAsync();
- 
-                
+            respuestaJson = JObject.Parse(json);
+            string email = (string)respuestaJson.SelectToken("email");
 
+            BufferUsuario.Usuario = new Usuario();
+            BufferUsuario.Usuario.Nombre = "ALonso";
+            BufferUsuario.Usuario.Status = "I";
+
+            botonSender.Content = "Salir";
 
             return;
         }

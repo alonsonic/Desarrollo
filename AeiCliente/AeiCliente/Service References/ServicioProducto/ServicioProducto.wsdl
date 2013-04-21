@@ -13,16 +13,35 @@
   <wsdl:message name="IServicioProducto_BuscarProductoPorCategoria_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarProductoPorCategoriaResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioProducto_BusquedaProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaProducto" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_BusquedaProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaProductoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioProducto">
     <wsdl:operation name="BuscarProductoPorCategoria">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/BuscarProductoPorCategoria" message="tns:IServicioProducto_BuscarProductoPorCategoria_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/BuscarProductoPorCategoriaResponse" message="tns:IServicioProducto_BuscarProductoPorCategoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/BusquedaProducto" message="tns:IServicioProducto_BusquedaProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/BusquedaProductoResponse" message="tns:IServicioProducto_BusquedaProducto_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioProducto" type="tns:IServicioProducto">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="BuscarProductoPorCategoria">
       <soap:operation soapAction="http://tempuri.org/IServicioProducto/BuscarProductoPorCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaProducto">
+      <soap:operation soapAction="http://tempuri.org/IServicioProducto/BusquedaProducto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

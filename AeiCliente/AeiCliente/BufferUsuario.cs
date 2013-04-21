@@ -23,6 +23,12 @@ namespace AeiCliente
             else
                 return true;
         }
+
+        static public void agregarUsuario(){
+        
+            
+        
+        }
         
 
     }

@@ -30,13 +30,22 @@ namespace AeiCliente
             cargarProductos();
         }
 
+        private void llenarComboCategoria()
+        {
+
+
+        }
+
+
+
         private void cargarProductos()
         {
+            listaItemProducto.Items.Clear();
             if (ListaProducto.ListaProductos != null)
             {
                 for (int indexProducto = 0 ; indexProducto < ListaProducto.ListaProductos.Count; indexProducto++)
                 {
-                    ItemCompra itemProducto = new ItemCompra(indexProducto,this);
+                    ItemProducto itemProducto = new ItemProducto(indexProducto,this);
                     listaItemProducto.Items.Add(itemProducto);
                 }
             }
@@ -47,6 +56,23 @@ namespace AeiCliente
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
+        }
+
+        private async void botonLupa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ServicioProductoClient servicioProducto = new ServicioProductoClient();
+            ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoAsync(comboCategoria.SelectedItem.ToString(), textBoxBusqueda.Text);
+            cargarProductos();
+        }
+
+        private void botonPerfil_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+        	// TODO: Agregar implementación de controlador de eventos aquí.
+        }
+
+        private void botonCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+        	// TODO: Agregar implementación de controlador de eventos aquí.
         }
 
     }

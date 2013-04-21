@@ -18,5 +18,6 @@ namespace AeiWebServices.Logica
 
         [OperationContract]
         List<Categoria> BuscarTodasLasCategorias();
+
     }
 }
