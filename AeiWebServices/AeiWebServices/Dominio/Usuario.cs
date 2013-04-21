@@ -22,7 +22,7 @@ namespace AeiWebServices
         private List<Compra> compras;
         private List<Direccion> direcciones;
         private List<MetodoPago> metodosPago;
-        private string codigoActivacion;
+        private int codigoActivacion;
 
         public Usuario() 
         { 
@@ -30,7 +30,7 @@ namespace AeiWebServices
 
         public Usuario(int id, string nombre, string apellido, string pasaporte, string email,DateTime fechaRegistro, 
             DateTime fechaNacimiento, string status, Compra carrito, List<Compra> compras,
-            List<Direccion> direcciones, List<MetodoPago> metodosPago, string codigoActivacion)
+            List<Direccion> direcciones, List<MetodoPago> metodosPago, int codigoActivacion)
         {
             this.id = id;
             this.nombre = nombre;
@@ -63,7 +63,7 @@ namespace AeiWebServices
         }
 
         [DataMember]
-        public string CodigoActivacion
+        public int CodigoActivacion
         {
             get { return codigoActivacion; }
             set { codigoActivacion = value; }

@@ -12,27 +12,29 @@ namespace AeiWebServices.Permanencia
     {
         private ConexionSqlServer conexion = new ConexionSqlServer();
 
-        public List<Producto> busquedaProductos(string categoriaProducto, string busqueda)
+        public List<Producto> busquedaProductos(string busqueda)
         {
-            //char[] separadores = { ' ', ',', '.', ':' };
-            //string[] tags = busqueda.Split(separadores);
-            //List<Producto> listaNombre= new List<Producto>();
-            //List<Producto> listaCategoria = new List<Producto>();
-            //List<Producto> listaTag = new List<Producto>();
-            //for (int index=0; index<tags.Length; index++)
-            //{
-            //    listaNombre=listaNombre.Concat(buscarPorNombre(tags[index])).ToList();
-            //    listaCategoria=listaCategoria.Concat(buscarPorCategoria(tags[index])).ToList();
-            //    listaTag = listaTag.Concat(buscarPorTag(tags[index])).ToList();
-            //    listaNombre = listaNombre.Distinct(new Comparer()).ToList();
-            //    listaCategoria = listaCategoria.Distinct(new Comparer()).ToList();
-            //    listaTag = listaTag.Distinct(new Comparer()).ToList();
-            //}
-            //List<Producto> listaResultado=listaCategoria.Concat(listaNombre).ToList();
-            //listaResultado = listaResultado.Concat(listaTag).ToList();
-            //listaResultado=listaResultado.Distinct(new Comparer()).ToList();
-            //return listaResultado;
-
+            char[] separadores = { ' ', ',', '.', ':' };
+            string[] tags = busqueda.Split(separadores);
+            List<Producto> listaNombre = new List<Producto>();
+            List<Producto> listaCategoria = new List<Producto>();
+            List<Producto> listaTag = new List<Producto>();
+            for (int index = 0; index < tags.Length; index++)
+            {
+                listaNombre = listaNombre.Concat(buscarPorNombre(tags[index])).ToList();
+                listaCategoria = listaCategoria.Concat(buscarPorCategoria(tags[index])).ToList();
+                listaTag = listaTag.Concat(buscarPorTag(tags[index])).ToList();
+                listaNombre = listaNombre.Distinct(new Comparer()).ToList();
+                listaCategoria = listaCategoria.Distinct(new Comparer()).ToList();
+                listaTag = listaTag.Distinct(new Comparer()).ToList();
+            }
+            List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
+            listaResultado = listaResultado.Concat(listaTag).ToList();
+            listaResultado = listaResultado.Distinct(new Comparer()).ToList();
+            return listaResultado;
+        }
+        public List<Producto> busquedaProductos(string categoriaProducto, string busqueda)
+        {      
             char[] separadores = { ' ', ',', '.', ':' };
             string[] tags = busqueda.Split(separadores);
             List<Producto> listaNombre = new List<Producto>();
@@ -159,7 +161,7 @@ namespace AeiWebServices.Permanencia
 
         public List<Producto> buscarPorNombre(string nombre, string nombreCategoria)
         {
-            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO, CATEGORIA c WHERE NOMBRE LIKE '%" + nombre + "%' AND p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%'");
+            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO p, CATEGORIA c WHERE p.NOMBRE LIKE '%" + nombre + "%' AND p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%'");
             List<Tag> listaTag = new List<Tag>();
             List<Producto> listaProductos = new List<Producto>();
             while (tabla.Read())
@@ -174,7 +176,7 @@ namespace AeiWebServices.Permanencia
         }
         public List<Producto> buscarPorTag(string nombreTag, string nombreCategoria)
         {
-            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd,Categoria c  WHERE p.FK_CATEGORIA = c.ID AND dd.pk_producto=p.id AND t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + " AND %'c.NOMBRE LIKE '%" + nombreCategoria + "%';");
+            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd,Categoria c  WHERE p.FK_CATEGORIA = c.ID AND dd.pk_producto=p.id AND t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + "%' AND c.NOMBRE LIKE '%" + nombreCategoria + "%';");
             List<Tag> listaTag = new List<Tag>();
             List<Producto> listaProductos = new List<Producto>();
             while (tabla.Read())

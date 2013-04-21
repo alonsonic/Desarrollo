@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using AeiWebServices.Logica;
 
 namespace AeiWebServices.Permanencia
 {
@@ -34,6 +35,45 @@ namespace AeiWebServices.Permanencia
                 return resultado;
             }
             return null;
+        }
+        public List<Producto> busquedaProductos(string busqueda)
+        {
+            char[] separadores = { ' ', ',', '.', ':' };
+            string[] tags = busqueda.Split(separadores);
+            List<Producto> listaNombre = new List<Producto>();
+            List<Producto> listaCategoria = new List<Producto>();
+            List<Producto> listaTag = new List<Producto>();
+            for (int index = 0; index < tags.Length; index++)
+            {
+                listaNombre = listaNombre.Concat(buscarPorNombre(tags[index])).ToList();
+                listaCategoria = listaCategoria.Concat(buscarPorCategoria(tags[index])).ToList();
+                listaTag = listaTag.Concat(buscarPorTag(tags[index])).ToList();
+                listaNombre = listaNombre.Distinct(new Comparer()).ToList();
+                listaCategoria = listaCategoria.Distinct(new Comparer()).ToList();
+                listaTag = listaTag.Distinct(new Comparer()).ToList();
+            }
+            List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
+            listaResultado = listaResultado.Concat(listaTag).ToList();
+            listaResultado = listaResultado.Distinct(new Comparer()).ToList();
+            return listaResultado;
+        }
+        public List<Producto> busquedaProductos(string categoriaProducto, string busqueda)
+        {
+            char[] separadores = { ' ', ',', '.', ':' };
+            string[] tags = busqueda.Split(separadores);
+            List<Producto> listaNombre = new List<Producto>();
+            List<Producto> listaTag = new List<Producto>();
+            for (int index = 0; index < tags.Length; index++)
+            {
+                listaNombre = listaNombre.Concat(buscarPorNombre(tags[index], categoriaProducto)).ToList();
+                listaTag = listaTag.Concat(buscarPorTag(tags[index], categoriaProducto)).ToList();
+                listaNombre = listaNombre.Distinct(new Comparer()).ToList();
+                listaTag = listaTag.Distinct(new Comparer()).ToList();
+            }
+            List<Producto> listaResultado = listaNombre.Concat(listaTag).ToList();
+            listaResultado = listaResultado.Distinct(new Comparer()).ToList();
+            return listaResultado;
+
         }
 
         public List<Producto> buscarPorNombre(string nombre, string nombreCategoria)
@@ -319,7 +359,7 @@ namespace AeiWebServices.Permanencia
 
         }
 
-        public Usuario consultarUsuario(string mail, string codigoActivacion)
+        public Usuario consultarUsuario(string mail, int codigoActivacion)
         {
             SqlDataReader tabla = conexion.consultar("select u.*, (SELECT CONVERT(VARCHAR(19), u.fecha_nac, 120)) as fechaNac, (SELECT CONVERT(VARCHAR(19), u.fecha_ing, 120)) as fechaIng from usuario AS u where mail='"+mail+"'");
             while (tabla.Read())
@@ -351,7 +391,7 @@ namespace AeiWebServices.Permanencia
                     tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
                     DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
                     DateTime.ParseExact(tabla["FECHANAC"].ToString(), "yyyy-MM-dd", null),
-                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, null);
+                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, 0);
                 return usuario;
             }
             return null;
@@ -360,6 +400,12 @@ namespace AeiWebServices.Permanencia
         public int modificarUsuario(Usuario usuarioModificado, int idUsuario)
         {
             return conexion.insertar("UPDATE USUARIO SET nombre='" + usuarioModificado.Nombre + "', apellido= '" + usuarioModificado.Apellido + "',  fecha_nac='" + usuarioModificado.FechaNacimiento.ToString() + "', fecha_ing= '" + usuarioModificado.FechaRegistro.ToString() + "', status= '"+usuarioModificado.Status+"', codigoActivacion= '"+usuarioModificado.CodigoActivacion+"' where id=" + idUsuario + ";");
+        }
+
+        public int agregarUsuario(Usuario usuario)
+        {
+            String fechaActual= DateTime.Now.ToString("yyyy-MM-dd");
+            return conexion.insertar("INSERT INTO Usuario (id, pasaporte, nombre, apellido, fecha_nac, mail, fecha_ing, status, codigoActivacion) VALUES (NEXT VALUE FOR SEQ_usuario,'" + usuario.Pasaporte + "','" + usuario.Nombre + "', '" + usuario.Apellido + "','" + usuario.FechaNacimiento.ToString("yyyy-MM-dd") + "','"+usuario.Email+"','"+fechaActual.ToString()+"','I',NEXT VALUE FOR seq_codigo_activacion);");
         }
     }
 }

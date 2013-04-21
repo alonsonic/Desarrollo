@@ -75,9 +75,7 @@ namespace AeiWebServices
         {
             Usuario user= new Usuario();
             SqlServerUsuario resultado = new SqlServerUsuario();
-            user=resultado.consultarUsuario("alonsonic@hotmail.com","2222");            
-            Calificacion cal = new Calificacion(2, 100, "me gusto 3", DateTime.ParseExact("2013-03-03", "yyyy-MM-dd", null),user);
-            return resultado.agregarCalificacion(idProducto,cal);
+            return resultado.agregarCalificacion(idProducto,calificacion);
         }
         public int setAgregarCompra(Compra compra)
         {             
@@ -123,7 +121,7 @@ namespace AeiWebServices
            return resultado.ConsultarDireccionDeCompra(3);
        }
 
-       public Usuario getUsuario(string mail, string codigoActivacion)
+       public Usuario getUsuario(string mail, int codigoActivacion)
        {
            SqlServerUsuario resultado = new SqlServerUsuario();
            return resultado.consultarUsuario(mail, codigoActivacion);
@@ -132,8 +130,7 @@ namespace AeiWebServices
        public int setUsuario(Usuario usuarioModificado, int idUsuario)
        {
            SqlServerUsuario resultado = new SqlServerUsuario();
-           Usuario u = new Usuario(1, "Isaac", "A", "a", "a", DateTime.ParseExact("2013-10-03", "yyyy-MM-dd", null), DateTime.ParseExact("2013-10-03", "yyyy-MM-dd", null), "A", null, null, null, null, "11111");
-           return resultado.modificarUsuario(u, idUsuario);
+           return resultado.modificarUsuario(usuarioModificado, idUsuario);
        }
 
     }
