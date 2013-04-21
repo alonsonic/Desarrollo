@@ -172,7 +172,21 @@ namespace AeiWebServices.Permanencia
             }
             return listaProductos;
         }
-
+        public List<Producto> buscarPorTag(string nombreTag, string nombreCategoria)
+        {
+            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd,Categoria c  WHERE p.FK_CATEGORIA = c.ID AND dd.pk_producto=p.id AND t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + " AND %'c.NOMBRE LIKE '%" + nombreCategoria + "%';");
+            List<Tag> listaTag = new List<Tag>();
+            List<Producto> listaProductos = new List<Producto>();
+            while (tabla.Read())
+            {
+                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
+                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
+                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
+                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
+                    int.Parse(tabla["CANTIDAD"].ToString())));
+            }
+            return listaProductos;
+        }
         public List<Producto> buscarPorCategoria(string nombreCategoria)
         {
             SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, CATEGORIA c WHERE p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%';");
@@ -205,21 +219,7 @@ namespace AeiWebServices.Permanencia
             return listaProductos;
         }
 
-        public List<Producto> buscarPorTag(string nombreTag, string nombreCategoria)
-        {
-            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd,Categoria c  WHERE p.FK_CATEGORIA = c.ID AND dd.pk_producto=p.id AND t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + " AND %'c.NOMBRE LIKE '%" + nombreCategoria + "%';");
-            List<Tag> listaTag = new List<Tag>();
-            List<Producto> listaProductos = new List<Producto>();
-            while (tabla.Read())
-            {
-                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
-                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
-                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
-                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
-                    int.Parse(tabla["CANTIDAD"].ToString())));
-            }
-            return listaProductos;
-        }
+        
 
         public Producto buscarPorCompra(int idDetalleCompra)
         {
