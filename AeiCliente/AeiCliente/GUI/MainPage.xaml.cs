@@ -100,7 +100,7 @@ namespace AeiCliente
         {
             ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("vehiculos");
             ListaProducto.TextoBusqueda = "Vehiculos";
-            this.Frame.Navigate(typeof(ListaCompraPage));
+            this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonMunecas_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

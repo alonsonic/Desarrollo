@@ -28,12 +28,18 @@ namespace AeiCliente
         {
             this.InitializeComponent();
             cargarProductos();
+            llenarComboCategoria();
         }
 
         private void llenarComboCategoria()
         {
-
-
+            comboCategoria.Items.Add("Todas");
+            
+            //hacer cilco con webservice
+            comboCategoria.Items.Add("Bloques");
+            comboCategoria.Items.Add("Vehiculos");
+            comboCategoria.Items.Add("Muñecas");
+            comboCategoria.Items.Add("Juegos de Mesa");
         }
 
 
