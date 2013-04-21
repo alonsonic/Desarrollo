@@ -20,5 +20,9 @@ namespace AeiWebServices.Logica
               return FabricaDAO.getBusquedaProducto(categoriaProducto,busqueda);
           }
 
+          public List<Categoria> BuscarTodasLasCategorias()
+          {
+              return FabricaDAO.getListaCategoria();
+          }
     }
 }

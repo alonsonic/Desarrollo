@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using AeiWebServices.Logica;
 
 namespace AeiWebServices.Permanencia
 {
@@ -13,26 +14,40 @@ namespace AeiWebServices.Permanencia
 
         public List<Producto> busquedaProductos(string categoriaProducto, string busqueda)
         {
-            //char[] separadores = { ' ', ',', '.', ':'};
+            //char[] separadores = { ' ', ',', '.', ':' };
             //string[] tags = busqueda.Split(separadores);
-            //SqlDataReader tabla= conexion.consultar("");
-            //while (tabla.Read())
+            //List<Producto> listaNombre= new List<Producto>();
+            //List<Producto> listaCategoria = new List<Producto>();
+            //List<Producto> listaTag = new List<Producto>();
+            //for (int index=0; index<tags.Length; index++)
             //{
-
+            //    listaNombre=listaNombre.Concat(buscarPorNombre(tags[index])).ToList();
+            //    listaCategoria=listaCategoria.Concat(buscarPorCategoria(tags[index])).ToList();
+            //    listaTag = listaTag.Concat(buscarPorTag(tags[index])).ToList();
+            //    listaNombre = listaNombre.Distinct(new Comparer()).ToList();
+            //    listaCategoria = listaCategoria.Distinct(new Comparer()).ToList();
+            //    listaTag = listaTag.Distinct(new Comparer()).ToList();
             //}
-            //return null;
-            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO;");
-            List<Tag> listaTag = new List<Tag>();
-            List<Producto> listaProductos = new List<Producto>();
-            while (tabla.Read())
+            //List<Producto> listaResultado=listaCategoria.Concat(listaNombre).ToList();
+            //listaResultado = listaResultado.Concat(listaTag).ToList();
+            //listaResultado=listaResultado.Distinct(new Comparer()).ToList();
+            //return listaResultado;
+
+            char[] separadores = { ' ', ',', '.', ':' };
+            string[] tags = busqueda.Split(separadores);
+            List<Producto> listaNombre = new List<Producto>();
+            List<Producto> listaTag = new List<Producto>();
+            for (int index = 0; index < tags.Length; index++)
             {
-                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
-                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
-                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
-                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
-                    int.Parse(tabla["CANTIDAD"].ToString())));
+                listaNombre = listaNombre.Concat(buscarPorNombre(tags[index],categoriaProducto)).ToList();
+                listaTag = listaTag.Concat(buscarPorTag(tags[index], categoriaProducto)).ToList();
+                listaNombre = listaNombre.Distinct(new Comparer()).ToList();
+                listaTag = listaTag.Distinct(new Comparer()).ToList();
             }
-            return listaProductos;
+            List<Producto> listaResultado = listaNombre.Concat(listaTag).ToList();
+            listaResultado = listaResultado.Distinct(new Comparer()).ToList();
+            return listaResultado;
+            
         }
 
         public int agregarMetodoPago(MetodoPago metodo, int idUsuario)
@@ -143,8 +158,23 @@ namespace AeiWebServices.Permanencia
             return listaProductos;
         }
 
+        public List<Producto> buscarPorNombre(string nombre, string nombreCategoria)
+        {
+            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO, CATEGORIA c WHERE NOMBRE LIKE '%" + nombre + "%' AND p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%'");
+            List<Tag> listaTag = new List<Tag>();
+            List<Producto> listaProductos = new List<Producto>();
+            while (tabla.Read())
+            {
+                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
+                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
+                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
+                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
+                    int.Parse(tabla["CANTIDAD"].ToString())));
+            }
+            return listaProductos;
+        }
 
-        public List<Producto> buscarPorCategoria(String nombreCategoria)
+        public List<Producto> buscarPorCategoria(string nombreCategoria)
         {
             SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, CATEGORIA c WHERE p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%';");
             List<Tag> listaTag = new List<Tag>();
@@ -160,9 +190,41 @@ namespace AeiWebServices.Permanencia
             return listaProductos;
         }
 
+        public List<Producto> buscarPorTag(string nombreTag)
+        {
+            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd  WHERE dd.pk_producto=p.id and t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + "%';");
+            List<Tag> listaTag = new List<Tag>();
+            List<Producto> listaProductos = new List<Producto>();
+            while (tabla.Read())
+            {
+                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
+                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
+                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
+                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
+                    int.Parse(tabla["CANTIDAD"].ToString())));
+            }
+            return listaProductos;
+        }
+
+        public List<Producto> buscarPorTag(string nombreTag, string nombreCategoria)
+        {
+            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd,Categoria c  WHERE p.FK_CATEGORIA = c.ID AND dd.pk_producto=p.id AND t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + " AND %'c.NOMBRE LIKE '%" + nombreCategoria + "%';");
+            List<Tag> listaTag = new List<Tag>();
+            List<Producto> listaProductos = new List<Producto>();
+            while (tabla.Read())
+            {
+                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
+                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
+                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
+                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
+                    int.Parse(tabla["CANTIDAD"].ToString())));
+            }
+            return listaProductos;
+        }
+
         public Producto buscarPorCompra(int idDetalleCompra)
         {
-            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM COMPRA c, PRODUCTO p, DETALLE_COMPRA dc WHERE p.ID = dc.FK_PRODUCTO AND C.id = dc.FK_COMPRA AND dc.id=" + idDetalleCompra.ToString() + ";");
+            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM COMPRA c, PRODUCTO p, DETALLE_COMPRA dc WHERE p.ID = dc.FK_PRODUCTO AND C.id = dc.FK_COMPRA AND CATEGORIA c AND dc.id=" + idDetalleCompra.ToString() + ";");
             List<Tag> listaTag = new List<Tag>();
             while (tabla.Read())
             {
@@ -177,6 +239,7 @@ namespace AeiWebServices.Permanencia
 
             return null;
         }
+
 
         public int agregarCalificacion(int idProducto, Calificacion calificacion)
         {
