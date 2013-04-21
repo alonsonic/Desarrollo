@@ -88,7 +88,6 @@ namespace AeiWebServices.Permanencia
             while (tabla.Read())
             {
                 listaresultado.Add(new Categoria(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString()));
-
             }
             return listaresultado;
         }

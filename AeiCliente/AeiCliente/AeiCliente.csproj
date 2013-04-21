@@ -229,9 +229,6 @@
     <None Include="Service References\ServicioDireccion\ServicioDireccion2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioProducto\AeiCliente.ServicioProducto.Producto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServicioProducto\ServicioProducto.wsdl" />
     <None Include="Service References\ServicioProducto\ServicioProducto.xsd">
       <SubType>Designer</SubType>
@@ -326,6 +323,13 @@
     <Content Include="Imagenes\fondoPerfilAEI.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\ServicioProducto\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServicioProducto\configuration.svcinfo" />
+    <None Include="Service References\ServicioProducto\configuration91.svcinfo" />
+    <None Include="Service References\ServicioProducto\ServicioProducto.disco" />
     <None Include="Service References\ServicioDireccion\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -340,13 +344,6 @@
     </None>
     <None Include="Service References\ServicioUsuario\configuration.svcinfo" />
     <None Include="Service References\ServicioUsuario\configuration91.svcinfo" />
-    <None Include="Service References\ServicioProducto\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ServicioProducto\configuration.svcinfo" />
-    <None Include="Service References\ServicioProducto\configuration91.svcinfo" />
-    <None Include="Service References\ServicioProducto\ServicioProducto.disco" />
     <None Include="Service References\ServiceReference2\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
