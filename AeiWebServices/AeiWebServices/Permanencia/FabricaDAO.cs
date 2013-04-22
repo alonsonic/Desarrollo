@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AeiWebServices.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +8,16 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
+        static public Twitter getUsuarioTwitter(string screenName)
+        {
+            SqlServerTwitter resultado = new SqlServerTwitter();
+            return resultado.buscarUsuario(screenName);
+        }
+        static public int setAgregarTwitter(Twitter usuario)
+        {
+            SqlServerTwitter resultado = new SqlServerTwitter();
+            return resultado.agregarUsuario(usuario);
+        }
         static public int setNuevoUsuario(Usuario usuario)
         {
             SqlServerUsuario resultado = new SqlServerUsuario();

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:52896/Logica/ServicioTwitter.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices.Dominio" />
+  <xs:element name="getTwitter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="screenName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getTwitterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AeiWebServices.Dominio" minOccurs="0" name="getTwitterResult" nillable="true" type="q1:Twitter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="agregarTwitter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="screenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OauthToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OauthTokenSecret" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="agregarTwitterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="agregarTwitterResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

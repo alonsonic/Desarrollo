@@ -91,9 +91,9 @@ namespace AeiCliente
 
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
-            ListaProducto.TextoBusqueda = "Bloques";
-            this.Frame.Navigate(typeof(ListaProductoPage));
+            //ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
+            //ListaProducto.TextoBusqueda = "Bloques";
+            this.Frame.Navigate(typeof(AeiCliente.GUI.TwitterPage));
         }
 
         private async void botonVehiculos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
