@@ -10,8 +10,8 @@ namespace AeiCliente
 {
     public static class BufferUsuario
     {
-        static Usuario bufferUsuario = null;
-        public static Usuario Usuario
+        static AeiCliente.ServicioUsuario.Usuario bufferUsuario = null;
+        public static AeiCliente.ServicioUsuario.Usuario Usuario
         {
             get { return BufferUsuario.bufferUsuario; }
             set { BufferUsuario.bufferUsuario = value; }
@@ -31,7 +31,7 @@ namespace AeiCliente
         
         }
 
-        static public void comprar(Producto compra)
+        static public void comprar(AeiCliente.ServicioUsuario.Producto compra)
         {
             //bufferUsuario.Carrito.
 

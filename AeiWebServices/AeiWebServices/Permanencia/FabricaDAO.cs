@@ -8,6 +8,11 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
+        static public List<Calificacion> getCalificaciones(int idProducto)
+        {
+            SqlServerCalificacion resultado = new SqlServerCalificacion();
+            return resultado.consultarCalificacionesPorProducto(idProducto);
+        }
         static public Twitter getUsuarioTwitter(string screenName)
         {
             SqlServerTwitter resultado = new SqlServerTwitter();

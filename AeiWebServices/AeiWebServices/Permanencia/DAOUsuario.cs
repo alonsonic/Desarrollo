@@ -10,6 +10,7 @@ namespace AeiWebServices.Permanencia
     {
         Usuario consultarUsuario(string mail, int CodigoActivacion);
         Usuario consultarUsuario(string mail);
+        Usuario consultarUsuario(int id);
         int modificarUsuario(Usuario usuarioModificado, int idUsuario);
         int agregarUsuario(Usuario usuario);
     }

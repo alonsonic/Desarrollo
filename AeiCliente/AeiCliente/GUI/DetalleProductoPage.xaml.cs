@@ -18,31 +18,39 @@ using AeiCliente.ServicioProducto;
 
 namespace AeiCliente
 {
-    /// <summary>
-    /// Página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
-    /// </summary>
+
     public sealed partial class DetalleProductoPage : Page
     {
 		bool comentariosVisible = false;
-        Producto producto = null;
-		
+        public static AeiCliente.ServicioProducto.Producto producto = null;
+        ServicioProductoClient servicioProducto = new ServicioProductoClient();
         public DetalleProductoPage()
         {
             this.InitializeComponent();
         }
 
-        /// <summary>
-        /// Se invoca cuando esta página se va a mostrar en un objeto Frame.
-        /// </summary>
-        /// <param name="e">Datos de evento que describen cómo se llegó a esta página. La propiedad Parameter
-        /// se usa normalmente para configurar la página.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            producto = e.Parameter as Producto;
+            producto = e.Parameter as AeiCliente.ServicioProducto.Producto;
             textNombre.Text = producto.Nombre;
             textDescripcion.Text = producto.Descripcion;
             textPrecio.Text = "Precio " + producto.Precio.ToString() + " Bs";
-            textCantidad.Text = "FALTA CANTIDAD";
+            if (producto.Cantidad == 1) textCantidad.Text = producto.Cantidad.ToString() + " unidad disponible";
+            else textCantidad.Text = producto.Cantidad.ToString()+" unidades disponibles";
+            producto.Calificaciones = await servicioProducto.buscarCalificacionProductoAsync(producto.Id);
+            cargarComentarios();
+        }
+        private void cargarComentarios()
+        {
+            List<Calificacion> listaCalificacion = producto.Calificaciones;
+            if (listaCalificacion != null)
+            {
+                for (int indexCalificacion = 0; indexCalificacion < listaCalificacion.Count; indexCalificacion++)
+                {
+                    this.textComentarios.Text = this.textComentarios.Text + "\n \n" + listaCalificacion[indexCalificacion].Usuario.Nombre + " " + listaCalificacion[indexCalificacion].Usuario.Apellido + "\n" + listaCalificacion[indexCalificacion].Comentario;
+                }
+            }
+            else this.textComentarios.Text = "\n \n Aun no tenemos calificaciones para este producto.";
         }
 
         private void botonMostrarComentario_Click(object sender, RoutedEventArgs e)

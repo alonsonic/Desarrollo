@@ -71,12 +71,6 @@ namespace AeiWebServices
             return resultado.buscarPorCompra(idDetalleCompra);
         }
 
-        public int setCalificacion(int idProducto,Calificacion calificacion) 
-        {
-            Usuario user= new Usuario();
-            SqlServerUsuario resultado = new SqlServerUsuario();
-            return resultado.agregarCalificacion(idProducto,calificacion);
-        }
         public int setAgregarCompra(Compra compra)
         {             
             SqlServerUsuario resultado = new SqlServerUsuario();

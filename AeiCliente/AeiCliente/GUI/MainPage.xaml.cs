@@ -32,12 +32,6 @@ namespace AeiCliente
         {
             this.InitializeComponent();
         }
-
-        /// <summary>
-        /// Se invoca cuando esta página se va a mostrar en un objeto Frame.
-        /// </summary>
-        /// <param name="e">Datos de evento que describen cómo se llegó a esta página. La propiedad Parameter
-        /// se usa normalmente para configurar la página.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
@@ -91,9 +85,9 @@ namespace AeiCliente
 
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            //ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
-            //ListaProducto.TextoBusqueda = "Bloques";
-            this.Frame.Navigate(typeof(AeiCliente.GUI.TwitterPage));
+            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
+            ListaProducto.TextoBusqueda = "Bloques";
+            this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonVehiculos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

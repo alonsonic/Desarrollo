@@ -8,7 +8,7 @@ using AeiWebServices.Logica;
 
 namespace AeiWebServices.Permanencia
 {
-    public class SqlServerUsuario : DAOUsuario, DAODireccion, DAOMetodoPago, DAOCompra, DAODetalleCompra, DAOProducto, DAOTag, DAOCategoria
+    public class SqlServerUsuario : DAOUsuario, DAODireccion, DAOMetodoPago, DAOCompra, DAODetalleCompra, DAOProducto, DAOTag, DAOCategoria, DAOCalificacion
     {
         private ConexionSqlServer conexion = new ConexionSqlServer();
 
@@ -208,11 +208,24 @@ namespace AeiWebServices.Permanencia
         }
 
 
-        public int agregarCalificacion(int idProducto, Calificacion calificacion)
+        public int agregarCalificacion(Calificacion calificacion, int idUsuario, int idProducto)
         {
-            return conexion.insertar("INSERT INTO Calificacion ( ID, DETALLE, PUNTAJE, FK_USUARIO, FK_PRODUCTO, FECHA) VALUES (NEXT VALUE FOR SEQ_CALIFICACION,'"+calificacion.Comentario+"', "+calificacion.Puntaje.ToString()+", "+calificacion.Usuario.Id.ToString()+", "+idProducto.ToString()+", '"+DateTime.Today.ToString("yyyy-MM-dd")+"');");
-        }
+            return conexion.insertar("INSERT INTO id, puntaje, comentario, usuario, fecha VALUES(NEXT VALUE FOR SEQ_CALIFICACION," + calificacion.Puntaje.ToString() + ",'" + calificacion.Comentario + "'," + idUsuario.ToString() + ",'" + DateTime.Today.ToString("yyyy-MM-dd") + "'); ");
 
+        }
+        public List<Calificacion> consultarCalificacionesPorProducto(int idProducto)
+        {
+            ConexionSqlServer conexion = new ConexionSqlServer();
+            SqlDataReader tabla = conexion.consultar("SELECT c.*, (SELECT CONVERT(VARCHAR(19), c.fecha, 120)) as fechacali FROM CALIFICACION AS c WHERE fk_producto=" + idProducto.ToString() + ";");
+            List<Calificacion> listaresultado = new List<Calificacion>();
+            Usuario usuario = new Usuario();
+            while (tabla.Read())
+            {
+                usuario = consultarUsuario(int.Parse(tabla["FK_USUARIO"].ToString()));
+                listaresultado.Add(new Calificacion(int.Parse(tabla["ID"].ToString()), int.Parse(tabla["PUNTAJE"].ToString()), tabla["DETALLE"].ToString(), DateTime.ParseExact(tabla["FECHACALI"].ToString(), "yyyy-MM-dd", null), usuario));
+            }
+            return listaresultado;
+        }  
 
         public List<DetalleCompra> buscarDetalleCompra(int idCompra)
         {
@@ -396,7 +409,24 @@ namespace AeiWebServices.Permanencia
             }
             return null;
         }
-
+        public Usuario consultarUsuario(int id)
+        {
+            SqlDataReader tabla = conexion.consultar("select u.*, (SELECT CONVERT(VARCHAR(19), u.fecha_nac, 120)) as fechaNac, (SELECT CONVERT(VARCHAR(19), u.fecha_ing, 120)) as fechaIng from usuario AS u where id='" + id.ToString() + "'");
+            while (tabla.Read())
+            {
+                List<Direccion> direccion = ConsultarDireccion(int.Parse(tabla["ID"].ToString()));
+                List<MetodoPago> metodoPago = consultarAllMetodosPago(int.Parse(tabla["ID"].ToString()));
+                Compra carrito = consultarCarrito(int.Parse(tabla["ID"].ToString()));
+                List<Compra> compras = consultarHistorialCompras(int.Parse(tabla["ID"].ToString()));
+                Usuario usuario = new Usuario(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["APELLIDO"].ToString(),
+                    tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
+                    DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
+                    DateTime.ParseExact(tabla["FECHANAC"].ToString(), "yyyy-MM-dd", null),
+                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago,0);
+                return usuario;
+            }
+            return null;
+        }
         public int modificarUsuario(Usuario usuarioModificado, int idUsuario)
         {
             return conexion.insertar("UPDATE USUARIO SET nombre='" + usuarioModificado.Nombre + "', apellido= '" + usuarioModificado.Apellido + "',  fecha_nac='" + usuarioModificado.FechaNacimiento.ToString() + "', fecha_ing= '" + usuarioModificado.FechaRegistro.ToString() + "', status= '"+usuarioModificado.Status+"', codigoActivacion= '"+usuarioModificado.CodigoActivacion+"' where id=" + idUsuario + ";");
