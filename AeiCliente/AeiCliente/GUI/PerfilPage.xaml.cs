@@ -40,17 +40,17 @@ namespace AeiCliente
             {
                 listBoxHistorial.Items.Add("Compra solicitada el: " + usuario.Compras.ElementAt(indexCompra).FechaSolicitud.ToString());
             }
-            
+            ComboDia.Items.Add(usuario.FechaNacimiento.Day);
+            ComboMes.SelectedIndex = int.Parse(usuario.FechaNacimiento.Month.ToString());
+            ComboAno.Items.Add(usuario.FechaNacimiento.Year);
+            bloquear(false);
         }
 
-        /// <summary>
-        /// Se invoca cuando esta página se va a mostrar en un objeto Frame.
-        /// </summary>
-        /// <param name="e">Datos de evento que describen cómo se llegó a esta página. La propiedad Parameter
-        /// se usa normalmente para configurar la página.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void bloquear(Boolean boolean)
         {
-
+            ComboDia.IsEnabled = boolean;
+            ComboMes.IsEnabled = boolean;
+            ComboAno.IsEnabled = boolean;
         }
 
         private void botonAgregarDireccion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -59,6 +59,12 @@ namespace AeiCliente
             DireccionPopup direcPopup= new DireccionPopup(popup);
             popup.Child = direcPopup;
             popup.IsOpen = true;
+        }
+
+        private void botonEditarInformacion_Click(object sender, RoutedEventArgs e)
+        {
+            bloquear(true);
+
         }
     }
 }
