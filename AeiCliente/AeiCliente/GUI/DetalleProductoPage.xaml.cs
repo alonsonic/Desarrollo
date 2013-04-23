@@ -11,8 +11,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using AeiCliente.ServicioUsuario;
 using AeiCliente.ServicioProducto;
-using Windows.UI.Popups;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -71,21 +71,12 @@ namespace AeiCliente
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
 
-        	this.Frame.Navigate(typeof());
+        	//this.Frame.Navigate(typeof());
         }
 
         private void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para realizar compras.");
-
-            if (BufferUsuario.isConectado())
-            {
-                BufferUsuario.comprar(producto, 100, 20);
-            }
-            else
-            {
-                mensajeError.ShowAsync();
-            }
+        	// TODO: Agregar implementación de controlador de eventos aquí.
         }
 	}
 }

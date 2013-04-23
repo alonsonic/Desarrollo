@@ -15,5 +15,6 @@ namespace AeiWebServices.Logica
 
         [OperationContract]
         Usuario agregarUsuario(string nombre, string apellido, string pasaporte, string mail, string fechaNacimiento);
-    }
+
+     }
 }
