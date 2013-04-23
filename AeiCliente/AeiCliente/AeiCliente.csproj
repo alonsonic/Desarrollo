@@ -452,6 +452,15 @@
     <WCFMetadataStorage Include="Service References\ServicioUsuario\" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Desktop\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\..\..\..\..\Desktop\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\..\..\..\..\Desktop\itextsharp.xtra.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Jason.net\Newtonsoft.Json.dll</HintPath>
     </Reference>
