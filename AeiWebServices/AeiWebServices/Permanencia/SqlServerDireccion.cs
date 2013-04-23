@@ -20,7 +20,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlDataReader tabla = conexion.consultar("select c.id AS id, p.nombre AS pais, e.nombre AS estado, c.nombre AS ciudad, dd.codigo_postal AS codigo_postal, dd.descripcion AS descripcion, dd.status AS status from detalle_direccion dd, direccion c, direccion e, direccion p where p.id=e.fk_id AND e.id=c.fk_id AND c.id=dd.fk_direccion AND dd.fk_usuario=" + idUsuario.ToString() + ";");
             List<Direccion> lista = new List<Direccion>();
-            while (tabla.Read())
+            while (tabla!=null && tabla.Read())
             {
                 lista.Add(new Direccion(int.Parse(tabla["ID"].ToString()), tabla["PAIS"].ToString(), tabla["ESTADO"].ToString(), tabla["CIUDAD"].ToString(), int.Parse(tabla["CODIGO_POSTAL"].ToString()), tabla["DESCRIPCION"].ToString(), tabla["STATUS"].ToString()));
             }
@@ -31,7 +31,7 @@ namespace AeiWebServices.Permanencia
         {
             Direccion resultado = null;
             SqlDataReader tabla = conexion.consultar("select c.id AS id, p.nombre AS pais, e.nombre AS estado, c.nombre AS ciudad, dd.codigo_postal AS codigo_postal, dd.descripcion AS descripcion, dd.status AS status, cp.id AS idcompra from detalle_direccion dd, direccion c, direccion e, direccion p, COMPRA cp where p.id=e.fk_id AND e.id=c.fk_id AND c.id=dd.fk_direccion AND cp.ID=" + idCompra.ToString() + ";");
-            while (tabla.Read())
+            while (tabla!=null && tabla.Read())
             {
                 resultado = new Direccion(int.Parse(tabla["ID"].ToString()), tabla["PAIS"].ToString(), tabla["ESTADO"].ToString(), tabla["CIUDAD"].ToString(), int.Parse(tabla["CODIGO_POSTAL"].ToString()), tabla["DESCRIPCION"].ToString(), tabla["STATUS"].ToString());
             }
@@ -47,7 +47,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlDataReader tabla = conexion.consultar("SELECT * FROM DIRECCION WHERE NIVEL = 'e';");
             List<Direccion> listaDireccion = new List<Direccion>();
-            while (tabla.Read())
+            while (tabla!=null && tabla.Read())
             {
                 listaDireccion.Add( new Direccion(int.Parse(tabla["ID"].ToString()), null, tabla["NOMBRE"].ToString(), null, -1, null, null));
             }
@@ -59,7 +59,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlDataReader tabla = conexion.consultar("SELECT e.NOMBRE as ESTADO , c.* FROM DIRECCION e, DIRECCION c WHERE c.NIVEL = 'c' AND c.FK_ID = e.ID AND e.ID="+idEstado.ToString()+";");
             List<Direccion> listaDireccion = new List<Direccion>();
-            while (tabla.Read())
+            while (tabla!=null && tabla.Read())
             {
                 listaDireccion.Add(new Direccion(int.Parse(tabla["ID"].ToString()), null,tabla["ESTADO"].ToString(), tabla["NOMBRE"].ToString(), -1, null, null));
             }

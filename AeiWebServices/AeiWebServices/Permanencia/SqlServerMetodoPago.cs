@@ -20,7 +20,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlDataReader tabla = conexion.consultar("select m.*, (SELECT CONVERT(VARCHAR(19), m.fecha_vencimiento, 120)) as fecha from Metodo_Pago AS m where fk_usuario=" + idUsuario.ToString() + ";");
             List<MetodoPago> lista = new List<MetodoPago>();
-            while (tabla.Read())
+            while (tabla!=null && tabla.Read())
             {
                 lista.Add(new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHA"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString()));
             }
@@ -31,7 +31,7 @@ namespace AeiWebServices.Permanencia
         {
             MetodoPago resultado = null;
             SqlDataReader tabla = conexion.consultar("SELECT mp.* , (SELECT CONVERT(VARCHAR(19), mp.fecha_vencimiento, 120)) as fechaVenc FROM Metodo_Pago mp, COMPRA c WHERE c.fk_METODOPAGO = mp.ID AND C.ID =" + idCompra + "");
-            while (tabla.Read())
+            while (tabla!=null && tabla.Read())
             {
                 resultado = new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHAVENC"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString());
             }

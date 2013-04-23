@@ -15,7 +15,7 @@ namespace AeiWebServices.Permanencia
         {    
             SqlDataReader tabla= conexion.consultar("select * from categoria;");
             List<Categoria> listaresultado= new List<Categoria>();
-            while (tabla.Read()) 
+            while (tabla!=null && tabla.Read()) 
             {
                 listaresultado.Add(new Categoria(int.Parse(tabla["ID"].ToString()),tabla["NOMBRE"].ToString()));
                
@@ -27,7 +27,7 @@ namespace AeiWebServices.Permanencia
         {          
             SqlDataReader tabla = conexion.consultar("select * from categoria c, producto p where p.fk_categoria = c.id AND p.id = "+idProducto+";");
             
-            while (tabla.Read())
+            while (tabla!=null && tabla.Read())
             {
                 Categoria resultado = new Categoria(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString());
                 return resultado;

@@ -20,7 +20,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlDataReader tabla = conexion.consultar("select * from Twitter where ScreenName= '"+screenName+"';");
             Twitter twitter = new Twitter();
-            while (tabla.Read())
+            while (tabla!=null && tabla.Read())
             {
                 twitter = new Twitter(tabla["IDUSUARIO"].ToString(), tabla["SCREENNAME"].ToString(), tabla["OauthToken"].ToString(), tabla["OauthTokenSecret"].ToString());
             }
