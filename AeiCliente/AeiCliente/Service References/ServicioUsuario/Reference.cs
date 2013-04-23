@@ -242,6 +242,8 @@ namespace AeiCliente.ServicioUsuario {
         
         private AeiCliente.ServicioUsuario.MetodoPago PagoField;
         
+        private System.Collections.Generic.List<AeiCliente.ServicioUsuario.DetalleCompra> ProductosField;
+        
         private string StatusField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -318,6 +320,19 @@ namespace AeiCliente.ServicioUsuario {
                 if ((object.ReferenceEquals(this.PagoField, value) != true)) {
                     this.PagoField = value;
                     this.RaisePropertyChanged("Pago");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<AeiCliente.ServicioUsuario.DetalleCompra> Productos {
+            get {
+                return this.ProductosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductosField, value) != true)) {
+                    this.ProductosField = value;
+                    this.RaisePropertyChanged("Productos");
                 }
             }
         }
@@ -476,7 +491,7 @@ namespace AeiCliente.ServicioUsuario {
         
         private string MarcaField;
         
-        private int NumeroField;
+        private string NumeroField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime FechaVencimiento {
@@ -518,14 +533,179 @@ namespace AeiCliente.ServicioUsuario {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Numero {
+        public string Numero {
             get {
                 return this.NumeroField;
             }
             set {
-                if ((this.NumeroField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.NumeroField, value) != true)) {
                     this.NumeroField = value;
                     this.RaisePropertyChanged("Numero");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DetalleCompra", Namespace="http://schemas.datacontract.org/2004/07/AeiWebServices")]
+    public partial class DetalleCompra : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int CantidadField;
+        
+        private float MontoField;
+        
+        private AeiCliente.ServicioUsuario.Producto ProductoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Cantidad {
+            get {
+                return this.CantidadField;
+            }
+            set {
+                if ((this.CantidadField.Equals(value) != true)) {
+                    this.CantidadField = value;
+                    this.RaisePropertyChanged("Cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Monto {
+            get {
+                return this.MontoField;
+            }
+            set {
+                if ((this.MontoField.Equals(value) != true)) {
+                    this.MontoField = value;
+                    this.RaisePropertyChanged("Monto");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AeiCliente.ServicioUsuario.Producto Producto {
+            get {
+                return this.ProductoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductoField, value) != true)) {
+                    this.ProductoField = value;
+                    this.RaisePropertyChanged("Producto");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Producto", Namespace="http://schemas.datacontract.org/2004/07/AeiWebServices")]
+    public partial class Producto : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string DescripcionField;
+        
+        private int IdField;
+        
+        private string ImagenDetalleField;
+        
+        private string ImagenMiniaturaField;
+        
+        private string NombreField;
+        
+        private float PrecioField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImagenDetalle {
+            get {
+                return this.ImagenDetalleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImagenDetalleField, value) != true)) {
+                    this.ImagenDetalleField = value;
+                    this.RaisePropertyChanged("ImagenDetalle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImagenMiniatura {
+            get {
+                return this.ImagenMiniaturaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImagenMiniaturaField, value) != true)) {
+                    this.ImagenMiniaturaField = value;
+                    this.RaisePropertyChanged("ImagenMiniatura");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Precio {
+            get {
+                return this.PrecioField;
+            }
+            set {
+                if ((this.PrecioField.Equals(value) != true)) {
+                    this.PrecioField = value;
+                    this.RaisePropertyChanged("Precio");
                 }
             }
         }

@@ -34,7 +34,7 @@ namespace AeiCliente
         private void llenarComboCategoria()
         {
             comboCategoria.Items.Add("Todas");
-            
+            comboCategoria.SelectedIndex = 1;
             //hacer cilco con webservice
             comboCategoria.Items.Add("Bloques");
             comboCategoria.Items.Add("Vehiculos");

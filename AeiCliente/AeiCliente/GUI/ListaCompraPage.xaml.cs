@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AeiCliente.ServicioUsuario;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,9 @@ namespace AeiCliente
     /// </summary>
     public sealed partial class ListaCompraPage : Page
     {
+        bool isCarrito = false;
+
+
 
         public ListaCompraPage()
         {
@@ -31,11 +35,14 @@ namespace AeiCliente
 
         private void cargarProductos()
         {
-            if (ListaProducto.ListaProductos != null)
+            if (BufferUsuario.Usuario == null)
+                return;
+
+            if (BufferUsuario.Usuario.Carrito != null)
             {
-                for (int indexProducto = 0 ; indexProducto < ListaProducto.ListaProductos.Count; indexProducto++)
+                for (int indexProducto = 0; indexProducto < BufferUsuario.Usuario.Carrito.Productos.Count; indexProducto++)
                 {
-                    ItemCompra itemProducto = new ItemCompra(indexProducto,this);
+                    ItemCompra itemProducto = new ItemCompra(indexProducto, this, true);
                     listaItemProducto.Items.Add(itemProducto);
                 }
             }
@@ -45,6 +52,8 @@ namespace AeiCliente
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 
+
+            
         }
 
     }

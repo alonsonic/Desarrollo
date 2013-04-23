@@ -120,6 +120,51 @@ namespace AeiCliente.ServicioProducto {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Categoria", Namespace="http://schemas.datacontract.org/2004/07/AeiWebServices")]
+    public partial class Categoria : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int IdField;
+        
+        private string NombreField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioProducto.IServicioProducto")]
     public interface IServicioProducto {
@@ -129,6 +174,9 @@ namespace AeiCliente.ServicioProducto {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioProducto/BusquedaProducto", ReplyAction="http://tempuri.org/IServicioProducto/BusquedaProductoResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AeiCliente.ServicioProducto.Producto>> BusquedaProductoAsync(string categoriaProducto, string busqueda);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioProducto/BuscarTodasLasCategorias", ReplyAction="http://tempuri.org/IServicioProducto/BuscarTodasLasCategoriasResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<AeiCliente.ServicioProducto.Categoria>> BuscarTodasLasCategoriasAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -180,6 +228,10 @@ namespace AeiCliente.ServicioProducto {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<AeiCliente.ServicioProducto.Producto>> BusquedaProductoAsync(string categoriaProducto, string busqueda) {
             return base.Channel.BusquedaProductoAsync(categoriaProducto, busqueda);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<AeiCliente.ServicioProducto.Categoria>> BuscarTodasLasCategoriasAsync() {
+            return base.Channel.BuscarTodasLasCategoriasAsync();
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {
