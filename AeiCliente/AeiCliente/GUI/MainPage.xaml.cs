@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioUsuario;
 using AeiCliente.ServicioProducto;
 using AeiCliente.GUI;
+using AeiCliente.ServicioCompra;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -87,6 +88,7 @@ namespace AeiCliente
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("bloques");
+            AeiCliente.ServicioUsuario.Usuario u = await servicioUsuario.ConsultarUsuarioAsync("alonsonic@gmail.com");
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
