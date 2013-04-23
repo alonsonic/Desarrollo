@@ -15,7 +15,7 @@ namespace AeiWebServices.Logica
         {
             Usuario usuario=FabricaDAO.getUsuario(mail);
             usuario.Carrito = FabricaDAO.getCarrito(usuario.Id);
-            usuario.Carrito.Productos = FabricaDAO.getListaProductos(usuario.Carrito.Id);
+            if (usuario.Carrito!=null) usuario.Carrito.Productos = FabricaDAO.getListaProductos(usuario.Carrito.Id);
             return usuario;
         }
 

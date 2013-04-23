@@ -88,7 +88,6 @@ namespace AeiCliente
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("bloques");
-            AeiCliente.ServicioUsuario.Usuario u = await servicioUsuario.ConsultarUsuarioAsync("alonsonic@gmail.com");
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
