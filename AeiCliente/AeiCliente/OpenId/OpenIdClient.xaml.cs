@@ -141,6 +141,7 @@ namespace AeiCliente
             }
             return;
 	    }
+
         public async void getToken(string code)
         {
 
@@ -165,6 +166,7 @@ namespace AeiCliente
             json = await respuesta.Content.ReadAsStringAsync();
             respuestaJson = JObject.Parse(json);
             string email = (string)respuestaJson.SelectToken("email");
+
             ServicioUsuarioClient servicioUsuario = new ServicioUsuarioClient();
             BufferUsuario.Usuario = await servicioUsuario.ConsultarUsuarioAsync(email);
 

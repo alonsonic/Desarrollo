@@ -105,6 +105,15 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="BindableBase.cs" />
+    <Compile Include="GUI\CodigoConfirPopup.xaml.cs">
+      <DependentUpon>CodigoConfirPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\RegistroUsuarioPopup.xaml.cs">
+      <DependentUpon>RegistroUsuarioPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DetallePopup.xaml.cs">
+      <DependentUpon>DetallePopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ItemCompra.xaml.cs">
       <DependentUpon>ItemCompra.xaml</DependentUpon>
     </Compile>
@@ -278,6 +287,7 @@
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\WideLogo.scale-100.png" />
     <Content Include="Imagenes\Botones MainPage\botonBloques.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -392,6 +402,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\CodigoConfirPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\RegistroUsuarioPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\DetallePopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

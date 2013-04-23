@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioUsuario;
 using AeiCliente.ServicioProducto;
+using Windows.UI.Popups;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,6 +26,7 @@ namespace AeiCliente
         public static AeiCliente.ServicioProducto.Producto producto = null;
         public static bool isCompra = false;
         ServicioProductoClient servicioProducto = new ServicioProductoClient();
+        public static AeiCliente.ServicioProducto.DetalleCompra detalleCompra = new AeiCliente.ServicioProducto.DetalleCompra();
 
         public DetalleProductoPage()
         {
@@ -79,7 +81,19 @@ namespace AeiCliente
 
         private void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	// Boton compra y calificaciones
+            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para realizar compras.");
+
+            if (BufferUsuario.isConectado())
+            {
+                Popup popup = new Popup();
+                DetallePopup direcPopup = new DetallePopup(popup, producto.Cantidad);
+                popup.Child = direcPopup;
+                popup.IsOpen = true;
+                detalleCompra.Producto = producto;
+            }
+            else
+                mensajeError.ShowAsync();
+                
         }
 	}
 }
