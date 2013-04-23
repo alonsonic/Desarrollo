@@ -39,6 +39,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\Desktop\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\..\..\..\..\Desktop\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\..\..\..\..\Desktop\itextsharp.xtra.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -99,6 +108,7 @@
     <Compile Include="Dominio\DetalleCompra.cs" />
     <Compile Include="Dominio\Direccion.cs" />
     <Compile Include="Dominio\MetodoPago.cs" />
+    <Compile Include="Dominio\Pdf.cs" />
     <Compile Include="Dominio\Producto.cs" />
     <Compile Include="Dominio\Twitter.cs" />
     <Compile Include="IIMPLEMENTAR.cs" />

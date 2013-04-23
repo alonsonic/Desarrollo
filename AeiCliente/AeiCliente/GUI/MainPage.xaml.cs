@@ -31,6 +31,7 @@ namespace AeiCliente
         public MainPage()
         {
             this.InitializeComponent();
+
         }
 
         /// <summary>
