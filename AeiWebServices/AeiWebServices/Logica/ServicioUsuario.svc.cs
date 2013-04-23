@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using AeiWebServices.Permanencia;
+using AeiWebServices.Dominio;
 
 namespace AeiWebServices.Logica
 {
@@ -25,6 +26,7 @@ namespace AeiWebServices.Logica
             }
             return null;
         }
+
 
     }
 }
