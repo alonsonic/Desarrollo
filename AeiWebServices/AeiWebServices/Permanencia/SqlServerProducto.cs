@@ -79,7 +79,7 @@ namespace AeiWebServices.Permanencia
 
         public List<Producto> buscarPorNombre(string nombre, string nombreCategoria)
         {
-            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO, CATEGORIA c WHERE NOMBRE LIKE '%" + nombre + "%' AND p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%'");
+            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO p, CATEGORIA c WHERE p.NOMBRE LIKE '%" + nombre + "%' AND p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%'");
             List<Tag> listaTag = new List<Tag>();
             List<Producto> listaProductos = new List<Producto>();
             if (tabla != null)
