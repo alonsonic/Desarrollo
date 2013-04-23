@@ -13,9 +13,6 @@
     <custom:PopoverView Margin="57,0,-57,0">
         <!-- Create your own dialog here instead of this simple button -->
         <Grid Height="260" Background="#FF78BA00" Margin="-51,254,51,254">
-            <ComboBox x:Name="comboBoxEstado" HorizontalAlignment="Left" Margin="282,23,0,0" VerticalAlignment="Top" Width="160" SelectionChanged="comboBoxEstado_SelectionChanged">
-                <ComboBox Width="120"/>
-            </ComboBox>
             <ComboBox x:Name="comboBoxCiudad" HorizontalAlignment="Left" Margin="653,23,0,0" VerticalAlignment="Top" Width="160"/>
             <TextBox x:Name="textboxCodigoPostal" HorizontalAlignment="Left" Margin="1110,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91"/>
             <Button x:Name="buttonAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="877,212,0,0" VerticalAlignment="Top" Width="145" Click="buttonAgregar_Click"/>
@@ -39,6 +36,7 @@
         		<Run Text="n"/>
             </TextBlock>
             <TextBox x:Name="textBoxDetalle" HorizontalAlignment="Left" Height="99" Margin="216,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="978"/>
+            <ComboBox x:Name="comboBoxEstado" HorizontalAlignment="Left" Margin="279,23,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
         </Grid>
     </custom:PopoverView>
 
