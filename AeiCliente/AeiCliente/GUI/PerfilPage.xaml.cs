@@ -22,6 +22,7 @@ namespace AeiCliente
     /// </summary>
     public sealed partial class PerfilPage : Page
     {
+        private Usuario usuario = BufferUsuario.Usuario;
         public PerfilPage()
         {
             this.InitializeComponent();
@@ -30,20 +31,46 @@ namespace AeiCliente
 
         private void cargarUsuario()
         {
-            Usuario usuario = BufferUsuario.Usuario;
+            cargarHistorialCompra();
+            cargarInformacionBasica();
+            cargarFechaNacimiento();
+            cargarDireciones();
+            bloquear(false);
+        }
 
-            textCorreoEditable.Text = usuario.Email;
-            textPasaporteEditable.Text = usuario.Pasaporte;
-            textNombre.Text = usuario.Nombre + " " + usuario.Apellido;
+        private void cargarDireciones()
+        {
+            List<Direccion> listaDirecciones = usuario.Direcciones;
+            for (int indexDireccion = 0; indexDireccion < listaDirecciones.Count(); indexDireccion++)
+            {
+                listBoxDireccion.Items.Add("Estado: " + listaDirecciones[indexDireccion].Estado + " Ciudad: " + listaDirecciones[indexDireccion].Ciudad+
+                    " Codigo postal: " + listaDirecciones[indexDireccion].CodigoPostal+ " Descripcion: " + listaDirecciones[indexDireccion].Descripcion);
+            }
 
+        }
+
+        private void cargarHistorialCompra()
+        {
             for (int indexCompra = 0; indexCompra < usuario.Compras.Count(); indexCompra++)
             {
                 listBoxHistorial.Items.Add("Compra solicitada el: " + usuario.Compras.ElementAt(indexCompra).FechaSolicitud.ToString());
             }
+        }
+
+        private void cargarFechaNacimiento()
+        {
             ComboDia.Items.Add(usuario.FechaNacimiento.Day);
             ComboMes.SelectedIndex = int.Parse(usuario.FechaNacimiento.Month.ToString());
             ComboAno.Items.Add(usuario.FechaNacimiento.Year);
-            bloquear(false);
+
+        }
+
+        private void cargarInformacionBasica()
+        {
+            textCorreoEditable.Text = usuario.Email;
+            textPasaporteEditable.Text = usuario.Pasaporte;
+            textNombre.Text = usuario.Nombre + " " + usuario.Apellido;
+
         }
 
         private void bloquear(Boolean boolean)
