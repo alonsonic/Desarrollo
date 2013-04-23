@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using AeiCliente.ServicioProducto;
+using AeiCliente.ServicioUsuario;
 
  
 // La plantilla de elemento Control de usuario está documentada en http://go.microsoft.com/fwlink/?LinkId=234236
@@ -23,6 +23,7 @@ namespace AeiCliente
     {
         Producto producto = null;
         Page padre = null;
+        bool isCompra = true;
 
         public ItemCompra()
         {
@@ -30,12 +31,17 @@ namespace AeiCliente
             this.InitializeComponent();
         }
 
-        public ItemCompra(int indexProducto, Page padre)
+        public ItemCompra(int indexProducto, Page padre, bool isCarrito)
         {
             this.InitializeComponent();
             this.padre = padre;
 
-            producto = ListaProducto.ListaProductos.ElementAt(indexProducto);
+            if(isCarrito)
+            {
+                producto = BufferUsuario.Usuario.Carrito.Productos.ElementAt(indexProducto).Producto;
+            }
+
+
             textoNombreProducto.Text = producto.Nombre;
             //TODO: SETEAR LA IMAGEN
             //this.setImagenProducto("ms-appx:/App_Data/item.png.png");

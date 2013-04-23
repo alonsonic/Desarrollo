@@ -42,7 +42,7 @@ namespace AeiCliente
             MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para llevar una lista de compras.");;
 
             if (BufferUsuario.isConectado())
-                mensajeError.ShowAsync();
+                this.Frame.Navigate(typeof(ListaCompraPage));
             else
             {
                 mensajeError.ShowAsync();
