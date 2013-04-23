@@ -23,8 +23,9 @@ namespace AeiCliente
     {
 		bool comentariosVisible = false;
         public static AeiCliente.ServicioProducto.Producto producto = null;
+        public static bool isCompra = false;
         ServicioProductoClient servicioProducto = new ServicioProductoClient();
-        Page padre = null;
+
         public DetalleProductoPage()
         {
             this.InitializeComponent();
@@ -70,13 +71,15 @@ namespace AeiCliente
 
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-
-        	//this.Frame.Navigate(typeof());
+            if(isCompra)
+                this.Frame.Navigate(typeof(ListaCompraPage));
+            else
+                this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	// TODO: Agregar implementación de controlador de eventos aquí.
+        	// Boton compra y calificaciones
         }
 	}
 }

@@ -52,6 +52,7 @@ namespace AeiCliente
         private void botonDetalle_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             DetalleProductoPage.producto = producto;
+            DetalleProductoPage.isCompra = false;
             padre.Frame.Navigate(typeof(DetalleProductoPage), producto);
         }
 

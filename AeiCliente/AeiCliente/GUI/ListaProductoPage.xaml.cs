@@ -15,13 +15,10 @@ using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioProducto;
 using Windows.UI.Popups;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace AeiCliente
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+
     public sealed partial class ListaProductoPage : Page
     {
 
@@ -31,6 +28,13 @@ namespace AeiCliente
             cargarProductos();
             llenarComboCategoria();
         }
+       
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            cargarProductos();
+            llenarComboCategoria();
+
+        }
 
         private async void llenarComboCategoria()
         {
@@ -38,7 +42,7 @@ namespace AeiCliente
             List<Categoria> listCategoria = await servicioProducto.BuscarTodasLasCategoriasAsync();
             comboCategoria.Items.Add("Todas");
             comboCategoria.SelectedIndex = 0;
-            //hacer cilco con webservice
+
             for (int categoria = 0; categoria < listCategoria.Count(); categoria++)
             {
                 comboCategoria.Items.Add(listCategoria.ElementAt(categoria).Nombre);
@@ -51,31 +55,26 @@ namespace AeiCliente
             listaItemProducto.Items.Clear();
             if (ListaProducto.ListaProductos != null)
             {
-                for (int indexProducto = 0 ; indexProducto < ListaProducto.ListaProductos.Count; indexProducto++)
+                for (int indexProducto = 0; indexProducto < ListaProducto.ListaProductos.Count; indexProducto++)
                 {
-                    ItemProducto itemProducto = new ItemProducto(indexProducto,this);
+                    ItemProducto itemProducto = new ItemProducto(indexProducto, this);
                     listaItemProducto.Items.Add(itemProducto);
                 }
             }
-            
-            textBoxBusqueda.Text = ListaProducto.TextoBusqueda;
-        }
-       
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
 
+            textBoxBusqueda.Text = ListaProducto.TextoBusqueda;
         }
 
         private async void botonLupa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            MessageDialog mensajeError = new MessageDialog("Su busqueda no retorno ningun resultado");
+            MessageDialog mensajeError = new MessageDialog("Su búsqueda no retornó ningún resultado.");
             ServicioProductoClient servicioProducto = new ServicioProductoClient();
-            if (comboCategoria.SelectedIndex == 1)
+            if (comboCategoria.SelectedIndex == 0)
                 ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoAsync(textBoxBusqueda.Text);
             else
                 ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoConCategoriaAsync(comboCategoria.SelectedItem.ToString(), textBoxBusqueda.Text);
 
-            if (ListaProducto.ListaProductos == null)
+            if (ListaProducto.ListaProductos.Count() == 0)
             {
                 mensajeError.ShowAsync();
             }

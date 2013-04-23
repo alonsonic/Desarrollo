@@ -11,6 +11,7 @@ namespace AeiCliente
     public static class BufferUsuario
     {
         static AeiCliente.ServicioUsuario.Usuario bufferUsuario = null;
+
         public static AeiCliente.ServicioUsuario.Usuario Usuario
         {
             get { return BufferUsuario.bufferUsuario; }
@@ -33,9 +34,7 @@ namespace AeiCliente
 
         static public void comprar(AeiCliente.ServicioUsuario.Producto compra)
         {
-            //bufferUsuario.Carrito.
-
-
+            //bufferUsuario.Carrito
         }
 
     }
