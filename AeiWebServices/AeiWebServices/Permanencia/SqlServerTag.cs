@@ -14,7 +14,7 @@ namespace AeiWebServices.Permanencia
             ConexionSqlServer conexion = new ConexionSqlServer();
             SqlDataReader tabla = conexion.consultar("select t.* from tag t, detalle_tag dt, producto p where t.id = dt.pk_tag AND p.id = dt.pk_producto and p.id ="+idproducto.ToString()+";");
             List<Tag> listaresultado = new List<Tag>();
-            while (tabla.Read())
+            while (tabla!=null && tabla.Read())
             {
                 listaresultado.Add(new Tag(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString()));
 

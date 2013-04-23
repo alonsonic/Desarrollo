@@ -21,9 +21,11 @@ namespace AeiWebServices
 
         public Compra()
         {
+
         }
+
         public Compra(int id, float montoTotal, DateTime fechaSolicitud, DateTime fechaEntrega, string status,
-             MetodoPago pago, List<DetalleCompra> productos, Direccion direccion)
+                      MetodoPago pago, List<DetalleCompra> productos, Direccion direccion)
         {
             this.id = id;
             this.montoTotal = montoTotal;
