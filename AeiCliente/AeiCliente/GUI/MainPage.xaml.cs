@@ -32,7 +32,10 @@ namespace AeiCliente
         public MainPage()
         {
             this.InitializeComponent();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 55327e6016263e821f50c8fccd5ce42b0aa79ad9
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {

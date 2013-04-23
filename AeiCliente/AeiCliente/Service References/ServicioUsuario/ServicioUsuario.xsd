@@ -33,20 +33,4 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-<<<<<<< HEAD
-  <xs:element name="prueba">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q3:Usuario" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="listaDeCompra" nillable="true" type="q4:ArrayOfDetalleCompra" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="pruebaResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-=======
->>>>>>> 55327e6016263e821f50c8fccd5ce42b0aa79ad9
 </xs:schema>
