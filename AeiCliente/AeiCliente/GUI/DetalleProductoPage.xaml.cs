@@ -71,7 +71,7 @@ namespace AeiCliente
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
 
-        	this.Frame.Navigate(typeof());
+        	//this.Frame.Navigate(typeof());
         }
 
         private void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
