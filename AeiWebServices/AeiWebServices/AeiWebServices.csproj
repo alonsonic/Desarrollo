@@ -92,6 +92,7 @@
   <ItemGroup>
     <Content Include="App_Data\item.png" />
     <Content Include="IMPLEMENTAR.svc" />
+    <Content Include="Logica\ServicioCompra.svc" />
     <Content Include="Logica\ServicioDireccion.svc" />
     <Content Include="Logica\ServicioTwitter.svc" />
     <Content Include="Logica\ServicioUsuario.svc" />
@@ -116,10 +117,14 @@
       <DependentUpon>IMPLEMENTAR.svc</DependentUpon>
     </Compile>
     <Compile Include="Logica\Comparer.cs" />
+    <Compile Include="Logica\IServicioCompra.cs" />
     <Compile Include="Logica\IServicioDireccion.cs" />
     <Compile Include="Logica\IServicioTwitter.cs" />
     <Compile Include="Logica\IServicioUsuario.cs" />
     <Compile Include="Logica\IServicioProducto.cs" />
+    <Compile Include="Logica\ServicioCompra.svc.cs">
+      <DependentUpon>ServicioCompra.svc</DependentUpon>
+    </Compile>
     <Compile Include="Logica\ServicioDireccion.svc.cs">
       <DependentUpon>ServicioDireccion.svc</DependentUpon>
     </Compile>

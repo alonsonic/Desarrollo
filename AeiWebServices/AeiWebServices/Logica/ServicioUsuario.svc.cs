@@ -11,14 +11,18 @@ namespace AeiWebServices.Logica
 {
     public class ServiceUsuario : IServicioUsuario
     {
-
         public Usuario ConsultarUsuario(string mail)
         {
-            return FabricaDAO.getUsuario(mail);
+            Usuario usuario=FabricaDAO.getUsuario(mail);
+            usuario.Carrito = FabricaDAO.getCarrito(usuario.Id);
+            if (usuario.Carrito!=null) usuario.Carrito.Productos = FabricaDAO.getListaProductos(usuario.Carrito.Id);
+            return usuario;
         }
 
         public Usuario agregarUsuario(string nombre, string apellido, string pasaporte, string mail, string fechaNacimiento)
         {
+            string fechaRegistro = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString()+"-"+DateTime.Now.Day.ToString();
+         
             Usuario usuario = new Usuario(1, nombre, apellido, pasaporte, mail, DateTime.ParseExact("1990-12-20", "yyyy-MM-dd", null), DateTime.ParseExact(fechaNacimiento, "yyyy-MM-dd", null), "I", null, null, null, null, 0);
             if  (FabricaDAO.setNuevoUsuario(usuario)==1) 
             {

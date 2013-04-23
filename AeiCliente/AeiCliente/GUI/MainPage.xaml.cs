@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioUsuario;
 using AeiCliente.ServicioProducto;
 using AeiCliente.GUI;
+using AeiCliente.ServicioCompra;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 

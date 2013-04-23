@@ -416,7 +416,7 @@ namespace AeiWebServices.Permanencia
                     tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
                     DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
                     DateTime.ParseExact(tabla["FECHANAC"].ToString(), "yyyy-MM-dd", null),
-                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, 0);
+                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, int.Parse(tabla["CODIGOACTIVACION"].ToString()));
                 return usuario;
             }
             return null;
@@ -434,7 +434,7 @@ namespace AeiWebServices.Permanencia
                     tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
                     DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
                     DateTime.ParseExact(tabla["FECHANAC"].ToString(), "yyyy-MM-dd", null),
-                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, 0);
+                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, int.Parse(tabla["CODIGOACTIVACION"].ToString()));
                 return usuario;
             }
             return null;

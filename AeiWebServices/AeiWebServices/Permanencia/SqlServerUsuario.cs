@@ -12,6 +12,11 @@ namespace AeiWebServices.Permanencia
     {
         private ConexionSqlServer conexion = new ConexionSqlServer();
 
+        public int agregarDetalleCompra(int idCompra, DetalleCompra detalleCompra)
+        {
+            return conexion.insertar("INSERT INTO Detalle_Compra (id,monto,cantidad,fk_compra,fk_producto) VALUES (NEXT VALUE FOR seq_detalle_compra," + detalleCompra.Monto.ToString() + "," + detalleCompra.Cantidad.ToString() + "," + idCompra.ToString() + "," + detalleCompra.Producto.Id.ToString() + ");");
+        }
+
         public List<Categoria> categorias()
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
@@ -404,7 +409,7 @@ namespace AeiWebServices.Permanencia
                     tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
                     DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
                     DateTime.ParseExact(tabla["FECHANAC"].ToString(), "yyyy-MM-dd", null),
-                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, 0);
+                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, int.Parse(tabla["CODIGOACTIVACION"].ToString()));
                 return usuario;
             }
             return null;
@@ -422,7 +427,7 @@ namespace AeiWebServices.Permanencia
                     tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
                     DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
                     DateTime.ParseExact(tabla["FECHANAC"].ToString(), "yyyy-MM-dd", null),
-                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago,0);
+                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, int.Parse(tabla["CODIGOACTIVACION"].ToString()));
                 return usuario;
             }
             return null;
