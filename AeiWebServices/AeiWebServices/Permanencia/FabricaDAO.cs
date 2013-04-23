@@ -8,6 +8,21 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
+        static public List<DetalleCompra> getListaProductos(int idCompra)
+        {
+            SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();
+            return resultado.buscarDetalleCompra(idCompra);
+        }
+        static public Compra getCarrito(int idUsuario)
+        {
+            SqlServerCompra resultado = new SqlServerCompra();
+            return resultado.consultarCarrito(idUsuario);
+        }
+        static public int setAgregarDetalleCompra(int idCompra, DetalleCompra detalleCompra)
+        {
+            SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();
+            return resultado.agregarDetalleCompra(idCompra,detalleCompra);
+        }
         static public List<Calificacion> getCalificaciones(int idProducto)
         {
             SqlServerCalificacion resultado = new SqlServerCalificacion();
@@ -153,7 +168,11 @@ namespace AeiWebServices.Permanencia
             SqlServerDireccion resultado = new SqlServerDireccion();
             return resultado.consultarCiudad(idEstado);
         }
-
+        static public Usuario getUsuario(int idUsuario)
+        {
+            SqlServerUsuario resultado = new SqlServerUsuario();
+            return resultado.consultarUsuario(idUsuario);
+        }
         static public Usuario getUsuario(string mail, int codigoActivacion)
         {
             SqlServerUsuario resultado = new SqlServerUsuario();

@@ -9,6 +9,6 @@ namespace AeiWebServices.Permanencia
     interface DAODetalleCompra
     {
         List<DetalleCompra> buscarDetalleCompra(int idCompra);
-        //int agregarDetalleCompra(int idCompra, DetalleCompra detalleCompra);
+        int agregarDetalleCompra(int idCompra, DetalleCompra detalleCompra);
     }
 }

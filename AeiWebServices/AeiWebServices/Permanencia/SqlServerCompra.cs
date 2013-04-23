@@ -11,6 +11,11 @@ namespace AeiWebServices.Permanencia
     {
         private ConexionSqlServer conexion = new ConexionSqlServer();
 
+        public int agregarDetalleCompra(int idCompra, DetalleCompra detalleCompra)
+        {
+            return conexion.insertar("INSERT INTO Detalle_Compra (id,monto,cantidad,fk_compra,fk_producto) VALUES (NEXT VALUE FOR seq_detalle_compra," + detalleCompra.Monto.ToString() + "," + detalleCompra.Cantidad.ToString() + "," + idCompra.ToString() + "," + detalleCompra.Producto.Id.ToString() + ");");
+        }
+
         public int agregarMetodoPago(MetodoPago metodo, int idUsuario)
         {
             return conexion.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,fk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario + ")");
