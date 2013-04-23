@@ -22,7 +22,7 @@ namespace AeiWebServices.Permanencia
             Twitter twitter = new Twitter();
             while (tabla.Read())
             {
-                twitter = new Twitter(tabla["IDUSUARIO"].ToString(), tabla["SCREENNAME"].ToString(), tabla["OauthTokenSecret"].ToString(), tabla["OauthToken"].ToString());
+                twitter = new Twitter(tabla["IDUSUARIO"].ToString(), tabla["SCREENNAME"].ToString(), tabla["OauthToken"].ToString(), tabla["OauthTokenSecret"].ToString());
             }
             return twitter;
         }

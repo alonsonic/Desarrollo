@@ -45,7 +45,7 @@ namespace AeiCliente
 
         private async void comboBoxEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int idEstado = listaEstados[comboBoxEstado.SelectedIndex+1].Id;
+            int idEstado = listaEstados[comboBoxEstado.SelectedIndex].Id;
             listaCiudad = await servicioDireccion.consultarCiudadAsync(idEstado);
             for (int i = 0; i < listaCiudad.Count(); i++)
             {

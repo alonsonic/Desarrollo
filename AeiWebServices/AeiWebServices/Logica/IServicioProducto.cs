@@ -11,6 +11,9 @@ namespace AeiWebServices.Logica
     public interface IServicioProducto
     {
         [OperationContract]
+        List<Calificacion> buscarCalificacionProducto(int idProducto);
+
+        [OperationContract]
         List<Producto> BuscarProductoPorCategoria(string nombre);
 
         [OperationContract]

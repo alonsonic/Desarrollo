@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioUsuario;
 using AeiCliente.ServicioProducto;
+using AeiCliente.GUI;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -33,12 +34,6 @@ namespace AeiCliente
             this.InitializeComponent();
 
         }
-
-        /// <summary>
-        /// Se invoca cuando esta página se va a mostrar en un objeto Frame.
-        /// </summary>
-        /// <param name="e">Datos de evento que describen cómo se llegó a esta página. La propiedad Parameter
-        /// se usa normalmente para configurar la página.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
@@ -92,9 +87,9 @@ namespace AeiCliente
 
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            //ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
-            //ListaProducto.TextoBusqueda = "Bloques";
-            this.Frame.Navigate(typeof(AeiCliente.GUI.TwitterPage));
+            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
+            ListaProducto.TextoBusqueda = "Bloques";
+            this.Frame.Navigate(typeof(TwitterPage));
         }
 
         private async void botonVehiculos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

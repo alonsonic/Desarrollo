@@ -30,6 +30,9 @@ namespace AeiWebServices.Logica
               return FabricaDAO.getListaCategoria();
           }
 
-
+          public List<Calificacion> buscarCalificacionProducto(int idProducto)
+          {
+              return FabricaDAO.getCalificaciones(idProducto);
+          }
     }
 }

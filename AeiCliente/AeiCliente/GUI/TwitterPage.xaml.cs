@@ -42,7 +42,6 @@ namespace AeiCliente.GUI
                     conexionTwitter.OauthTokenSecret = twitter.OauthTokenSecret;
                     conexionTwitter.OauthToken = twitter.OauthToken;
                     conexionTwitter.Status="Access granted";
-                    conexionTwitter.IsTweeting = true;
                     conexionTwitter.AccessGranted = true;
                 }
                 await conexionTwitter.UpdateStatus(Tweet.Text);

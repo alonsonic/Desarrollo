@@ -19,12 +19,15 @@
   <wsdl:message name="IServicioUsuario_agregarUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:agregarUsuarioResponse" />
   </wsdl:message>
+<<<<<<< HEAD
   <wsdl:message name="IServicioUsuario_prueba_InputMessage">
     <wsdl:part name="parameters" element="tns:prueba" />
   </wsdl:message>
   <wsdl:message name="IServicioUsuario_prueba_OutputMessage">
     <wsdl:part name="parameters" element="tns:pruebaResponse" />
   </wsdl:message>
+=======
+>>>>>>> 55327e6016263e821f50c8fccd5ce42b0aa79ad9
   <wsdl:portType name="IServicioUsuario">
     <wsdl:operation name="ConsultarUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/ConsultarUsuario" message="tns:IServicioUsuario_ConsultarUsuario_InputMessage" />
@@ -34,10 +37,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/agregarUsuario" message="tns:IServicioUsuario_agregarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/agregarUsuarioResponse" message="tns:IServicioUsuario_agregarUsuario_OutputMessage" />
     </wsdl:operation>
+<<<<<<< HEAD
     <wsdl:operation name="prueba">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/prueba" message="tns:IServicioUsuario_prueba_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/pruebaResponse" message="tns:IServicioUsuario_prueba_OutputMessage" />
     </wsdl:operation>
+=======
+>>>>>>> 55327e6016263e821f50c8fccd5ce42b0aa79ad9
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioUsuario" type="tns:IServicioUsuario">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -59,6 +65,7 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+<<<<<<< HEAD
     <wsdl:operation name="prueba">
       <soap:operation soapAction="http://tempuri.org/IServicioUsuario/prueba" style="document" />
       <wsdl:input>
@@ -68,6 +75,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+=======
+>>>>>>> 55327e6016263e821f50c8fccd5ce42b0aa79ad9
   </wsdl:binding>
   <wsdl:service name="ServiceUsuario">
     <wsdl:port name="BasicHttpBinding_IServicioUsuario" binding="tns:BasicHttpBinding_IServicioUsuario">

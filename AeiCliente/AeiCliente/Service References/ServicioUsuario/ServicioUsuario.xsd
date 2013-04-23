@@ -33,6 +33,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+<<<<<<< HEAD
   <xs:element name="prueba">
     <xs:complexType>
       <xs:sequence>
@@ -46,4 +47,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+=======
+>>>>>>> 55327e6016263e821f50c8fccd5ce42b0aa79ad9
 </xs:schema>

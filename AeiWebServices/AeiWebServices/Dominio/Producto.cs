@@ -22,7 +22,7 @@ namespace AeiWebServices
         private List<Tag> etiquetas;
         private List<Calificacion> calificaciones;
 
-        public Producto(int id, string nombre, string descripcion, float precio, string imagenMiniatura, string imagenDetalle, 
+        public Producto(int id, string nombre, string descripcion, float precio, string imagenMiniatura, string imagenDetalle,
             Categoria categoria, int cantidad)
         {
             this.id = id;
@@ -39,7 +39,7 @@ namespace AeiWebServices
 
         public Producto(){
         }
-
+         [DataMember]
         public int Cantidad
         {
             get { return cantidad; }
@@ -56,19 +56,21 @@ namespace AeiWebServices
             this.calificaciones.Add(calificacion);
         }
 
-        internal List<Calificacion> Calificaciones
+         [DataMember]
+        public List<Calificacion> Calificaciones
         {
             get { return calificaciones; }
             set { calificaciones = value; }
         }
-
-        internal List<Tag> Etiquetas
+         [DataMember]
+        public List<Tag> Etiquetas
         {
             get { return etiquetas; }
             set { etiquetas = value; }
         }
 
-        internal Categoria Categoria
+         [DataMember]
+        public Categoria Categoria
         {
             get { return categoria; }
             set { categoria = value; }
