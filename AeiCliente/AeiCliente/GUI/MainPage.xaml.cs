@@ -88,12 +88,12 @@ namespace AeiCliente
         {
             ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
             ListaProducto.TextoBusqueda = "Bloques";
-            this.Frame.Navigate(typeof(TwitterPage));
+            this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonVehiculos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("vehiculos");
+            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
             ListaProducto.TextoBusqueda = "Vehiculos";
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
