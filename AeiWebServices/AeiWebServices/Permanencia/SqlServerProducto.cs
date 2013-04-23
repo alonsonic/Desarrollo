@@ -90,6 +90,7 @@ namespace AeiWebServices.Permanencia
             }
             return listaProductos;
         }
+
         public List<Producto> buscarPorTag(string nombreTag, string nombreCategoria)
         {
             SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd,Categoria c  WHERE p.FK_CATEGORIA = c.ID AND dd.pk_producto=p.id AND t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + " AND %'c.NOMBRE LIKE '%" + nombreCategoria + "%';");
