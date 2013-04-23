@@ -19,7 +19,7 @@ namespace AeiWebServices.Logica
 
         public int agregarTwitter(string idUsuario, string screenName, string OauthToken,string OauthTokenSecret)
         {
-            Twitter nuevoUsuario= new Twitter(idUsuario,screenName,OauthToken,OauthTokenSecret);
+            Twitter nuevoUsuario = new Twitter(idUsuario, screenName, OauthToken, OauthTokenSecret);
             return FabricaDAO.setAgregarTwitter(nuevoUsuario);
         }
 

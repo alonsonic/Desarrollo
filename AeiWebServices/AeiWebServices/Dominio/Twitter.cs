@@ -45,7 +45,7 @@ namespace AeiWebServices.Dominio
 
         public Twitter()
         { }
-        public Twitter(string idUsuario, string screenName, string oauthTokenSecret, string oauthToken)
+        public Twitter(string idUsuario, string screenName, string oauthToken, string oauthTokenSecret)
         {
             this.screenName = screenName;
             this.oauthToken = oauthToken;

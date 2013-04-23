@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioUsuario;
 using AeiCliente.ServicioProducto;
+using AeiCliente.GUI;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -87,7 +88,7 @@ namespace AeiCliente
         {
             ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
             ListaProducto.TextoBusqueda = "Bloques";
-            this.Frame.Navigate(typeof(ListaProductoPage));
+            this.Frame.Navigate(typeof(TwitterPage));
         }
 
         private async void botonVehiculos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

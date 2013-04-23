@@ -24,6 +24,7 @@ namespace AeiCliente
 		bool comentariosVisible = false;
         public static AeiCliente.ServicioProducto.Producto producto = null;
         ServicioProductoClient servicioProducto = new ServicioProductoClient();
+        Page padre = null;
         public DetalleProductoPage()
         {
             this.InitializeComponent();
@@ -69,7 +70,8 @@ namespace AeiCliente
 
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	this.Frame.Navigate(typeof(ListaCompraPage));
+
+        	this.Frame.Navigate(typeof());
         }
 
         private void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
