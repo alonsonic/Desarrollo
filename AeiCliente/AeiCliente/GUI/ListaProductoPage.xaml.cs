@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioProducto;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,17 +32,18 @@ namespace AeiCliente
             llenarComboCategoria();
         }
 
-        private void llenarComboCategoria()
+        private async void llenarComboCategoria()
         {
+            ServicioProductoClient servicioProducto = new ServicioProductoClient();
+            List<Categoria> listCategoria = await servicioProducto.BuscarTodasLasCategoriasAsync();
             comboCategoria.Items.Add("Todas");
-            comboCategoria.SelectedIndex = 1;
+            comboCategoria.SelectedIndex = 0;
             //hacer cilco con webservice
-            comboCategoria.Items.Add("Bloques");
-            comboCategoria.Items.Add("Vehiculos");
-            comboCategoria.Items.Add("Muñecas");
-            comboCategoria.Items.Add("Juegos de Mesa");
+            for (int categoria = 0; categoria < listCategoria.Count(); categoria++)
+            {
+                comboCategoria.Items.Add(listCategoria.ElementAt(categoria).Nombre);
+            }
         }
-
 
 
         private void cargarProductos()
@@ -66,9 +68,19 @@ namespace AeiCliente
 
         private async void botonLupa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            MessageDialog mensajeError = new MessageDialog("Su busqueda no retorno ningun resultado");
             ServicioProductoClient servicioProducto = new ServicioProductoClient();
-            ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoConCategoriaAsync(comboCategoria.SelectedItem.ToString(), textBoxBusqueda.Text);
-            cargarProductos();
+            if (comboCategoria.SelectedIndex == 1)
+                ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoAsync(textBoxBusqueda.Text);
+            else
+                ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoConCategoriaAsync(comboCategoria.SelectedItem.ToString(), textBoxBusqueda.Text);
+
+            if (ListaProducto.ListaProductos == null)
+            {
+                mensajeError.ShowAsync();
+            }
+            else
+                cargarProductos();
         }
 
         private void botonPerfil_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

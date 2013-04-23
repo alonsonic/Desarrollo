@@ -65,7 +65,7 @@ namespace AeiCliente
 
         private void botonLupa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ListaCompraPage));
+            this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonInicioSesion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -86,29 +86,25 @@ namespace AeiCliente
 
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
-            ListaProducto.TextoBusqueda = "Bloques";
+            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("bloques");
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonVehiculos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("figuras");
-            ListaProducto.TextoBusqueda = "Vehiculos";
+            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("vehiculos");
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonMunecas_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("muñecas");
-            ListaProducto.TextoBusqueda = "Muñecas";
             this.Frame.Navigate(typeof(ListaCompraPage));
         }
 
         private async void botonJuegosMesa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("juegos de mesa");
-            ListaProducto.TextoBusqueda = "Juegos de Mesa";
             this.Frame.Navigate(typeof(ListaCompraPage));
         }
         
