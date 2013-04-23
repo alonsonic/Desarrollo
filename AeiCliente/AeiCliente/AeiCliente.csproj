@@ -104,6 +104,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BindableBase.cs" />
     <Compile Include="GUI\ItemCompra.xaml.cs">
       <DependentUpon>ItemCompra.xaml</DependentUpon>
     </Compile>
@@ -129,6 +130,9 @@
       <DependentUpon>PerfilPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\PopoverView.cs" />
+    <Compile Include="GUI\TwitterPage.xaml.cs">
+      <DependentUpon>TwitterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListaProducto.cs" />
     <Compile Include="OpenId\OpenIdClient.xaml.cs">
       <DependentUpon>OpenIdClient.xaml</DependentUpon>
@@ -140,6 +144,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\ServiceReference2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServicioTwitter\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -160,6 +169,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="BufferUsuario.cs" />
+    <Compile Include="GUI\TwitterRt.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -201,6 +211,16 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference2\IMPLEMENTAR2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioTwitter\ServicioTwitter.wsdl" />
+    <None Include="Service References\ServicioTwitter\ServicioTwitter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioTwitter\ServicioTwitter1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioTwitter\ServicioTwitter2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServicioDireccion\AeiCliente.ServicioDireccion.Direccion.datasource">
@@ -323,6 +343,13 @@
     <Content Include="Imagenes\fondoPerfilAEI.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\ServicioTwitter\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServicioTwitter\configuration.svcinfo" />
+    <None Include="Service References\ServicioTwitter\configuration91.svcinfo" />
+    <None Include="Service References\ServicioTwitter\ServicioTwitter.disco" />
     <None Include="Service References\ServicioProducto\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -400,6 +427,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GUI\TwitterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OpenId\OpenIdClient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -415,6 +446,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceReference2\" />
+    <WCFMetadataStorage Include="Service References\ServicioTwitter\" />
     <WCFMetadataStorage Include="Service References\ServicioDireccion\" />
     <WCFMetadataStorage Include="Service References\ServicioProducto\" />
     <WCFMetadataStorage Include="Service References\ServicioUsuario\" />
@@ -422,6 +454,9 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Jason.net\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="TwitterRtLibrary">
+      <HintPath>..\..\..\..\Visual Studio 2012\Projects\Nueva carpeta\TwitterRtLibrary\bin\Debug\TwitterRtLibrary.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">

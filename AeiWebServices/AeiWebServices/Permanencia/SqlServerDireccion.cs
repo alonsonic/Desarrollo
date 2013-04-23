@@ -57,7 +57,7 @@ namespace AeiWebServices.Permanencia
 
         public List<Direccion> consultarCiudad(int idEstado)
         {
-            SqlDataReader tabla = conexion.consultar("SELECT e.NOMBRE as ESTADO , c.* FROM DIRECCION , DIRECCION c WHERE c.NIVEL = 'c' AND c.FKID = e.ID AND e.ID="+idEstado.ToString()+";");
+            SqlDataReader tabla = conexion.consultar("SELECT e.NOMBRE as ESTADO , c.* FROM DIRECCION e, DIRECCION c WHERE c.NIVEL = 'c' AND c.FK_ID = e.ID AND e.ID="+idEstado.ToString()+";");
             List<Direccion> listaDireccion = new List<Direccion>();
             while (tabla.Read())
             {

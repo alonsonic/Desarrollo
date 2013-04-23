@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:52896/Logica/ServicioProducto.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices" />
+  <xs:element name="buscarCalificacionProducto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProducto" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarCalificacionProductoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="buscarCalificacionProductoResult" nillable="true" type="q1:ArrayOfCalificacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="BuscarProductoPorCategoria">
     <xs:complexType>
       <xs:sequence>
@@ -11,11 +25,11 @@
   <xs:element name="BuscarProductoPorCategoriaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BuscarProductoPorCategoriaResult" nillable="true" type="q1:ArrayOfProducto" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BuscarProductoPorCategoriaResult" nillable="true" type="q2:ArrayOfProducto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="BusquedaProducto">
+  <xs:element name="BusquedaProductoConCategoria">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="categoriaProducto" nillable="true" type="xs:string" />
@@ -23,10 +37,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="BusquedaProductoConCategoriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BusquedaProductoConCategoriaResult" nillable="true" type="q3:ArrayOfProducto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BusquedaProducto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="busqueda" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="BusquedaProductoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BusquedaProductoResult" nillable="true" type="q2:ArrayOfProducto" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BusquedaProductoResult" nillable="true" type="q4:ArrayOfProducto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -38,7 +66,7 @@
   <xs:element name="BuscarTodasLasCategoriasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BuscarTodasLasCategoriasResult" nillable="true" type="q3:ArrayOfCategoria" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BuscarTodasLasCategoriasResult" nillable="true" type="q5:ArrayOfCategoria" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

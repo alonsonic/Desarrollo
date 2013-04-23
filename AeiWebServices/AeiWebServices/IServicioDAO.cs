@@ -43,9 +43,6 @@ namespace AeiWebServices
         Producto getProductoPorDetalleCompra(int idDetalleCompra);
 
         [OperationContract]
-        int setCalificacion(int idProducto, Calificacion calificacion);
-
-        [OperationContract]
         int setAgregarCompra(Compra compra);
 
         [OperationContract]

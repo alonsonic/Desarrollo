@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="AeiCliente.GUI.TwitterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AeiCliente.GUI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#E5000000" Margin="260,190,203,292" RenderTransformOrigin="0.209,0.241">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="759.627"/>
+            <ColumnDefinition Width="91.373"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="Tweet" Grid.Column="3" HorizontalAlignment="Left" Margin="296,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Height="123" Width="464" Grid.ColumnSpan="2"/>
+        <Button x:Name="botonEnviar" Content="Enviar" Grid.Column="3" HorizontalAlignment="Left" Margin="532,215,0,0" VerticalAlignment="Top" Width="228" Click="botonEnviar_Click" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Contraseña" Grid.Column="3" HorizontalAlignment="Left" Margin="0,119,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="217"/>
+        <TextBox x:Name="Usuario" Grid.Column="3" HorizontalAlignment="Left" Margin="0,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="217"/>
+
+    </Grid>
+</Page>

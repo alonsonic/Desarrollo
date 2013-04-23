@@ -165,10 +165,8 @@ namespace AeiCliente
             json = await respuesta.Content.ReadAsStringAsync();
             respuestaJson = JObject.Parse(json);
             string email = (string)respuestaJson.SelectToken("email");
-
-            BufferUsuario.Usuario = new Usuario();
-            BufferUsuario.Usuario.Nombre = "ALonso";
-            BufferUsuario.Usuario.Status = "I";
+            ServicioUsuarioClient servicioUsuario = new ServicioUsuarioClient();
+            BufferUsuario.Usuario = await servicioUsuario.ConsultarUsuarioAsync(email);
 
             botonSender.Content = "Salir";
 

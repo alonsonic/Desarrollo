@@ -47,6 +47,7 @@ namespace AeiWebServices
             set { id = value; }
         }
 
+         [DataMember]
         public Usuario Usuario
         {
             get { return usuario; }

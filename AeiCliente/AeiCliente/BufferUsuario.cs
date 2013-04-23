@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AeiCliente.ServicioUsuario;
+using AeiCliente.ServicioProducto;
 
 namespace AeiCliente
 {
     public static class BufferUsuario
     {
-        static Usuario bufferUsuario = null;
-        public static Usuario Usuario
+        static AeiCliente.ServicioUsuario.Usuario bufferUsuario = null;
+        public static AeiCliente.ServicioUsuario.Usuario Usuario
         {
             get { return BufferUsuario.bufferUsuario; }
             set { BufferUsuario.bufferUsuario = value; }
@@ -30,19 +31,11 @@ namespace AeiCliente
         
         }
 
-        static public void comprar(Producto compra, int monto, int cantidad)
+        static public void comprar(AeiCliente.ServicioUsuario.Producto compra)
         {
-            //Necesito un servicio donde envie el producto el usuario la cantidad monto 
-            //y se encargue de salvar y disminuir los valores de la cantidad del producto 
-            //en la BD
+            //bufferUsuario.Carrito.
 
-            DetalleCompra detalleCompra = new DetalleCompra();
-            detalleCompra.Producto = compra;
-            detalleCompra.Monto = monto;
-            detalleCompra.Cantidad = cantidad;
 
-            bufferUsuario.Carrito.Productos.Add(detalleCompra);
-            //Salvar en BD con servicioDAO
         }
 
     }

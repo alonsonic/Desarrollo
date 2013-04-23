@@ -14,7 +14,7 @@ namespace AeiWebServices
             try
             {
                 //creando la conexion
-                SqlConnection miConexion = new SqlConnection(@"Data Source=ALONSO-LAPTOP; Initial Catalog = AEIBD; Integrated Security=True;");
+                SqlConnection miConexion = new SqlConnection(@"Data Source=LYANA-PC\SQLEXPRESS; Initial Catalog = AEIBD; Integrated Security=True;");
                 //abriendo conexion
                 miConexion.Open();
                 return miConexion;

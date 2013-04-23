@@ -7,11 +7,23 @@
       <xsd:import schemaLocation="http://localhost:52896/Logica/ServicioProducto.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IServicioProducto_buscarCalificacionProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCalificacionProducto" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_buscarCalificacionProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCalificacionProductoResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioProducto_BuscarProductoPorCategoria_InputMessage">
     <wsdl:part name="parameters" element="tns:BuscarProductoPorCategoria" />
   </wsdl:message>
   <wsdl:message name="IServicioProducto_BuscarProductoPorCategoria_OutputMessage">
     <wsdl:part name="parameters" element="tns:BuscarProductoPorCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_BusquedaProductoConCategoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaProductoConCategoria" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_BusquedaProductoConCategoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaProductoConCategoriaResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioProducto_BusquedaProducto_InputMessage">
     <wsdl:part name="parameters" element="tns:BusquedaProducto" />
@@ -26,9 +38,17 @@
     <wsdl:part name="parameters" element="tns:BuscarTodasLasCategoriasResponse" />
   </wsdl:message>
   <wsdl:portType name="IServicioProducto">
+    <wsdl:operation name="buscarCalificacionProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/buscarCalificacionProducto" message="tns:IServicioProducto_buscarCalificacionProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/buscarCalificacionProductoResponse" message="tns:IServicioProducto_buscarCalificacionProducto_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="BuscarProductoPorCategoria">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/BuscarProductoPorCategoria" message="tns:IServicioProducto_BuscarProductoPorCategoria_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/BuscarProductoPorCategoriaResponse" message="tns:IServicioProducto_BuscarProductoPorCategoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaProductoConCategoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/BusquedaProductoConCategoria" message="tns:IServicioProducto_BusquedaProductoConCategoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/BusquedaProductoConCategoriaResponse" message="tns:IServicioProducto_BusquedaProductoConCategoria_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="BusquedaProducto">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/BusquedaProducto" message="tns:IServicioProducto_BusquedaProducto_InputMessage" />
@@ -41,8 +61,26 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioProducto" type="tns:IServicioProducto">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="buscarCalificacionProducto">
+      <soap:operation soapAction="http://tempuri.org/IServicioProducto/buscarCalificacionProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="BuscarProductoPorCategoria">
       <soap:operation soapAction="http://tempuri.org/IServicioProducto/BuscarProductoPorCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaProductoConCategoria">
+      <soap:operation soapAction="http://tempuri.org/IServicioProducto/BusquedaProductoConCategoria" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

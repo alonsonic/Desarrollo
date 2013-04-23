@@ -84,6 +84,7 @@
     <Content Include="App_Data\item.png" />
     <Content Include="IMPLEMENTAR.svc" />
     <Content Include="Logica\ServicioDireccion.svc" />
+    <Content Include="Logica\ServicioTwitter.svc" />
     <Content Include="Logica\ServicioUsuario.svc" />
     <Content Include="Logica\ServicioProducto.svc" />
     <Content Include="ServicioDAO.svc" />
@@ -99,16 +100,21 @@
     <Compile Include="Dominio\Direccion.cs" />
     <Compile Include="Dominio\MetodoPago.cs" />
     <Compile Include="Dominio\Producto.cs" />
+    <Compile Include="Dominio\Twitter.cs" />
     <Compile Include="IIMPLEMENTAR.cs" />
     <Compile Include="IMPLEMENTAR.svc.cs">
       <DependentUpon>IMPLEMENTAR.svc</DependentUpon>
     </Compile>
     <Compile Include="Logica\Comparer.cs" />
     <Compile Include="Logica\IServicioDireccion.cs" />
+    <Compile Include="Logica\IServicioTwitter.cs" />
     <Compile Include="Logica\IServicioUsuario.cs" />
     <Compile Include="Logica\IServicioProducto.cs" />
     <Compile Include="Logica\ServicioDireccion.svc.cs">
       <DependentUpon>ServicioDireccion.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Logica\ServicioTwitter.svc.cs">
+      <DependentUpon>ServicioTwitter.svc</DependentUpon>
     </Compile>
     <Compile Include="Logica\ServicioUsuario.svc.cs">
       <DependentUpon>ServicioUsuario.svc</DependentUpon>
@@ -124,6 +130,7 @@
     <Compile Include="Permanencia\DAOMetodoPago.cs" />
     <Compile Include="Permanencia\DAOProducto.cs" />
     <Compile Include="Permanencia\DAOTag.cs" />
+    <Compile Include="Permanencia\DAOTwitter.cs" />
     <Compile Include="Permanencia\DAOUsuario.cs" />
     <Compile Include="Permanencia\FabricaDAO.cs" />
     <Compile Include="Permanencia\SqlServerDetalleCompra.cs" />
@@ -134,6 +141,7 @@
     <Compile Include="Permanencia\SqlServerCategoria.cs" />
     <Compile Include="Permanencia\SqlServerCompra.cs" />
     <Compile Include="Permanencia\SqlServerTag.cs" />
+    <Compile Include="Permanencia\SqlServerTwitter.cs" />
     <Compile Include="Permanencia\SqlServerUsuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ServicioDAO.svc.cs">

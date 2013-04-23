@@ -13,16 +13,35 @@
   <wsdl:message name="IServicioUsuario_ConsultarUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConsultarUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioUsuario_agregarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:agregarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioUsuario_agregarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:agregarUsuarioResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioUsuario">
     <wsdl:operation name="ConsultarUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/ConsultarUsuario" message="tns:IServicioUsuario_ConsultarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/ConsultarUsuarioResponse" message="tns:IServicioUsuario_ConsultarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioUsuario/agregarUsuario" message="tns:IServicioUsuario_agregarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioUsuario/agregarUsuarioResponse" message="tns:IServicioUsuario_agregarUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioUsuario" type="tns:IServicioUsuario">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="ConsultarUsuario">
       <soap:operation soapAction="http://tempuri.org/IServicioUsuario/ConsultarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioUsuario/agregarUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

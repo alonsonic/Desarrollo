@@ -4,7 +4,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Apellido" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Carrito" nillable="true" type="tns:Compra" />
-      <xs:element minOccurs="0" name="CodigoActivacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoActivacion" type="xs:int" />
       <xs:element minOccurs="0" name="Compras" nillable="true" type="tns:ArrayOfCompra" />
       <xs:element minOccurs="0" name="Direcciones" nillable="true" type="tns:ArrayOfDireccion" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />

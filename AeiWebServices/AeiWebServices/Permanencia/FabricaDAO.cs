@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AeiWebServices.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,7 +8,33 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
-        static public List<Producto> getBusquedaProducto(string categoriaProducto, string busqueda)
+        static public List<Calificacion> getCalificaciones(int idProducto)
+        {
+            SqlServerCalificacion resultado = new SqlServerCalificacion();
+            return resultado.consultarCalificacionesPorProducto(idProducto);
+        }
+        static public Twitter getUsuarioTwitter(string screenName)
+        {
+            SqlServerTwitter resultado = new SqlServerTwitter();
+            return resultado.buscarUsuario(screenName);
+        }
+        static public int setAgregarTwitter(Twitter usuario)
+        {
+            SqlServerTwitter resultado = new SqlServerTwitter();
+            return resultado.agregarUsuario(usuario);
+        }
+        static public int setNuevoUsuario(Usuario usuario)
+        {
+            SqlServerUsuario resultado = new SqlServerUsuario();
+            return resultado.agregarUsuario(usuario);
+        }
+
+        static public List<Producto> getBusquedaProducto(string busqueda)
+        {
+            SqlServerProducto lista = new SqlServerProducto();
+            return lista.busquedaProductos(busqueda);
+        }
+        static public List<Producto> getBusquedaProductoConCategoria(string categoriaProducto, string busqueda)
         {
             SqlServerProducto lista = new SqlServerProducto();
             return lista.busquedaProductos(categoriaProducto, busqueda);
@@ -127,7 +154,7 @@ namespace AeiWebServices.Permanencia
             return resultado.consultarCiudad(idEstado);
         }
 
-        static public Usuario getUsuario(string mail, string codigoActivacion)
+        static public Usuario getUsuario(string mail, int codigoActivacion)
         {
             SqlServerUsuario resultado = new SqlServerUsuario();
             return resultado.consultarUsuario(mail, codigoActivacion);

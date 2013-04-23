@@ -67,7 +67,7 @@ namespace AeiCliente
         private async void botonLupa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ServicioProductoClient servicioProducto = new ServicioProductoClient();
-            ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoAsync(comboCategoria.SelectedItem.ToString(), textBoxBusqueda.Text);
+            ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoConCategoriaAsync(comboCategoria.SelectedItem.ToString(), textBoxBusqueda.Text);
             cargarProductos();
         }
 
