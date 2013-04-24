@@ -47,14 +47,14 @@ namespace AeiCliente
         private void cargarComentarios()
         {
             List<Calificacion> listaCalificacion = producto.Calificaciones;
-            if (listaCalificacion != null)
+            if (listaCalificacion.Count>0)
             {
                 for (int indexCalificacion = 0; indexCalificacion < listaCalificacion.Count; indexCalificacion++)
                 {
                     this.textComentarios.Text = this.textComentarios.Text + "\n \n" + listaCalificacion[indexCalificacion].Usuario.Nombre + " " + listaCalificacion[indexCalificacion].Usuario.Apellido + "\n" + listaCalificacion[indexCalificacion].Comentario;
                 }
             }
-            else this.textComentarios.Text = "\n \n Aun no tenemos calificaciones para este producto.";
+            else this.textComentarios.Text = "\n \n Aun no tenemos comentarios para este producto.";
         }
 
         private void botonMostrarComentario_Click(object sender, RoutedEventArgs e)
