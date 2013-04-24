@@ -10,9 +10,9 @@
     d:DesignHeight="323"
     d:DesignWidth="413" Width="1366" Height="768">
 
-    <custom:PopoverView Margin="57,0,-57,0">
+    <custom:PopoverView Margin="3,0,-3,0">
         <!-- Create your own dialog here instead of this simple button -->
-        <Grid Height="260" Background="#FF78BA00" Margin="-54,254,54,254">
+        <Grid Height="260" Background="#FF78BA00" Margin="-3,254,3,254">
             <ComboBox x:Name="comboBoxCiudad" HorizontalAlignment="Left" Margin="653,23,0,0" VerticalAlignment="Top" Width="160"/>
             <TextBox x:Name="textboxCodigoPostal" HorizontalAlignment="Left" Margin="1110,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91"/>
             <Button x:Name="buttonAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="877,212,0,0" VerticalAlignment="Top" Width="145" Click="buttonAgregar_Click"/>
