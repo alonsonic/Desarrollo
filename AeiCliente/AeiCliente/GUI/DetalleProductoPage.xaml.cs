@@ -47,14 +47,14 @@ namespace AeiCliente
         private void cargarComentarios()
         {
             List<Calificacion> listaCalificacion = producto.Calificaciones;
-            if (listaCalificacion.Count>0)
+            if (listaCalificacion != null)
             {
                 for (int indexCalificacion = 0; indexCalificacion < listaCalificacion.Count; indexCalificacion++)
                 {
                     this.textComentarios.Text = this.textComentarios.Text + "\n \n" + listaCalificacion[indexCalificacion].Usuario.Nombre + " " + listaCalificacion[indexCalificacion].Usuario.Apellido + "\n" + listaCalificacion[indexCalificacion].Comentario;
                 }
             }
-            else this.textComentarios.Text = "\n \n Aun no tenemos comentarios0 para este producto.";
+            else this.textComentarios.Text = "\n \n Aun no tenemos calificaciones para este producto.";
         }
 
         private void botonMostrarComentario_Click(object sender, RoutedEventArgs e)
@@ -90,25 +90,14 @@ namespace AeiCliente
                 popup.Child = direcPopup;
                 popup.IsOpen = true;
 
-                //BORRAR
-                Producto PRODUCTOBORRAR = new Producto();
-                PRODUCTOBORRAR.Id = producto.Id;
-                PRODUCTOBORRAR.Nombre = producto.Nombre;
-                PRODUCTOBORRAR.Precio = producto.Precio;
-                PRODUCTOBORRAR.Descripcion = producto.Descripcion;
-                //BORRAR 
-
-                detalleCompra.Producto = PRODUCTOBORRAR;
+                detalleCompra.Producto = producto;
                 detalleCompra.Monto = producto.Precio * detalleCompra.Cantidad;
                 //LLamar al servicio para guardar la compra y que me retorne mi usuario
-
-                BufferUsuario.Usuario.Carrito.Productos.Add(detalleCompra);
-                ServicioAEIClient servicioAei = new ServicioAEIClient();
-                BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra,null);
+                BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
+                var xs = BufferUsuario.Usuario.Carrito.Productos;
             }
             else
                 mensajeError.ShowAsync();
-                
         }
 	}
 }
