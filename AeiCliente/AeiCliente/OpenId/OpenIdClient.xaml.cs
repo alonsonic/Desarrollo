@@ -25,7 +25,7 @@ using System.Net;
 using System.IO;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
-using AeiCliente.ServicioUsuario;
+using AeiCliente.ServicioAEI;
 using System.Threading.Tasks;
 
 namespace AeiCliente
@@ -167,7 +167,7 @@ namespace AeiCliente
             respuestaJson = JObject.Parse(json);
             string email = (string)respuestaJson.SelectToken("email");
 
-            ServicioUsuarioClient servicioUsuario = new ServicioUsuarioClient();
+            ServicioAEIClient servicioUsuario = new ServicioAEIClient();
             BufferUsuario.Usuario = await servicioUsuario.ConsultarUsuarioAsync(email);
 
             botonSender.Content = "Salir";

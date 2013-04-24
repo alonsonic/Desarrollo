@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using AeiCliente.ServicioUsuario;
+using AeiCliente.ServicioAEI;
 
  
 // La plantilla de elemento Control de usuario está documentada en http://go.microsoft.com/fwlink/?LinkId=234236

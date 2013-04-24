@@ -11,8 +11,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using AeiCliente.ServicioUsuario;
-using AeiCliente.ServicioProducto;
+using AeiCliente.ServicioAEI;
 using Windows.UI.Popups;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
@@ -23,10 +22,10 @@ namespace AeiCliente
     public sealed partial class DetalleProductoPage : Page
     {
 		bool comentariosVisible = false;
-        public static AeiCliente.ServicioProducto.Producto producto = null;
+        public static Producto producto = null;
         public static bool isCompra = false;
-        ServicioProductoClient servicioProducto = new ServicioProductoClient();
-        public static AeiCliente.ServicioProducto.DetalleCompra detalleCompra = new AeiCliente.ServicioProducto.DetalleCompra();
+        ServicioAEIClient servicioProducto = new ServicioAEIClient();
+        public static DetalleCompra detalleCompra = new DetalleCompra();
 
         public DetalleProductoPage()
         {
@@ -35,7 +34,7 @@ namespace AeiCliente
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            producto = e.Parameter as AeiCliente.ServicioProducto.Producto;
+            producto = e.Parameter as Producto;
             textNombre.Text = producto.Nombre;
             textDescripcion.Text = producto.Descripcion;
             textPrecio.Text = "Precio " + producto.Precio.ToString() + " Bs";

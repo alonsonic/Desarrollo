@@ -12,14 +12,14 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using TwitterRtLibrary;
-using AeiCliente.ServicioTwitter;
+using AeiCliente.ServicioAEI;
 namespace AeiCliente.GUI
 {
    
     public sealed partial class TwitterPage : Page
     {
         TwitterRt conexionTwitter = new TwitterRt("hLDGH8KA49YpSsGuMMhraQ", "m6TBRfQJMVtTYIERY1IBRICT0gGdnXsIrzw4Sm3BwQ", "http://www.tweetlai.com/");
-        ServicioTwitterClient servicioTwitter = new ServicioTwitterClient();
+        ServicioAEIClient servicioTwitter = new ServicioAEIClient();
 
         public TwitterPage()
         {
