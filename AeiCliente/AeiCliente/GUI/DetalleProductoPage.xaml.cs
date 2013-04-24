@@ -11,13 +11,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-<<<<<<< HEAD
 using AeiCliente.ServicioAEI;
-=======
-using AeiCliente.ServicioUsuario;
-using AeiCliente.ServicioProducto;
-using AeiCliente.ServicioCompra;
->>>>>>> 3e4e7665c29ebffdc8257f83fc5d852127ccebed
 using Windows.UI.Popups;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
