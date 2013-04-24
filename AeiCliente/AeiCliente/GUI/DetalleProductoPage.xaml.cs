@@ -54,7 +54,7 @@ namespace AeiCliente
                     this.textComentarios.Text = this.textComentarios.Text + "\n \n" + listaCalificacion[indexCalificacion].Usuario.Nombre + " " + listaCalificacion[indexCalificacion].Usuario.Apellido + "\n" + listaCalificacion[indexCalificacion].Comentario;
                 }
             }
-            else this.textComentarios.Text = "\n \n Aun no tenemos comentarios para este producto.";
+            else this.textComentarios.Text = "\n \n Aun no tenemos comentarios0 para este producto.";
         }
 
         private void botonMostrarComentario_Click(object sender, RoutedEventArgs e)
@@ -104,7 +104,7 @@ namespace AeiCliente
 
                 BufferUsuario.Usuario.Carrito.Productos.Add(detalleCompra);
                 ServicioAEIClient servicioAei = new ServicioAEIClient();
-                BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
+                BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra,null);
             }
             else
                 mensajeError.ShowAsync();

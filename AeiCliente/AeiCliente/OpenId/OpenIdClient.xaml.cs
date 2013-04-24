@@ -169,7 +169,6 @@ namespace AeiCliente
 
             ServicioAEIClient servicioUsuario = new ServicioAEIClient();
             BufferUsuario.Usuario = await servicioUsuario.ConsultarUsuarioAsync(email);
-
             botonSender.Content = "Salir";
 
             return;

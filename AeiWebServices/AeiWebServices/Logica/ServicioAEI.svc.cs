@@ -25,9 +25,8 @@ namespace AeiWebServices.Logica
 
         public Usuario agregarUsuario(string nombre, string apellido, string pasaporte, string mail, string fechaNacimiento)
         {
-            string fechaRegistro = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
-
-            Usuario usuario = new Usuario(1, nombre, apellido, pasaporte, mail, DateTime.ParseExact("1990-12-20", "yyyy-MM-dd", null), DateTime.ParseExact(fechaNacimiento, "yyyy-MM-dd", null), "I", null, null, null, null, 0);
+            DateTime fechaRegistro = DateTime.Today;
+            Usuario usuario = new Usuario(1, nombre, apellido, pasaporte, mail, fechaRegistro, DateTime.ParseExact(fechaNacimiento, "yyyy-MM-dd", null), "I", null, null, null, null, 0);
             if (FabricaDAO.setNuevoUsuario(usuario) == 1)
             {
                 return FabricaDAO.getUsuario(usuario.Email);
@@ -91,12 +90,16 @@ namespace AeiWebServices.Logica
 
         }
 
-        public Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra)
+        public Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra, Producto p)
         {
-            usuario = FabricaDAO.getUsuario(1);
-            Producto p = FabricaDAO.getProductoPorDetalleCompra(1);
-            detalleCompra = new DetalleCompra(150, 2, p);
             Compra carrito = FabricaDAO.getCarrito(usuario.Id);
+            if (carrito == null)
+            {
+                DateTime fechaRegistro = DateTime.Today;
+                carrito = new Compra(1, detalleCompra.Monto,fechaRegistro,fechaRegistro, "C",null,null,null);
+                FabricaDAO.setAgregarCompra(carrito, usuario.Id);
+                carrito = FabricaDAO.getCarrito(usuario.Id);
+            }
             int respuesta = FabricaDAO.setAgregarDetalleCompra(carrito.Id, detalleCompra);
             if (respuesta == 1)
             {

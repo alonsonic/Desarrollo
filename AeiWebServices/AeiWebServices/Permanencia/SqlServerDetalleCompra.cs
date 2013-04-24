@@ -12,6 +12,7 @@ namespace AeiWebServices.Permanencia
 
         public int agregarDetalleCompra(int idCompra, DetalleCompra detalleCompra)
         {
+         //   if (compra.Direccion == null && compra.Pago == null) return conexion.insertar("INSERT INTO Detalle_Compra (id,monto,cantidad,fk_compra,fk_producto) VALUES (NEXT VALUE FOR seq_detalle_compra," + detalleCompra.Monto.ToString() + "," + detalleCompra.Cantidad.ToString() + "," + idCompra.ToString() + "," + detalleCompra.Producto.Id.ToString() + ");");
             return conexion.insertar("INSERT INTO Detalle_Compra (id,monto,cantidad,fk_compra,fk_producto) VALUES (NEXT VALUE FOR seq_detalle_compra,"+detalleCompra.Monto.ToString()+","+detalleCompra.Cantidad.ToString()+","+idCompra.ToString()+","+detalleCompra.Producto.Id.ToString()+");");
         }
         

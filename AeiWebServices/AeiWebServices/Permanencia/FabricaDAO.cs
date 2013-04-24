@@ -8,6 +8,7 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
+       
         static public List<DetalleCompra> getListaProductos(int idCompra)
         {
             SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();
@@ -60,10 +61,10 @@ namespace AeiWebServices.Permanencia
             return lista.categorias();
         }
 
-        static public int setCompra(Compra compra)
+        static public int setCompra(Compra compra, int idUsuario)
         {
             SqlServerCompra resultado = new SqlServerCompra();
-            return resultado.agregarCompra(compra);
+            return resultado.agregarCompra(compra, idUsuario);
         }
 
         static public Categoria buscarProductoPorCategoria(int idProducto)
@@ -114,11 +115,11 @@ namespace AeiWebServices.Permanencia
             SqlServerCalificacion resultado = new SqlServerCalificacion();
             return resultado.agregarCalificacion(calificacion,idUsuario,idProducto);
         }
-        static public int setAgregarCompra(Compra compra)
+        static public int setAgregarCompra(Compra compra, int idUsuario)
         {
             SqlServerCompra resultado = new SqlServerCompra();
             Usuario user = new Usuario();
-            return resultado.agregarCompra(compra);
+            return resultado.agregarCompra(compra, idUsuario);
         }
 
         static public int setEstadoDeCompra(String status, int idCompra)
