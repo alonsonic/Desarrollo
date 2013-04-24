@@ -16,27 +16,27 @@
             <ComboBox x:Name="comboBoxCiudad" HorizontalAlignment="Left" Margin="653,23,0,0" VerticalAlignment="Top" Width="160"/>
             <TextBox x:Name="textboxCodigoPostal" HorizontalAlignment="Left" Margin="1110,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91"/>
             <Button x:Name="buttonAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="877,212,0,0" VerticalAlignment="Top" Width="145" Click="buttonAgregar_Click"/>
-            <TextBlock HorizontalAlignment="Left" Margin="156,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="123" FontSize="35.556">
+            <TextBlock HorizontalAlignment="Left" Margin="132,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="147" FontSize="32">
         		<Run Text="*"/>
         		<Run Text="Estado"/>
             </TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="522,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="126" FontSize="35.556">
+            <TextBlock HorizontalAlignment="Left" Margin="501,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="144" FontSize="32">
             	<Run Text="*"/>
             	<Run Text="Ciudad"/>
             </TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="864,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="240" FontSize="35.556">
+            <TextBlock HorizontalAlignment="Left" Margin="864,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="240" FontSize="32">
             	<Run Text="*"/>
             	<Run Text="Codigo Postal"/>
             </TextBlock>
-            <Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="1049,212,0,0" VerticalAlignment="Top" Width="145"/>
-            <TextBlock HorizontalAlignment="Left" Margin="159,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="523" FontSize="35.556">
+            <Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="1049,212,0,0" VerticalAlignment="Top" Width="145" Click="buttonCancelar_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="132,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="550" FontSize="32">
         		<Run Text="Detalle "/>
         		<Run Text="de la Direcci"/>
         		<Run Text="ó"/>
         		<Run Text="n"/>
             </TextBlock>
-            <TextBox x:Name="textBoxDetalle" HorizontalAlignment="Left" Height="99" Margin="216,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="978"/>
-            <ComboBox x:Name="comboBoxEstado" HorizontalAlignment="Left" Margin="279,23,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
+            <TextBox x:Name="textBoxDetalle" HorizontalAlignment="Left" Height="99" Margin="177,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1017"/>
+            <ComboBox x:Name="comboBoxEstado" HorizontalAlignment="Left" Margin="279,23,0,0" VerticalAlignment="Top" Width="160" Height="32" SelectionChanged="comboBoxEstado_SelectionChanged_1"/>
         </Grid>
     </custom:PopoverView>
 

@@ -35,7 +35,7 @@ namespace AeiCliente.GUI
         {
 
             Usuario usuario = await servicio.agregarUsuarioAsync(textBoxNombre.Text, textBoxApellido.Text, textPasaporteEditable.Text, textCorreoEditable.Text,
-                                            ComboAno.SelectedValue + "-" + ComboMes.SelectedValue + "-" + ComboDia.SelectedValue);
+                                        ComboAno.SelectedValue.ToString() + "-" + ComboMes.SelectedValue.ToString() + "-" + ComboDia.SelectedValue.ToString());
             if (usuario == null)
             {
                 MessageDialog mensajeError = new MessageDialog("Error no se pudo agregar al sistema");

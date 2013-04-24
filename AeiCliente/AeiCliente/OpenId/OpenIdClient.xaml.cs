@@ -27,6 +27,7 @@ using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using AeiCliente.ServicioAEI;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 
 namespace AeiCliente
 {
@@ -121,13 +122,13 @@ namespace AeiCliente
                 else if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
                 {
                     OutputToken("HTTP Error returned by AuthenticateAsync() : " + WebAuthenticationResult.ResponseErrorDetail.ToString());
-                    //botonSender.Content = "Ingresar";
+                    botonSender.Content = "Ingresar";
                     BufferUsuario.Usuario = null;
                 }
                 else
                 {
                     OutputToken("Error returned by AuthenticateAsync() : " + WebAuthenticationResult.ResponseStatus.ToString());
-                   // botonSender.Content = "Ingresar";
+                    botonSender.Content = "Ingresar";
                     BufferUsuario.Usuario = null;
                 }
                 
@@ -169,7 +170,15 @@ namespace AeiCliente
 
             ServicioAEIClient servicioUsuario = new ServicioAEIClient();
             BufferUsuario.Usuario = await servicioUsuario.ConsultarUsuarioAsync(email);
-            botonSender.Content = "Salir";
+            if (BufferUsuario.Usuario == null)
+            {
+                MessageDialog mensajeError = new MessageDialog("Usteden no esta registrado en nuestro sistema con el correo electonico "+email+
+                                            " intente de nuevo con correo valido o registrese");
+                mensajeError.ShowAsync();
+                botonSender.Content = "Ingresar";
+            }
+            else
+             botonSender.Content = "Salir";
 
             return;
         }

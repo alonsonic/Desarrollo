@@ -11,7 +11,7 @@
     d:DesignWidth="413" Width="1366" Height="768">
 
     <custom:PopoverView Margin="6,0,-6,0">
-        <Grid Background="#FFB9B9B9" Margin="-9,228,9,224">
+        <Grid Margin="-9,228,9,224" Opacity="2" Background="#FF0CC9F3">
         	<Grid.ColumnDefinitions>
         		<ColumnDefinition Width="344*"/>
         		<ColumnDefinition Width="339*"/>
@@ -27,8 +27,8 @@
             	<Run Text="e fue enviado a su correo"/>
             </TextBlock>
             <TextBox x:Name="textCodigo" HorizontalAlignment="Left" Height="72" Margin="532,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" IsReadOnly="True" Grid.ColumnSpan="2" FontSize="57.333" TextAlignment="Center"/>
-            <Button x:Name="buttonEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="210,227,0,0" VerticalAlignment="Top" Height="80" Width="360" FontSize="40" Click="buttonEnviar_Click"/>
-            <Button x:Name="ButtonCancelar" Content="Cancelar" Grid.Column="1" HorizontalAlignment="Left" Margin="110,226,0,0" VerticalAlignment="Top" Width="360" Height="80" FontSize="40"/>
+            <Button x:Name="buttonEnviar" Content="Enviar" HorizontalAlignment="Stretch" Margin="249,240,119,16" VerticalAlignment="Stretch" FontSize="32" Click="buttonEnviar_Click" Height="60"/>
+            <Button x:Name="ButtonCancelar" Content="Cancelar" Grid.Column="1" HorizontalAlignment="Left" Margin="119,241,0,15" VerticalAlignment="Stretch" Width="320" FontSize="32"/>
      </Grid>
     </custom:PopoverView>
 

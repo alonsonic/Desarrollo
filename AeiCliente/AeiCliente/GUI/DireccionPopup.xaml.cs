@@ -43,18 +43,16 @@ namespace AeiCliente
 
         }
 
-        private async void comboBoxEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void reiniciarComboBox(ComboBox comboBox)
         {
-            int idEstado = listaEstados[comboBoxEstado.SelectedIndex].Id;
-            listaCiudad = await servicioDireccion.consultarCiudadAsync(idEstado);
-            for (int i = 0; i < listaCiudad.Count(); i++)
+            for (int index = 0; index < comboBox.Items.Count(); index++)
             {
-                comboBoxCiudad.Items.Add(listaCiudad[i].Ciudad);
-                
-            }
+                comboBox.Items.RemoveAt(index);
 
+            }
         }
 
+       
         private async void buttonAgregar_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog mensajeError = new MessageDialog("Los campos con * son OBLIGATORIOS");
@@ -62,8 +60,12 @@ namespace AeiCliente
 
             if (comboBoxCiudad.SelectedIndex != 0 && comboBoxEstado.SelectedIndex != 0 && textboxCodigoPostal.Text.Length != 0)
             {
-                int idCiudad = listaCiudad[comboBoxCiudad.SelectedIndex].Id;
+                int idCiudad = listaCiudad[comboBoxCiudad.SelectedIndex-1].Id;
                 error = await servicioDireccion.agregarDireccionUsuarioAsync(BufferUsuario.Usuario.Id, idCiudad, textBoxDetalle.Text, int.Parse(textboxCodigoPostal.Text));
+                if (error == 1)
+                {
+                    BufferUsuario.Usuario.Direcciones = await servicioDireccion.buscarDireccionUsuarioAsync(BufferUsuario.Usuario.Id);
+                }
                 
             }
             else
@@ -78,6 +80,22 @@ namespace AeiCliente
 
             }
 
+        }
+
+        private async void comboBoxEstado_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            reiniciarComboBox(comboBoxCiudad);
+            int idEstado = listaEstados[comboBoxEstado.SelectedIndex].Id;
+            listaCiudad = await servicioDireccion.consultarCiudadAsync(idEstado);
+            for (int i = 0; i < listaCiudad.Count(); i++)
+            {
+                comboBoxCiudad.Items.Add(listaCiudad[i].Ciudad);
+            }
+        }
+
+        private void buttonCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            popup.IsOpen = false;
         }
 
        

@@ -11,7 +11,7 @@
     d:DesignWidth="413" Width="1366" Height="768">
 
     <custom:PopoverView Margin="3,0,-3,0">
-        <Grid Background="#FFF46526" Margin="-3,264,3,284">
+        <Grid Margin="-3,264,3,284" Background="#FFF46526">
         	<Grid.ColumnDefinitions>
         		<ColumnDefinition Width="688"/>
         		<ColumnDefinition/>

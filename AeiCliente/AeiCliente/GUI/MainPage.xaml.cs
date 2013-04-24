@@ -82,7 +82,7 @@ namespace AeiCliente
             if (botonInicioSesion.Content.Equals("Ingresar"))
             {
                 Popup popup = new Popup();
-                RegistroUsuarioPopup direcPopup = new RegistroUsuarioPopup(popup);
+                RegistroUsuarioPopup direcPopup = new RegistroUsuarioPopup(popup, sender);
                 popup.Child = direcPopup;
                 popup.IsOpen = true;
 
