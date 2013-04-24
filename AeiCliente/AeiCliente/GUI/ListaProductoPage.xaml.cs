@@ -34,6 +34,7 @@ namespace AeiCliente
             cargarProductos();
             llenarComboCategoria();
 
+
         }
 
         private async void llenarComboCategoria()
