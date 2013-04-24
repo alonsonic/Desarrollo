@@ -35,9 +35,20 @@ namespace AeiCliente
         {
         }
 
+        private void validarStatusUsuario()
+        {
+            if (BufferUsuario.Usuario.Status.Equals("I"))
+            {
+                Popup popup = new Popup();
+                CodigoConfirPopup direcPopup = new CodigoConfirPopup(popup);
+                popup.Child = direcPopup;
+                popup.IsOpen = true;
+            }
+        }
+
         private void botonCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para llevar una lista de compras.");;
+            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para llevar una lista de compras.");
 
             if (BufferUsuario.isConectado())
                 this.Frame.Navigate(typeof(ListaCompraPage));
@@ -70,8 +81,11 @@ namespace AeiCliente
         {
             if (botonInicioSesion.Content.Equals("Ingresar"))
             {
-                OpenIdClient openId = new OpenIdClient();
-                openId.clickOpenID(sender, e);
+                Popup popup = new Popup();
+                RegistroUsuarioPopup direcPopup = new RegistroUsuarioPopup(popup);
+                popup.Child = direcPopup;
+                popup.IsOpen = true;
+
                 if (BufferUsuario.Usuario != null)
                     botonInicioSesion.Content = "Salir";
             }

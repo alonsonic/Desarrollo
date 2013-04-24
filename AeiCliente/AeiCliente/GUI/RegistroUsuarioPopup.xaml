@@ -10,20 +10,21 @@
     d:DesignHeight="323"
     d:DesignWidth="413" Width="1366" Height="768">
 
-    <custom:PopoverView Margin="57,0,-57,0">
-        <Grid Background="#FFB9B9B9" Margin="-57,228,57,224">
+    <custom:PopoverView Margin="3,0,-3,0">
+        <Grid Background="#FFF46526" Margin="-3,264,3,284">
         	<Grid.ColumnDefinitions>
-        		<ColumnDefinition Width="344*"/>
-        		<ColumnDefinition Width="339*"/>
+        		<ColumnDefinition Width="688"/>
+        		<ColumnDefinition/>
         	</Grid.ColumnDefinitions>
-            <Rectangle x:Name="background" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="774" Margin="-10,-255,0,-203" Stroke="Black" VerticalAlignment="Top" Width="1366">
+            <Rectangle x:Name="background" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="774" Margin="-1,-270,0,-284" Stroke="Black" VerticalAlignment="Top" Width="1366">
             	<Rectangle.Fill>
             		<SolidColorBrush Color="Black" Opacity="0.15"/>
             	</Rectangle.Fill>
             </Rectangle>
-            <TextBlock HorizontalAlignment="Left" Margin="151,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="77" Width="806" FontSize="48" Grid.ColumnSpan="2" Text="¿Es tu primera vez en aei Store?"/>
-            <Button x:Name="ButtonSI" Content="Si" HorizontalAlignment="Left" Margin="189,196,0,0" VerticalAlignment="Top" Height="71" Width="372" FontSize="40"/>
-            <Button x:Name="ButtonNo" Content="No" HorizontalAlignment="Left" Margin="131,191,0,0" VerticalAlignment="Top" Height="71" Width="372" Grid.Column="1" FontSize="40"/>
+            <TextBlock HorizontalAlignment="Left" Margin="103,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="77" Width="806" FontSize="32" Grid.ColumnSpan="2" Text="¿Es tu primera vez en aei Store?"/>
+            <Button x:Name="buttonNo" Content="No" HorizontalAlignment="Left" Margin="528,118,0,0" VerticalAlignment="Top" Width="320" Height="60" FontSize="32" Click="buttonNo_Click" Grid.ColumnSpan="2"/>
+            <Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="224,118,0,0" VerticalAlignment="Top" Width="320" Height="60" FontSize="32" Click="buttonCancelar_Click" Grid.Column="1"/>
+            <Button x:Name="buttonSI" Content="Si" HorizontalAlignment="Left" Margin="141,118,0,0" VerticalAlignment="Top" Width="320" Height="60" FontSize="32"/>
         </Grid>
     </custom:PopoverView>
 
