@@ -182,13 +182,14 @@
       <xs:sequence>
         <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q11:Usuario" />
         <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="detalleCompra" nillable="true" type="q12:DetalleCompra" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="p" nillable="true" type="q13:Producto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="agregarCarritoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="agregarCarritoResult" nillable="true" type="q13:Usuario" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="agregarCarritoResult" nillable="true" type="q14:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

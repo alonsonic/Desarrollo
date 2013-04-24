@@ -1061,7 +1061,7 @@ namespace AeiCliente.ServicioAEI {
         System.Threading.Tasks.Task<int> agregarDireccionUsuarioAsync(int idUsuario, int idDireccion, string descripcion, int codigoPostal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/agregarCarrito", ReplyAction="http://tempuri.org/IServicioAEI/agregarCarritoResponse")]
-        System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> agregarCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalleCompra);
+        System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> agregarCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalleCompra, AeiCliente.ServicioAEI.Producto p);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1155,8 +1155,8 @@ namespace AeiCliente.ServicioAEI {
             return base.Channel.agregarDireccionUsuarioAsync(idUsuario, idDireccion, descripcion, codigoPostal);
         }
         
-        public System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> agregarCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalleCompra) {
-            return base.Channel.agregarCarritoAsync(usuario, detalleCompra);
+        public System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> agregarCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalleCompra, AeiCliente.ServicioAEI.Producto p) {
+            return base.Channel.agregarCarritoAsync(usuario, detalleCompra, p);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {
