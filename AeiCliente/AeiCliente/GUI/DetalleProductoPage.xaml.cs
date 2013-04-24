@@ -11,13 +11,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-<<<<<<< HEAD
 using AeiCliente.ServicioAEI;
-=======
-using AeiCliente.ServicioUsuario;
-using AeiCliente.ServicioProducto;
-using AeiCliente.ServicioCompra;
->>>>>>> 3e4e7665c29ebffdc8257f83fc5d852127ccebed
 using Windows.UI.Popups;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
@@ -30,13 +24,8 @@ namespace AeiCliente
 		bool comentariosVisible = false;
         public static Producto producto = null;
         public static bool isCompra = false;
-<<<<<<< HEAD
-        ServicioAEIClient servicioProducto = new ServicioAEIClient();
+        ServicioAEIClient servicioAei = new ServicioAEIClient();
         public static DetalleCompra detalleCompra = new DetalleCompra();
-=======
-        ServicioProductoClient servicioProducto = new ServicioProductoClient();
-        public static AeiCliente.ServicioUsuario.DetalleCompra detalleCompra = new AeiCliente.ServicioUsuario.DetalleCompra();
->>>>>>> 3e4e7665c29ebffdc8257f83fc5d852127ccebed
 
         public DetalleProductoPage()
         {
@@ -51,12 +40,13 @@ namespace AeiCliente
             textPrecio.Text = "Precio " + producto.Precio.ToString() + " Bs";
             if (producto.Cantidad == 1) textCantidad.Text = producto.Cantidad.ToString() + " unidad disponible";
             else textCantidad.Text = producto.Cantidad.ToString()+" unidades disponibles";
-            producto.Calificaciones = await servicioProducto.buscarCalificacionProductoAsync(producto.Id);
+            producto.Calificaciones = await servicioAei.buscarCalificacionProductoAsync(producto.Id);
             cargarComentarios();
         }
+
         private void cargarComentarios()
         {
-            List<ServicioProducto.Calificacion> listaCalificacion = producto.Calificaciones;
+            List<Calificacion> listaCalificacion = producto.Calificaciones;
             if (listaCalificacion != null)
             {
                 for (int indexCalificacion = 0; indexCalificacion < listaCalificacion.Count; indexCalificacion++)
@@ -101,7 +91,7 @@ namespace AeiCliente
                 popup.IsOpen = true;
 
                 //BORRAR
-                ServicioUsuario.Producto PRODUCTOBORRAR = new ServicioUsuario.Producto();
+                Producto PRODUCTOBORRAR = new Producto();
                 PRODUCTOBORRAR.Id = producto.Id;
                 PRODUCTOBORRAR.Nombre = producto.Nombre;
                 PRODUCTOBORRAR.Precio = producto.Precio;
@@ -113,8 +103,8 @@ namespace AeiCliente
                 //LLamar al servicio para guardar la compra y que me retorne mi usuario
 
                 BufferUsuario.Usuario.Carrito.Productos.Add(detalleCompra);
-                ServicioCompraClient servicioCompra = new ServicioCompraClient();
-                BufferUsuario.Usuario = await servicioCompra.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
+                ServicioAEIClient servicioAei = new ServicioAEIClient();
+                BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
             }
             else
                 mensajeError.ShowAsync();
