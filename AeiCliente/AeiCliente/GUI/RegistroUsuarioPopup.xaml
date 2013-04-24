@@ -11,18 +11,19 @@
     d:DesignWidth="413" Width="1366" Height="768">
 
     <custom:PopoverView Margin="57,0,-57,0">
-        <Grid Background="#FFF46526" Margin="-57,228,57,224">
+        <Grid Background="#FFB9B9B9" Margin="-57,228,57,224">
         	<Grid.ColumnDefinitions>
         		<ColumnDefinition Width="344*"/>
         		<ColumnDefinition Width="339*"/>
         	</Grid.ColumnDefinitions>
-            <Rectangle x:Name="background" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="774" Margin="0,-234,0,-224" Stroke="Black" VerticalAlignment="Top" Width="1366">
+            <Rectangle x:Name="background" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="774" Margin="-10,-255,0,-203" Stroke="Black" VerticalAlignment="Top" Width="1366">
             	<Rectangle.Fill>
             		<SolidColorBrush Color="Black" Opacity="0.15"/>
             	</Rectangle.Fill>
             </Rectangle>
-            <TextBlock HorizontalAlignment="Left" Margin="532,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="299" FontSize="35.556" Text="Ingrese la cantidad" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="textCantidad" HorizontalAlignment="Left" Height="90" Margin="532,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" IsReadOnly="True" Grid.ColumnSpan="2" Text="20" FontSize="57.333" TextAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Left" Margin="151,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="77" Width="806" FontSize="48" Grid.ColumnSpan="2" Text="¿Es tu primera vez en aei Store?"/>
+            <Button x:Name="ButtonSI" Content="Si" HorizontalAlignment="Left" Margin="189,196,0,0" VerticalAlignment="Top" Height="71" Width="372" FontSize="40"/>
+            <Button x:Name="ButtonNo" Content="No" HorizontalAlignment="Left" Margin="131,191,0,0" VerticalAlignment="Top" Height="71" Width="372" Grid.Column="1" FontSize="40"/>
         </Grid>
     </custom:PopoverView>
 
