@@ -90,25 +90,14 @@ namespace AeiCliente
                 popup.Child = direcPopup;
                 popup.IsOpen = true;
 
-                //BORRAR
-                Producto PRODUCTOBORRAR = new Producto();
-                PRODUCTOBORRAR.Id = producto.Id;
-                PRODUCTOBORRAR.Nombre = producto.Nombre;
-                PRODUCTOBORRAR.Precio = producto.Precio;
-                PRODUCTOBORRAR.Descripcion = producto.Descripcion;
-                //BORRAR 
-
-                detalleCompra.Producto = PRODUCTOBORRAR;
+                detalleCompra.Producto = producto;
                 detalleCompra.Monto = producto.Precio * detalleCompra.Cantidad;
                 //LLamar al servicio para guardar la compra y que me retorne mi usuario
-
-                BufferUsuario.Usuario.Carrito.Productos.Add(detalleCompra);
-                ServicioAEIClient servicioAei = new ServicioAEIClient();
                 BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
+                var xs = BufferUsuario.Usuario.Carrito.Productos;
             }
             else
                 mensajeError.ShowAsync();
-                
         }
 	}
 }

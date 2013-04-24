@@ -97,13 +97,49 @@ namespace AeiCliente
         private async void botonMunecas_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("muñecas");
-            this.Frame.Navigate(typeof(ListaCompraPage));
+            this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonJuegosMesa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("juegos de mesa");
-            this.Frame.Navigate(typeof(ListaCompraPage));
+            this.Frame.Navigate(typeof(ListaProductoPage));
+        }
+
+        private async void botonAccion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("figuras de acción");
+            this.Frame.Navigate(typeof(ListaProductoPage));
+        }
+
+        private async void botonInfantiles_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("juegos infantiles");
+            this.Frame.Navigate(typeof(ListaProductoPage));
+        }
+
+        private async void botonAprendizaje_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("aprendizaje");
+            this.Frame.Navigate(typeof(ListaProductoPage));
+        }
+
+        private async void botonDeportes_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("deportes");
+            this.Frame.Navigate(typeof(ListaProductoPage));
+        }
+
+        private async void botonNinas_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("juguetes para niñas");
+            this.Frame.Navigate(typeof(ListaProductoPage));
+        }
+
+        private async void botonVideoJuegos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("video juegos");
+            this.Frame.Navigate(typeof(ListaProductoPage));
         }
         
     }

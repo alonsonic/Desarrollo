@@ -93,9 +93,6 @@ namespace AeiWebServices.Logica
 
         public Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra)
         {
-            usuario = FabricaDAO.getUsuario(1);
-            Producto p = FabricaDAO.getProductoPorDetalleCompra(1);
-            detalleCompra = new DetalleCompra(150, 2, p);
             Compra carrito = FabricaDAO.getCarrito(usuario.Id);
             int respuesta = FabricaDAO.setAgregarDetalleCompra(carrito.Id, detalleCompra);
             if (respuesta == 1)
