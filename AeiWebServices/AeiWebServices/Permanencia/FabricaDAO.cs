@@ -8,7 +8,12 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
-       
+        static public List<Direccion> getListaDireccion(int idUsuario)
+        {
+            SqlServerDireccion resultado = new SqlServerDireccion();
+            return resultado.ConsultarDireccion(idUsuario);
+        }
+
         static public List<DetalleCompra> getListaProductos(int idCompra)
         {
             SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();

@@ -12,6 +12,11 @@ namespace AeiWebServices.Logica
 
     public class ServicioAEI : IServicioAEI
     {
+        public List<Direccion> buscarDireccionUsuario(int idUsuario)
+        {
+            return FabricaDAO.getListaDireccion(idUsuario);
+        }
+
         public Usuario ConsultarUsuario(string mail)
         {
             Usuario usuario = FabricaDAO.getUsuario(mail);

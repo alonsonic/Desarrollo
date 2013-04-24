@@ -1,5 +1,4 @@
 ﻿using AeiCliente.ServicioAEI;
-using AeiCliente.ServicioAEI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -60,9 +59,11 @@ namespace AeiCliente
 
         private void cargarFechaNacimiento()
         {
-            ComboDia.Items.Add(usuario.FechaNacimiento.Day);
-            ComboMes.SelectedIndex = int.Parse(usuario.FechaNacimiento.Month.ToString());
-            ComboAno.Items.Add(usuario.FechaNacimiento.Year);
+            ComboDia.Items.Add(usuario.FechaNacimiento.Day.ToString());
+            ComboDia.SelectedIndex = 0;
+            ComboMes.SelectedIndex = int.Parse(usuario.FechaNacimiento.Month.ToString())-1;    
+            ComboAno.Items.Add(usuario.FechaNacimiento.Year.ToString());
+            ComboAno.SelectedIndex = 0;
 
         }
 

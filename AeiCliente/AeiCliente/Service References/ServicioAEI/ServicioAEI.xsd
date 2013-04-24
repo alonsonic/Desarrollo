@@ -193,4 +193,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="buscarDireccionUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idUsuario" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarDireccionUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="buscarDireccionUsuarioResult" nillable="true" type="q15:ArrayOfDireccion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

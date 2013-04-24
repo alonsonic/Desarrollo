@@ -50,5 +50,8 @@ namespace AeiWebServices.Logica
         [OperationContract]
         Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra, Producto p);
 
+        [OperationContract]
+        List<Direccion> buscarDireccionUsuario(int idUsuario);
+
     }
 }

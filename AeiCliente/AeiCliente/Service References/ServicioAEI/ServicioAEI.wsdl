@@ -86,6 +86,12 @@
   <wsdl:message name="IServicioAEI_agregarCarrito_OutputMessage">
     <wsdl:part name="parameters" element="tns:agregarCarritoResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioAEI_buscarDireccionUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarDireccionUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_buscarDireccionUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarDireccionUsuarioResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioAEI">
     <wsdl:operation name="ConsultarUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/ConsultarUsuario" message="tns:IServicioAEI_ConsultarUsuario_InputMessage" />
@@ -138,6 +144,10 @@
     <wsdl:operation name="agregarCarrito">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/agregarCarrito" message="tns:IServicioAEI_agregarCarrito_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/agregarCarritoResponse" message="tns:IServicioAEI_agregarCarrito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarDireccionUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/buscarDireccionUsuario" message="tns:IServicioAEI_buscarDireccionUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/buscarDireccionUsuarioResponse" message="tns:IServicioAEI_buscarDireccionUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioAEI" type="tns:IServicioAEI">
@@ -252,6 +262,15 @@
     </wsdl:operation>
     <wsdl:operation name="agregarCarrito">
       <soap:operation soapAction="http://tempuri.org/IServicioAEI/agregarCarrito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarDireccionUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/buscarDireccionUsuario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

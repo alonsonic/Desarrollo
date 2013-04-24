@@ -21,6 +21,7 @@ namespace AeiCliente
 
     public sealed partial class ListaProductoPage : Page
     {
+        ServicioAEIClient servicioProducto = new ServicioAEIClient();
 
         public ListaProductoPage()
         {
