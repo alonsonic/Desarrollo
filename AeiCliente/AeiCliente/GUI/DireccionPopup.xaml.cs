@@ -11,7 +11,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using AeiCliente.ServicioDireccion;
+using AeiCliente.ServicioAEI;
 using Windows.UI.Popups;
 
 namespace AeiCliente
@@ -19,7 +19,7 @@ namespace AeiCliente
     public sealed partial class DireccionPopup : UserControl
     {
         private Popup popup = null;
-        private ServicioDireccionClient servicioDireccion = new ServicioDireccionClient();
+        private ServicioAEIClient servicioDireccion = new ServicioAEIClient();
         private List<Direccion> listaEstados = null;
         private  List<Direccion> listaCiudad = null;
 

@@ -1,4 +1,4 @@
-﻿using AeiCliente.ServicioUsuario;
+﻿using AeiCliente.ServicioAEI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,15 +26,15 @@ namespace AeiCliente
         public ListaCompraPage()
         {
             this.InitializeComponent();
-            cargarProductos();
+            cargarCarrito();
         }
        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            cargarProductos();
+            cargarCarrito();
         }
 
-        private void cargarProductos()
+        private void cargarCarrito()
         {
             if (BufferUsuario.Usuario == null || BufferUsuario.Usuario.Carrito == null)
                 return;

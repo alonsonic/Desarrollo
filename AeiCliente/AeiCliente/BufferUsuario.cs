@@ -1,18 +1,17 @@
-﻿using System;
+﻿using AeiCliente.ServicioAEI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AeiCliente.ServicioUsuario;
-using AeiCliente.ServicioProducto;
 
 namespace AeiCliente
 {
     public static class BufferUsuario
     {
-        static AeiCliente.ServicioUsuario.Usuario bufferUsuario = null;
+        static Usuario bufferUsuario = null;
 
-        public static AeiCliente.ServicioUsuario.Usuario Usuario
+        public static Usuario Usuario
         {
             get { return BufferUsuario.bufferUsuario; }
             set { BufferUsuario.bufferUsuario = value; }
@@ -32,7 +31,7 @@ namespace AeiCliente
         
         }
 
-        static public void comprar(AeiCliente.ServicioUsuario.Producto compra)
+        static public void comprar(Producto compra)
         {
             //bufferUsuario.Carrito
         }

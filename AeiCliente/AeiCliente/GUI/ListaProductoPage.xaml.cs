@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using AeiCliente.ServicioProducto;
+using AeiCliente.ServicioAEI;
 using Windows.UI.Popups;
 
 
@@ -34,11 +34,12 @@ namespace AeiCliente
             cargarProductos();
             llenarComboCategoria();
 
+
         }
 
         private async void llenarComboCategoria()
         {
-            ServicioProductoClient servicioProducto = new ServicioProductoClient();
+            ServicioAEIClient servicioProducto = new ServicioAEIClient();
             List<Categoria> listCategoria = await servicioProducto.BuscarTodasLasCategoriasAsync();
             comboCategoria.Items.Add("Todas");
             comboCategoria.SelectedIndex = 0;
@@ -68,7 +69,7 @@ namespace AeiCliente
         private async void botonLupa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             MessageDialog mensajeError = new MessageDialog("Su búsqueda no retornó ningún resultado.");
-            ServicioProductoClient servicioProducto = new ServicioProductoClient();
+            ServicioAEIClient servicioProducto = new ServicioAEIClient();
             if (comboCategoria.SelectedIndex == 0)
                 ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoAsync(textBoxBusqueda.Text);
             else

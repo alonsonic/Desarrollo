@@ -12,10 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using AeiCliente.ServicioUsuario;
-using AeiCliente.ServicioProducto;
+using AeiCliente.ServicioAEI;
 using AeiCliente.GUI;
-using AeiCliente.ServicioCompra;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,8 +24,7 @@ namespace AeiCliente
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        ServicioProductoClient servicioProducto = new ServicioProductoClient();
-        ServicioUsuarioClient servicioUsuario = new ServicioUsuarioClient();
+        ServicioAEIClient servicio = new ServicioAEIClient();
         
         
         public MainPage()
@@ -87,25 +84,25 @@ namespace AeiCliente
 
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("bloques");
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("bloques");
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonVehiculos_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("vehiculos");
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("vehiculos");
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonMunecas_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("muñecas");
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("muñecas");
             this.Frame.Navigate(typeof(ListaCompraPage));
         }
 
         private async void botonJuegosMesa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicioProducto.BuscarProductoPorCategoriaAsync("juegos de mesa");
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("juegos de mesa");
             this.Frame.Navigate(typeof(ListaCompraPage));
         }
         
