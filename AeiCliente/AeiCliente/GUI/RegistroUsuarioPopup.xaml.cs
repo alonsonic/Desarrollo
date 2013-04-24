@@ -26,6 +26,23 @@ namespace AeiCliente
             this.popup = padre;
             this.InitializeComponent();
         }
+
+        private void buttonNo_Click(object sender, RoutedEventArgs e)
+        {
+            OpenIdClient openId = new OpenIdClient();
+            openId.clickOpenID(sender, e);
+        }
+
+        private void buttonCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            popup.IsOpen = false;
+        }
+
+        private void buttonSI_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
 		
     }
 }

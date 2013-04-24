@@ -121,13 +121,13 @@ namespace AeiCliente
                 else if (WebAuthenticationResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
                 {
                     OutputToken("HTTP Error returned by AuthenticateAsync() : " + WebAuthenticationResult.ResponseErrorDetail.ToString());
-                    botonSender.Content = "Ingresar";
+                    //botonSender.Content = "Ingresar";
                     BufferUsuario.Usuario = null;
                 }
                 else
                 {
                     OutputToken("Error returned by AuthenticateAsync() : " + WebAuthenticationResult.ResponseStatus.ToString());
-                    botonSender.Content = "Ingresar";
+                   // botonSender.Content = "Ingresar";
                     BufferUsuario.Usuario = null;
                 }
                 
@@ -169,7 +169,6 @@ namespace AeiCliente
 
             ServicioAEIClient servicioUsuario = new ServicioAEIClient();
             BufferUsuario.Usuario = await servicioUsuario.ConsultarUsuarioAsync(email);
-
             botonSender.Content = "Salir";
 
             return;

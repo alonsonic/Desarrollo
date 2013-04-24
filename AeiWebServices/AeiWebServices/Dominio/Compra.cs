@@ -23,7 +23,7 @@ namespace AeiWebServices
         {
 
         }
-
+        
         public Compra(int id, float montoTotal, DateTime fechaSolicitud, DateTime fechaEntrega, string status,
                       MetodoPago pago, List<DetalleCompra> productos, Direccion direccion)
         {
@@ -32,7 +32,6 @@ namespace AeiWebServices
             this.fechaSolicitud = fechaSolicitud;
             this.fechaEntrega = fechaEntrega;
             this.status = status;
-            this.productos = productos;
             this.pago = pago;
             this.direccion = direccion;
         }

@@ -10,8 +10,8 @@
     d:DesignHeight="323"
     d:DesignWidth="413" Width="1366" Height="768">
 
-    <custom:PopoverView Margin="57,0,-57,0">
-        <Grid Background="#FFF46526" Margin="-57,228,57,224">
+    <custom:PopoverView Margin="6,0,-6,0">
+        <Grid Background="#FFB9B9B9" Margin="-9,228,9,224">
         	<Grid.ColumnDefinitions>
         		<ColumnDefinition Width="344*"/>
         		<ColumnDefinition Width="339*"/>
@@ -21,8 +21,14 @@
             		<SolidColorBrush Color="Black" Opacity="0.15"/>
             	</Rectangle.Fill>
             </Rectangle>
-            <TextBlock HorizontalAlignment="Left" Margin="532,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="299" FontSize="35.556" Text="Ingrese la cantidad" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="textCantidad" HorizontalAlignment="Left" Height="90" Margin="532,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" IsReadOnly="True" Grid.ColumnSpan="2" Text="20" FontSize="57.333" TextAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Left" Margin="52,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="1304" FontSize="48" Grid.ColumnSpan="2">
+            	<Run Text="Ingres"/>
+            	<Run Text="e el código de activación qu"/>
+            	<Run Text="e fue enviado a su correo"/>
+            </TextBlock>
+            <TextBox x:Name="textCodigo" HorizontalAlignment="Left" Height="72" Margin="532,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" IsReadOnly="True" Grid.ColumnSpan="2" FontSize="57.333" TextAlignment="Center"/>
+            <Button x:Name="buttonEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="210,227,0,0" VerticalAlignment="Top" Height="80" Width="360" FontSize="40" Click="buttonEnviar_Click"/>
+            <Button x:Name="ButtonCancelar" Content="Cancelar" Grid.Column="1" HorizontalAlignment="Left" Margin="110,226,0,0" VerticalAlignment="Top" Width="360" Height="80" FontSize="40"/>
      </Grid>
     </custom:PopoverView>
 

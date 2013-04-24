@@ -278,9 +278,9 @@ namespace AeiWebServices.Permanencia
             return listaCompras;
         }
 
-        public int agregarCompra(Compra compra)
+        public int agregarCompra(Compra compra, int idUsuario)
         {
-            return conexion.insertar("INSERT INTO Compra (id,monto_total, fecha_solicitud, fecha_entrega, estado,fk_metodopago,fk_det_direccion,fk_usuario) VALUES (NEXT VALUE FOR seq_compra," + compra.MontoTotal.ToString() + ",'" + compra.FechaSolicitud.ToString("yyyy-MM-dd") + "','" + compra.FechaEntrega.ToString("yyyy-MM-dd") + "','" + compra.Status + "'," + compra.Pago.Id.ToString() + ","+compra.Direccion.Id.ToString()+", null);");
+            return conexion.insertar("INSERT INTO Compra (id,monto_total, fecha_solicitud, fecha_entrega, estado,fk_metodopago,fk_det_direccion,fk_usuario) VALUES (NEXT VALUE FOR seq_compra," + compra.MontoTotal.ToString() + ",'" + compra.FechaSolicitud.ToString("yyyy-MM-dd") + "','" + compra.FechaEntrega.ToString("yyyy-MM-dd") + "','" + compra.Status + "'," + compra.Pago.Id.ToString() + ","+compra.Direccion.Id.ToString()+","+idUsuario.ToString()+");");
         }
 
         public int modificarEstadoDeCompra(String Status, int idCompra)

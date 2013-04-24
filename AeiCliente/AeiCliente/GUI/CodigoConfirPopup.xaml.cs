@@ -26,6 +26,21 @@ namespace AeiCliente
             this.popup = padre;
             this.InitializeComponent();
         }
+
+        private void buttonEnviar_Click(object sender, RoutedEventArgs e)
+        {
+            if (BufferUsuario.Usuario.CodigoActivacion != int.Parse(textCodigo.Text))
+            {
+                MessageDialog mensajeError = new MessageDialog("El código de autorización no coincide");
+                mensajeError.ShowAsync();
+
+            }
+            else
+            {
+                popup.IsOpen = false;
+
+            }
+        }
 		
     }
 }

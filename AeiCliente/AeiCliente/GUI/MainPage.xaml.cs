@@ -35,9 +35,20 @@ namespace AeiCliente
         {
         }
 
+        private void validarStatusUsuario()
+        {
+            if (BufferUsuario.Usuario.Status.Equals("I"))
+            {
+                Popup popup = new Popup();
+                CodigoConfirPopup direcPopup = new CodigoConfirPopup(popup);
+                popup.Child = direcPopup;
+                popup.IsOpen = true;
+            }
+        }
+
         private void botonCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para llevar una lista de compras.");;
+            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para llevar una lista de compras.");
 
             if (BufferUsuario.isConectado())
                 this.Frame.Navigate(typeof(ListaCompraPage));
@@ -63,15 +74,18 @@ namespace AeiCliente
 
         private void botonLupa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ListaProductoPage));
+           this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonInicioSesion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             if (botonInicioSesion.Content.Equals("Ingresar"))
             {
-                OpenIdClient openId = new OpenIdClient();
-                openId.clickOpenID(sender, e);
+                Popup popup = new Popup();
+                RegistroUsuarioPopup direcPopup = new RegistroUsuarioPopup(popup);
+                popup.Child = direcPopup;
+                popup.IsOpen = true;
+
                 if (BufferUsuario.Usuario != null)
                     botonInicioSesion.Content = "Salir";
             }
@@ -84,7 +98,7 @@ namespace AeiCliente
 
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("bloques");
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("figuras");
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
