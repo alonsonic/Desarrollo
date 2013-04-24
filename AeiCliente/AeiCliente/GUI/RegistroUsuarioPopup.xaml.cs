@@ -40,7 +40,7 @@ namespace AeiCliente
 
         private void buttonSI_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
 		

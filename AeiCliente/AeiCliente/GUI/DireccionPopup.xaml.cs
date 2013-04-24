@@ -43,16 +43,24 @@ namespace AeiCliente
 
         }
 
+        private void reiniciarComboBox(ComboBox comboBox)
+        {
+            for (int index = 0; index < comboBox.Items.Count(); index++)
+            {
+                comboBox.Items.RemoveAt(index);
+
+            }
+        }
+
         private async void comboBoxEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            reiniciarComboBox(comboBoxCiudad);
             int idEstado = listaEstados[comboBoxEstado.SelectedIndex].Id;
             listaCiudad = await servicioDireccion.consultarCiudadAsync(idEstado);
             for (int i = 0; i < listaCiudad.Count(); i++)
             {
                 comboBoxCiudad.Items.Add(listaCiudad[i].Ciudad);
-                
             }
-
         }
 
         private async void buttonAgregar_Click(object sender, RoutedEventArgs e)
