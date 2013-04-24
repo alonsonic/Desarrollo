@@ -74,7 +74,7 @@ namespace AeiCliente
 
         private void botonLupa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ListaProductoPage));
+           this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
         private async void botonInicioSesion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

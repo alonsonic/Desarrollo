@@ -24,7 +24,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="103,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="77" Width="806" FontSize="32" Grid.ColumnSpan="2" Text="¿Es tu primera vez en aei Store?"/>
             <Button x:Name="buttonNo" Content="No" HorizontalAlignment="Left" Margin="528,118,0,0" VerticalAlignment="Top" Width="320" Height="60" FontSize="32" Click="buttonNo_Click" Grid.ColumnSpan="2"/>
             <Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="224,118,0,0" VerticalAlignment="Top" Width="320" Height="60" FontSize="32" Click="buttonCancelar_Click" Grid.Column="1"/>
-            <Button x:Name="buttonSI" Content="Si" HorizontalAlignment="Left" Margin="141,118,0,0" VerticalAlignment="Top" Width="320" Height="60" FontSize="32"/>
+            <Button x:Name="buttonSI" Content="Si" HorizontalAlignment="Left" Margin="141,118,0,0" VerticalAlignment="Top" Width="320" Height="60" FontSize="32" Click="buttonSI_Click"/>
         </Grid>
     </custom:PopoverView>
 

@@ -38,6 +38,11 @@ namespace AeiCliente
             popup.IsOpen = false;
         }
 
+        private void buttonSI_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
 		
     }
 }

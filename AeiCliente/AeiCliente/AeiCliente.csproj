@@ -108,6 +108,9 @@
     <Compile Include="GUI\CodigoConfirPopup.xaml.cs">
       <DependentUpon>CodigoConfirPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\PerfilPageAgregar.xaml.cs">
+      <DependentUpon>PerfilPageAgregar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\RegistroUsuarioPopup.xaml.cs">
       <DependentUpon>RegistroUsuarioPopup.xaml</DependentUpon>
     </Compile>
@@ -285,6 +288,10 @@
     <Page Include="GUI\CodigoConfirPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\PerfilPageAgregar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\RegistroUsuarioPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
