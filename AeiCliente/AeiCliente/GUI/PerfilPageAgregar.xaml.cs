@@ -70,6 +70,19 @@ namespace AeiCliente.GUI
             else
             {
                 BufferUsuario.Usuario = usuario;
+                int error = await servicio.enviarCorreoDeBienvenidaAsync(usuario);
+                if (error == 1)
+                {
+                    MessageDialog mensajeError = new MessageDialog("Se envió un código de activación a su correo");
+                    mensajeError.ShowAsync();
+
+                }
+                else
+                {
+                    MessageDialog mensajeError = new MessageDialog("Error no se pudo enviar el código de activación. Envíe un correo electrónico a----- reportando su caso");
+                    mensajeError.ShowAsync();
+                }
+                this.Frame.Navigate(typeof(PerfilPage));
             }
 
         }

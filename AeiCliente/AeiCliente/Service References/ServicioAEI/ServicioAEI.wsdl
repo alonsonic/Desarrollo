@@ -8,6 +8,18 @@
       <xsd:import schemaLocation="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices.Dominio" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IServicioAEI_enviarCorreoDeBienvenida_InputMessage">
+    <wsdl:part name="parameters" element="tns:enviarCorreoDeBienvenida" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_enviarCorreoDeBienvenida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:enviarCorreoDeBienvenidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarUsuarioResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioAEI_ConsultarUsuario_InputMessage">
     <wsdl:part name="parameters" element="tns:ConsultarUsuario" />
   </wsdl:message>
@@ -93,6 +105,14 @@
     <wsdl:part name="parameters" element="tns:buscarDireccionUsuarioResponse" />
   </wsdl:message>
   <wsdl:portType name="IServicioAEI">
+    <wsdl:operation name="enviarCorreoDeBienvenida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeBienvenida" message="tns:IServicioAEI_enviarCorreoDeBienvenida_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeBienvenidaResponse" message="tns:IServicioAEI_enviarCorreoDeBienvenida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/modificarUsuario" message="tns:IServicioAEI_modificarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/modificarUsuarioResponse" message="tns:IServicioAEI_modificarUsuario_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ConsultarUsuario">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/ConsultarUsuario" message="tns:IServicioAEI_ConsultarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/ConsultarUsuarioResponse" message="tns:IServicioAEI_ConsultarUsuario_OutputMessage" />
@@ -152,6 +172,24 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioAEI" type="tns:IServicioAEI">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="enviarCorreoDeBienvenida">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/enviarCorreoDeBienvenida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/modificarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ConsultarUsuario">
       <soap:operation soapAction="http://tempuri.org/IServicioAEI/ConsultarUsuario" style="document" />
       <wsdl:input>
