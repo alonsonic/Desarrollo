@@ -24,7 +24,32 @@ namespace AeiCliente.GUI
         public PerfilPageAgregar()
         {
             this.InitializeComponent();
+            agregarDia();
+            agregarAño();
+            ComboMes.SelectedIndex = 0;
         }
+     
+        private void agregarAño()
+        {
+            ComboAno.Items.Add("Año");
+            for (int index = 1913; index <= 2011; index++)
+                ComboAno.Items.Add(index);
+
+            ComboAno.SelectedIndex = 0;
+        }
+
+        private void agregarDia()
+        {
+            ComboDia.Items.Add("Dia");
+            for (int index = 1; index <= 31; index++)
+            {
+                if (index < 10) ComboDia.Items.Add("0" + index.ToString());
+                else ComboDia.Items.Add(index);
+            }
+
+            ComboDia.SelectedIndex = 0;
+        }
+        
 
         private void buttonCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -33,9 +58,10 @@ namespace AeiCliente.GUI
 
         private async void buttonEnviar_Click(object sender, RoutedEventArgs e)
         {
-
+            string mes=ComboMes.SelectedIndex+"";
+            if (ComboMes.SelectedIndex < 10) mes = "0" + mes;
             Usuario usuario = await servicio.agregarUsuarioAsync(textBoxNombre.Text, textBoxApellido.Text, textPasaporteEditable.Text, textCorreoEditable.Text,
-                                        ComboAno.SelectedValue.ToString() + "-" + ComboMes.SelectedValue.ToString() + "-" + ComboDia.SelectedValue.ToString());
+                                        ComboAno.SelectedValue.ToString() + "-" + mes + "-" + ComboDia.SelectedValue.ToString());
             if (usuario == null)
             {
                 MessageDialog mensajeError = new MessageDialog("Error no se pudo agregar al sistema");

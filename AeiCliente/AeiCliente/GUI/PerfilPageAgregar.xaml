@@ -29,10 +29,11 @@
                 <SolidColorBrush Color="White" Opacity="0.5"/>
             </ListBox.Background>
         </ListBox>
-        <TextBox x:Name="textPasaporteEditable" HorizontalAlignment="Left" Margin="226,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="618" IsReadOnly="True"/>
-        <TextBox x:Name="textCorreoEditable" HorizontalAlignment="Left" Margin="337,295,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="507" IsReadOnly="True"/>
+        <TextBox x:Name="textPasaporteEditable" HorizontalAlignment="Left" Margin="226,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="618"/>
+        <TextBox x:Name="textCorreoEditable" HorizontalAlignment="Left" Margin="337,295,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="507"/>
         <ComboBox x:Name="ComboDia" HorizontalAlignment="Left" Margin="338,333,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="ComboMes" HorizontalAlignment="Left" Margin="469,333,0,0" VerticalAlignment="Top" Width="161">
+            <ComboBoxItem x:Name="Mes" Content="Mes"/>
             <ComboBoxItem x:Name="Enero" Content="Enero"/>
             <ComboBoxItem x:Name="Febrero" Content="Febrero"/>
             <ComboBoxItem x:Name="Marzo" Content="Marzo"/>

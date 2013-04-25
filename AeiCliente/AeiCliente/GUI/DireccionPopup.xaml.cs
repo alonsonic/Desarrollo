@@ -22,34 +22,30 @@ namespace AeiCliente
         private ServicioAEIClient servicioDireccion = new ServicioAEIClient();
         private List<Direccion> listaEstados = null;
         private  List<Direccion> listaCiudad = null;
+        PerfilPage pagina = new PerfilPage();
 
-        public DireccionPopup(Popup padre)
+        public DireccionPopup(Popup padre, PerfilPage pagina)
         {
             if (padre == null) throw new ArgumentNullException("Debe asignar un Popup al controlador");
             this.popup = padre;
             this.InitializeComponent();
             cargarEstados();
+            this.pagina = pagina;
         }
 
         private async void cargarEstados()
         {
             listaEstados = await servicioDireccion.consultarEstadosAsync();
             comboBoxEstado.Items.Add("Selecione");
+            comboBoxCiudad.Items.Add("Selecione");
+
             for (int i = 0; i < listaEstados.Count(); i++)
             {
                 comboBoxEstado.Items.Add(listaEstados[i].Estado);
             }
             comboBoxEstado.SelectedIndex = 0;
+            comboBoxCiudad.SelectedIndex = 0;
 
-        }
-
-        private void reiniciarComboBox(ComboBox comboBox)
-        {
-            for (int index = 0; index < comboBox.Items.Count(); index++)
-            {
-                comboBox.Items.RemoveAt(index);
-
-            }
         }
 
        
@@ -65,6 +61,9 @@ namespace AeiCliente
                 if (error == 1)
                 {
                     BufferUsuario.Usuario.Direcciones = await servicioDireccion.buscarDireccionUsuarioAsync(BufferUsuario.Usuario.Id);
+                    var rootFrame = new Frame();
+                    pagina.cargarDireciones();
+                    popup.IsOpen = false;
                 }
                 
             }
@@ -84,7 +83,10 @@ namespace AeiCliente
 
         private async void comboBoxEstado_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            reiniciarComboBox(comboBoxCiudad);
+
+            comboBoxCiudad.Items.Clear();
+            comboBoxCiudad.Items.Add("Seleccion");
+            comboBoxCiudad.SelectedIndex=0;
             int idEstado = listaEstados[comboBoxEstado.SelectedIndex].Id;
             listaCiudad = await servicioDireccion.consultarCiudadAsync(idEstado);
             for (int i = 0; i < listaCiudad.Count(); i++)

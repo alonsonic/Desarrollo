@@ -31,8 +31,14 @@ namespace AeiCliente
         {
             this.InitializeComponent();
         }
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+        }
+
+        public void llamarAgregarPerfilPage()
+        {
+            this.Frame.Navigate(typeof(PerfilPageAgregar));
         }
 
         private void validarStatusUsuario()
@@ -82,7 +88,7 @@ namespace AeiCliente
             if (botonInicioSesion.Content.Equals("Ingresar"))
             {
                 Popup popup = new Popup();
-                RegistroUsuarioPopup direcPopup = new RegistroUsuarioPopup(popup, sender);
+                RegistroUsuarioPopup direcPopup = new RegistroUsuarioPopup(popup, sender, this);
                 popup.Child = direcPopup;
                 popup.IsOpen = true;
 

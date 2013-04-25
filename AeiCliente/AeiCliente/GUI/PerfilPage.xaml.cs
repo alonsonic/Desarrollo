@@ -38,7 +38,7 @@ namespace AeiCliente
             bloquear(false);
         }
 
-        private void cargarDireciones()
+        public void cargarDireciones()
         {
             List<Direccion> listaDirecciones = usuario.Direcciones;
             for (int indexDireccion = 0; indexDireccion < listaDirecciones.Count(); indexDireccion++)
@@ -85,7 +85,7 @@ namespace AeiCliente
         private void botonAgregarDireccion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
         	Popup popup = new Popup();
-            DireccionPopup direcPopup= new DireccionPopup(popup);
+            DireccionPopup direcPopup= new DireccionPopup(popup, this);
             popup.Child = direcPopup;
             popup.IsOpen = true;
         }

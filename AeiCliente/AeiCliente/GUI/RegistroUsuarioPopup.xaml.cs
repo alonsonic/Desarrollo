@@ -20,13 +20,15 @@ namespace AeiCliente
     {
         private Popup popup = null;
         private object botonSender = null;
+        MainPage pagina = new MainPage();
 
-        public RegistroUsuarioPopup(Popup padre, object sender)
+        public RegistroUsuarioPopup(Popup padre, object sender, MainPage pagina)
         {
             if (padre == null) throw new ArgumentNullException("Debe asignar un Popup al controlador");
             this.popup = padre;
             this.InitializeComponent();
             this.botonSender = sender;
+            this.pagina = pagina;
         }
 
         private void buttonNo_Click(object sender, RoutedEventArgs e)
@@ -43,7 +45,8 @@ namespace AeiCliente
 
         private void buttonSI_Click(object sender, RoutedEventArgs e)
         {
-
+            pagina.llamarAgregarPerfilPage();
+            popup.IsOpen = false;
         }
 
 		
