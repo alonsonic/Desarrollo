@@ -123,7 +123,6 @@ namespace AeiWebServices.Permanencia
         static public int setAgregarCompra(Compra compra, int idUsuario)
         {
             SqlServerCompra resultado = new SqlServerCompra();
-            Usuario user = new Usuario();
             return resultado.agregarCompra(compra, idUsuario);
         }
 

@@ -108,6 +108,7 @@ namespace AeiWebServices.Logica
             int respuesta = FabricaDAO.setAgregarDetalleCompra(carrito.Id, detalleCompra);
             if (respuesta == 1)
             {
+                if (carrito.Productos == null) carrito.Productos = new List<DetalleCompra>();
                 carrito.AgregarDetallesCompra(detalleCompra);
                 usuario.Carrito = carrito;
                 return usuario;
