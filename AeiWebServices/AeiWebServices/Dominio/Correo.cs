@@ -36,8 +36,8 @@ namespace AeiWebServices.Dominio
                 mensaje.From = new MailAddress("aeiStoreSoporte@gmail.com", "aei Store", System.Text.Encoding.UTF8);
                 mensaje.Subject = "¡Bienvenido a aei Store!";
                 mensaje.IsBodyHtml = true;
-                mensaje.Body = @"<img src = '' />
-                                <h2>Estimado(a) "+nombre+" "+apellido+ @".</h2>
+                mensaje.Body = @"<img src = 'https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash4/381399_10201016661237859_441547910_n.jpg' />
+                                <h2>Estimado(a) " +nombre+" "+apellido+ @".</h2>
                                 <p><strong>aei Store</strong> te da la bienvenida.</p>
                                 <p>
                                     En nuestra tienda de juguetes encontrarás los
@@ -70,7 +70,9 @@ namespace AeiWebServices.Dominio
                 mensaje.From = new MailAddress("aeiStoreSoporte@gmail.com", "aei Store", System.Text.Encoding.UTF8);
                 mensaje.Subject = "Notificación de actualización en perfil aei Store";
                 mensaje.IsBodyHtml = true;
-                mensaje.Body = @"<h2>Estimado(a)"+nombre+" "+apellido+@",</h2>
+                mensaje.Body = @"
+                                    <img src = 'https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash4/381399_10201016661237859_441547910_n.jpg' />
+                                    <h2>Estimado(a)" + nombre+" "+apellido+@",</h2>
                                     <p>
                                         Le informamos que el día XXXXX se han hecho modificaciones en su perfil personal en su cuenta de aei Store.
                                     </p>

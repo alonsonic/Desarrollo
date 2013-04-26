@@ -266,10 +266,16 @@
     <Content Include="Imagenes\Botones MainPage\botonVideoNegativo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Imagenes\Botones Varios\back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Imagenes\Botones Varios\BotonDetalle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Imagenes\Botones Varios\BotonDetalleNegativo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\Botones Varios\botonHomeNegativo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Imagenes\Botones Varios\BotonTwitter.png">
@@ -399,12 +405,6 @@
     <Reference Include="TwitterRtLibrary">
       <HintPath>..\..\..\..\Visual Studio 2012\Projects\Nueva carpeta\TwitterRtLibrary\bin\Debug\TwitterRtLibrary.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServicioAEI\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
