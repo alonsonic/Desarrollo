@@ -9,7 +9,30 @@ namespace AeiWebServices.Permanencia
 {
     public class SqlServerCompra: DAOCompra, DAODetalleCompra, DAOProducto, DAOTag, DAOCategoria, DAODireccion, DAOMetodoPago
     {
- 
+        public DetalleCompra buscarEnMiCarrito(int idProducto, int idUsuario)
+        {
+            ConexionSqlServer conexion = new ConexionSqlServer();
+            int respuesta = conexion.insertar("");
+            SqlDataReader tabla = conexion.consultar("select dd.* from Detalle_Compra dd, Compra c where dd.fk_producto= " + idProducto.ToString() + " and c.fk_usuario= " + idUsuario + " and c.estado='C';");
+            while (tabla != null && tabla.Read())
+            {
+                Producto producto = buscarPorCompra(int.Parse(tabla["ID"].ToString()));
+                DetalleCompra resultado = new DetalleCompra(int.Parse(tabla["ID"].ToString()), float.Parse(tabla["MONTO"].ToString()), int.Parse(tabla["CANTIDAD"].ToString()), producto);
+                conexion.cerrarConexion();
+                return resultado;
+            }
+            conexion.cerrarConexion();
+            return null;
+        }
+
+        public int cambiarCantidadProducto(DetalleCompra detalleCompra, int cantidad)
+        {
+            ConexionSqlServer conexion = new ConexionSqlServer();
+            int respuesta = conexion.insertar("");
+            conexion.cerrarConexion();
+            return 0;
+        }
+
         public int borrarDetalleCompra(int idDetalleCompra)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
