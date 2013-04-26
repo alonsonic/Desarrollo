@@ -94,5 +94,10 @@ namespace AeiCliente
         	// TODO: Agregar implementación de controlador de eventos aquí.
         }
 
+        private void botonHome_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
+
     }
 }

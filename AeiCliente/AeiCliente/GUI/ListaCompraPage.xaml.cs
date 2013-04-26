@@ -19,7 +19,7 @@ namespace AeiCliente
 
     public sealed partial class ListaCompraPage : Page
     {
-        bool isCarrito = false;
+        bool isCarrito = true;
 
 
 
