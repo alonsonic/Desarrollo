@@ -26,7 +26,22 @@ namespace AeiWebServices
             }
 
         }
-
+        public SqlConnection cerrarConexion()
+        {
+            try
+            {
+                //creando la conexion
+                SqlConnection miConexion = new SqlConnection(@"Data Source=LYANA-PC\SQLEXPRESS; Initial Catalog = AeiBD; Integrated Security=True;");
+                //abriendo conexion
+                miConexion.Close();
+                return miConexion;
+            }
+            catch
+            {
+                Console.Write("error");
+                return null;
+            }
+        }
         public SqlDataReader consultar(string query)
         {
             SqlConnection miConexion = abrirConexion();

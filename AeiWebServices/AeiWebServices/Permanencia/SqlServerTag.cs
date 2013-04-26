@@ -19,6 +19,7 @@ namespace AeiWebServices.Permanencia
                 listaresultado.Add(new Tag(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString()));
 
             }
+            conexion.cerrarConexion();
             return listaresultado;
         }
     }

@@ -13,6 +13,7 @@ namespace AeiWebServices.Permanencia
         {
             ConexionSqlServer conexion = new ConexionSqlServer(); 
             int respuesta= conexion.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,fk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario + ")");
+            conexion.cerrarConexion();
             return respuesta;
         }
 
@@ -25,6 +26,7 @@ namespace AeiWebServices.Permanencia
             {
                 lista.Add(new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHA"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString()));
             }
+            conexion.cerrarConexion();
             return lista;
         }
 
@@ -37,6 +39,7 @@ namespace AeiWebServices.Permanencia
             {
                 resultado = new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHAVENC"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString());
             }
+            conexion.cerrarConexion();
             return resultado;
 
         }
@@ -45,6 +48,7 @@ namespace AeiWebServices.Permanencia
         {
             ConexionSqlServer conexion = new ConexionSqlServer(); 
             int respuesta= conexion.insertar("UPDATE METODO_PAGO SET numero=" + metodoModificado.Numero.ToString() + ",marca='" + metodoModificado.Marca + "',fecha_vencimiento='" + metodoModificado.FechaVencimiento.ToString() + "' where id=" + idMetodoActual.ToString() + " and fk_usuario=" + idUsuario.ToString() + "");
+            conexion.cerrarConexion();
             return respuesta;
         }
     }

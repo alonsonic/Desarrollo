@@ -12,13 +12,16 @@ namespace AeiWebServices.Permanencia
         public int borrarDetalleCompra(int idDetalleCompra)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            return conexion.insertar("DELETE INTO DETALLE_COMPRA WHERE ID="+idDetalleCompra.ToString()+"");
+            int respuesta = conexion.insertar("DELETE INTO DETALLE_COMPRA WHERE ID=" + idDetalleCompra.ToString() + "");
+            conexion.cerrarConexion();
+            return respuesta;
         }
         public int agregarDetalleCompra(int idCompra, DetalleCompra detalleCompra)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
          //   if (compra.Direccion == null && compra.Pago == null) int respuesta= conexion.insertar("INSERT INTO Detalle_Compra (id,monto,cantidad,fk_compra,fk_producto) VALUES (NEXT VALUE FOR seq_detalle_compra," + detalleCompra.Monto.ToString() + "," + detalleCompra.Cantidad.ToString() + "," + idCompra.ToString() + "," + detalleCompra.Producto.Id.ToString() + ");");
             int respuesta = conexion.insertar("INSERT INTO Detalle_Compra (id,monto,cantidad,fk_compra,fk_producto) VALUES (NEXT VALUE FOR seq_detalle_compra," + detalleCompra.Monto.ToString() + "," + detalleCompra.Cantidad.ToString() + "," + idCompra.ToString() + "," + detalleCompra.Producto.Id.ToString() + ");");
+            conexion.cerrarConexion();
             return respuesta;
         }
         
@@ -26,6 +29,7 @@ namespace AeiWebServices.Permanencia
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
             int respuesta = conexion.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,fk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario + ")");
+            conexion.cerrarConexion();
             return respuesta;
         }
 
@@ -38,6 +42,7 @@ namespace AeiWebServices.Permanencia
             {
                 lista.Add(new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHA"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString()));
             }
+            conexion.cerrarConexion();
             return lista;
         }
 
@@ -50,6 +55,7 @@ namespace AeiWebServices.Permanencia
             {
                 resultado = new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHAVENC"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString());
             }
+            conexion.cerrarConexion();
             return resultado;
 
         }
@@ -58,6 +64,7 @@ namespace AeiWebServices.Permanencia
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
             int respuesta= conexion.insertar("UPDATE METODO_PAGO SET numero=" + metodoModificado.Numero.ToString() + ",marca='" + metodoModificado.Marca + "',fecha_vencimiento='" + metodoModificado.FechaVencimiento.ToString() + "' where id=" + idMetodoActual.ToString() + " and fk_usuario=" + idUsuario.ToString() + "");
+            conexion.cerrarConexion();
             return respuesta;
         }
 
@@ -71,6 +78,7 @@ namespace AeiWebServices.Permanencia
                 listaresultado.Add(new Tag(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString()));
 
             }
+            conexion.cerrarConexion();
             return listaresultado;
         }
 
@@ -84,6 +92,7 @@ namespace AeiWebServices.Permanencia
                 listaresultado.Add(new Categoria(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString()));
 
             }
+            conexion.cerrarConexion();
             return listaresultado;
         }
 
@@ -97,6 +106,7 @@ namespace AeiWebServices.Permanencia
                 Categoria resultado = new Categoria(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString());
                 return resultado;
             }
+            conexion.cerrarConexion();
             return null;
         }
 
@@ -104,6 +114,7 @@ namespace AeiWebServices.Permanencia
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
             int respuesta = conexion.insertar("UPDATE PRODUCTO SET CANTIDAD=" + cantidadEnExistencia + " WHERE ID=" + idProducto + ";");
+            conexion.cerrarConexion();
             return respuesta;
         }
 
@@ -121,6 +132,7 @@ namespace AeiWebServices.Permanencia
                     float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
                     int.Parse(tabla["CANTIDAD"].ToString())));
             }
+            conexion.cerrarConexion();
             return listaProductos;
         }
 
@@ -139,6 +151,7 @@ namespace AeiWebServices.Permanencia
                     float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
                     int.Parse(tabla["CANTIDAD"].ToString())));
             }
+            conexion.cerrarConexion();
             return listaProductos;
         }
 
@@ -157,6 +170,7 @@ namespace AeiWebServices.Permanencia
                     float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
                     int.Parse(tabla["CANTIDAD"].ToString())));
             }
+            conexion.cerrarConexion();
             return listaProductos;
         }
 
@@ -172,8 +186,10 @@ namespace AeiWebServices.Permanencia
                 Producto resultado = new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
                     float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
                     int.Parse(tabla["CANTIDAD"].ToString()));
+                conexion.cerrarConexion();
                 return resultado;
-            } 
+            }
+            conexion.cerrarConexion();
             return null;
         }
 
@@ -181,6 +197,7 @@ namespace AeiWebServices.Permanencia
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
             int respuesta = conexion.insertar("INSERT INTO Calificacion ( ID, DETALLE, PUNTAJE, FK_USUARIO, FK_PRODUCTO, FECHA) VALUES (NEXT VALUE FOR SEQ_CALIFICACION,'" + calificacion.Comentario + "', " + calificacion.Puntaje.ToString() + ", " + calificacion.Usuario.Id.ToString() + ", " + idProducto.ToString() + ", '" + DateTime.Today.ToString("yyyy-MM-dd") + "');");
+            conexion.cerrarConexion();
             return respuesta;
         }
 
@@ -195,6 +212,7 @@ namespace AeiWebServices.Permanencia
                 resultado.Add(new DetalleCompra(int.Parse(tabla["ID"].ToString()),float.Parse(tabla["MONTO"].ToString()), int.Parse(tabla["CANTIDAD"].ToString()), producto));
 
             }
+            conexion.cerrarConexion();
             return resultado;
         }
     }
