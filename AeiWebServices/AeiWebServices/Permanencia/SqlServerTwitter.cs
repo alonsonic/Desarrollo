@@ -9,21 +9,23 @@ namespace AeiWebServices.Permanencia
 {
     public class SqlServerTwitter: DAOTwitter
     {
-        private ConexionSqlServer conexion = new ConexionSqlServer();
 
         public int agregarUsuario(Twitter usuario)
         {
-            return conexion.insertar("INSERT INTO Twitter (ScreenName, idUsuario, OauthTokenSecret, OauthToken) VALUES ('"+usuario.ScreenName+"','"+usuario.IdUsuario+"','"+usuario.OauthTokenSecret+"','"+usuario.OauthToken+"');");
+            int respuesta= ConexionSqlServer.insertar("INSERT INTO Twitter (ScreenName, idUsuario, OauthTokenSecret, OauthToken) VALUES ('"+usuario.ScreenName+"','"+usuario.IdUsuario+"','"+usuario.OauthTokenSecret+"','"+usuario.OauthToken+"');");
+            ConexionSqlServer.cerrarConexion();
+            return respuesta;
         }
 
         public Twitter buscarUsuario(string screenName)
         {
-            SqlDataReader tabla = conexion.consultar("select * from Twitter where ScreenName= '"+screenName+"';");
+            SqlDataReader tabla = ConexionSqlServer.consultar("select * from Twitter where ScreenName= '"+screenName+"';");
             Twitter twitter = new Twitter();
             while (tabla!=null && tabla.Read())
             {
                 twitter = new Twitter(tabla["IDUSUARIO"].ToString(), tabla["SCREENNAME"].ToString(), tabla["OauthToken"].ToString(), tabla["OauthTokenSecret"].ToString());
             }
+            ConexionSqlServer.cerrarConexion();
             return twitter;
         }
     }
