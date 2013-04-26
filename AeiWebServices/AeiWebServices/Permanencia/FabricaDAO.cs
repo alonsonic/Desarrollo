@@ -12,14 +12,14 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();
             int respuesta = resultado.borrarDetalleCompra(idDetalleCompra);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
         static public List<Direccion> getListaDireccion(int idUsuario)
         {
             SqlServerDireccion resultado = new SqlServerDireccion();
             List<Direccion> direccion = resultado.ConsultarDireccion(idUsuario);
-            ConexionSqlServer.cerrarConexion();
+             
             return direccion;
         }
 
@@ -27,48 +27,48 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();
             List<DetalleCompra> detalleCompra= resultado.buscarDetalleCompra(idCompra);
-            ConexionSqlServer.cerrarConexion();
+             
             return detalleCompra;
         }
         static public Compra getCarrito(int idUsuario)
         {
             SqlServerCompra resultado = new SqlServerCompra();
             Compra compra= resultado.consultarCarrito(idUsuario);
-            ConexionSqlServer.cerrarConexion();
+             
             return compra;
         }
         static public int setAgregarDetalleCompra(int idCompra, DetalleCompra detalleCompra)
         {
             SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();
             int respuesta= resultado.agregarDetalleCompra(idCompra, detalleCompra);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
         static public List<Calificacion> getCalificaciones(int idProducto)
         {
             SqlServerCalificacion resultado = new SqlServerCalificacion();
             List<Calificacion> calificacion= resultado.consultarCalificacionesPorProducto(idProducto);
-            ConexionSqlServer.cerrarConexion();
+             
             return calificacion;
         }
         static public Twitter getUsuarioTwitter(string screenName)
         {
             SqlServerTwitter resultado = new SqlServerTwitter();
-            ConexionSqlServer.cerrarConexion();
+             
             return resultado.buscarUsuario(screenName);
         }
         static public int setAgregarTwitter(Twitter usuario)
         {
             SqlServerTwitter resultado = new SqlServerTwitter();
             int respuesta= resultado.agregarUsuario(usuario);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
         static public int setNuevoUsuario(Usuario usuario)
         {
             SqlServerUsuario resultado = new SqlServerUsuario();
             int respuesta= resultado.agregarUsuario(usuario);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -76,21 +76,21 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerProducto lista = new SqlServerProducto();
             List<Producto> producto= lista.busquedaProductos(busqueda);
-            ConexionSqlServer.cerrarConexion();
+             
             return producto;
         }
         static public List<Producto> getBusquedaProductoConCategoria(string categoriaProducto, string busqueda)
         {
             SqlServerProducto lista = new SqlServerProducto();
             List<Producto> producto= lista.busquedaProductos(categoriaProducto, busqueda);
-            ConexionSqlServer.cerrarConexion();
+             
             return producto;
         }
         static public List<Categoria> getListaCategoria()
         {
             SqlServerCategoria lista = new SqlServerCategoria();
             List<Categoria> categoria= lista.categorias();
-            ConexionSqlServer.cerrarConexion();
+             
             return categoria;
         }
 
@@ -98,7 +98,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerCompra resultado = new SqlServerCompra();
             int respuesta= resultado.agregarCompra(compra, idUsuario);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -106,7 +106,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerCategoria resultado = new SqlServerCategoria();
             Categoria categoria = resultado.buscarCategoriaPorProducto(idProducto);
-            ConexionSqlServer.cerrarConexion();
+             
             return categoria;
         }
 
@@ -114,7 +114,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerTag lista = new SqlServerTag();
             List<Tag> tags= lista.buscarTagPorProducto(idproducto);
-            ConexionSqlServer.cerrarConexion();
+             
             return tags;
         }
 
@@ -122,7 +122,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerProducto resultado = new SqlServerProducto();
             int respuesta= resultado.updateCantidad(idProducto, cantidadEnExistencia);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -130,7 +130,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerProducto lista = new SqlServerProducto();
             List<Producto> producto= lista.consultarProductos();
-            ConexionSqlServer.cerrarConexion();
+             
             return producto;
         }
 
@@ -138,7 +138,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerProducto lista = new SqlServerProducto();
             List<Producto> producto= lista.buscarPorNombre(nombre);
-            ConexionSqlServer.cerrarConexion();
+             
             return producto;
         }
 
@@ -146,7 +146,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerProducto lista = new SqlServerProducto();
             List<Producto> producto= lista.buscarPorCategoria(nombreCategoria);
-            ConexionSqlServer.cerrarConexion();
+             
             return producto;
         }
 
@@ -154,7 +154,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerProducto resultado = new SqlServerProducto();
             Producto producto= resultado.buscarPorCompra(idDetalleCompra);
-            ConexionSqlServer.cerrarConexion();
+             
             return producto;
         }
 
@@ -162,14 +162,14 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerCalificacion resultado = new SqlServerCalificacion();
             int respuesta= resultado.agregarCalificacion(calificacion, idUsuario, idProducto);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
         static public int setAgregarCompra(Compra compra, int idUsuario)
         {
             SqlServerCompra resultado = new SqlServerCompra();
             int respuesta= resultado.agregarCompra(compra, idUsuario);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -177,7 +177,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerCompra resultado = new SqlServerCompra();
             int respuesta= resultado.modificarEstadoDeCompra(status, idCompra);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -185,7 +185,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerMetodoPago resultado = new SqlServerMetodoPago();
             int respuesta= resultado.agregarMetodoPago(metodo, idUsuario);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -193,7 +193,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerMetodoPago resultado = new SqlServerMetodoPago();
             MetodoPago respuesta = resultado.consultarMetodosPagoDeCompra(idCompra);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -201,7 +201,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerMetodoPago resultado = new SqlServerMetodoPago();
             int respuesta= resultado.modificarMetodoPago(metodoModificado, idMetodoActual, idUsuario);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -209,7 +209,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerDireccion resultado = new SqlServerDireccion();
             int respuesta= resultado.AgregarDireccionUsuario(idUsuario, idDireccion, direccion);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -217,7 +217,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerDireccion resultado = new SqlServerDireccion();
             Direccion direccion = resultado.ConsultarDireccionDeCompra(idCompra);
-            ConexionSqlServer.cerrarConexion();
+             
             return direccion;
         }
 
@@ -225,7 +225,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerDireccion resultado = new SqlServerDireccion();
             List<Direccion> lista= resultado.consultarEstados();
-            ConexionSqlServer.cerrarConexion();
+             
             return lista;
         }
 
@@ -233,21 +233,21 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerDireccion resultado = new SqlServerDireccion();
             List<Direccion> lista = resultado.consultarCiudad(idEstado);
-            ConexionSqlServer.cerrarConexion();
+             
             return lista;
         }
         static public Usuario getUsuario(int idUsuario)
         {
             SqlServerUsuario resultado = new SqlServerUsuario();
             Usuario usuario = resultado.consultarUsuario(idUsuario);
-            ConexionSqlServer.cerrarConexion();
+             
             return usuario;
         }
         static public Usuario getUsuario(string mail, int codigoActivacion)
         {
             SqlServerUsuario resultado = new SqlServerUsuario();
             Usuario usuario = resultado.consultarUsuario(mail, codigoActivacion);
-            ConexionSqlServer.cerrarConexion();
+             
             return usuario;
         }
 
@@ -255,7 +255,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerUsuario resultado = new SqlServerUsuario();
             Usuario usuario = resultado.consultarUsuario(mail);
-            ConexionSqlServer.cerrarConexion();
+             
             return usuario;
         }
 
@@ -264,7 +264,7 @@ namespace AeiWebServices.Permanencia
         {
             SqlServerUsuario resultado = new SqlServerUsuario();
             int respuesta= resultado.modificarUsuario(usuarioModificado, idUsuario);
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 

@@ -10,15 +10,24 @@ namespace AeiWebServices
     [DataContract]
     public class DetalleCompra
     {
+        private int id;
         private float monto;
         private int cantidad;
         private Producto producto;
 
-        public DetalleCompra(float monto, int cantidad, Producto producto)
+        public DetalleCompra(int id, float monto, int cantidad, Producto producto)
         {
+            this.id = id;
             this.monto = monto;
             this.cantidad = cantidad;
             this.Producto = producto;
+        }
+
+        [DataMember]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         [DataMember]

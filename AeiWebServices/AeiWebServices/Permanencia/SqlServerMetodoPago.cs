@@ -9,59 +9,43 @@ namespace AeiWebServices.Permanencia
 {
     public class SqlServerMetodoPago: DAOMetodoPago
     {
-        private ConexionSqlServer conexion = new ConexionSqlServer();
-
         public int agregarMetodoPago(MetodoPago metodo, int idUsuario)
         {
-<<<<<<< HEAD
-            int respuesta= ConexionSqlServer.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,fk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario + ")");
-             
+            ConexionSqlServer conexion = new ConexionSqlServer(); 
+            int respuesta= conexion.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,fk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario + ")");
             return respuesta;
-=======
-            return conexion.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,fk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario + ")");
->>>>>>> parent of 985a267... cambiando la conexion a estatica
         }
 
         public List<MetodoPago> consultarAllMetodosPago(int idUsuario)
         {
+            ConexionSqlServer conexion = new ConexionSqlServer();
             SqlDataReader tabla = conexion.consultar("select m.*, (SELECT CONVERT(VARCHAR(19), m.fecha_vencimiento, 120)) as fecha from Metodo_Pago AS m where fk_usuario=" + idUsuario.ToString() + ";");
             List<MetodoPago> lista = new List<MetodoPago>();
             while (tabla!=null && tabla.Read())
             {
                 lista.Add(new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHA"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString()));
             }
-<<<<<<< HEAD
-             
-=======
->>>>>>> parent of 985a267... cambiando la conexion a estatica
             return lista;
         }
 
         public MetodoPago consultarMetodosPagoDeCompra(int idCompra)
         {
+            ConexionSqlServer conexion = new ConexionSqlServer();
             MetodoPago resultado = null;
             SqlDataReader tabla = conexion.consultar("SELECT mp.* , (SELECT CONVERT(VARCHAR(19), mp.fecha_vencimiento, 120)) as fechaVenc FROM Metodo_Pago mp, COMPRA c WHERE c.fk_METODOPAGO = mp.ID AND C.ID =" + idCompra + "");
             while (tabla!=null && tabla.Read())
             {
                 resultado = new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHAVENC"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString());
             }
-<<<<<<< HEAD
-             
-=======
->>>>>>> parent of 985a267... cambiando la conexion a estatica
             return resultado;
 
         }
 
         public int modificarMetodoPago(MetodoPago metodoModificado, int idMetodoActual, int idUsuario)
         {
-<<<<<<< HEAD
-            int respuesta= ConexionSqlServer.insertar("UPDATE METODO_PAGO SET numero=" + metodoModificado.Numero.ToString() + ",marca='" + metodoModificado.Marca + "',fecha_vencimiento='" + metodoModificado.FechaVencimiento.ToString() + "' where id=" + idMetodoActual.ToString() + " and fk_usuario=" + idUsuario.ToString() + "");
-             
+            ConexionSqlServer conexion = new ConexionSqlServer(); 
+            int respuesta= conexion.insertar("UPDATE METODO_PAGO SET numero=" + metodoModificado.Numero.ToString() + ",marca='" + metodoModificado.Marca + "',fecha_vencimiento='" + metodoModificado.FechaVencimiento.ToString() + "' where id=" + idMetodoActual.ToString() + " and fk_usuario=" + idUsuario.ToString() + "");
             return respuesta;
-=======
-            return conexion.insertar("UPDATE METODO_PAGO SET numero=" + metodoModificado.Numero.ToString() + ",marca='" + metodoModificado.Marca + "',fecha_vencimiento='" + metodoModificado.FechaVencimiento.ToString() + "' where id=" + idMetodoActual.ToString() + " and fk_usuario=" + idUsuario.ToString() + "");
->>>>>>> parent of 985a267... cambiando la conexion a estatica
         }
     }
 }

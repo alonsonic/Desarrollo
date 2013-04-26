@@ -41,7 +41,7 @@ namespace AeiCliente
             if (producto.Cantidad == 1) textCantidad.Text = producto.Cantidad.ToString() + " unidad disponible";
             else textCantidad.Text = producto.Cantidad.ToString()+" unidades disponibles";
             producto.Calificaciones = await servicioAei.buscarCalificacionProductoAsync(producto.Id);
-            //cargarComentarios();
+            cargarComentarios();
         }
 
         private async void cargarComentarios()
