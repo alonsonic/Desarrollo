@@ -83,7 +83,7 @@ namespace AeiCliente
            this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
-        private async void botonInicioSesion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void botonInicioSesion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             if (botonInicioSesion.Content.Equals("Ingresar"))
             {

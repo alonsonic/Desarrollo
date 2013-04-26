@@ -60,8 +60,8 @@ namespace AeiCliente.GUI
         {
             string mes=ComboMes.SelectedIndex+"";
             if (ComboMes.SelectedIndex < 10) mes = "0" + mes;
-            Usuario usuario = await servicio.agregarUsuarioAsync(textBoxNombre.Text, textBoxApellido.Text, textPasaporteEditable.Text, textCorreoEditable.Text,
-                                        ComboAno.SelectedValue.ToString() + "-" + mes + "-" + ComboDia.SelectedValue.ToString());
+            Usuario usuario = await servicio.agregarUsuarioAsync(textBoxNombre.Text, textBoxApellido.Text, textPasaporteEditable.Text, 
+                                        textCorreoEditable.Text, ComboAno.SelectedValue.ToString() + "-" + mes + "-" + ComboDia.SelectedValue.ToString());
             if (usuario == null)
             {
                 MessageDialog mensajeError = new MessageDialog("Error no se pudo agregar al sistema");
@@ -70,6 +70,20 @@ namespace AeiCliente.GUI
             else
             {
                 BufferUsuario.Usuario = usuario;
+                int error = await servicio.enviarCorreoDeBienvenidaAsync(usuario);
+                if (error == 1)
+                {
+                    MessageDialog mensajeError = new MessageDialog("Se envió un código de activación a su correo");
+                    mensajeError.ShowAsync();
+
+                }
+                else
+                {
+                    MessageDialog mensajeError = new MessageDialog(@"Error no se pudo enviar el código de activación. Envíe un correo 
+                                                                    electrónico a aeiStoreSoporte@gmail.com reportando su caso");
+                    mensajeError.ShowAsync();
+                }
+                this.Frame.Navigate(typeof(PerfilPage));
             }
 
         }

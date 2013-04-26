@@ -41,10 +41,10 @@ namespace AeiCliente
             if (producto.Cantidad == 1) textCantidad.Text = producto.Cantidad.ToString() + " unidad disponible";
             else textCantidad.Text = producto.Cantidad.ToString()+" unidades disponibles";
             producto.Calificaciones = await servicioAei.buscarCalificacionProductoAsync(producto.Id);
-            cargarComentarios();
+            //cargarComentarios();
         }
 
-        private void cargarComentarios()
+        private async void cargarComentarios()
         {
             List<Calificacion> listaCalificacion = producto.Calificaciones;
             if (listaCalificacion != null)
@@ -93,7 +93,8 @@ namespace AeiCliente
                 detalleCompra.Producto = producto;
                 detalleCompra.Monto = producto.Precio * detalleCompra.Cantidad;
                 //LLamar al servicio para guardar la compra y que me retorne mi usuario
-                BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra, detalleCompra.Producto);
+                BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
+                BufferUsuario.Usuario = await servicioAei.borrarDetalleCarritoAsync(BufferUsuario.Usuario, detalleCompra);
                 var xs = BufferUsuario.Usuario.Carrito.Productos;
             }
             else

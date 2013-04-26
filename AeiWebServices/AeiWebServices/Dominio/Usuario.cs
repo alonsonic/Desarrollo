@@ -47,6 +47,11 @@ namespace AeiWebServices
             this.codigoActivacion = codigoActivacion;
         }
 
+        public void borrarDetalleCarrito(DetalleCompra detalle)
+        {
+            this.Carrito.Productos.Remove(detalle);
+        }
+
         public void AgregarDireccion(Direccion direccion)
         {
             this.Direcciones.Add(direccion);

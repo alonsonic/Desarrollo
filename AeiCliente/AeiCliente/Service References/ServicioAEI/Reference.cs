@@ -562,6 +562,8 @@ namespace AeiCliente.ServicioAEI {
         
         private int CantidadField;
         
+        private int IdField;
+        
         private float MontoField;
         
         private AeiCliente.ServicioAEI.Producto ProductoField;
@@ -575,6 +577,19 @@ namespace AeiCliente.ServicioAEI {
                 if ((this.CantidadField.Equals(value) != true)) {
                     this.CantidadField = value;
                     this.RaisePropertyChanged("Cantidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -1024,6 +1039,18 @@ namespace AeiCliente.ServicioAEI {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioAEI.IServicioAEI")]
     public interface IServicioAEI {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/borrarDetalleCarrito", ReplyAction="http://tempuri.org/IServicioAEI/borrarDetalleCarritoResponse")]
+        System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> borrarDetalleCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/enviarCorreoDeModificacion", ReplyAction="http://tempuri.org/IServicioAEI/enviarCorreoDeModificacionResponse")]
+        System.Threading.Tasks.Task<int> enviarCorreoDeModificacionAsync(AeiCliente.ServicioAEI.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/enviarCorreoDeBienvenida", ReplyAction="http://tempuri.org/IServicioAEI/enviarCorreoDeBienvenidaResponse")]
+        System.Threading.Tasks.Task<int> enviarCorreoDeBienvenidaAsync(AeiCliente.ServicioAEI.Usuario usuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/modificarUsuario", ReplyAction="http://tempuri.org/IServicioAEI/modificarUsuarioResponse")]
+        System.Threading.Tasks.Task<int> modificarUsuarioAsync(AeiCliente.ServicioAEI.Usuario usuario);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/ConsultarUsuario", ReplyAction="http://tempuri.org/IServicioAEI/ConsultarUsuarioResponse")]
         System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> ConsultarUsuarioAsync(string mail);
         
@@ -1061,7 +1088,7 @@ namespace AeiCliente.ServicioAEI {
         System.Threading.Tasks.Task<int> agregarDireccionUsuarioAsync(int idUsuario, int idDireccion, string descripcion, int codigoPostal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/agregarCarrito", ReplyAction="http://tempuri.org/IServicioAEI/agregarCarritoResponse")]
-        System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> agregarCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalleCompra, AeiCliente.ServicioAEI.Producto p);
+        System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> agregarCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalleCompra);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/buscarDireccionUsuario", ReplyAction="http://tempuri.org/IServicioAEI/buscarDireccionUsuarioResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<AeiCliente.ServicioAEI.Direccion>> buscarDireccionUsuarioAsync(int idUsuario);
@@ -1108,6 +1135,22 @@ namespace AeiCliente.ServicioAEI {
         
         public ServicioAEIClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> borrarDetalleCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalle) {
+            return base.Channel.borrarDetalleCarritoAsync(usuario, detalle);
+        }
+        
+        public System.Threading.Tasks.Task<int> enviarCorreoDeModificacionAsync(AeiCliente.ServicioAEI.Usuario usuario) {
+            return base.Channel.enviarCorreoDeModificacionAsync(usuario);
+        }
+        
+        public System.Threading.Tasks.Task<int> enviarCorreoDeBienvenidaAsync(AeiCliente.ServicioAEI.Usuario usuario) {
+            return base.Channel.enviarCorreoDeBienvenidaAsync(usuario);
+        }
+        
+        public System.Threading.Tasks.Task<int> modificarUsuarioAsync(AeiCliente.ServicioAEI.Usuario usuario) {
+            return base.Channel.modificarUsuarioAsync(usuario);
         }
         
         public System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> ConsultarUsuarioAsync(string mail) {
@@ -1158,8 +1201,8 @@ namespace AeiCliente.ServicioAEI {
             return base.Channel.agregarDireccionUsuarioAsync(idUsuario, idDireccion, descripcion, codigoPostal);
         }
         
-        public System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> agregarCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalleCompra, AeiCliente.ServicioAEI.Producto p) {
-            return base.Channel.agregarCarritoAsync(usuario, detalleCompra, p);
+        public System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> agregarCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalleCompra) {
+            return base.Channel.agregarCarritoAsync(usuario, detalleCompra);
         }
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<AeiCliente.ServicioAEI.Direccion>> buscarDireccionUsuarioAsync(int idUsuario) {
