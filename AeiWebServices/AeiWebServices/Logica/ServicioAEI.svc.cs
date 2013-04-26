@@ -12,6 +12,13 @@ namespace AeiWebServices.Logica
 
     public class ServicioAEI : IServicioAEI
     {
+        public Usuario borrarDetalleCarrito(Usuario usuario, DetalleCompra detalle)
+        {
+            int respuesta = FabricaDAO.setEliminarDetalleCarrito(detalle.Id);
+            usuario.borrarDetalleCarrito(detalle);
+            return usuario;
+        }
+
         public int enviarCorreoDeModificacion(Usuario usuario)
         {
             Correo correo = new Correo();
@@ -38,11 +45,6 @@ namespace AeiWebServices.Logica
         public Usuario ConsultarUsuario(string mail)
         {
             Usuario usuario = FabricaDAO.getUsuario(mail);
-            if (usuario != null)
-            {
-                usuario.Carrito = FabricaDAO.getCarrito(usuario.Id);
-                if (usuario.Carrito != null) usuario.Carrito.Productos = FabricaDAO.getListaProductos(usuario.Carrito.Id);
-            }
             return usuario;
         }
 

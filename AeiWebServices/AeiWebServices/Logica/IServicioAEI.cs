@@ -12,6 +12,9 @@ namespace AeiWebServices.Logica
     public interface IServicioAEI
     {
         [OperationContract]
+        Usuario borrarDetalleCarrito(Usuario usuario, DetalleCompra detalle);
+
+        [OperationContract]
         int enviarCorreoDeModificacion(Usuario usuario);
 
         [OperationContract]

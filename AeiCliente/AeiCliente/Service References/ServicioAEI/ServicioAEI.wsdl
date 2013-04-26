@@ -8,6 +8,12 @@
       <xsd:import schemaLocation="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices.Dominio" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IServicioAEI_borrarDetalleCarrito_InputMessage">
+    <wsdl:part name="parameters" element="tns:borrarDetalleCarrito" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_borrarDetalleCarrito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:borrarDetalleCarritoResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioAEI_enviarCorreoDeModificacion_InputMessage">
     <wsdl:part name="parameters" element="tns:enviarCorreoDeModificacion" />
   </wsdl:message>
@@ -111,6 +117,10 @@
     <wsdl:part name="parameters" element="tns:buscarDireccionUsuarioResponse" />
   </wsdl:message>
   <wsdl:portType name="IServicioAEI">
+    <wsdl:operation name="borrarDetalleCarrito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/borrarDetalleCarrito" message="tns:IServicioAEI_borrarDetalleCarrito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/borrarDetalleCarritoResponse" message="tns:IServicioAEI_borrarDetalleCarrito_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="enviarCorreoDeModificacion">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeModificacion" message="tns:IServicioAEI_enviarCorreoDeModificacion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeModificacionResponse" message="tns:IServicioAEI_enviarCorreoDeModificacion_OutputMessage" />
@@ -182,6 +192,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioAEI" type="tns:IServicioAEI">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="borrarDetalleCarrito">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/borrarDetalleCarrito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="enviarCorreoDeModificacion">
       <soap:operation soapAction="http://tempuri.org/IServicioAEI/enviarCorreoDeModificacion" style="document" />
       <wsdl:input>

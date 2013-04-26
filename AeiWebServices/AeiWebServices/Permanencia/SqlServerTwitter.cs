@@ -13,7 +13,7 @@ namespace AeiWebServices.Permanencia
         public int agregarUsuario(Twitter usuario)
         {
             int respuesta= ConexionSqlServer.insertar("INSERT INTO Twitter (ScreenName, idUsuario, OauthTokenSecret, OauthToken) VALUES ('"+usuario.ScreenName+"','"+usuario.IdUsuario+"','"+usuario.OauthTokenSecret+"','"+usuario.OauthToken+"');");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -25,7 +25,7 @@ namespace AeiWebServices.Permanencia
             {
                 twitter = new Twitter(tabla["IDUSUARIO"].ToString(), tabla["SCREENNAME"].ToString(), tabla["OauthToken"].ToString(), tabla["OauthTokenSecret"].ToString());
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return twitter;
         }
     }

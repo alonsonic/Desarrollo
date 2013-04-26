@@ -12,7 +12,7 @@ namespace AeiWebServices.Permanencia
         public int agregarMetodoPago(MetodoPago metodo, int idUsuario)
         {
             int respuesta= ConexionSqlServer.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,fk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario + ")");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -24,7 +24,7 @@ namespace AeiWebServices.Permanencia
             {
                 lista.Add(new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHA"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString()));
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return lista;
         }
 
@@ -36,14 +36,14 @@ namespace AeiWebServices.Permanencia
             {
                 resultado = new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHAVENC"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString());
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return resultado;
         }
 
         public int modificarMetodoPago(MetodoPago metodoModificado, int idMetodoActual, int idUsuario)
         {
             int respuesta= ConexionSqlServer.insertar("UPDATE METODO_PAGO SET numero=" + metodoModificado.Numero.ToString() + ",marca='" + metodoModificado.Marca + "',fecha_vencimiento='" + metodoModificado.FechaVencimiento.ToString() + "' where id=" + idMetodoActual.ToString() + " and fk_usuario=" + idUsuario.ToString() + "");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
     }

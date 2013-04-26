@@ -19,7 +19,7 @@ namespace AeiWebServices.Permanencia
                 listaresultado.Add(new Categoria(int.Parse(tabla["ID"].ToString()),tabla["NOMBRE"].ToString()));
                
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaresultado;
         }
 
@@ -30,10 +30,10 @@ namespace AeiWebServices.Permanencia
             while (tabla!=null && tabla.Read())
             {
                 Categoria resultado = new Categoria(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString());
-                ConexionSqlServer.cerrarConexion();
+                 
                 return resultado;
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return null;
         }
 

@@ -20,7 +20,7 @@ namespace AeiWebServices.Permanencia
                 listaresultado.Add(new Categoria(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString()));
 
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaresultado;
         }
 
@@ -32,11 +32,11 @@ namespace AeiWebServices.Permanencia
                 while (tabla!=null && tabla.Read())
                 {
                     Categoria resultado = new Categoria(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString());
-                    ConexionSqlServer.cerrarConexion();
+                     
                     return resultado;
                 }
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return null;
         }
         public List<Producto> busquedaProductos(string busqueda)
@@ -55,7 +55,7 @@ namespace AeiWebServices.Permanencia
                 listaCategoria = listaCategoria.Distinct(new Comparer()).ToList();
                 listaTag = listaTag.Distinct(new Comparer()).ToList();
             }
-            ConexionSqlServer.cerrarConexion();
+             
             List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
             listaResultado = listaResultado.Concat(listaTag).ToList();
             listaResultado = listaResultado.Distinct(new Comparer()).ToList();
@@ -94,7 +94,7 @@ namespace AeiWebServices.Permanencia
                 producto.Categoria = buscarCategoriaPorProducto(producto.Id);
                 listaProductos.Add(producto);
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaProductos;
         }
 
@@ -112,7 +112,7 @@ namespace AeiWebServices.Permanencia
                 producto.Categoria = buscarCategoriaPorProducto(producto.Id);
                 listaProductos.Add(producto);
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaProductos;            
         }
         public List<Tag> buscarTagPorProducto(int idproducto)
@@ -125,7 +125,7 @@ namespace AeiWebServices.Permanencia
                 listaresultado.Add(new Tag(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString()));
 
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaresultado;
         }
 
@@ -133,7 +133,7 @@ namespace AeiWebServices.Permanencia
         public int updateCantidad(int idProducto, int cantidadEnExistencia)
         {
             int respuesta= ConexionSqlServer.insertar("UPDATE PRODUCTO SET CANTIDAD=" + cantidadEnExistencia + " WHERE ID=" + idProducto + ";");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -154,7 +154,7 @@ namespace AeiWebServices.Permanencia
                     listaProductos.Add(producto);
                 }
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaProductos;
         }
 
@@ -173,7 +173,7 @@ namespace AeiWebServices.Permanencia
                 producto.Categoria = buscarCategoriaPorProducto(producto.Id);
                 listaProductos.Add(producto);
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaProductos;
         }
 
@@ -192,7 +192,7 @@ namespace AeiWebServices.Permanencia
                 producto.Categoria = buscarCategoriaPorProducto(producto.Id);
                 listaProductos.Add(producto);
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaProductos;
         }
         public List<Producto> buscarPorTag(String nombreTag)
@@ -209,7 +209,7 @@ namespace AeiWebServices.Permanencia
                 producto.Categoria = buscarCategoriaPorProducto(producto.Id);
                 listaProductos.Add(producto);
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaProductos;
         }
         public Producto buscarPorCompra(int idDetalleCompra)
@@ -223,10 +223,10 @@ namespace AeiWebServices.Permanencia
                     int.Parse(tabla["CANTIDAD"].ToString()));
                 listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
                 Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
-                ConexionSqlServer.cerrarConexion();
+                 
                 return resultado;
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return null;
         }
 
@@ -234,7 +234,7 @@ namespace AeiWebServices.Permanencia
         public int agregarCalificacion(Calificacion calificacion, int idUsuario, int idProducto)
         {
             int respuesta= ConexionSqlServer.insertar("INSERT INTO id, puntaje, comentario, usuario, fecha VALUES(NEXT VALUE FOR SEQ_CALIFICACION," + calificacion.Puntaje.ToString() + ",'" + calificacion.Comentario + "'," + idUsuario.ToString() + ",'" + DateTime.Today.ToString("yyyy-MM-dd") + "'); ");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
         public List<Calificacion> consultarCalificacionesPorProducto(int idProducto)
@@ -248,7 +248,7 @@ namespace AeiWebServices.Permanencia
                 bufferCalificacion.Usuario = consultarUsuario(bufferCalificacion.Id);
                 listaresultado.Add(bufferCalificacion);
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaresultado;
         }
 
@@ -262,7 +262,7 @@ namespace AeiWebServices.Permanencia
                 detalleCompra.Producto = buscarPorCompra(detalleCompra.Id);
                 resultado.Add(detalleCompra);
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return resultado;
         }
 
@@ -275,7 +275,7 @@ namespace AeiWebServices.Permanencia
                     DateTime.ParseExact(tabla["FECHASOL"].ToString(), "yyyy-MM-dd", null),
                     DateTime.ParseExact(tabla["FECHAENT"].ToString(), "yyyy-MM-dd", null), tabla["ESTADO"].ToString(), null, null, null);
                 resultado.Productos = buscarDetalleCompra(resultado.Id);
-                ConexionSqlServer.cerrarConexion();
+                 
                 return resultado;
             }
             return null;
@@ -295,28 +295,28 @@ namespace AeiWebServices.Permanencia
                 compra.Pago = consultarMetodosPagoDeCompra(compra.Id);
 
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaCompras;
         }
 
         public int agregarCompra(Compra compra)
         {
             int respuesta= ConexionSqlServer.insertar("INSERT INTO Compra (id,monto_total, fecha_solicitud, fecha_entrega, estado,fk_metodopago,fk_det_direccion,fk_usuario) VALUES (NEXT VALUE FOR seq_compra," + compra.MontoTotal.ToString() + ",'" + compra.FechaSolicitud.ToString("yyyy-MM-dd") + "','" + compra.FechaEntrega.ToString("yyyy-MM-dd") + "','" + compra.Status + "'," + compra.Pago.Id.ToString() + "," + compra.Direccion.Id.ToString() + ", null);");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
         public int modificarEstadoDeCompra(String Status, int idCompra)
         {
             int respuesta = ConexionSqlServer.insertar("UPDATE COMPRA SET ESTADO='" + Status + "' WHERE ID=" + idCompra.ToString() + ";");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
         public int agregarMetodoPago(MetodoPago metodo, int idUsuario)
         {
             int respuesta = ConexionSqlServer.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,fk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario + ")");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -328,7 +328,7 @@ namespace AeiWebServices.Permanencia
             {
                 lista.Add(new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHA"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString()));
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return lista;
         }
 
@@ -340,7 +340,7 @@ namespace AeiWebServices.Permanencia
             {
                 resultado = new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHAVENC"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString());
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return resultado;
 
         }
@@ -348,14 +348,14 @@ namespace AeiWebServices.Permanencia
         public int modificarMetodoPago(MetodoPago metodoModificado, int idMetodoActual, int idUsuario)
         {
             int respuesta = ConexionSqlServer.insertar("UPDATE METODO_PAGO SET numero=" + metodoModificado.Numero.ToString() + ",marca='" + metodoModificado.Marca + "',fecha_vencimiento='" + metodoModificado.FechaVencimiento.ToString() + "' where id=" + idMetodoActual.ToString() + " and fk_usuario=" + idUsuario.ToString() + "");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
         public int AgregarDireccionUsuario(int idUsuario, int idDireccion, Direccion direccion)
         {
             int respuesta = ConexionSqlServer.insertar("INSERT INTO Detalle_Direccion (id,descripcion,codigo_postal,status,fk_direccion, fk_usuario)  VALUES (NEXT VALUE FOR seq_detalle_direccion, '" + direccion.Descripcion + "'," + direccion.CodigoPostal.ToString() + ",'" + direccion.Status + "'," + idDireccion.ToString() + "," + idUsuario.ToString() + ");");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -367,7 +367,7 @@ namespace AeiWebServices.Permanencia
             {
                 lista.Add(new Direccion(int.Parse(tabla["ID"].ToString()), tabla["PAIS"].ToString(), tabla["ESTADO"].ToString(), tabla["CIUDAD"].ToString(), int.Parse(tabla["CODIGO_POSTAL"].ToString()), tabla["DESCRIPCION"].ToString(), tabla["STATUS"].ToString()));
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return lista;
         }
 
@@ -379,7 +379,7 @@ namespace AeiWebServices.Permanencia
             {
                 resultado = new Direccion(int.Parse(tabla["ID"].ToString()), tabla["PAIS"].ToString(), tabla["ESTADO"].ToString(), tabla["CIUDAD"].ToString(), int.Parse(tabla["CODIGO_POSTAL"].ToString()), tabla["DESCRIPCION"].ToString(), tabla["STATUS"].ToString());
             } 
-            ConexionSqlServer.cerrarConexion();
+             
             return resultado;
         }
 
@@ -396,7 +396,7 @@ namespace AeiWebServices.Permanencia
             {
                 listaDireccion.Add(new Direccion(int.Parse(tabla["ID"].ToString()), null, tabla["NOMBRE"].ToString(), null, -1, null, null));
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaDireccion;
         }
 
@@ -408,7 +408,7 @@ namespace AeiWebServices.Permanencia
             {
                 listaDireccion.Add(new Direccion(int.Parse(tabla["ID"].ToString()), null, tabla["ESTADO"].ToString(), tabla["NOMBRE"].ToString(), -1, null, null));
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaDireccion;
 
         }
@@ -427,10 +427,10 @@ namespace AeiWebServices.Permanencia
                 usuario.MetodosPago = consultarAllMetodosPago(usuario.Id);
                 usuario.Carrito = consultarCarrito(usuario.Id);
                 usuario.Compras = consultarHistorialCompras(usuario.Id);
-                ConexionSqlServer.cerrarConexion();
+                 
                 return usuario;
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return null;
         }
 
@@ -448,10 +448,10 @@ namespace AeiWebServices.Permanencia
                 usuario.MetodosPago = consultarAllMetodosPago(usuario.Id);
                 usuario.Carrito = consultarCarrito(usuario.Id);
                 usuario.Compras = consultarHistorialCompras(usuario.Id);
-                ConexionSqlServer.cerrarConexion();
+                 
                 return usuario;
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return null;
         }
         public Usuario consultarUsuario(int id)
@@ -468,16 +468,16 @@ namespace AeiWebServices.Permanencia
                 usuario.MetodosPago = consultarAllMetodosPago(usuario.Id);
                 usuario.Carrito = consultarCarrito(usuario.Id);
                 usuario.Compras = consultarHistorialCompras(usuario.Id);
-                ConexionSqlServer.cerrarConexion();
+                 
                 return usuario;
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return null;
         }
         public int modificarUsuario(Usuario usuarioModificado, int idUsuario)
         {
             int respuesta= ConexionSqlServer.insertar("UPDATE USUARIO SET nombre='" + usuarioModificado.Nombre + "', apellido= '" + usuarioModificado.Apellido + "',  fecha_nac='" + usuarioModificado.FechaNacimiento.ToString() + "', fecha_ing= '" + usuarioModificado.FechaRegistro.ToString() + "', status= '" + usuarioModificado.Status + "', codigoActivacion= '" + usuarioModificado.CodigoActivacion + "' where id=" + idUsuario + ";");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -485,7 +485,7 @@ namespace AeiWebServices.Permanencia
         {
             DateTime fechaActual = DateTime.Today;
             int respuesta= ConexionSqlServer.insertar("INSERT INTO Usuario (id, pasaporte, nombre, apellido, fecha_nac, mail, fecha_ing, status, codigoActivacion) VALUES (NEXT VALUE FOR SEQ_usuario,'" + usuario.Pasaporte + "','" + usuario.Nombre + "', '" + usuario.Apellido + "','" + usuario.FechaNacimiento.ToString("yyyy-MM-dd") + "','" + usuario.Email + "','" + fechaActual.ToString() + "','I',NEXT VALUE FOR seq_codigo_activacion);");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
     }

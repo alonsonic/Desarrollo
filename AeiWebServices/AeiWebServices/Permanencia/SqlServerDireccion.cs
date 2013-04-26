@@ -12,7 +12,7 @@ namespace AeiWebServices.Permanencia
         public int AgregarDireccionUsuario(int idUsuario, int idDireccion, Direccion direccion)
         {
             int respuesta= ConexionSqlServer.insertar("INSERT INTO Detalle_Direccion (id,descripcion,codigo_postal,status,fk_direccion, fk_usuario)  VALUES (NEXT VALUE FOR seq_detalle_direccion, '" + direccion.Descripcion + "'," + direccion.CodigoPostal.ToString() + ",'" + direccion.Status + "'," + idDireccion.ToString() + "," + idUsuario.ToString() + ");");
-            ConexionSqlServer.cerrarConexion();
+             
             return respuesta;
         }
 
@@ -24,7 +24,7 @@ namespace AeiWebServices.Permanencia
             {
                 lista.Add(new Direccion(int.Parse(tabla["ID"].ToString()), tabla["PAIS"].ToString(), tabla["ESTADO"].ToString(), tabla["CIUDAD"].ToString(), int.Parse(tabla["CODIGO_POSTAL"].ToString()), tabla["DESCRIPCION"].ToString(), tabla["STATUS"].ToString()));
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return lista;
         }
 
@@ -36,7 +36,7 @@ namespace AeiWebServices.Permanencia
             {
                 resultado = new Direccion(int.Parse(tabla["ID"].ToString()), tabla["PAIS"].ToString(), tabla["ESTADO"].ToString(), tabla["CIUDAD"].ToString(), int.Parse(tabla["CODIGO_POSTAL"].ToString()), tabla["DESCRIPCION"].ToString(), tabla["STATUS"].ToString());
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return resultado;
         }
 
@@ -53,7 +53,7 @@ namespace AeiWebServices.Permanencia
             {
                 listaDireccion.Add( new Direccion(int.Parse(tabla["ID"].ToString()), null, tabla["NOMBRE"].ToString(), null, -1, null, null));
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaDireccion;
 
         }
@@ -66,7 +66,7 @@ namespace AeiWebServices.Permanencia
             {
                 listaDireccion.Add(new Direccion(int.Parse(tabla["ID"].ToString()), null,tabla["ESTADO"].ToString(), tabla["NOMBRE"].ToString(), -1, null, null));
             }
-            ConexionSqlServer.cerrarConexion();
+             
             return listaDireccion;
         }
     }
