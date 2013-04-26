@@ -8,6 +8,11 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
+        static public DetalleCompra getDetalleCompraCarrito(int idProducto, int idUsuario)
+        {
+            SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();
+            return resultado.buscarEnMiCarrito(idProducto, idUsuario);
+        }
         static public int setEliminarDetalleCarrito(int idDetalleCompra)
         {
             SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();

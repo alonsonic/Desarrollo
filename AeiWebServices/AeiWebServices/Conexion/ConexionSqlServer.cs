@@ -49,7 +49,6 @@ namespace AeiWebServices
                     comando.CommandType = CommandType.Text;
                     SqlDataReader tabla = null;
                     tabla = comando.ExecuteReader();
-                   // miConexion.Close();
                     return tabla;
 
                 }

@@ -1039,6 +1039,9 @@ namespace AeiCliente.ServicioAEI {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioAEI.IServicioAEI")]
     public interface IServicioAEI {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/checkearProductoCarrito", ReplyAction="http://tempuri.org/IServicioAEI/checkearProductoCarritoResponse")]
+        System.Threading.Tasks.Task<bool> checkearProductoCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalle);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/borrarDetalleCarrito", ReplyAction="http://tempuri.org/IServicioAEI/borrarDetalleCarritoResponse")]
         System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> borrarDetalleCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalle);
         
@@ -1135,6 +1138,10 @@ namespace AeiCliente.ServicioAEI {
         
         public ServicioAEIClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public System.Threading.Tasks.Task<bool> checkearProductoCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalle) {
+            return base.Channel.checkearProductoCarritoAsync(usuario, detalle);
         }
         
         public System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> borrarDetalleCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.DetalleCompra detalle) {

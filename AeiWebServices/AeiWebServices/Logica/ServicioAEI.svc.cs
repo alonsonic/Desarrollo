@@ -12,6 +12,12 @@ namespace AeiWebServices.Logica
 
     public class ServicioAEI : IServicioAEI
     {
+        public Boolean checkearProductoCarrito (Usuario usuario, DetalleCompra detalle)
+        {
+            DetalleCompra detallecompra = FabricaDAO.getDetalleCompraCarrito(detalle.Producto.Id, usuario.Id);
+            if (detallecompra != null) return true;
+            return false;
+        }
         public Usuario borrarDetalleCarrito(Usuario usuario, DetalleCompra detalle)
         {
             int respuesta = FabricaDAO.setEliminarDetalleCarrito(detalle.Id);
@@ -115,7 +121,8 @@ namespace AeiWebServices.Logica
 
         }
 
-        public Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra, Producto p)
+        
+        public Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra)
         {
             Compra carrito = FabricaDAO.getCarrito(usuario.Id);
             if (carrito == null)
