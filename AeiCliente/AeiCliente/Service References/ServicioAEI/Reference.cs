@@ -1024,6 +1024,9 @@ namespace AeiCliente.ServicioAEI {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioAEI.IServicioAEI")]
     public interface IServicioAEI {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/enviarCorreoDeModificacion", ReplyAction="http://tempuri.org/IServicioAEI/enviarCorreoDeModificacionResponse")]
+        System.Threading.Tasks.Task<int> enviarCorreoDeModificacionAsync(AeiCliente.ServicioAEI.Usuario usuario);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/enviarCorreoDeBienvenida", ReplyAction="http://tempuri.org/IServicioAEI/enviarCorreoDeBienvenidaResponse")]
         System.Threading.Tasks.Task<int> enviarCorreoDeBienvenidaAsync(AeiCliente.ServicioAEI.Usuario usuario);
         
@@ -1114,6 +1117,10 @@ namespace AeiCliente.ServicioAEI {
         
         public ServicioAEIClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public System.Threading.Tasks.Task<int> enviarCorreoDeModificacionAsync(AeiCliente.ServicioAEI.Usuario usuario) {
+            return base.Channel.enviarCorreoDeModificacionAsync(usuario);
         }
         
         public System.Threading.Tasks.Task<int> enviarCorreoDeBienvenidaAsync(AeiCliente.ServicioAEI.Usuario usuario) {

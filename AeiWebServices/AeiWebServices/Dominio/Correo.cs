@@ -60,6 +60,40 @@ namespace AeiWebServices.Dominio
 
         }
 
+        public int enviarCorreoDeModificacion(string mail, string nombre, string apellido)
+        {
+            try
+            {
+                MailMessage mensaje = new MailMessage();
+
+                mensaje.To.Add(mail);
+                mensaje.From = new MailAddress("aeiStoreSoporte@gmail.com", "aei Store", System.Text.Encoding.UTF8);
+                mensaje.Subject = "Notificación de actualización en perfil aei Store";
+                mensaje.IsBodyHtml = true;
+                mensaje.Body = @"<h2>Estimado(a)"+nombre+" "+apellido+@",</h2>
+                                    <p>
+                                        Le informamos que el día XXXXX se han hecho modificaciones en su perfil personal en su cuenta de aei Store.
+                                    </p>
+                                    <p>
+                                         Si usted no reconoce haber realizado esta operación, comuníquese inmediatamente con nosotros a
+                                            través del correo electrónico aeiStoreSoporte@gmail.com.
+                                    </p>
+                                    <p>
+                                        Gracias por su preferencia,
+                                    </p>
+                                    <p>
+                                        Atte,
+                                        El equipo de aei Store.
+                                    </p>";
+                enviarCorreo(mensaje);
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+
+        }
 
     }
 }
