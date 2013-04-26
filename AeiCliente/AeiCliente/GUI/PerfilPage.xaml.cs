@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -40,6 +41,7 @@ namespace AeiCliente
 
         public void cargarDireciones()
         {
+            listBoxDireccion.Items.Clear();
             List<Direccion> listaDirecciones = usuario.Direcciones;
             for (int indexDireccion = 0; indexDireccion < listaDirecciones.Count(); indexDireccion++)
             {
@@ -94,6 +96,47 @@ namespace AeiCliente
         {
             bloquear(true);
 
+        }
+
+        private void botonHome_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void botonBack_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void botonLupa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ListaProductoPage));
+        }
+
+        private void botonPerfil_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para acceder a su perfil.");
+
+            if (BufferUsuario.isConectado())
+            {
+                this.Frame.Navigate(typeof(PerfilPage));
+            }
+            else
+            {
+                mensajeError.ShowAsync();
+            }
+        }
+
+        private void botonCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para llevar una lista de compras.");
+
+            if (BufferUsuario.isConectado())
+                this.Frame.Navigate(typeof(ListaCompraPage));
+            else
+            {
+                mensajeError.ShowAsync();
+            }
         }
     }
 }

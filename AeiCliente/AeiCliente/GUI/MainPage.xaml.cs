@@ -34,6 +34,8 @@ namespace AeiCliente
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            if (BufferUsuario.Usuario != null)
+                botonInicioSesion.Content = "Salir";
         }
 
         public void llamarAgregarPerfilPage()

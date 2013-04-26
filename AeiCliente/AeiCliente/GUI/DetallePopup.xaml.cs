@@ -21,10 +21,14 @@ namespace AeiCliente
         private Popup popup = null;
         private int cantidadProducto = 1;
         private int cantidadProductoMax = 0;
+        private ServicioAEIClient servicioAei = new ServicioAEIClient();
+        private DetalleCompra detalleCompra = new DetalleCompra();
+        private Producto producto;
 
-        public DetallePopup(Popup padre,int cantidadProductoMax)
+        public DetallePopup(Popup padre, Producto producto)
         {
-            this.cantidadProductoMax = cantidadProductoMax;
+            this.producto = producto;
+            this.cantidadProductoMax = producto.Cantidad;
             if (padre == null) throw new ArgumentNullException("Debe asignar un Popup al controlador");
             this.popup = padre;
             this.InitializeComponent();
@@ -55,9 +59,14 @@ namespace AeiCliente
             set { cantidadProducto = value; }
         }
 
-        private void botonAddCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void botonAddCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            DetalleProductoPage.detalleCompra.Cantidad = cantidadProducto;
+            detalleCompra.Cantidad = cantidadProducto;
+            detalleCompra.Producto = producto;
+            detalleCompra.Monto = producto.Precio * detalleCompra.Cantidad;
+
+            BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
+
             popup.IsOpen = false;
         }
     }

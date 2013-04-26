@@ -10,9 +10,9 @@
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
 
         <Image x:Name="fondoPerfil" Source="ms-appx:///Imagenes/fondoPerfilAEI.png" Stretch="Fill" d:IsLocked="True"/>
-        <Button x:Name="botonLupa" Content="" HorizontalAlignment="Left" Height="75" Margin="1090,10,0,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent"/>
-        <Button x:Name="botonPerfil" Content="" HorizontalAlignment="Left" Height="75" Margin="1184,10,0,0" VerticalAlignment="Top" Width="69" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent"/>
-        <Button x:Name="botonCarrito" Content="" HorizontalAlignment="Left" Height="78" Margin="1271,7,0,0" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent"/>
+        <Button x:Name="botonLupa" Content="" HorizontalAlignment="Left" Height="75" Margin="1090,10,0,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent" Click="botonLupa_Click"/>
+        <Button x:Name="botonPerfil" Content="" HorizontalAlignment="Left" Height="75" Margin="1184,10,0,0" VerticalAlignment="Top" Width="69" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent" Click="botonPerfil_Click"/>
+        <Button x:Name="botonCarrito" Content="" HorizontalAlignment="Left" Height="78" Margin="1271,7,0,0" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent" Click="botonCarrito_Click"/>
         <TextBlock x:Name="textNombre" HorizontalAlignment="Left" Height="32" Margin="90,188,0,0" TextWrapping="Wrap" Text="Nombre" VerticalAlignment="Top" Width="114" FontSize="26.667" FontFamily="Gill Sans MT"/>
         <TextBlock x:Name="textHistorialCompra" HorizontalAlignment="Left" Height="72" Margin="906,172,0,0" TextWrapping="Wrap" Text="Historial de Compras" VerticalAlignment="Top" Width="404" FontSize="43" FontFamily="Gill Sans MT"/>
         <TextBlock x:Name="textPasaporte" HorizontalAlignment="Left" Height="33" Margin="88,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" FontSize="26.667" Text="Pasaporte"/>

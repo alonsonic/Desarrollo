@@ -86,15 +86,36 @@ namespace AeiCliente
 
         private void botonPerfil_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	// TODO: Agregar implementación de controlador de eventos aquí.
+            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para acceder a su perfil.");
+
+            if (BufferUsuario.isConectado())
+            {
+                this.Frame.Navigate(typeof(PerfilPage));
+            }
+            else
+            {
+                mensajeError.ShowAsync();
+            }
         }
 
         private void botonCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	// TODO: Agregar implementación de controlador de eventos aquí.
+            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para llevar una lista de compras.");
+
+            if (BufferUsuario.isConectado())
+                this.Frame.Navigate(typeof(ListaCompraPage));
+            else
+            {
+                mensajeError.ShowAsync();
+            }
         }
 
         private void botonHome_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void botonBack_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
         }
