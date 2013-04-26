@@ -12,9 +12,9 @@ namespace AeiWebServices.Logica
 
     public class ServicioAEI : IServicioAEI
     {
-        public Boolean checkearProductoCarrito (Usuario usuario, DetalleCompra detalle)
+        public Boolean checkearProductoCarrito (Usuario usuario, Producto producto)
         {
-            DetalleCompra detallecompra = FabricaDAO.getDetalleCompraCarrito(detalle.Producto.Id, usuario.Id);
+            DetalleCompra detallecompra = FabricaDAO.getDetalleCompraCarrito(producto.Id, usuario.Id);
             if (detallecompra != null) return true;
             return false;
         }
@@ -137,7 +137,7 @@ namespace AeiWebServices.Logica
                 carrito.AgregarDetallesCompra(detalleCompra);
                 usuario.Carrito = carrito;
                 usuario.Carrito.MontoTotal=carrito.MontoTotal + detalleCompra.Monto;
-                int r = FabricaDAO.setMontoTotalCarrito(carrito, usuario.Carrito.MontoTotal);
+                int respuesta2 = FabricaDAO.setMontoTotalCarrito(carrito, usuario.Carrito.MontoTotal);
                 return usuario;
             }
             return null;
