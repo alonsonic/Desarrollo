@@ -9,6 +9,13 @@ namespace AeiWebServices.Permanencia
 {
     public class SqlServerCalificacion : DAOCalificacion, DAOUsuario, DAODireccion, DAOMetodoPago, DAOCompra, DAODetalleCompra, DAOProducto, DAOTag, DAOCategoria
     {
+        public int modificarMontoCarrito(Compra compra, float montoNuevo)
+        {
+            ConexionSqlServer conexion = new ConexionSqlServer();
+            int respuesta = conexion.insertar("UPDATE COMPRA SET monto_total= " + montoNuevo.ToString() + " WHERE ID=" + compra.Id.ToString() + ";");
+            conexion.cerrarConexion();
+            return respuesta;
+        }
 
         public DetalleCompra buscarEnMiCarrito(int idProducto, int idUsuario)
         {
@@ -33,11 +40,11 @@ namespace AeiWebServices.Permanencia
             conexion.cerrarConexion();
             return 0;
         }
- 
-        public int borrarDetalleCompra(int idDetalleCompra)
+
+        public int borrarDetalleCompra(Compra compra, DetalleCompra detalle)
         {
             ConexionSqlServer conexion= new ConexionSqlServer();
-            int respuesta= conexion.insertar("DELETE INTO DETALLE_COMPRA WHERE ID=" + idDetalleCompra.ToString() + "");
+            int respuesta = conexion.insertar("DELETE INTO DETALLE_COMPRA WHERE ID=" + detalle.Id.ToString() + "");
             conexion.cerrarConexion();
             return respuesta;
         }
