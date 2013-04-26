@@ -6,12 +6,120 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+	<Page.Resources>
+		<Style x:Key="botonHome" TargetType="Button">
+			<Setter Property="Background" Value="{StaticResource ButtonBackgroundThemeBrush}"/>
+			<Setter Property="Foreground" Value="{StaticResource ButtonForegroundThemeBrush}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ButtonBorderThemeBrush}"/>
+			<Setter Property="BorderThickness" Value="{StaticResource ButtonBorderThemeThickness}"/>
+			<Setter Property="Padding" Value="12,4,12,4"/>
+			<Setter Property="HorizontalAlignment" Value="Left"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Grid>
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CommonStates">
+									<VisualState x:Name="Normal"/>
+									<VisualState x:Name="PointerOver">
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="Border">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonPointerOverBackgroundThemeBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonPointerOverForegroundThemeBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Pressed">
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="Border">
+												<DiscreteObjectKeyFrame KeyTime="0">
+													<DiscreteObjectKeyFrame.Value>
+														<ImageBrush ImageSource="botonHomeNegativo.png"/>
+													</DiscreteObjectKeyFrame.Value>
+												</DiscreteObjectKeyFrame>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonPressedForegroundThemeBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+											<DoubleAnimation Duration="0" To="0.973" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="FocusVisualBlack" d:IsOptimized="True"/>
+											<DoubleAnimation Duration="0" To="0.868" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="FocusVisualBlack" d:IsOptimized="True"/>
+											<DoubleAnimation Duration="0" To="-4" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="FocusVisualBlack" d:IsOptimized="True"/>
+											<DoubleAnimation Duration="0" To="-7" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="FocusVisualBlack" d:IsOptimized="True"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Disabled">
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="Border">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonDisabledBackgroundThemeBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="Border">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonDisabledBorderThemeBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ButtonDisabledForegroundThemeBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+								</VisualStateGroup>
+								<VisualStateGroup x:Name="FocusStates">
+									<VisualState x:Name="Focused">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualWhite"/>
+											<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualBlack"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Unfocused"/>
+									<VisualState x:Name="PointerFocused"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="3">
+								<Border.Background>
+									<ImageBrush ImageSource="botonHomeNegativo.png"/>
+								</Border.Background>
+								<ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+							</Border>
+							<Rectangle x:Name="FocusVisualWhite" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="1.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualWhiteStrokeThemeBrush}" StrokeDashArray="1,1"/>
+							<Rectangle x:Name="FocusVisualBlack" IsHitTestVisible="False" Opacity="0" StrokeDashOffset="0.5" StrokeEndLineCap="Square" Stroke="{StaticResource FocusVisualBlackStrokeThemeBrush}" StrokeDashArray="1,1" RenderTransformOrigin="0.5,0.5">
+								<Rectangle.RenderTransform>
+									<CompositeTransform/>
+								</Rectangle.RenderTransform>
+							</Rectangle>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<ControlTemplate x:Key="backbutton" TargetType="Button">
+			<Grid>
+				<Grid.Background>
+					<ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/back.png"/>
+				</Grid.Background>
+				<VisualStateManager.VisualStateGroups>
+					<VisualStateGroup x:Name="CommonStates">
+						<VisualState x:Name="Pressed"/>
+						<VisualState x:Name="Disabled"/>
+						<VisualState x:Name="PointerOver"/>
+					</VisualStateGroup>
+					<VisualStateGroup x:Name="FocusStates">
+						<VisualState x:Name="Focused"/>
+						<VisualState x:Name="PointerFocused"/>
+					</VisualStateGroup>
+				</VisualStateManager.VisualStateGroups>
+			</Grid>
+		</ControlTemplate>
+	</Page.Resources>
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
     	<Image x:Name="fondoPerfil" Source="ms-appx:///Imagenes/fondoPerfilAEI.png" Stretch="Fill" d:IsLocked="True"/>
-    	<Button x:Name="botonLupa" Content="" HorizontalAlignment="Left" Height="75" Margin="1090,10,0,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent"/>
-    	<Button x:Name="botonPerfil" Content="" HorizontalAlignment="Left" Height="75" Margin="1184,10,0,0" VerticalAlignment="Top" Width="69" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent"/>
-    	<Button x:Name="botonCarrito" Content="" HorizontalAlignment="Left" Height="78" Margin="1271,7,0,0" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent"/>
+    	<Button x:Name="botonLupa" Content="" HorizontalAlignment="Left" Height="75" Margin="1090,10,0,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent" Click="botonLupa_Click"/>
+    	<Button x:Name="botonPerfil" Content="" HorizontalAlignment="Left" Height="75" Margin="1184,10,0,0" VerticalAlignment="Top" Width="69" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent" Click="botonPerfil_Click"/>
+    	<Button x:Name="botonCarrito" Content="" HorizontalAlignment="Left" Height="78" Margin="1271,7,0,0" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent" Click="botonCarrito_Click"/>
     	<TextBlock x:Name="textNombre" HorizontalAlignment="Left" Height="72" Margin="78,172,0,0" TextWrapping="Wrap" Text="Eleana Torres" VerticalAlignment="Top" Width="766" FontSize="48" FontFamily="Gill Sans MT"/>
     	<TextBlock x:Name="textHistorialCompra" HorizontalAlignment="Left" Height="72" Margin="906,172,0,0" TextWrapping="Wrap" Text="Historial de Compras" VerticalAlignment="Top" Width="404" FontSize="43" FontFamily="Gill Sans MT"/>
     	<TextBlock x:Name="textPasaporte" HorizontalAlignment="Left" Height="33" Margin="88,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" FontSize="26.667" Text="Pasaporte"/>
@@ -50,6 +158,8 @@
     		<ComboBoxItem x:Name="Diciembre" Content="Diciembre"/>
     	</ComboBox>
     	<ComboBox x:Name="ComboAno" HorizontalAlignment="Left" Margin="641,333,0,0" VerticalAlignment="Top" Width="120"/>
+    	<Button x:Name="botonHome" Content="" HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="297" Margin="-5,-5,0,0" BorderBrush="{x:Null}" Click="botonHome_Click" Style="{StaticResource botonHome}"/>
+    	<Button x:Name="botonBack" Content="Button" HorizontalAlignment="Left" Height="58" Margin="8,703,0,0" VerticalAlignment="Top" Width="60" Style="{StaticResource BackButtonStyle}" Foreground="Black" BorderBrush="Black" Background="{x:Null}" Template="{StaticResource backbutton}" Click="botonBack_Click"/>
 
     </Grid>
 </Page>

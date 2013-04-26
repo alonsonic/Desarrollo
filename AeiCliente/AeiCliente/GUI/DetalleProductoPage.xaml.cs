@@ -24,8 +24,7 @@ namespace AeiCliente
 		bool comentariosVisible = false;
         public static Producto producto = null;
         public static bool isCompra = false;
-        ServicioAEIClient servicioAei = new ServicioAEIClient();
-        public static DetalleCompra detalleCompra = new DetalleCompra();
+        private ServicioAEIClient servicioAei = new ServicioAEIClient();
 
         public DetalleProductoPage()
         {
@@ -86,18 +85,11 @@ namespace AeiCliente
             if (BufferUsuario.isConectado())
             {
                 Popup popup = new Popup();
-                DetallePopup direcPopup = new DetallePopup(popup, producto.Cantidad);
+                DetallePopup direcPopup = new DetallePopup(popup, producto);
                 popup.Child = direcPopup;
                 popup.IsOpen = true;
-
-                detalleCompra.Producto = producto;
-                detalleCompra.Monto = producto.Precio * detalleCompra.Cantidad;
-                //LLamar al servicio para guardar la compra y que me retorne mi usuario
-                BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
-                //Producto 
-                //BufferUsuario.Usuario = await servicioAei.borrarDetalleCarritoAsync(BufferUsuario.Usuario, detalleCompra);
-                var xs = BufferUsuario.Usuario.Carrito.Productos;
             }
+
             else
                 mensajeError.ShowAsync();
         }
