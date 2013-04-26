@@ -94,6 +94,10 @@ namespace AeiCliente
                 detalleCompra.Monto = producto.Precio * detalleCompra.Cantidad;
                 //LLamar al servicio para guardar la compra y que me retorne mi usuario
                 BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
+<<<<<<< HEAD
+=======
+                //Producto 
+>>>>>>> 8d96f1287929c97097be8bade3bc064f71885485
                 //BufferUsuario.Usuario = await servicioAei.borrarDetalleCarritoAsync(BufferUsuario.Usuario, detalleCompra);
                 var xs = BufferUsuario.Usuario.Carrito.Productos;
             }
