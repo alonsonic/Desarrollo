@@ -12,6 +12,24 @@ namespace AeiWebServices.Logica
 
     public class ServicioAEI : IServicioAEI
     {
+        public int enviarCorreoDeModificacion(Usuario usuario)
+        {
+            Correo correo = new Correo();
+            return correo.enviarCorreoDeModificacion(usuario.Email, usuario.Nombre, usuario.Apellido);
+
+        }
+
+        public int enviarCorreoDeBienvenida(Usuario usuario)
+        {
+            Correo correo = new Correo();
+            return correo.enviarCorreoDeBienvenida(usuario.Email, usuario.Nombre, usuario.Apellido, usuario.CodigoActivacion);
+        }
+
+        public int modificarUsuario(Usuario usuario)
+        {
+            return FabricaDAO.setUsuario(usuario, usuario.Id);
+        }
+
         public List<Direccion> buscarDireccionUsuario(int idUsuario)
         {
             return FabricaDAO.getListaDireccion(idUsuario);

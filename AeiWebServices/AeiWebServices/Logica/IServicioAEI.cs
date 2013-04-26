@@ -12,6 +12,15 @@ namespace AeiWebServices.Logica
     public interface IServicioAEI
     {
         [OperationContract]
+        int enviarCorreoDeModificacion(Usuario usuario);
+
+        [OperationContract]
+        int enviarCorreoDeBienvenida(Usuario usuario);
+
+        [OperationContract]
+        int modificarUsuario(Usuario usuario);
+
+        [OperationContract]
         Usuario ConsultarUsuario(string mail);
 
         [OperationContract]
