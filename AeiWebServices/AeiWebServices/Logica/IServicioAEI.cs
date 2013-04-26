@@ -12,7 +12,7 @@ namespace AeiWebServices.Logica
     public interface IServicioAEI
     {
         [OperationContract]
-        Boolean checkearProductoCarrito(Usuario usuario, DetalleCompra detalle);
+        Boolean checkearProductoCarrito(Usuario usuario, Producto producto);
 
         [OperationContract]
         Usuario borrarDetalleCarrito(Usuario usuario, DetalleCompra detalle);
