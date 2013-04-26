@@ -8,6 +8,7 @@ namespace AeiWebServices.Permanencia
 {
     interface DAOCompra
     {
+        int modificarMontoCarrito(Compra compra, float montoNuevo);
         int agregarCompra(Compra compra, int idUsuario);
         int modificarEstadoDeCompra(String Status, int idCompra);
         Compra consultarCarrito(int idUsuario);

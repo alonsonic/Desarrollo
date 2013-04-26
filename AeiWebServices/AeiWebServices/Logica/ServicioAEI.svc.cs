@@ -20,9 +20,8 @@ namespace AeiWebServices.Logica
         }
         public Usuario borrarDetalleCarrito(Usuario usuario, DetalleCompra detalle)
         {
-            int respuesta = FabricaDAO.setEliminarDetalleCarrito(detalle.Id);
-            usuario.borrarDetalleCarrito(detalle);
-            return usuario;
+            int respuesta = FabricaDAO.setEliminarDetalleCarrito(usuario.Carrito, detalle);
+            return ConsultarUsuario(usuario.Email);
         }
 
         public int enviarCorreoDeModificacion(Usuario usuario)
@@ -119,9 +118,8 @@ namespace AeiWebServices.Logica
 
             return FabricaDAO.setAgregarDetalleDireccion(idUsuario, idDireccion, detalleDireccion);
 
-        }
+        }        
 
-        
         public Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra)
         {
             Compra carrito = FabricaDAO.getCarrito(usuario.Id);
@@ -138,10 +136,11 @@ namespace AeiWebServices.Logica
                 if (carrito.Productos == null) carrito.Productos = new List<DetalleCompra>();
                 carrito.AgregarDetallesCompra(detalleCompra);
                 usuario.Carrito = carrito;
+                usuario.Carrito.MontoTotal=carrito.MontoTotal + detalleCompra.Monto;
+                int r = FabricaDAO.setMontoTotalCarrito(carrito, usuario.Carrito.MontoTotal);
                 return usuario;
             }
             return null;
         }
-
     }
 }

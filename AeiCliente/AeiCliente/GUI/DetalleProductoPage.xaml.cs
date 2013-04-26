@@ -91,12 +91,12 @@ namespace AeiCliente
                 popup.IsOpen = true;
 
                 detalleCompra.Producto = producto;
-                detalleCompra.Monto = producto.Precio * detalleCompra.Cantidad;
+                detalleCompra.Monto = 10 * detalleCompra.Cantidad;
                 //LLamar al servicio para guardar la compra y que me retorne mi usuario
                 Boolean resp = await servicioAei.checkearProductoCarritoAsync(BufferUsuario.Usuario, detalleCompra);
-                BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
+               // BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
                 //Producto 
-                //BufferUsuario.Usuario = await servicioAei.borrarDetalleCarritoAsync(BufferUsuario.Usuario, detalleCompra);
+                BufferUsuario.Usuario = await servicioAei.borrarDetalleCarritoAsync(BufferUsuario.Usuario, detalleCompra);
                 var xs = BufferUsuario.Usuario.Carrito.Productos;
             }
             else

@@ -31,10 +31,10 @@ namespace AeiWebServices.Permanencia
             return 0;
         }
 
-        public int borrarDetalleCompra(int idDetalleCompra)
+        public int borrarDetalleCompra(Compra compra,DetalleCompra detalle)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("DELETE FROM DETALLE_COMPRA  WHERE ID=" + idDetalleCompra.ToString() + "");
+            int respuesta = conexion.insertar("DELETE INTO DETALLE_COMPRA WHERE ID=" + detalle.Id.ToString() + "");
             conexion.cerrarConexion();
             return respuesta;
         }
