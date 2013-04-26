@@ -12,6 +12,31 @@ namespace AeiWebServices.Logica
 
     public class ServicioAEI : IServicioAEI
     {
+        public Usuario borrarDetalleCarrito(Usuario usuario, DetalleCompra detalle)
+        {
+            int respuesta = FabricaDAO.setEliminarDetalleCarrito(detalle.Id);
+            usuario.borrarDetalleCarrito(detalle);
+            return usuario;
+        }
+
+        public int enviarCorreoDeModificacion(Usuario usuario)
+        {
+            Correo correo = new Correo();
+            return correo.enviarCorreoDeModificacion(usuario.Email, usuario.Nombre, usuario.Apellido);
+
+        }
+
+        public int enviarCorreoDeBienvenida(Usuario usuario)
+        {
+            Correo correo = new Correo();
+            return correo.enviarCorreoDeBienvenida(usuario.Email, usuario.Nombre, usuario.Apellido, usuario.CodigoActivacion);
+        }
+
+        public int modificarUsuario(Usuario usuario)
+        {
+            return FabricaDAO.setUsuario(usuario, usuario.Id);
+        }
+
         public List<Direccion> buscarDireccionUsuario(int idUsuario)
         {
             return FabricaDAO.getListaDireccion(idUsuario);
@@ -20,11 +45,6 @@ namespace AeiWebServices.Logica
         public Usuario ConsultarUsuario(string mail)
         {
             Usuario usuario = FabricaDAO.getUsuario(mail);
-            if (usuario != null)
-            {
-                usuario.Carrito = FabricaDAO.getCarrito(usuario.Id);
-                if (usuario.Carrito != null) usuario.Carrito.Productos = FabricaDAO.getListaProductos(usuario.Carrito.Id);
-            }
             return usuario;
         }
 
@@ -95,7 +115,7 @@ namespace AeiWebServices.Logica
 
         }
 
-        public Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra, Producto p)
+        public Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra)
         {
             Compra carrito = FabricaDAO.getCarrito(usuario.Id);
             if (carrito == null)

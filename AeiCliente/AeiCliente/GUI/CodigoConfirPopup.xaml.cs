@@ -27,7 +27,7 @@ namespace AeiCliente
             this.InitializeComponent();
         }
 
-        private void buttonEnviar_Click(object sender, RoutedEventArgs e)
+        private async void buttonEnviar_Click(object sender, RoutedEventArgs e)
         {
             if (BufferUsuario.Usuario.CodigoActivacion != int.Parse(textCodigo.Text))
             {
@@ -37,9 +37,17 @@ namespace AeiCliente
             }
             else
             {
+                BufferUsuario.Usuario.Status = "A";
+                ServicioAEIClient servicio = new ServicioAEIClient();
+                int error = await servicio.modificarUsuarioAsync(BufferUsuario.Usuario);
                 popup.IsOpen = false;
 
             }
+        }
+
+        private void ButtonCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            popup.IsOpen = false;
         }
 		
     }

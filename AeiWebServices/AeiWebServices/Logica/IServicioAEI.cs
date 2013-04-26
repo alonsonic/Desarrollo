@@ -12,6 +12,18 @@ namespace AeiWebServices.Logica
     public interface IServicioAEI
     {
         [OperationContract]
+        Usuario borrarDetalleCarrito(Usuario usuario, DetalleCompra detalle);
+
+        [OperationContract]
+        int enviarCorreoDeModificacion(Usuario usuario);
+
+        [OperationContract]
+        int enviarCorreoDeBienvenida(Usuario usuario);
+
+        [OperationContract]
+        int modificarUsuario(Usuario usuario);
+
+        [OperationContract]
         Usuario ConsultarUsuario(string mail);
 
         [OperationContract]
@@ -48,7 +60,7 @@ namespace AeiWebServices.Logica
         int agregarDireccionUsuario(int idUsuario, int idDireccion, string descripcion, int codigoPostal);
 
         [OperationContract]
-        Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra, Producto p);
+        Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra);
 
         [OperationContract]
         List<Direccion> buscarDireccionUsuario(int idUsuario);

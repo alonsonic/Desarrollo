@@ -28,7 +28,7 @@
             </TextBlock>
             <TextBox x:Name="textCodigo" HorizontalAlignment="Left" Height="72" Margin="532,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" IsReadOnly="True" Grid.ColumnSpan="2" FontSize="57.333" TextAlignment="Center"/>
             <Button x:Name="buttonEnviar" Content="Enviar" HorizontalAlignment="Stretch" Margin="249,240,119,16" VerticalAlignment="Stretch" FontSize="32" Click="buttonEnviar_Click" Height="60"/>
-            <Button x:Name="ButtonCancelar" Content="Cancelar" Grid.Column="1" HorizontalAlignment="Left" Margin="119,241,0,15" VerticalAlignment="Stretch" Width="320" FontSize="32"/>
+            <Button x:Name="ButtonCancelar" Content="Cancelar" Grid.Column="1" HorizontalAlignment="Left" Margin="119,241,0,15" VerticalAlignment="Stretch" Width="320" FontSize="32" Click="ButtonCancelar_Click"/>
      </Grid>
     </custom:PopoverView>
 

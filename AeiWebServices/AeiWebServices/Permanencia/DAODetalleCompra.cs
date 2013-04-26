@@ -10,5 +10,6 @@ namespace AeiWebServices.Permanencia
     {
         List<DetalleCompra> buscarDetalleCompra(int idCompra);
         int agregarDetalleCompra(int idCompra, DetalleCompra detalleCompra);
+        int borrarDetalleCompra(int idDetalleCompra);
     }
 }
