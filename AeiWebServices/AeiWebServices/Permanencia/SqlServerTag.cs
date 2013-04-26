@@ -11,8 +11,8 @@ namespace AeiWebServices.Permanencia
     {
         public List<Tag> buscarTagPorProducto(int idproducto)
         {
-             
-            SqlDataReader tabla = ConexionSqlServer.consultar("select t.* from tag t, detalle_tag dt, producto p where t.id = dt.pk_tag AND p.id = dt.pk_producto and p.id ="+idproducto.ToString()+";");
+            ConexionSqlServer conexion = new ConexionSqlServer();
+            SqlDataReader tabla = conexion.consultar("select t.* from tag t, detalle_tag dt, producto p where t.id = dt.pk_tag AND p.id = dt.pk_producto and p.id ="+idproducto.ToString()+";");
             List<Tag> listaresultado = new List<Tag>();
             while (tabla!=null && tabla.Read())
             {

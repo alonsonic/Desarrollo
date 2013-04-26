@@ -60,7 +60,7 @@ namespace AeiWebServices.Logica
         int agregarDireccionUsuario(int idUsuario, int idDireccion, string descripcion, int codigoPostal);
 
         [OperationContract]
-        Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra);
+        Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra, Producto p);
 
         [OperationContract]
         List<Direccion> buscarDireccionUsuario(int idUsuario);

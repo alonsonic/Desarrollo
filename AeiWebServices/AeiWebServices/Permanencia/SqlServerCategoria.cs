@@ -10,30 +10,39 @@ namespace AeiWebServices.Permanencia
 {
     public class SqlServerCategoria: DAOCategoria
     {
+        private ConexionSqlServer conexion = new ConexionSqlServer();
         public List<Categoria> categorias()
         {    
-            SqlDataReader tabla= ConexionSqlServer.consultar("select * from categoria;");
+            SqlDataReader tabla= conexion.consultar("select * from categoria;");
             List<Categoria> listaresultado= new List<Categoria>();
             while (tabla!=null && tabla.Read()) 
             {
                 listaresultado.Add(new Categoria(int.Parse(tabla["ID"].ToString()),tabla["NOMBRE"].ToString()));
                
             }
+<<<<<<< HEAD
              
+=======
+>>>>>>> parent of 985a267... cambiando la conexion a estatica
             return listaresultado;
         }
 
         public Categoria buscarCategoriaPorProducto(int idProducto)
         {          
-            SqlDataReader tabla = ConexionSqlServer.consultar("select * from categoria c, producto p where p.fk_categoria = c.id AND p.id = "+idProducto+";");
+            SqlDataReader tabla = conexion.consultar("select * from categoria c, producto p where p.fk_categoria = c.id AND p.id = "+idProducto+";");
             
             while (tabla!=null && tabla.Read())
             {
                 Categoria resultado = new Categoria(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString());
+<<<<<<< HEAD
                  
                 return resultado;
             }
              
+=======
+                return resultado;
+            }
+>>>>>>> parent of 985a267... cambiando la conexion a estatica
             return null;
         }
 

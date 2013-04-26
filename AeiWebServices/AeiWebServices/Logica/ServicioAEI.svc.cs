@@ -115,7 +115,7 @@ namespace AeiWebServices.Logica
 
         }
 
-        public Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra)
+        public Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra, Producto p)
         {
             Compra carrito = FabricaDAO.getCarrito(usuario.Id);
             if (carrito == null)

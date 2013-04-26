@@ -7,15 +7,15 @@ using System.Data;
 
 namespace AeiWebServices
 {
-    public static class ConexionSqlServer
+    public class ConexionSqlServer
     {
-
-        private  static SqlConnection miConexion=new SqlConnection(@"Data Source=LYANA-PC\SQLEXPRESS; Initial Catalog = AeiBD; Integrated Security=True;");
-
-        private static SqlConnection abrirConexion()
+        public SqlConnection abrirConexion()
         {
             try
             {
+                //creando la conexion
+                SqlConnection miConexion = new SqlConnection(@"Data Source=ALONSO-LAPTOP; Initial Catalog = AeiBD; Integrated Security=True;");
+                //abriendo conexion
                 miConexion.Open();
                 return miConexion;
             }
@@ -27,47 +27,50 @@ namespace AeiWebServices
 
         }
 
-        public static void cerrarConexion()
+        public SqlDataReader consultar(string query)
         {
-            if (miConexion!=null)
+            SqlConnection miConexion = abrirConexion();
+            if (miConexion != null)
+            {
+                try
+                {
+                    SqlCommand comando = new SqlCommand(query, miConexion);
+                    comando.CommandType = CommandType.Text;
+                    SqlDataReader tabla = null;
+                    tabla = comando.ExecuteReader();
+                   // miConexion.Close();
+                    return tabla;
+
+                }
+                catch
+                {
+                    Console.Write("error");
+                }
                 miConexion.Close();
-        }
-      
-        public static SqlDataReader consultar(string query)
-        {
-            if (miConexion.State.ToString() == "Closed")
-                abrirConexion();           
-            try
-            {
-                SqlCommand comando = new SqlCommand(query, miConexion);
-                comando.CommandType = CommandType.Text;
-                SqlDataReader tabla = null;
-                tabla = comando.ExecuteReader();
-                return tabla;
-            }
-            catch
-            {
-                Console.Write("error");    
             }
             return null;
         }
 
-        public static int insertar(string query)
-        {  
-            if (miConexion != null) 
-                abrirConexion();
-            try
+        public int insertar(string query)
+        {
+            SqlConnection miConexion = abrirConexion();
+            if (miConexion != null)
             {
-                SqlCommand comando = new SqlCommand(query, miConexion);
-                comando.CommandType = CommandType.Text;
-                SqlCommand commit = new SqlCommand("commit;", miConexion);
-                comando.CommandType = CommandType.Text;
-                return comando.ExecuteNonQuery();
-             }
-             catch
-             {
-                 Console.Write("error");
-             }            
+                try
+                {
+                    SqlCommand comando = new SqlCommand(query, miConexion);
+                    comando.CommandType = CommandType.Text;
+                    SqlCommand commit = new SqlCommand("commit;", miConexion);
+                    comando.CommandType = CommandType.Text;
+                    return comando.ExecuteNonQuery();
+
+                }
+                catch
+                {
+                    Console.Write("error");
+                }
+                miConexion.Close();
+            }
             return 0;
         }
 
