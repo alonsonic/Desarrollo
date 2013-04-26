@@ -12,7 +12,7 @@ namespace AeiWebServices.Permanencia
         public int borrarDetalleCompra(int idDetalleCompra)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("DELETE INTO DETALLE_COMPRA WHERE ID=" + idDetalleCompra.ToString() + "");
+            int respuesta = conexion.insertar("DELETE FROM DETALLE_COMPRA  WHERE ID=" + idDetalleCompra.ToString() + "");
             conexion.cerrarConexion();
             return respuesta;
         }
