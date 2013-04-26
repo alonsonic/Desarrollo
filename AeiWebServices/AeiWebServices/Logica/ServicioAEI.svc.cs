@@ -28,7 +28,6 @@ namespace AeiWebServices.Logica
         {
             Correo correo = new Correo();
             return correo.enviarCorreoDeModificacion(usuario.Email, usuario.Nombre, usuario.Apellido);
-
         }
 
         public int enviarCorreoDeBienvenida(Usuario usuario)
