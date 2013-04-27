@@ -20,34 +20,74 @@ namespace AeiCliente.GUI
     public sealed partial class PerfilPageAgregar : Page
     {
         private ServicioAEIClient servicio = new ServicioAEIClient();
+        private string padre;
 
-        public PerfilPageAgregar()
+        public PerfilPageAgregar(string padre)
         {
             this.InitializeComponent();
             agregarDia();
             agregarAño();
-            ComboMes.SelectedIndex = 0;
+            if (padre == "Agregar usuario")
+            {    
+                ComboMes.SelectedIndex = 0;
+            }
+            else
+            {
+                textBoxNombre.Text = BufferUsuario.Usuario.Nombre;
+                textApellido.Text = BufferUsuario.Usuario.Apellido;
+                textCorreoEditable.Text = BufferUsuario.Usuario.Email;
+                textCorreoEditable.IsEnabled = false;
+                textPasaporteEditable.Text = BufferUsuario.Usuario.Pasaporte;
+                textPasaporteEditable.IsEnabled = false;
+                comboAno.SelectedValue = BufferUsuario.Usuario.FechaNacimiento.DayOfYear;
+                comboDia.SelectedValue = BufferUsuario.Usuario.FechaNacimiento.Day;
+                ComboMes.SelectedIndex = BufferUsuario.Usuario.FechaNacimiento.Month -1;
+                cargarDireciones();
+               
+            }
+                this.padre = padre;
         }
-     
+
+        private void botonAgregarDireccion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Popup popup = new Popup();
+            DireccionPopup direcPopup = new DireccionPopup(popup, this);
+            popup.Child = direcPopup;
+            popup.IsOpen = true;
+        }
+
+        public void cargarDireciones()
+        {
+            listBoxDireccion.Items.Clear();
+            List<Direccion> listaDirecciones = BufferUsuario.Usuario.Direcciones;
+            for (int indexDireccion = 0; indexDireccion < listaDirecciones.Count(); indexDireccion++)
+            {
+                listBoxDireccion.Items.Add("Estado: " + listaDirecciones[indexDireccion].Estado + " Ciudad: " + listaDirecciones[indexDireccion].Ciudad +
+                    " Codigo postal: " + listaDirecciones[indexDireccion].CodigoPostal + " Descripcion: " + listaDirecciones[indexDireccion].Descripcion);
+            }
+
+        }
+
         private void agregarAño()
         {
-            ComboAno.Items.Add("Año");
+            comboAno.Items.Add("Año");
             for (int index = 1913; index <= 2011; index++)
-                ComboAno.Items.Add(index);
+                comboAno.Items.Add(index);
 
-            ComboAno.SelectedIndex = 0;
+            comboAno.SelectedIndex = 0;
+            
         }
 
         private void agregarDia()
         {
-            ComboDia.Items.Add("Dia");
+            comboDia.Items.Add("Dia");
             for (int index = 1; index <= 31; index++)
             {
-                if (index < 10) ComboDia.Items.Add("0" + index.ToString());
-                else ComboDia.Items.Add(index);
+                if (index < 10) comboDia.Items.Add("0" + index.ToString());
+                else comboDia.Items.Add(index);
             }
 
-            ComboDia.SelectedIndex = 0;
+            comboDia.SelectedIndex = 0;
         }
         
 
@@ -60,33 +100,70 @@ namespace AeiCliente.GUI
         {
             string mes=ComboMes.SelectedIndex+"";
             if (ComboMes.SelectedIndex < 10) mes = "0" + mes;
-            Usuario usuario = await servicio.agregarUsuarioAsync(textBoxNombre.Text, textBoxApellido.Text, textPasaporteEditable.Text, 
-                                        textCorreoEditable.Text, ComboAno.SelectedValue.ToString() + "-" + mes + "-" + ComboDia.SelectedValue.ToString());
-            if (usuario == null)
+           
+            if (padre == "Agregar usuario")
             {
-                MessageDialog mensajeError = new MessageDialog("Error no se pudo agregar al sistema");
-                mensajeError.ShowAsync();
+                Usuario usuario = await servicio.agregarUsuarioAsync(textBoxNombre.Text, textBoxApellido.Text, textPasaporteEditable.Text,
+                                      textCorreoEditable.Text, comboAno.SelectedValue.ToString() + "-" + mes + "-" + comboDia.SelectedValue.ToString());
+                
+                if (usuario == null)
+                {
+                    MessageDialog mensajeError = new MessageDialog("Error no se pudo agregar al sistema");
+                    mensajeError.ShowAsync();
+                }
+                else
+                {
+                    BufferUsuario.Usuario = usuario;
+                    int error = await servicio.enviarCorreoDeBienvenidaAsync(usuario);
+                    if (error == 1)
+                    {
+                        MessageDialog mensajeError = new MessageDialog("Se envió un código de activación a su correo");
+                        mensajeError.ShowAsync();
+
+                    }
+                    else
+                    {
+                        MessageDialog mensajeError = new MessageDialog(@"Error no se pudo enviar el código de activación. Envíe un correo 
+                                                                        electrónico a aeiStoreSoporte@gmail.com reportando su caso");
+                        mensajeError.ShowAsync();
+                    }
+                    this.Frame.Navigate(typeof(PerfilPage));
+                }
             }
             else
             {
-                BufferUsuario.Usuario = usuario;
-                int error = await servicio.enviarCorreoDeBienvenidaAsync(usuario);
+                 BufferUsuario.Usuario.Nombre = textBoxNombre.Text;
+                 BufferUsuario.Usuario.Apellido = textApellido.Text;
+                try
+                {
+                   string fecha = comboAno.SelectedValue.ToString()+ "-"+mes+ "-" +comboDia.SelectedValue.ToString();
+                   DateTime datetime = DateTime.ParseExact(fecha, "yyyy-MM-dd", null);
+                   BufferUsuario.Usuario.FechaNacimiento = datetime;
+                }
+                catch
+                {
+                    MessageDialog mensajeError = new MessageDialog(@"Error Fecha invalidad");
+                    mensajeError.ShowAsync();
+                }
+
+
+                int error = await servicio.modificarUsuarioAsync(BufferUsuario.Usuario);
                 if (error == 1)
                 {
-                    MessageDialog mensajeError = new MessageDialog("Se envió un código de activación a su correo");
-                    mensajeError.ShowAsync();
 
                 }
                 else
                 {
-                    MessageDialog mensajeError = new MessageDialog(@"Error no se pudo enviar el código de activación. Envíe un correo 
-                                                                    electrónico a aeiStoreSoporte@gmail.com reportando su caso");
+                    MessageDialog mensajeError = new MessageDialog(@"Error no se pudo modificar su perfil. Envíe un correo 
+                                                                        electrónico a aeiStoreSoporte@gmail.com reportando su caso");
                     mensajeError.ShowAsync();
                 }
-                this.Frame.Navigate(typeof(PerfilPage));
+
+
             }
 
         }
+
 
         private void botonLupa_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -102,5 +179,6 @@ namespace AeiCliente.GUI
         {
         	// TODO: Agregar implementación de controlador de eventos aquí.
         }
+        
     }
 }

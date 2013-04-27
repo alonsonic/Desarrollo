@@ -31,7 +31,7 @@ namespace AeiWebServices.Logica
             compra.Pago = metodo;
             return usuario;
         }
-        public Boolean checkearProductoCarrito (Usuario usuario, Producto producto)
+        public bool checkearProductoCarrito (Usuario usuario, Producto producto)
         {
             DetalleCompra detallecompra = FabricaDAO.getDetalleCompraCarrito(producto.Id, usuario.Id);
             if (detallecompra != null) return true;

@@ -22,7 +22,7 @@ namespace AeiWebServices.Permanencia
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
             int respuesta = conexion.insertar("");
-            SqlDataReader tabla = conexion.consultar("select dd.* from Detalle_Compra dd, Compra c where dd.fk_producto= " + idProducto.ToString() + " and c.fk_usuario= " + idUsuario + " and c.estado='C';");
+            SqlDataReader tabla = conexion.consultar("select dd.* from Detalle_Compra dd, Compra c where dd.fk_producto= " + idProducto.ToString() + " and c.fk_usuario= " + idUsuario + " and c.estado='C' and dd.fk_compra=c.id;");
             while (tabla != null && tabla.Read())
             {
                 Producto producto = buscarPorCompra(int.Parse(tabla["ID"].ToString()));
