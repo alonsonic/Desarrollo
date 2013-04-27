@@ -184,10 +184,27 @@ namespace AeiCliente.GUI
 
         }
 
-        private void buttonElimanarDireccion_Click(object sender, RoutedEventArgs e)
+        private async void buttonElimanarDireccion_Click(object sender, RoutedEventArgs e)
         {
+            int seleccionBoxDireccion = listBoxDireccion.SelectedIndex;
+            if(seleccionBoxDireccion>=0 )
+            {
+                Direccion direccion = BufferUsuario.Usuario.Direcciones[seleccionBoxDireccion];
+                direccion.Status = "E";
+                int error =  await servicio.modificarDireccionAsync(direccion);
+                if (error == 1)
+                {
+                    BufferUsuario.Usuario.Direcciones.RemoveAt(seleccionBoxDireccion);
+                    cargarDireciones();
+                }
+                else
+                {
+                    MessageDialog mensajeError = new MessageDialog(@"Error no se pudo eliminar la direcci{on. Envíe un correo 
+                                                                        electrónico a aeiStoreSoporte@gmail.com reportando su caso");
+                    mensajeError.ShowAsync();
+                }
 
-
+            }
         }
         
     }
