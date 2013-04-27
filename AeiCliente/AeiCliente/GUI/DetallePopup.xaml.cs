@@ -73,7 +73,8 @@ namespace AeiCliente
 
         private void botonBack_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	// TODO: Agregar implementación de controlador de eventos aquí.popup.IsOpen = false;
+        	
+            popup.IsOpen = false;
         }
     }
 }

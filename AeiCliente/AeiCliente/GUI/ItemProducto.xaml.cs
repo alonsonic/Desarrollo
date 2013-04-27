@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioAEI;
+using AeiCliente.GUI;
 
  
 // La plantilla de elemento Control de usuario está documentada en http://go.microsoft.com/fwlink/?LinkId=234236
@@ -26,7 +27,6 @@ namespace AeiCliente
 
         public ItemProducto()
         {
-            this.setImagenProducto("ms-appx:/App_Data/item.png.png");
             this.InitializeComponent();
         }
 
@@ -37,8 +37,7 @@ namespace AeiCliente
 
             producto = ListaProducto.ListaProductos.ElementAt(indexProducto);
             textoNombreProducto.Text = producto.Nombre;
-            //TODO: SETEAR LA IMAGEN
-            //this.setImagenProducto("ms-appx:/App_Data/item.png.png");
+            this.setImagenProducto("http://" + Constante.Ip + ":8080/" + producto.ImagenDetalle);
         }
 
         public void setImagenProducto(String imageSource)
@@ -47,6 +46,7 @@ namespace AeiCliente
             newImage.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
             newImage.UriSource = new Uri(imageSource);
             this.imagenProducto.Source = newImage;
+            imagenProducto.UpdateLayout();
         }
 
         private void botonDetalle_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -66,4 +66,5 @@ namespace AeiCliente
         }
 
     }
+
 }

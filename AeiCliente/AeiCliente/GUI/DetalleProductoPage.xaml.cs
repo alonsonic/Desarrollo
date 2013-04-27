@@ -37,8 +37,12 @@ namespace AeiCliente
             textNombre.Text = producto.Nombre;
             textDescripcion.Text = producto.Descripcion;
             textPrecio.Text = "Precio " + producto.Precio.ToString() + " Bs";
-            if (producto.Cantidad == 1) textCantidad.Text = producto.Cantidad.ToString() + " unidad disponible";
-            else textCantidad.Text = producto.Cantidad.ToString()+" unidades disponibles";
+            if (producto.Cantidad == 1) 
+                textCantidad.Text = producto.Cantidad.ToString() + " unidad disponible";
+            else 
+                textCantidad.Text = producto.Cantidad.ToString()+" unidades disponibles";
+            if (producto.Cantidad == 0)
+                textCantidad.Text = "Producto Agotado";
             producto.Calificaciones = await servicioAei.buscarCalificacionProductoAsync(producto.Id);
             cargarComentarios();
         }
@@ -82,9 +86,16 @@ namespace AeiCliente
         {
             MessageDialog mensajeError1 = new MessageDialog("Debe iniciar sesión para realizar compras.", "Inicie Sesión");
             MessageDialog mensajeError2 = new MessageDialog("Ya posee este producto en su carrito de compras.");
+            MessageDialog mensajeError3 = new MessageDialog("Disculpe, no tenemos este producto en existencia actualmente.");
 
             if (BufferUsuario.isConectado())
             {
+                if (producto.Cantidad == 0)
+                {
+                    mensajeError3.ShowAsync();
+                    return;
+                }
+
                 bool chequear = await servicioAei.checkearProductoCarritoAsync(BufferUsuario.Usuario, producto);
                 if (chequear)
                 {

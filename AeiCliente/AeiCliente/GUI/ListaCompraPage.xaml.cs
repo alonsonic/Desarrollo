@@ -66,13 +66,13 @@ namespace AeiCliente
                 return;
             }
             
-            if (BufferUsuario.Usuario.Direcciones == null)
+            if (BufferUsuario.Usuario.Direcciones == null || BufferUsuario.Usuario.Direcciones.Count() < 1)
             {
                 new MessageDialog("Debe añadir alguna dirección a su perfil para finalizar su compra.").ShowAsync();
                 return;
-            } 
-            
-            if (BufferUsuario.Usuario.MetodosPago == null)
+            }
+
+            if (BufferUsuario.Usuario.MetodosPago == null || BufferUsuario.Usuario.MetodosPago.Count() < 1)
             {
                 new MessageDialog("Debe añadir algún método de pago a su perfil para finalizar su compra.").ShowAsync();
                 return;

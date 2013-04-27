@@ -1,0 +1,42 @@
+﻿<UserControl
+    x:Class="AeiCliente.AgregarMetodoPopup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AeiCliente"
+    xmlns:custom="using:AeiCliente"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="323"
+    d:DesignWidth="413" Width="1366" Height="768">
+
+    <custom:PopoverView Margin="57,0,-57,0">
+        <Grid Background="#FFF46526" Margin="-57,202,57,188">
+        	<Grid.ColumnDefinitions>
+        		<ColumnDefinition Width="344*"/>
+        		<ColumnDefinition Width="339*"/>
+        	</Grid.ColumnDefinitions>
+            <Rectangle x:Name="background" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="764" Margin="0,-202,0,-200" Stroke="Black" VerticalAlignment="Top" Width="1366">
+            	<Rectangle.Fill>
+            		<SolidColorBrush Color="Black" Opacity="0.15"/>
+            	</Rectangle.Fill>
+            </Rectangle>
+            <Button x:Name="botonComprar" Content="Agregar" HorizontalAlignment="Left" Height="71" Margin="467,285,0,0" VerticalAlignment="Top" Width="430" FontSize="33.333" Grid.ColumnSpan="2" Click="botonComprar_Click"/>
+            <Button x:Name="botonBack" Content="Button" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="47" Style="{StaticResource BackButtonStyle}" Click="botonBack_Click"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,36,109,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="271" FontSize="35.556" Text="Metodo de pago"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,162,-175,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="1233" FontSize="35.556" Grid.ColumnSpan="2" Text="Numero de tarjeta"/>
+            <ComboBox x:Name="comboMetodo" HorizontalAlignment="Left" Height="53" Margin="308,83,0,0" VerticalAlignment="Top" Width="271" SelectedIndex="0" FontSize="26.667">
+            	<ComboBoxItem Content="American Express" FontSize="26.667"/>
+            	<ComboBoxItem Content="Master Card" FontSize="26.667"/>
+            	<ComboBoxItem FontSize="26.667"/>
+            </ComboBox>
+            <TextBox x:Name="textNumero" HorizontalAlignment="Left" Height="53" Margin="308,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="758" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="textFecha" HorizontalAlignment="Right" Margin="0,36,-491,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="1233" FontSize="35.556" Grid.ColumnSpan="2">
+            	<Run Text="Fecha Vencimiento"/>
+            	<Run Text=" (mm-yy)"/>
+            </TextBlock>
+            <TextBox HorizontalAlignment="Left" Height="53" Margin="614,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="452" Grid.ColumnSpan="2"/>
+        </Grid>
+    </custom:PopoverView>
+
+</UserControl>

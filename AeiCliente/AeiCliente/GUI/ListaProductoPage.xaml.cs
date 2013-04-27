@@ -26,20 +26,17 @@ namespace AeiCliente
         public ListaProductoPage()
         {
             this.InitializeComponent();
-            cargarProductos();
-            llenarComboCategoria();
         }
        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             cargarProductos();
             llenarComboCategoria();
-
-
         }
 
         private async void llenarComboCategoria()
         {
+            comboCategoria.Items.Clear();
             ServicioAEIClient servicioProducto = new ServicioAEIClient();
             List<Categoria> listCategoria = await servicioProducto.BuscarTodasLasCategoriasAsync();
             comboCategoria.Items.Add("Todas");

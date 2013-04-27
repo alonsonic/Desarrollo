@@ -197,9 +197,11 @@ namespace AeiWebServices.Logica
 
         public Usuario agregarCarrito(Usuario usuario, DetalleCompra detalleCompra)
         {
+            int index = 0;
             Compra carrito = FabricaDAO.getCarrito(usuario.Id);
             if (carrito == null)
             {
+                index = 1;
                 DateTime fechaRegistro = DateTime.Today;
                 carrito = new Compra(1, detalleCompra.Monto*detalleCompra.Cantidad,fechaRegistro,fechaRegistro, "C",null,null,null);
                 FabricaDAO.setAgregarCompra(carrito, usuario.Id);
@@ -211,7 +213,8 @@ namespace AeiWebServices.Logica
                 if (carrito.Productos == null) carrito.Productos = new List<DetalleCompra>();
                 carrito.AgregarDetallesCompra(detalleCompra);
                 usuario.Carrito = carrito;
-                usuario.Carrito.MontoTotal=carrito.MontoTotal + (detalleCompra.Monto*detalleCompra.Cantidad);
+                if(index == 0)
+                    usuario.Carrito.MontoTotal=carrito.MontoTotal + (detalleCompra.Monto*detalleCompra.Cantidad);
                 int respuesta2 = FabricaDAO.setMontoTotalCarrito(carrito, usuario.Carrito.MontoTotal);
                 return usuario;
             }
