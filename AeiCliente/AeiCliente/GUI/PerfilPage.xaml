@@ -138,7 +138,7 @@
     			<SolidColorBrush Color="White" Opacity="0.5"/>
     		</ListBox.Background>
     	</ListBox>
-    	<Button x:Name="botonVerDetalleCompra" Content="Ver detalle de compra" HorizontalAlignment="Left" Height="45" Margin="977,619,0,0" VerticalAlignment="Top" Width="233" FontSize="20"/>
+    	<Button x:Name="botonVerDetalleCompra" Content="Ver detalle de compra" HorizontalAlignment="Left" Height="45" Margin="977,619,0,0" VerticalAlignment="Top" Width="233" FontSize="20" Click="botonVerDetalleCompra_Click"/>
     	<TextBox x:Name="textPasaporteEditable" HorizontalAlignment="Left" Margin="226,257,0,0" TextWrapping="Wrap" Text="VE-481928831" VerticalAlignment="Top" Width="618" IsReadOnly="True"/>
     	<TextBox x:Name="textCorreoEditable" HorizontalAlignment="Left" Margin="337,295,0,0" TextWrapping="Wrap" Text="alonsonicxxx@gmail.com" VerticalAlignment="Top" Width="507" IsReadOnly="True"/>
     	<ComboBox x:Name="ComboDia" HorizontalAlignment="Left" Margin="338,333,0,0" VerticalAlignment="Top" Width="120"/>
