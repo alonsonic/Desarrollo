@@ -111,7 +111,7 @@
     <Compile Include="GUI\CheckoutPopup.xaml.cs">
       <DependentUpon>CheckoutPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Constante.cs" />
+    <Compile Include="Constante.cs" />
     <Compile Include="GUI\TwittertPopup.xaml.cs">
       <DependentUpon>TwittertPopup.xaml</DependentUpon>
     </Compile>
