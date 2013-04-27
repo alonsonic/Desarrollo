@@ -133,5 +133,19 @@ namespace AeiCliente
                 mensajeError.ShowAsync();
             }
         }
+
+        private void botonVerDetalleCompra_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBoxHistorial.SelectedIndex >= 0)
+            {
+                this.Frame.Navigate(typeof(HistorialCompraPage), listBoxHistorial.SelectedIndex);
+            }
+            else
+            {
+                MessageDialog mensajeError = new MessageDialog("Debe seleccionar un items del historial de compras");
+                mensajeError.ShowAsync();
+
+            }
+        }
     }
 }
