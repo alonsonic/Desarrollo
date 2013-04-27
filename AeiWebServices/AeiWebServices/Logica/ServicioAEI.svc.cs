@@ -13,6 +13,12 @@ namespace AeiWebServices.Logica
     public class ServicioAEI : IServicioAEI
     {
 
+        public int enviarCorreoDeFactura(Usuario usuario, Compra compra)
+        {
+            Correo correo = new Correo();
+            return correo.enviarCorreoDeFactura(usuario, compra);
+        }
+
         //public List<Producto> disponibilidadProductos (List<DetalleCompra> detalle)
         //{
         //    List<Producto> resultado= new List<Producto>();

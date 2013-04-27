@@ -97,5 +97,41 @@ namespace AeiWebServices.Dominio
 
         }
 
+
+        public int enviarCorreoDeFactura(Usuario usuario, Compra compra)
+        {
+            try
+            {
+                MailMessage mensaje = new MailMessage();
+                Pdf pdf = new Pdf();
+                pdf.generar(usuario, compra);
+                mensaje.To.Add(usuario.Email);
+                mensaje.From = new MailAddress("aeiStoreSoporte@gmail.com", "aei Store", System.Text.Encoding.UTF8);
+                mensaje.Subject = "Notificación de actualización en perfil aei Store";
+                mensaje.IsBodyHtml = true;
+                mensaje.Body = @"
+                                    <img src = 'https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash4/381399_10201016661237859_441547910_n.jpg' />
+                                    <h2>Estimado(a)" + usuario.Nombre + " " + usuario.Apellido + @",</h2>
+                                    <p>
+                                        Su pago en aei Store fue procesado. Le enviamos su factura electrónica, la cual le servirá para el recibo de su pedido. 
+                                    </p>
+                                    <h2>
+                                        ¡Gracias por comprar en aei Store!
+                                    </h2>
+                                    <p>
+                                      Si no reconoces haber realizado esta operación, o tienes cualquier duda, por favor escríbenos al correo electrónico aeiStoreSoporte@gmail.com.
+                                    </p>";
+                mensaje.Attachments.Add(new Attachment("C:/Factura" + compra.Id + ".pdf"));
+                enviarCorreo(mensaje);
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+
+        }
+        
+
     }
 }
