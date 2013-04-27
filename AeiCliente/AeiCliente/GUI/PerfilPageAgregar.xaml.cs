@@ -35,12 +35,12 @@ namespace AeiCliente.GUI
             else
             {
                 textBoxNombre.Text = BufferUsuario.Usuario.Nombre;
-                textApellido.Text = BufferUsuario.Usuario.Apellido;
+                textBoxApellido.Text = BufferUsuario.Usuario.Apellido;
                 textCorreoEditable.Text = BufferUsuario.Usuario.Email;
                 textCorreoEditable.IsEnabled = false;
                 textPasaporteEditable.Text = BufferUsuario.Usuario.Pasaporte;
                 textPasaporteEditable.IsEnabled = false;
-                comboAno.SelectedValue = BufferUsuario.Usuario.FechaNacimiento.DayOfYear;
+                comboAno.SelectedValue = BufferUsuario.Usuario.FechaNacimiento.Year;
                 comboDia.SelectedValue = BufferUsuario.Usuario.FechaNacimiento.Day;
                 ComboMes.SelectedIndex = BufferUsuario.Usuario.FechaNacimiento.Month -1;
                 cargarDireciones();
@@ -138,7 +138,7 @@ namespace AeiCliente.GUI
             else
             {
                  BufferUsuario.Usuario.Nombre = textBoxNombre.Text;
-                 BufferUsuario.Usuario.Apellido = textApellido.Text;
+                 BufferUsuario.Usuario.Apellido = textBoxApellido.Text;
                 try
                 {
                    string fecha = comboAno.SelectedValue.ToString()+ "-"+mes+ "-" +comboDia.SelectedValue.ToString();
@@ -155,7 +155,8 @@ namespace AeiCliente.GUI
                 int error = await servicio.modificarUsuarioAsync(BufferUsuario.Usuario);
                 if (error == 1)
                 {
-
+                    this.Frame.Navigate(typeof(PerfilPage));
+                    servicio.enviarCorreoDeModificacionAsync(BufferUsuario.Usuario);
                 }
                 else
                 {
@@ -183,7 +184,7 @@ namespace AeiCliente.GUI
 
         private void listBoxDireccion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            buttonElimanarDireccion.Visibility = Visibility.Collapsed;
+            buttonElimanarDireccion.Visibility = Visibility.Visible;
 
         }
 
@@ -193,7 +194,7 @@ namespace AeiCliente.GUI
             if(seleccionBoxDireccion>=0 )
             {
                 Direccion direccion = BufferUsuario.Usuario.Direcciones[seleccionBoxDireccion];
-                direccion.Status = "E";
+                direccion.Status = "I";
                 int error =  await servicio.modificarDireccionAsync(direccion);
                 if (error == 1)
                 {
@@ -202,7 +203,7 @@ namespace AeiCliente.GUI
                 }
                 else
                 {
-                    MessageDialog mensajeError = new MessageDialog("Error no se pudo eliminar la direcci{on. Envíe un correo electrónico a aeiStoreSoporte@gmail.com reportando su caso");
+                    MessageDialog mensajeError = new MessageDialog("Error no se pudo eliminar la dirección. Envíe un correo electrónico a aeiStoreSoporte@gmail.com reportando su caso");
                     mensajeError.ShowAsync();
                 }
 
