@@ -46,8 +46,9 @@ namespace AeiWebServices.Permanencia
             }
             conexion.cerrarConexion();
             int respuesta = -1;
+            int cant = producto.Cantidad-cantidad;
             if (cantidad<=producto.Cantidad) 
-                 respuesta=conexion.insertar("UPDATE Producto SET cantidad="+cantidad+" WHERE ID="+idProducto+"");
+                 respuesta=conexion.insertar("UPDATE Producto SET cantidad="+ cant.ToString() +" WHERE ID="+idProducto+"");
             conexion.cerrarConexion();
             return respuesta;
         }

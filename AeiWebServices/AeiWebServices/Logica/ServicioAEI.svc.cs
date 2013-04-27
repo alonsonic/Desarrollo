@@ -18,6 +18,7 @@ namespace AeiWebServices.Logica
                 usuario.MetodosPago.Add(metodo);
             return usuario;
         }
+
         public List<Producto> agregarCalificacion()
         {
 
