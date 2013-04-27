@@ -27,6 +27,7 @@ namespace AeiCliente.GUI
             this.InitializeComponent();
             agregarDia();
             agregarAño();
+            buttonElimanarDireccion.Visibility = Visibility.Collapsed;
             if (padre == "Agregar usuario")
             {    
                 ComboMes.SelectedIndex = 0;
@@ -158,10 +159,7 @@ namespace AeiCliente.GUI
                                                                         electrónico a aeiStoreSoporte@gmail.com reportando su caso");
                     mensajeError.ShowAsync();
                 }
-
-
             }
-
         }
 
 
@@ -178,6 +176,18 @@ namespace AeiCliente.GUI
         private void botonCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
         	// TODO: Agregar implementación de controlador de eventos aquí.
+        }
+
+        private void listBoxDireccion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            buttonElimanarDireccion.Visibility = Visibility.Collapsed;
+
+        }
+
+        private void buttonElimanarDireccion_Click(object sender, RoutedEventArgs e)
+        {
+
+
         }
         
     }

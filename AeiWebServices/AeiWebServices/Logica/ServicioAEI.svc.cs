@@ -12,6 +12,12 @@ namespace AeiWebServices.Logica
 
     public class ServicioAEI : IServicioAEI
     {
+
+        public int modificarDireccion(Direccion direccionModificada)
+        {
+            return FabricaDAO.modificarDireccion(direccionModificada);
+        }
+
         public List<Producto> disponibilidadProductos (List<DetalleCompra> detalle)
         {
             List<Producto> resultado= new List<Producto>();
