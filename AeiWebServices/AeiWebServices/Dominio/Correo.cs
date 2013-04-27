@@ -107,7 +107,7 @@ namespace AeiWebServices.Dominio
                 pdf.generar(usuario, compra);
                 mensaje.To.Add(usuario.Email);
                 mensaje.From = new MailAddress("aeiStoreSoporte@gmail.com", "aei Store", System.Text.Encoding.UTF8);
-                mensaje.Subject = "Notificación de actualización en perfil aei Store";
+                mensaje.Subject = "Notificación de procesamiento de factura";
                 mensaje.IsBodyHtml = true;
                 mensaje.Body = @"
                                     <img src = 'https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash4/381399_10201016661237859_441547910_n.jpg' />

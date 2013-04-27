@@ -59,7 +59,7 @@ namespace AeiCliente
             if (comboBoxCiudad.SelectedIndex != 0 && comboBoxEstado.SelectedIndex != 0 && textboxCodigoPostal.Text.Length != 0)
             {
                 int idCiudad = listaCiudad[comboBoxCiudad.SelectedIndex-1].Id;
-                error = await servicio.agregarDireccionUsuarioAsync(BufferUsuario.Usuario.Id, idCiudad, textBoxDetalle.Text, int.Parse(textboxCodigoPostal.Text));
+                error = await servicio.agregarDireccionUsuarioAsync(BufferUsuario.Usuario.Id, idCiudad, textBoxDetalle.Text.ToString(), int.Parse(textboxCodigoPostal.Text));
                 if (error == 1)
                 {
                     BufferUsuario.Usuario.Direcciones = await servicio.buscarDireccionUsuarioAsync(BufferUsuario.Usuario.Id);

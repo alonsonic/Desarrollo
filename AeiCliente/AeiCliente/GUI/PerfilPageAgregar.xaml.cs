@@ -41,8 +41,8 @@ namespace AeiCliente.GUI
                 textPasaporteEditable.Text = BufferUsuario.Usuario.Pasaporte;
                 textPasaporteEditable.IsEnabled = false;
                 comboAno.SelectedValue = BufferUsuario.Usuario.FechaNacimiento.Year;
-                comboDia.SelectedValue = BufferUsuario.Usuario.FechaNacimiento.Day;
-                ComboMes.SelectedIndex = BufferUsuario.Usuario.FechaNacimiento.Month -1;
+                comboDia.SelectedIndex = BufferUsuario.Usuario.FechaNacimiento.Day;
+                ComboMes.SelectedIndex = BufferUsuario.Usuario.FechaNacimiento.Month;
                 cargarDireciones();
                
             }
