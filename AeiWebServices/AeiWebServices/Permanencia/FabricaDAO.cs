@@ -8,6 +8,11 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
+        static public Producto getCheckearDisponibilidadProducto(int idProducto)
+        {
+
+            return null;
+        }
         static public int setMontoTotalCarrito(Compra compra, float montoNuevo)
         {
             SqlServerCompra resultado= new SqlServerCompra();

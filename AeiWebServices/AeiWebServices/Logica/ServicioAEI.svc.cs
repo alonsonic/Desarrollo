@@ -12,6 +12,25 @@ namespace AeiWebServices.Logica
 
     public class ServicioAEI : IServicioAEI
     {
+        public List<Producto> disponibilidadProductos (List<DetalleCompra> detalle)
+        {
+            List<Producto> resultado= new List<Producto>();
+            for (int index = 0; index < detalle.Count; index++)
+            {
+                //detalle[index].Producto
+               //resultado.Add(null);
+            }
+            return resultado;
+        }
+
+        public Usuario checkout(MetodoPago metodo, Direccion direccion, Usuario usuario)
+        {
+            
+            Compra compra = usuario.Carrito;
+            compra.Direccion = direccion;
+            compra.Pago = metodo;
+            return usuario;
+        }
         public Boolean checkearProductoCarrito (Usuario usuario, Producto producto)
         {
             DetalleCompra detallecompra = FabricaDAO.getDetalleCompraCarrito(producto.Id, usuario.Id);
