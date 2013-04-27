@@ -43,7 +43,7 @@ namespace AeiCliente
                 //ItemCompra itemProducto = new ItemCompra(indexProducto, this, true);
                 //listaItemProducto.Items.Add(itemProducto);
             }
-            textTotal.Text = "Total de la compra: " + BufferUsuario.Usuario.Carrito.MontoTotal + "Bs";
+            //text.Text = "Total de la compra: " + BufferUsuario.Usuario.Carrito.MontoTotal + "Bs";
             
         }
 
