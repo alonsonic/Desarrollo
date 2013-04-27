@@ -85,7 +85,13 @@ namespace AeiCliente
 
             if (BufferUsuario.isConectado())
             {
-                
+                bool chequear = await servicioAei.checkearProductoCarritoAsync(BufferUsuario.Usuario, producto);
+                if (chequear)
+                {
+                    mensajeError2.ShowAsync();
+                    return;
+                }
+
                 Popup popup = new Popup();
                 DetallePopup direcPopup = new DetallePopup(popup, producto);
                 popup.Child = direcPopup;
@@ -94,16 +100,9 @@ namespace AeiCliente
             else
                 mensajeError1.ShowAsync();
 
-            if (servicioAei.checkearProductoCarritoAsync(BufferUsuario, producto))
-            {
-                
-                Popup popup = new Popup();
-                DetallePopup direcPopup = new DetallePopup(popup, producto);
-                popup.Child = direcPopup;
-                popup.IsOpen = true;
-            }
-            else
-                mensajeError2.ShowAsync();
+            
+
+            
 
             
         }
