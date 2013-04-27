@@ -35,7 +35,7 @@
             	<Run Text="Fecha Vencimiento"/>
             	<Run Text=" (mm-yy)"/>
             </TextBlock>
-            <TextBox HorizontalAlignment="Left" Height="53" Margin="614,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="452" Grid.ColumnSpan="2"/>
+            <TextBox Name="texBoxFechaVencimiento" HorizontalAlignment="Left" Height="53" Margin="614,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="452" Grid.ColumnSpan="2"/>
         </Grid>
     </custom:PopoverView>
 
