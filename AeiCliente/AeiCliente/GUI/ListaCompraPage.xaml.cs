@@ -57,9 +57,11 @@ namespace AeiCliente
         	this.Frame.Navigate(typeof(MainPage));
         }
 
-        private void botonCompra_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void botonCompra_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
         	// TODO: Agregar implementación de controlador de eventos aquí.
+            ServicioAEIClient s = new ServicioAEIClient();
+            BufferUsuario.Usuario = await s.checkoutAsync(BufferUsuario.Usuario.MetodosPago[0], BufferUsuario.Usuario.Direcciones[0], BufferUsuario.Usuario);
         }
 
         private void botonPerfil_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

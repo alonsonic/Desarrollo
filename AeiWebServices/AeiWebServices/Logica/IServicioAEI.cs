@@ -21,6 +21,9 @@ namespace AeiWebServices.Logica
         //List<Producto> disponibilidadProductos(List<DetalleCompra> detalle);
 
         [OperationContract]
+        bool disponibilidadProductos(List<DetalleCompra> detalle);
+
+        [OperationContract]
         Boolean checkearProductoCarrito(Usuario usuario, Producto producto);
 
         [OperationContract]

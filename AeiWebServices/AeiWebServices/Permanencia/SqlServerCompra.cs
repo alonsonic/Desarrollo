@@ -37,7 +37,17 @@ namespace AeiWebServices.Permanencia
         public int cambiarCantidadProducto(int idProducto, int cantidad)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("UPDATE Producto SET cantidad="+cantidad+" WHERE ID="+idProducto+"");
+            SqlDataReader tabla = conexion.consultar("select p.cantidad from producto p where p.id="+idProducto.ToString()+";");
+            List<Tag> listaTag = new List<Tag>();
+            Producto producto = new Producto();
+            while (tabla != null && tabla.Read())
+            {
+                producto.Cantidad=int.Parse(tabla["CANTIDAD"].ToString());
+            }
+            conexion.cerrarConexion();
+            int respuesta = -1;
+            if (cantidad<=producto.Cantidad) 
+                 respuesta=conexion.insertar("UPDATE Producto SET cantidad="+cantidad+" WHERE ID="+idProducto+"");
             conexion.cerrarConexion();
             return respuesta;
         }
@@ -116,7 +126,7 @@ namespace AeiWebServices.Permanencia
         public List<Direccion> ConsultarDireccion(int idUsuario)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("select c.id AS id, p.nombre AS pais, e.nombre AS estado, c.nombre AS ciudad, dd.codigo_postal AS codigo_postal, dd.descripcion AS descripcion, dd.status AS status from detalle_direccion dd, direccion c, direccion e, direccion p where p.id=e.fk_id AND e.id=c.fk_id AND c.id=dd.fk_direccion AND dd.fk_usuario=" + idUsuario.ToString() + ";");
+            SqlDataReader tabla = conexion.consultar("select dd.id AS id, p.nombre AS pais, e.nombre AS estado, c.nombre AS ciudad, dd.codigo_postal AS codigo_postal, dd.descripcion AS descripcion, dd.status AS status from detalle_direccion dd, direccion c, direccion e, direccion p where p.id=e.fk_id AND e.id=c.fk_id AND c.id=dd.fk_direccion AND dd.fk_usuario=" + idUsuario.ToString() + ";");
             List<Direccion> lista = new List<Direccion>();
             while (tabla!=null && tabla.Read())
             {
@@ -431,10 +441,10 @@ namespace AeiWebServices.Permanencia
             return respuesta;
         }
 
-        public int modificarEstadoDeCompra(String Status, int idCompra)
+        public int modificarEstadoDeCompra(Compra compra)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("UPDATE COMPRA SET ESTADO='" + Status + "' WHERE ID=" + idCompra.ToString() + ";");
+            int respuesta = conexion.insertar("UPDATE COMPRA SET FECHA_SOLICITUD= '" + compra.FechaSolicitud.ToString("yyyy-MM-dd") + "' AND ESTADO= '" + compra.Status + "' AND FK_METODOPAGO " + compra.Pago.Id.ToString() + " AND FK_DET_DIRECCION= " + compra.Direccion.Id.ToString() + " WHERE ID=" + compra.Id.ToString() + ";");
             conexion.cerrarConexion();
             return respuesta;
         }
