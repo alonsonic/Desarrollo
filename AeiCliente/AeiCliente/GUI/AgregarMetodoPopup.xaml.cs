@@ -57,6 +57,13 @@ namespace AeiCliente
             metodo.Numero = textNumero.Text;
             metodo.FechaVencimiento = dateTime;
             BufferUsuario.Usuario =  await servicioAei.agregarMetodoPagoAsync(metodo, BufferUsuario.Usuario);
+            if (BufferUsuario.Usuario != null)
+            {
+                popup.IsOpen = false;
+                MessageDialog mensajeError = new MessageDialog("Operación exitosa");
+                mensajeError.ShowAsync();
+            }
+        
         }
 
     }
