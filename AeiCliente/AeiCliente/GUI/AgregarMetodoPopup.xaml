@@ -21,7 +21,7 @@
             		<SolidColorBrush Color="Black" Opacity="0.15"/>
             	</Rectangle.Fill>
             </Rectangle>
-            <Button x:Name="botonComprar" Content="Agregar" HorizontalAlignment="Left" Height="71" Margin="467,285,0,0" VerticalAlignment="Top" Width="430" FontSize="33.333" Grid.ColumnSpan="2" Click="botonComprar_Click"/>
+            <Button x:Name="botonComprar" Content="Agregar" HorizontalAlignment="Left" Height="71" Margin="467,285,0,0" VerticalAlignment="Top" Width="430" FontSize="33.333" Grid.ColumnSpan="2"/>
             <Button x:Name="botonBack" Content="Button" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="47" Style="{StaticResource BackButtonStyle}" Click="botonBack_Click"/>
             <TextBlock HorizontalAlignment="Right" Margin="0,36,109,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="271" FontSize="35.556" Text="Metodo de pago"/>
             <TextBlock HorizontalAlignment="Right" Margin="0,162,-175,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="1233" FontSize="35.556" Grid.ColumnSpan="2" Text="Numero de tarjeta"/>
