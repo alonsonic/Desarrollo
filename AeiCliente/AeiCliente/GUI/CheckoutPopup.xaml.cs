@@ -36,12 +36,28 @@ namespace AeiCliente
 
         private void cargarCombos()
         {
-            
+            List<Direccion> direcciones = BufferUsuario.Usuario.Direcciones;
+            List<MetodoPago> metodosPago = BufferUsuario.Usuario.MetodosPago;
+
+            for (int index = 0; index < direcciones.Count(); index++)
+            {
+                comboDireccion.Items.Add("Estado: " + direcciones[index].Estado + " Ciudad: " + direcciones[index].Ciudad
+                                    + " Detalle: " + direcciones[index].Descripcion);
+                
+            }
+
+            for (int index = 0; index < metodosPago.Count(); index++)
+            {
+                comboMetodo.Items.Add("Marca: " + metodosPago[index].Marca + " Numero tarjeta: " + metodosPago[index].Numero);
+            }
+            comboDireccion.SelectedIndex = 0;
+            comboMetodo.SelectedIndex = 0;
         }
 
-        private void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	// TODO: Agregar implementación de controlador de eventos aquí.
+            BufferUsuario.Usuario = await servicioAei.checkoutAsync(BufferUsuario.Usuario.MetodosPago.ElementAt(comboMetodo.SelectedIndex), BufferUsuario.Usuario.Direcciones.ElementAt(comboDireccion.SelectedIndex), BufferUsuario.Usuario);
+            new MessageDialog("Gracias por su compra en aei Store, su compra entrara en proceso de envio.").ShowAsync();
         }
 
     }

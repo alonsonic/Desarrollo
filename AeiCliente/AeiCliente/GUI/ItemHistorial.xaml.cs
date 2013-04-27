@@ -23,9 +23,7 @@ namespace AeiCliente
     {
 
         private ServicioAEIClient servicioAei = new ServicioAEIClient();
-        Producto producto = null;
         ListaCompraPage padre = null;
-        bool isCompra = true;
         DetalleCompra detalle = null;
 
         public ItemHistorial()
@@ -34,12 +32,12 @@ namespace AeiCliente
             this.InitializeComponent();
         }
 
-        public ItemHistorial(DetalleCompra detalle, bool isCarrito)
+        public ItemHistorial(DetalleCompra detalle)
         {
             this.InitializeComponent();
             this.detalle = detalle;
-
-            textoNombreProducto.Text = detalle.Cantidad + " " + producto.Nombre;
+            
+            textoNombreProducto.Text = detalle.Cantidad + " " + detalle.Producto.Nombre;
             //TODO: SETEAR LA IMAGEN
             //this.setImagenProducto("ms-appx:/App_Data/item.png.png");
         }

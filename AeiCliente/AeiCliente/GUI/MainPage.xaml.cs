@@ -25,33 +25,26 @@ namespace AeiCliente
     public sealed partial class MainPage : Page
     {
         ServicioAEIClient servicio = new ServicioAEIClient();
-        
-        
+
+
         public MainPage()
         {
             this.InitializeComponent();
+            
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (BufferUsuario.Usuario != null)
+            {
                 botonInicioSesion.Content = "Salir";
+            }
         }
 
         public void llamarAgregarPerfilPage()
         {
+            PerfilPageAgregar.padre = "Agregar usuario";
             this.Frame.Navigate(typeof(PerfilPageAgregar));
-        }
-
-        private void validarStatusUsuario()
-        {
-            if (BufferUsuario.Usuario.Status.Equals("I"))
-            {
-                Popup popup = new Popup();
-                CodigoConfirPopup direcPopup = new CodigoConfirPopup(popup);
-                popup.Child = direcPopup;
-                popup.IsOpen = true;
-            }
         }
 
         private void botonCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -107,12 +100,6 @@ namespace AeiCliente
         private async void botonBloques_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("figuras");
-            BufferUsuario.Usuario = await servicio.ConsultarUsuarioAsync("ltrrsz@gmail.com");
-            MetodoPago metodo = new MetodoPago();
-            metodo.Marca = "nuevo";
-            metodo.Numero = "988938938383";
-            metodo.FechaVencimiento = DateTime.Now;
-            BufferUsuario.Usuario = await servicio.agregarMetodoPagoAsync(metodo, BufferUsuario.Usuario);
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
 

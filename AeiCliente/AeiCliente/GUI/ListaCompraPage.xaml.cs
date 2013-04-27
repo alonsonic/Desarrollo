@@ -57,14 +57,37 @@ namespace AeiCliente
         	this.Frame.Navigate(typeof(MainPage));
         }
 
-        private async void botonCompra_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void botonCompra_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
 
-            if (BufferUsuario.Usuario.Carrito.Productos.Count() < 1)
+            if (BufferUsuario.Usuario.Carrito == null || BufferUsuario.Usuario.Carrito.Productos == null || BufferUsuario.Usuario.Carrito.Productos.Count() < 1)
             {
                 new MessageDialog("Debe añadir algún producto a su carrito para finalizar su compra.").ShowAsync();
                 return;
             }
+            
+            if (BufferUsuario.Usuario.Direcciones == null)
+            {
+                new MessageDialog("Debe añadir alguna dirección a su perfil para finalizar su compra.").ShowAsync();
+                return;
+            } 
+            
+            if (BufferUsuario.Usuario.MetodosPago == null)
+            {
+                new MessageDialog("Debe añadir algún método de pago a su perfil para finalizar su compra.").ShowAsync();
+                return;
+            }
+
+            if (BufferUsuario.Usuario.Status.Equals("I "))
+            {
+                new MessageDialog("Debe activar su cuenta").ShowAsync();
+                return;
+            }
+
+            Popup popup = new Popup();
+            CheckoutPopup checkPopup = new CheckoutPopup(popup);
+            popup.Child = checkPopup;
+            popup.IsOpen = true;
         }
 
         private void botonPerfil_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

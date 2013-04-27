@@ -20,9 +20,9 @@ namespace AeiCliente.GUI
     public sealed partial class PerfilPageAgregar : Page
     {
         private ServicioAEIClient servicio = new ServicioAEIClient();
-        private string padre;
+        public static string padre;
 
-        public PerfilPageAgregar(string padre)
+        public PerfilPageAgregar()
         {
             this.InitializeComponent();
             agregarDia();
@@ -46,8 +46,10 @@ namespace AeiCliente.GUI
                 cargarDireciones();
                
             }
-                this.padre = padre;
+             
         }
+
+        
 
         private void botonAgregarDireccion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
@@ -97,6 +99,9 @@ namespace AeiCliente.GUI
             this.Frame.Navigate(typeof(MainPage));
         }
 
+
+        
+
         private async void buttonEnviar_Click(object sender, RoutedEventArgs e)
         {
             string mes=ComboMes.SelectedIndex+"";
@@ -124,8 +129,7 @@ namespace AeiCliente.GUI
                     }
                     else
                     {
-                        MessageDialog mensajeError = new MessageDialog(@"Error no se pudo enviar el código de activación. Envíe un correo 
-                                                                        electrónico a aeiStoreSoporte@gmail.com reportando su caso");
+                        MessageDialog mensajeError = new MessageDialog("Error no se pudo enviar el código de activación. Envíe un correo electrónico a aeiStoreSoporte@gmail.com reportando su caso");
                         mensajeError.ShowAsync();
                     }
                     this.Frame.Navigate(typeof(PerfilPage));
@@ -143,7 +147,7 @@ namespace AeiCliente.GUI
                 }
                 catch
                 {
-                    MessageDialog mensajeError = new MessageDialog(@"Error Fecha invalidad");
+                    MessageDialog mensajeError = new MessageDialog("Error Fecha invalidad");
                     mensajeError.ShowAsync();
                 }
 
@@ -155,8 +159,7 @@ namespace AeiCliente.GUI
                 }
                 else
                 {
-                    MessageDialog mensajeError = new MessageDialog(@"Error no se pudo modificar su perfil. Envíe un correo 
-                                                                        electrónico a aeiStoreSoporte@gmail.com reportando su caso");
+                    MessageDialog mensajeError = new MessageDialog("Error no se pudo modificar su perfil. Envíe un correo electrónico a aeiStoreSoporte@gmail.com reportando su caso");
                     mensajeError.ShowAsync();
                 }
             }
@@ -199,8 +202,7 @@ namespace AeiCliente.GUI
                 }
                 else
                 {
-                    MessageDialog mensajeError = new MessageDialog(@"Error no se pudo eliminar la direcci{on. Envíe un correo 
-                                                                        electrónico a aeiStoreSoporte@gmail.com reportando su caso");
+                    MessageDialog mensajeError = new MessageDialog("Error no se pudo eliminar la direcci{on. Envíe un correo electrónico a aeiStoreSoporte@gmail.com reportando su caso");
                     mensajeError.ShowAsync();
                 }
 
