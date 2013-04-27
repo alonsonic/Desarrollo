@@ -9,6 +9,15 @@ namespace AeiWebServices.Permanencia
 {
     public class SqlServerCalificacion : DAOCalificacion, DAOUsuario, DAODireccion, DAOMetodoPago, DAOCompra, DAODetalleCompra, DAOProducto, DAOTag, DAOCategoria
     {
+
+        public int cambiarCantidadProducto(int idProducto, int cantidad)
+        {
+            ConexionSqlServer conexion = new ConexionSqlServer();
+            int respuesta = conexion.insertar("UPDATE Producto SET cantidad=" + cantidad + " WHERE ID=" + idProducto + "");
+            conexion.cerrarConexion();
+            return respuesta;
+        }
+
         public int modificarMontoCarrito(Compra compra, float montoNuevo)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
@@ -483,12 +492,18 @@ namespace AeiWebServices.Permanencia
                 List<MetodoPago> metodoPago = consultarAllMetodosPago(int.Parse(tabla["ID"].ToString()));
                 Compra carrito = consultarCarrito(int.Parse(tabla["ID"].ToString()));
                 List<Compra> compras = consultarHistorialCompras(int.Parse(tabla["ID"].ToString()));
+                if (compras != null)
+                {
+                    for (int index = 0; index < compras.Count; index++)
+                    {
+                        compras[index].Productos = buscarDetalleCompra(compras[index].Id);
+                    }
+                }
                 Usuario usuario = new Usuario(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["APELLIDO"].ToString(),
                     tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
                     DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
-                    DateTime.ParseExact(tabla["FECHANAC"].ToString(), "yyyy-MM-dd", null),
- 
-                    tabla["STATUS"].ToString(), null, null, null, null, int.Parse(tabla["CODIGOACTIVACION"].ToString()));
+                    DateTime.ParseExact(tabla["FECHANAC"].ToString(), "yyyy-MM-dd", null), 
+                    tabla["STATUS"].ToString(), null, null, null, null, int.Parse(tabla["CODIGOACTIVACION"].ToString()));                
                 usuario.Direcciones = ConsultarDireccion(usuario.Id);
                 usuario.MetodosPago = consultarAllMetodosPago(usuario.Id);
                 usuario.Carrito = consultarCarrito(usuario.Id);
@@ -510,22 +525,25 @@ namespace AeiWebServices.Permanencia
                 List<MetodoPago> metodoPago = consultarAllMetodosPago(int.Parse(tabla["ID"].ToString()));
                 Compra carrito = consultarCarrito(int.Parse(tabla["ID"].ToString()));
                 List<Compra> compras = consultarHistorialCompras(int.Parse(tabla["ID"].ToString()));
+                if (compras != null)
+                {
+                    for (int index = 0; index < compras.Count; index++)
+                    {
+                        compras[index].Productos = buscarDetalleCompra(compras[index].Id);
+                    }
+                }
                 Usuario usuario = new Usuario(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["APELLIDO"].ToString(),
                     tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
                     DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
                     DateTime.ParseExact(tabla["FECHANAC"].ToString(), "yyyy-MM-dd", null),
- 
-                    tabla["STATUS"].ToString(), null, null, null, null, int.Parse(tabla["CODIGOACTIVACION"].ToString()));
-                usuario.Direcciones = ConsultarDireccion(usuario.Id);
-                usuario.MetodosPago = consultarAllMetodosPago(usuario.Id);
-                usuario.Carrito = consultarCarrito(usuario.Id);
-                usuario.Compras = consultarHistorialCompras(usuario.Id);
+                    tabla["STATUS"].ToString(), carrito, compras, direccion, metodoPago, int.Parse(tabla["CODIGOACTIVACION"].ToString()));
                 conexion.cerrarConexion();
                 return usuario;
             }
             conexion.cerrarConexion();
             return null;
         }
+
         public Usuario consultarUsuario(int id)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
@@ -536,6 +554,13 @@ namespace AeiWebServices.Permanencia
                 List<MetodoPago> metodoPago = consultarAllMetodosPago(int.Parse(tabla["ID"].ToString()));
                 Compra carrito = consultarCarrito(int.Parse(tabla["ID"].ToString()));
                 List<Compra> compras = consultarHistorialCompras(int.Parse(tabla["ID"].ToString()));
+                if (compras != null)
+                {
+                    for (int index = 0; index < compras.Count; index++)
+                    {
+                        compras[index].Productos = buscarDetalleCompra(compras[index].Id);
+                    }
+                }
                 Usuario usuario = new Usuario(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["APELLIDO"].ToString(),
                     tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
                     DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
