@@ -63,8 +63,8 @@
     	<TextBlock x:Name="textNombre" HorizontalAlignment="Left" Height="96" Margin="660,58,0,0" TextWrapping="Wrap" Text="Dragones y escaleras" VerticalAlignment="Top" Width="700" FontSize="75" Foreground="#FF212121" FontFamily="Gill Sans MT"/>
     	<TextBlock x:Name="textPrecio" HorizontalAlignment="Left" Height="74" Margin="688,186,0,0" TextWrapping="Wrap" Text="Precio 250,00 Bs" VerticalAlignment="Top" Width="640" FontSize="60" FontFamily="Gill Sans MT"/>
     	<TextBlock x:Name="textCantidad" HorizontalAlignment="Left" Height="74" Margin="688,262,0,0" TextWrapping="Wrap" Text="20 unidades disponibles" VerticalAlignment="Top" Width="640" FontSize="60" FontFamily="Gill Sans MT"/>
-    	<TextBlock x:Name="textDescripcion" HorizontalAlignment="Left" Height="281" Margin="677,389,0,0" TextWrapping="Wrap" Text="Descripción " VerticalAlignment="Top" Width="651" FontSize="24"/>
-    	<TextBlock x:Name="textTituloDescripcion" HorizontalAlignment="Left" Height="33" Margin="675,349,0,0" TextWrapping="Wrap" Text="Descripción" VerticalAlignment="Top" Width="180" FontSize="35" FontFamily="Gill Sans MT"/>
+    	<TextBlock x:Name="textDescripcion" HorizontalAlignment="Left" Height="274" Margin="677,396,0,0" TextWrapping="Wrap" Text="Descripción " VerticalAlignment="Top" Width="651" FontSize="24"/>
+    	<TextBlock x:Name="textTituloDescripcion" HorizontalAlignment="Left" Height="53" Margin="675,349,0,0" TextWrapping="Wrap" Text="Descripción" VerticalAlignment="Top" Width="180" FontSize="35" FontFamily="Gill Sans MT"/>
     	<Button x:Name="botonBack" Content="Button" HorizontalAlignment="Left" Height="47" Margin="10,6,0,0" VerticalAlignment="Top" Width="49" Style="{StaticResource BackButtonStyle}" Click="Button_Click"/>
     	<Button x:Name="botonComprar" Content="Comprar" HorizontalAlignment="Left" Height="70" Margin="655,672,0,0" VerticalAlignment="Top" Width="689" Foreground="White" RenderTransformOrigin="0.5,0.5" Click="botonComprar_Click" FontSize="35">
     		<Button.BorderBrush>

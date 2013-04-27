@@ -112,6 +112,12 @@
       <DependentUpon>CheckoutPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Constante.cs" />
+    <Compile Include="GUI\AgregarMetodoPopup.xaml.cs">
+      <DependentUpon>AgregarMetodoPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\CalificarPopup.xaml.cs">
+      <DependentUpon>CalificarPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\TwittertPopup.xaml.cs">
       <DependentUpon>TwittertPopup.xaml</DependentUpon>
     </Compile>
@@ -348,6 +354,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GUI\AgregarMetodoPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\CalificarPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="GUI\TwittertPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -434,12 +448,6 @@
     <Reference Include="TwitterRtLibrary">
       <HintPath>..\..\..\..\Visual Studio 2012\Projects\Nueva carpeta\TwitterRtLibrary\bin\Debug\TwitterRtLibrary.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServicioAEI\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

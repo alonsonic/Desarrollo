@@ -11,7 +11,7 @@
     d:DesignWidth="413" Width="1366" Height="768">
 
     <custom:PopoverView Margin="57,0,-57,0">
-        <Grid Background="#FFF46526" Margin="-57,202,57,188">
+        <Grid Background="#FF34ABE8" Margin="-57,202,57,188">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="344*"/>
                 <ColumnDefinition Width="339*"/>
@@ -21,10 +21,11 @@
                     <SolidColorBrush Color="Black" Opacity="0.15"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <TextBox x:Name="Tweet" HorizontalAlignment="Left" Margin="668,80,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Height="187" Width="616" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="Usuario" HorizontalAlignment="Left" Margin="249,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243"/>
-            <Button x:Name="Enviar" Content="Enviar" Grid.Column="1" HorizontalAlignment="Left" Margin="374,290,0,0" VerticalAlignment="Top" Height="52" Width="222" Click="Enviar_Click" FontSize="25"/>
-            <TextBlock HorizontalAlignment="Left" Margin="57,148,0,0" TextWrapping="Wrap" Text="Usuario:" VerticalAlignment="Top" Height="32" Width="141" FontSize="25"/>
+            <TextBox x:Name="Tweet" HorizontalAlignment="Left" Margin="375,79,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Height="187" Width="616" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="Usuario" HorizontalAlignment="Left" Margin="479,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="512" Grid.ColumnSpan="2"/>
+            <Button x:Name="Enviar" Content="Enviar Tweet" HorizontalAlignment="Left" Margin="578,292,0,0" VerticalAlignment="Top" Height="52" Width="222" Click="Enviar_Click" FontSize="25" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="375,42,0,0" TextWrapping="Wrap" Text="Usuario" VerticalAlignment="Top" Height="32" Width="141" FontSize="26.667"/>
+            <Button x:Name="botonBack" Content="Button" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="47" Style="{StaticResource BackButtonStyle}" Click="botonBack_Click"/>
         </Grid>
     </custom:PopoverView>
 
