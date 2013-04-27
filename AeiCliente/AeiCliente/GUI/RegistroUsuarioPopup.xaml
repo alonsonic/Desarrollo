@@ -13,7 +13,7 @@
     <custom:PopoverView Margin="3,0,-3,0">
         <Grid Margin="-3,264,3,284" Background="#FFF46526">
         	<Grid.ColumnDefinitions>
-        		<ColumnDefinition Width="688"/>
+        		<ColumnDefinition Width="679"/>
         		<ColumnDefinition/>
         	</Grid.ColumnDefinitions>
             <Rectangle x:Name="background" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="774" Margin="-1,-270,0,-284" Stroke="Black" VerticalAlignment="Top" Width="1366">
@@ -21,10 +21,10 @@
             		<SolidColorBrush Color="Black" Opacity="0.15"/>
             	</Rectangle.Fill>
             </Rectangle>
-            <TextBlock HorizontalAlignment="Left" Margin="103,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="77" Width="806" FontSize="32" Grid.ColumnSpan="2" Text="¿Es tu primera vez en aei Store?"/>
-            <Button x:Name="buttonNo" Content="No" HorizontalAlignment="Left" Margin="528,118,0,0" VerticalAlignment="Top" Width="320" Height="60" FontSize="32" Click="buttonNo_Click" Grid.ColumnSpan="2"/>
-            <Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="224,118,0,0" VerticalAlignment="Top" Width="320" Height="60" FontSize="32" Click="buttonCancelar_Click" Grid.Column="1"/>
-            <Button x:Name="buttonSI" Content="Si" HorizontalAlignment="Left" Margin="141,118,0,0" VerticalAlignment="Top" Width="320" Height="60" FontSize="32" Click="buttonSI_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="390,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="570" FontSize="40" Grid.ColumnSpan="2" Text="¿Es tu primera vez en aei Store?"/>
+            <Button x:Name="buttonNo" Content="No" HorizontalAlignment="Left" Margin="675,118,0,0" VerticalAlignment="Top" Width="276" Height="60" FontSize="32" Click="buttonNo_Click" Grid.ColumnSpan="2"/>
+            <Button x:Name="buttonSI" Content="Si" HorizontalAlignment="Left" Margin="386,118,0,0" VerticalAlignment="Top" Width="274" Height="60" FontSize="32" Click="buttonSI_Click"/>
+            <Button x:Name="botonBack" Content="Button" HorizontalAlignment="Left" Height="51" Margin="4,4,0,0" VerticalAlignment="Top" Width="47" Style="{StaticResource BackButtonStyle}" Click="botonBack_Click"/>
         </Grid>
     </custom:PopoverView>
 

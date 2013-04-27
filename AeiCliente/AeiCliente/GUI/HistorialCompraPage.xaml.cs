@@ -19,7 +19,7 @@ namespace AeiCliente
 {
     public sealed partial class HistorialCompraPage : Page
     {
-        int indexCompra = 0;
+        public static int indexCompra = 0;
 
         public HistorialCompraPage()
         {
@@ -28,7 +28,7 @@ namespace AeiCliente
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            int indexCompra = (int) e.Parameter;
+            
             cargarCompra();
         }
 
@@ -46,7 +46,7 @@ namespace AeiCliente
             Compra compra = BufferUsuario.Usuario.Compras.ElementAt(indexCompra);
             for (int indexProducto = 0; indexProducto < compra.Productos.Count; indexProducto++)
             {
-                ItemHistorial itemProducto = new ItemHistorial(compra.Productos.ElementAt(indexCompra));
+                ItemHistorial itemProducto = new ItemHistorial(compra.Productos.ElementAt(indexProducto));
                 listaItemProducto.Items.Add(itemProducto);
             }
 
@@ -72,9 +72,9 @@ namespace AeiCliente
             }
 
             if (compra.Status.Equals("P"))
-                status = "Entregado";
-            else
                 status = "Por entregar";
+            else
+                status = "Entregado";
                 
             textDescripcion.Text = "Total de la compra: " + totalCompra + " Bs   Fecha de solicitud: "+fechaSolicitud + " Fecha de entrega: "+fechaEntrega+
                                     " Status: " + status + @"  Dirección: " + compra.Direccion.Estado + ", " +compra.Direccion.Ciudad + ", " + compra.Direccion.Descripcion;

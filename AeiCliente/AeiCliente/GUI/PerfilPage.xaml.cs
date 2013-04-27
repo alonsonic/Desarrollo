@@ -158,13 +158,13 @@ namespace AeiCliente
         {
             if (listBoxHistorial.SelectedIndex >= 0)
             {
-                this.Frame.Navigate(typeof(HistorialCompraPage), listBoxHistorial.SelectedIndex);
+                HistorialCompraPage.indexCompra =  listBoxHistorial.SelectedIndex;
+                this.Frame.Navigate(typeof(HistorialCompraPage));
             }
             else
             {
-                MessageDialog mensajeError = new MessageDialog("Debe seleccionar un item del historial de compras");
+                MessageDialog mensajeError = new MessageDialog("Debe seleccionar un item del historial de compras.");
                 mensajeError.ShowAsync();
-
             }
         }
     }

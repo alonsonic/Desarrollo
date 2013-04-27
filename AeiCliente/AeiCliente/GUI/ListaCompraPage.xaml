@@ -620,7 +620,11 @@
     	<Button x:Name="botonLupa" Content="" HorizontalAlignment="Left" Height="75" Margin="1090,10,0,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent" Click="botonLupa_Click"/>
     	<Button x:Name="botonPerfil" Content="" HorizontalAlignment="Left" Height="75" Margin="1184,10,0,0" VerticalAlignment="Top" Width="69" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent" Click="botonPerfil_Click"/>
     	<Button x:Name="botonCarrito" Content="" HorizontalAlignment="Left" Height="78" Margin="1271,7,0,0" VerticalAlignment="Top" Width="77" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent" Click="botonCarrito_Click"/>
-    	<TextBlock x:Name="textTotal" HorizontalAlignment="Left" Height="49" Margin="94,563,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Total de la compra: 589,00 Bs" VerticalAlignment="Top" Width="558" FontSize="40" Foreground="White"/>
+    	<TextBlock x:Name="textTotal" HorizontalAlignment="Left" Height="49" Margin="94,563,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="558" FontSize="40" Foreground="White">
+    		<Run Text="Total de la compra: "/>
+    		<Run Text="0"/>
+    		<Run Text=",00 Bs"/>
+    	</TextBlock>
     	<Button x:Name="botonCompra" Content="Finalizar la compra" HorizontalAlignment="Left" Height="58" Margin="1057,557,0,0" Grid.Row="1" VerticalAlignment="Top" Width="301" Foreground="White" BorderBrush="White" FontSize="26.667" Click="botonCompra_Click"/>
     	<Button x:Name="botonBack" Content="Button" HorizontalAlignment="Left" Height="51" Margin="12,561,0,0" Grid.Row="1" VerticalAlignment="Top" Width="47" Style="{StaticResource BackButtonStyle}" Click="Button_Click"/>
     	<Button x:Name="botonHome" Content="" HorizontalAlignment="Left" Height="106" VerticalAlignment="Top" Width="297" Margin="-5,-5,0,0" BorderBrush="{x:Null}" Click="botonHome_Click" Style="{StaticResource botonHome}"/>

@@ -20,9 +20,11 @@ namespace AeiCliente
     {
         private Popup popup = null;
         private ServicioAEIClient servicioAei = new ServicioAEIClient();
+        private ListaCompraPage father = null;
 
-        public CheckoutPopup(Popup padre)
+        public CheckoutPopup(Popup padre, ListaCompraPage father)
         {
+            this.father = father;
             if (padre == null) throw new ArgumentNullException("Debe asignar un Popup al controlador");
             this.popup = padre;
             this.InitializeComponent();
@@ -58,6 +60,8 @@ namespace AeiCliente
         {
             BufferUsuario.Usuario = await servicioAei.checkoutAsync(BufferUsuario.Usuario.MetodosPago.ElementAt(comboMetodo.SelectedIndex), BufferUsuario.Usuario.Direcciones.ElementAt(comboDireccion.SelectedIndex), BufferUsuario.Usuario);
             new MessageDialog("Gracias por su compra en aei Store, su compra entrara en proceso de envio.").ShowAsync();
+            popup.IsOpen = false;
+            father.compraFinalizada();
         }
 
     }

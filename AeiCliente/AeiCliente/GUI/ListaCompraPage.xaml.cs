@@ -85,7 +85,7 @@ namespace AeiCliente
             }
 
             Popup popup = new Popup();
-            CheckoutPopup checkPopup = new CheckoutPopup(popup);
+            CheckoutPopup checkPopup = new CheckoutPopup(popup, this);
             popup.Child = checkPopup;
             popup.IsOpen = true;
         }
@@ -119,6 +119,11 @@ namespace AeiCliente
             {
                 mensajeError.ShowAsync();
             }
+        }
+
+        public void compraFinalizada()
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
 
     }

@@ -111,6 +111,10 @@
     <Compile Include="GUI\CheckoutPopup.xaml.cs">
       <DependentUpon>CheckoutPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Constante.cs" />
+    <Compile Include="GUI\TwittertPopup.xaml.cs">
+      <DependentUpon>TwittertPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ItemHistorial.xaml.cs">
       <DependentUpon>ItemHistorial.xaml</DependentUpon>
     </Compile>
@@ -341,6 +345,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI\CheckoutPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\TwittertPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

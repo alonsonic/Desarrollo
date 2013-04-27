@@ -44,10 +44,10 @@ namespace AeiCliente
 
             }
         }
-
-        private void ButtonCancelar_Click(object sender, RoutedEventArgs e)
+		
+        private void botonBack_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            popup.IsOpen = false;
+        	popup.IsOpen = false;
         }
 		
     }
