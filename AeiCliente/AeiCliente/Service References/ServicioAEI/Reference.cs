@@ -1046,11 +1046,8 @@ namespace AeiCliente.ServicioAEI {
         System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> checkoutAsync(AeiCliente.ServicioAEI.MetodoPago metodo, AeiCliente.ServicioAEI.Direccion direccion, AeiCliente.ServicioAEI.Usuario usuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/disponibilidadProductos", ReplyAction="http://tempuri.org/IServicioAEI/disponibilidadProductosResponse")]
-<<<<<<< HEAD
+
         System.Threading.Tasks.Task<bool> disponibilidadProductosAsync(System.Collections.Generic.List<AeiCliente.ServicioAEI.DetalleCompra> detalle);
-=======
-        System.Threading.Tasks.Task<System.Collections.Generic.List<AeiCliente.ServicioAEI.Producto>> disponibilidadProductosAsync(System.Collections.Generic.List<AeiCliente.ServicioAEI.DetalleCompra> detalle);
->>>>>>> 7172b23d5fb00edd4d25fb4fb61f2f13f89c5846
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/checkearProductoCarrito", ReplyAction="http://tempuri.org/IServicioAEI/checkearProductoCarritoResponse")]
         System.Threading.Tasks.Task<bool> checkearProductoCarritoAsync(AeiCliente.ServicioAEI.Usuario usuario, AeiCliente.ServicioAEI.Producto producto);
@@ -1161,11 +1158,8 @@ namespace AeiCliente.ServicioAEI {
             return base.Channel.checkoutAsync(metodo, direccion, usuario);
         }
         
-<<<<<<< HEAD
+
         public System.Threading.Tasks.Task<bool> disponibilidadProductosAsync(System.Collections.Generic.List<AeiCliente.ServicioAEI.DetalleCompra> detalle) {
-=======
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<AeiCliente.ServicioAEI.Producto>> disponibilidadProductosAsync(System.Collections.Generic.List<AeiCliente.ServicioAEI.DetalleCompra> detalle) {
->>>>>>> 7172b23d5fb00edd4d25fb4fb61f2f13f89c5846
             return base.Channel.disponibilidadProductosAsync(detalle);
         }
         

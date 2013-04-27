@@ -25,7 +25,7 @@ namespace AeiCliente
         {
             this.InitializeComponent();
         }
-       
+        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             int indexCompra = (int) e.Parameter;
@@ -56,6 +56,7 @@ namespace AeiCliente
             {
                 fechaSolicitud = "---";
             }
+
             else
             {
                 fechaSolicitud = compra.FechaSolicitud.ToString("yyyy-MM-dd");
@@ -75,7 +76,6 @@ namespace AeiCliente
             else
                 status = "Por entregar";
                 
-
             textDescripcion.Text = "Total de la compra: " + totalCompra + " Bs   Fecha de solicitud: "+fechaSolicitud + " Fecha de entrega: "+fechaEntrega+
                                     " Status: " + status + @"  Dirección: " + compra.Direccion.Estado + ", " +compra.Direccion.Ciudad + ", " + compra.Direccion.Descripcion;
         }

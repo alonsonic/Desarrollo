@@ -162,7 +162,7 @@ namespace AeiCliente
             }
             else
             {
-                MessageDialog mensajeError = new MessageDialog("Debe seleccionar un items del historial de compras");
+                MessageDialog mensajeError = new MessageDialog("Debe seleccionar un item del historial de compras");
                 mensajeError.ShowAsync();
 
             }
