@@ -80,18 +80,31 @@ namespace AeiCliente
 
         private async void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            MessageDialog mensajeError = new MessageDialog("Debe iniciar sesión para realizar compras.","Inicie Sesión");
+            MessageDialog mensajeError1 = new MessageDialog("Debe iniciar sesión para realizar compras.", "Inicie Sesión");
+            MessageDialog mensajeError2 = new MessageDialog("Ya posee este producto en su carrito de compras.");
 
             if (BufferUsuario.isConectado())
             {
+                bool chequear = await servicioAei.checkearProductoCarritoAsync(BufferUsuario.Usuario, producto);
+                if (chequear)
+                {
+                    mensajeError2.ShowAsync();
+                    return;
+                }
+
                 Popup popup = new Popup();
                 DetallePopup direcPopup = new DetallePopup(popup, producto);
                 popup.Child = direcPopup;
                 popup.IsOpen = true;
             }
-
             else
-                mensajeError.ShowAsync();
+                mensajeError1.ShowAsync();
+
+            
+
+            
+
+            
         }
 	}
 }

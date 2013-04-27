@@ -8,31 +8,38 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
+        static public Producto getCheckearDisponibilidadProducto(int idProducto)
+        {
+
+            return null;
+        }
+        static public int setMontoTotalCarrito(Compra compra, float montoNuevo)
+        {
+            SqlServerCompra resultado= new SqlServerCompra();
+            return resultado.modificarMontoCarrito(compra, montoNuevo);
+        }
         static public DetalleCompra getDetalleCompraCarrito(int idProducto, int idUsuario)
         {
             SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();
             return resultado.buscarEnMiCarrito(idProducto, idUsuario);
         }
-        static public int setEliminarDetalleCarrito(int idDetalleCompra)
+        static public int setEliminarDetalleCarrito(Compra compra, DetalleCompra detalle)
         {
-            SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();
-            int respuesta = resultado.borrarDetalleCompra(idDetalleCompra);
-             
+            SqlServerCompra resultado = new SqlServerCompra();
+            int respuesta = resultado.borrarDetalleCompra(compra, detalle);
             return respuesta;
         }
         static public List<Direccion> getListaDireccion(int idUsuario)
         {
             SqlServerDireccion resultado = new SqlServerDireccion();
-            List<Direccion> direccion = resultado.ConsultarDireccion(idUsuario);
-             
+            List<Direccion> direccion = resultado.ConsultarDireccion(idUsuario);             
             return direccion;
         }
 
         static public List<DetalleCompra> getListaProductos(int idCompra)
         {
             SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();
-            List<DetalleCompra> detalleCompra= resultado.buscarDetalleCompra(idCompra);
-             
+            List<DetalleCompra> detalleCompra= resultado.buscarDetalleCompra(idCompra);             
             return detalleCompra;
         }
         static public Compra getCarrito(int idUsuario)

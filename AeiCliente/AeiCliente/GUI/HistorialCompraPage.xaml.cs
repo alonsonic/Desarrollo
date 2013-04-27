@@ -17,11 +17,11 @@ using Windows.UI.Xaml.Navigation;
 
 namespace AeiCliente
 {
-    public sealed partial class ListaCompraPage : Page
+    public sealed partial class HistorialCompraPage : Page
     {
         bool isCarrito = true;
 
-        public ListaCompraPage()
+        public HistorialCompraPage()
         {
             this.InitializeComponent();
             cargarCarrito();
@@ -40,10 +40,10 @@ namespace AeiCliente
 
             for (int indexProducto = 0; indexProducto < BufferUsuario.Usuario.Carrito.Productos.Count; indexProducto++)
             {
-                ItemCompra itemProducto = new ItemCompra(indexProducto, this, true);
-                listaItemProducto.Items.Add(itemProducto);
+                //ItemCompra itemProducto = new ItemCompra(indexProducto, this, true);
+                //listaItemProducto.Items.Add(itemProducto);
             }
-            textTotal.Text = "Total de la compra: " + BufferUsuario.Usuario.Carrito.MontoTotal + "Bs";
+            //text.Text = "Total de la compra: " + BufferUsuario.Usuario.Carrito.MontoTotal + "Bs";
             
         }
 

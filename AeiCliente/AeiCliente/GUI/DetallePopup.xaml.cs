@@ -66,7 +66,8 @@ namespace AeiCliente
             detalleCompra.Monto = producto.Precio * detalleCompra.Cantidad;
 
             BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
-
+            MessageDialog mensajeError = new MessageDialog("Se agrego el poducto a su carrito con exito!");
+            mensajeError.ShowAsync();
             popup.IsOpen = false;
         }
     }

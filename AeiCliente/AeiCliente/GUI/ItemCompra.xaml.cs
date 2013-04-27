@@ -21,9 +21,13 @@ namespace AeiCliente
 {
     public sealed partial class ItemCompra : UserControl
     {
+
+        private ServicioAEIClient servicioAei = new ServicioAEIClient();
         Producto producto = null;
-        Page padre = null;
+        ListaCompraPage padre = null;
         bool isCompra = true;
+        int indexDetalle;
+        DetalleCompra detalle = null;
 
         public ItemCompra()
         {
@@ -31,18 +35,20 @@ namespace AeiCliente
             this.InitializeComponent();
         }
 
-        public ItemCompra(int indexProducto, Page padre, bool isCarrito)
+        public ItemCompra(int indexProducto, ListaCompraPage padre, bool isCarrito)
         {
             this.InitializeComponent();
             this.padre = padre;
+            this.indexDetalle = indexProducto;
 
             if(isCarrito)
             {
                 producto = BufferUsuario.Usuario.Carrito.Productos.ElementAt(indexProducto).Producto;
+                detalle = BufferUsuario.Usuario.Carrito.Productos.ElementAt(indexProducto);
             }
 
 
-            textoNombreProducto.Text = producto.Nombre;
+            textoNombreProducto.Text = detalle.Cantidad + " " + producto.Nombre;
             //TODO: SETEAR LA IMAGEN
             //this.setImagenProducto("ms-appx:/App_Data/item.png.png");
         }
@@ -59,6 +65,12 @@ namespace AeiCliente
         {
             DetalleProductoPage.isCompra = true;
             padre.Frame.Navigate(typeof(DetalleProductoPage), producto);
+        }
+
+        private async void botonEliminar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            BufferUsuario.Usuario = await servicioAei.borrarDetalleCarritoAsync(BufferUsuario.Usuario, BufferUsuario.Usuario.Carrito.Productos.ElementAt(indexDetalle));
+            padre.cargarCarrito();
         }
 
     }

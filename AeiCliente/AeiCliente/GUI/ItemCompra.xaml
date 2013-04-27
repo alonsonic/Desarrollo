@@ -218,8 +218,8 @@
     			<ImageBrush ImageSource="Assets/BotonDetalle.png"/>
     		</Button.Background>
     	</Button>
-    	<TextBlock x:Name="textoNombreProducto" HorizontalAlignment="Left" Height="103" Margin="250,8,0,0" TextWrapping="Wrap" Text="Rompecabezas" VerticalAlignment="Top" Width="681" FontSize="80" FontFamily="Gill Sans MT"/>
-        <Button x:Name="botonEliminar" Content="" HorizontalAlignment="Left" Margin="1119,11,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="87" Height="87" Template="{StaticResource ButtonControlTemplate3}" Click="botonDetalle_Click" >
+    	<TextBlock x:Name="textoNombreProducto" HorizontalAlignment="Left" Height="103" Margin="224,10,0,0" TextWrapping="Wrap" Text="Rompecabezas" VerticalAlignment="Top" Width="875" FontSize="73.333" FontFamily="Gill Sans MT"/>
+        <Button x:Name="botonEliminar" Content="" HorizontalAlignment="Left" Margin="1119,11,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Width="87" Height="87" Template="{StaticResource ButtonControlTemplate3}" Click="botonEliminar_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/delete.png"/>
             </Button.Background>
