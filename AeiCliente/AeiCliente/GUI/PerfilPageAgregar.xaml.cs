@@ -41,8 +41,8 @@ namespace AeiCliente.GUI
                 textPasaporteEditable.Text = BufferUsuario.Usuario.Pasaporte;
                 textPasaporteEditable.IsEnabled = false;
                 comboAno.SelectedValue = BufferUsuario.Usuario.FechaNacimiento.Year;
-                comboDia.SelectedValue = BufferUsuario.Usuario.FechaNacimiento.Day;
-                ComboMes.SelectedIndex = BufferUsuario.Usuario.FechaNacimiento.Month -1;
+                comboDia.SelectedIndex = BufferUsuario.Usuario.FechaNacimiento.Day;
+                ComboMes.SelectedIndex = BufferUsuario.Usuario.FechaNacimiento.Month;
                 cargarDireciones();
                
             }
@@ -155,8 +155,9 @@ namespace AeiCliente.GUI
                 int error = await servicio.modificarUsuarioAsync(BufferUsuario.Usuario);
                 if (error == 1)
                 {
-                    this.Frame.Navigate(typeof(PerfilPage));
                     servicio.enviarCorreoDeModificacionAsync(BufferUsuario.Usuario);
+                    this.Frame.Navigate(typeof(PerfilPage));
+                    
                 }
                 else
                 {
@@ -208,6 +209,11 @@ namespace AeiCliente.GUI
                 }
 
             }
+        }
+
+        private void comboDia_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
         
     }

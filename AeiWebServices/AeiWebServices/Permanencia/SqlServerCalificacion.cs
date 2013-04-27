@@ -69,7 +69,7 @@ namespace AeiWebServices.Permanencia
         public int agregarCalificacion(Calificacion calificacion, int idUsuario, int idProducto)
         {
             ConexionSqlServer conexion= new ConexionSqlServer();
-            int respuesta = conexion.insertar("INSERT INTO id, puntaje, comentario, usuario, fecha VALUES(NEXT VALUE FOR SEQ_CALIFICACION," + calificacion.Puntaje.ToString() + ",'" + calificacion.Comentario + "'," + idUsuario.ToString() + ",'" + DateTime.Today.ToString("yyyy-MM-dd") + "'); ");
+            int respuesta = conexion.insertar("INSERT INTO calificacion (id, puntaje, detalle,  fk_usuario,fk_producto, fecha) VALUES(NEXT VALUE FOR SEQ_CALIFICACION," + calificacion.Puntaje.ToString() + ",'" + calificacion.Comentario + "'," + idUsuario.ToString() + ","+idProducto.ToString()+",'" + DateTime.Today.ToString("yyyy-MM-dd") + "'); ");
             conexion.cerrarConexion(); 
             return respuesta;
         }
