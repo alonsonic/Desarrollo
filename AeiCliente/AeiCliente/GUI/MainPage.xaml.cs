@@ -129,7 +129,7 @@ namespace AeiCliente
 
         private async void botonInfantiles_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("juegos infantiles");
+            ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("Jueguetes Infantiles");
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
 
