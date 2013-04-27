@@ -9,9 +9,16 @@ using System.Text;
 
 namespace AeiWebServices.Logica
 {
-
+   
     public class ServicioAEI : IServicioAEI
     {
+        public int enviarCorreoDeFactura(Usuario usuario, Compra compra)
+        {
+            Correo correo = new Correo();
+            return correo.enviarCorreoDeFactura(usuario, compra);
+
+        }
+
         public Usuario agregarMetodoPago(MetodoPago metodo, Usuario usuario)
         {
             if (FabricaDAO.setAgregarMetodoPago(metodo, usuario.Id) == 1)
