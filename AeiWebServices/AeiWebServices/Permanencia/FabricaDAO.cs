@@ -196,7 +196,7 @@ namespace AeiWebServices.Permanencia
             return respuesta;
         }
 
-        static public int setMetodoPago(MetodoPago metodo, int idUsuario)
+        static public int setAgregarMetodoPago(MetodoPago metodo, int idUsuario)
         {
             SqlServerMetodoPago resultado = new SqlServerMetodoPago();
             int respuesta= resultado.agregarMetodoPago(metodo, idUsuario);

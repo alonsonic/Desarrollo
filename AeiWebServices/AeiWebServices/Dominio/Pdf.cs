@@ -13,10 +13,13 @@ namespace AeiWebServices.Dominio
     public class Pdf
     {
 
-        public void generar(Usuario usuario, List<DetalleCompra> listaDeCompra)
+        public void generar(Usuario usuario, Compra compra)
         {
-            string file = "C:/MiPrimer.pdf";
-
+            List<DetalleCompra> listaDeCompra = new List<DetalleCompra>();
+            listaDeCompra = compra.Productos;
+            CodigoQr codigoQr = new CodigoQr();
+            codigoQr.generar(compra);
+            string file = "C:/Factura"+compra.Id+".pdf";
             string html = @"<img src='C:\Users\Liliana\Desktop\UCAB\aei-logo.png' alt='aei store - logo'>
 	                        <h2 align='right'><font color='#F05D13'>Pre-orden</font></h2>
 	                        <p align='right'>
@@ -41,11 +44,11 @@ namespace AeiWebServices.Dominio
 		                        </thead>
                                     <tbody>";
 
-                            for(int i = 0; i<listaDeCompra.Count() ; i++)
+                            for (int i = 0; i < listaDeCompra.Count(); i++)
                             {
-		                        
+		                     float multiplicacion = listaDeCompra[i].Monto*listaDeCompra[i].Cantidad;   
 			                       html= html + @"<tr>
-				                                    <td>"+listaDeCompra[i].Producto.Nombre+ @"</td><td>"+listaDeCompra[i].Cantidad.ToString() + @"</td><td>"+listaDeCompra[i].Monto.ToString()+ @"</td><td>data</td>
+				                                    <td>" + listaDeCompra[i].Producto.Nombre + @"</td><td>" + listaDeCompra[i].Cantidad.ToString() + @"</td><td>" + listaDeCompra[i].Monto.ToString() + @"</td><td>"+multiplicacion.ToString()+@"</td>
 			                                    </tr>";
                             }
                             html = html + "</tbody></table></div>";
@@ -53,12 +56,26 @@ namespace AeiWebServices.Dominio
 		                                    <tbody>
 			                                    <tr ><td width='50%' style='background-color:white;'></td><td width='10%' style='background-color:white;'></td>
 			                                    <td width='20%'><strong>
-				                                    Total a Pagar Bs
+				                                    Total a Pagar Bs 
 			                                    </strong></td><td width='20%'>
-				                                    data
+				                                    " + compra.MontoTotal.ToString() + @"
 			                                    </td></tr>
 		                                    </tbody>
-	                                    </table>";
+	                                    </table>
+                                        <div class='datagrid'>
+                                        <table>
+                                            <thead><tr><th>Informaci&oacute;n de m&eacute;todo de pago</th></tr></thead>
+                                        <tbody>
+	                                        <tr><td>  Marca:"+compra.Pago.Marca+" Numero: "+compra.Pago.Numero+" Fecha vencimiento: "+ compra.Pago.FechaVencimiento.ToString("dd-MM-yyyy")+ @"</td></tr>
+                                        </tbody>
+                                        </table>	
+                                        </div>
+
+                                    <h2>
+                                     Código Qr
+                                    </h2>
+                                    <img src = 'c:/Qr" + compra.Id.ToString() +".png' />";
+
             Document document = new Document(PageSize.A4, 80, 50, 30, 65);
             PdfWriter.GetInstance(document, new FileStream(file, FileMode.Create));
             document.Open();

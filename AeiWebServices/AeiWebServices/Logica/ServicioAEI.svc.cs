@@ -9,21 +9,28 @@ using System.Text;
 
 namespace AeiWebServices.Logica
 {
-
+   
     public class ServicioAEI : IServicioAEI
     {
+        public int enviarCorreoDeFactura(Usuario usuario, Compra compra)
+        {
+            Correo correo = new Correo();
+            return correo.enviarCorreoDeFactura(usuario, compra);
 
-        //public List<Producto> disponibilidadProductos (List<DetalleCompra> detalle)
-        //{
-        //    List<Producto> resultado= new List<Producto>();
-        //    for (int index = 0; index < detalle.Count; index++)
-        //    {
-        //        detalle[index].Producto
-        //        resultado.Add(null);
-        //    }
-        //    return resultado;
-        //}
+        }
 
+        public Usuario agregarMetodoPago(MetodoPago metodo, Usuario usuario)
+        {
+            if (FabricaDAO.setAgregarMetodoPago(metodo, usuario.Id) == 1)
+                usuario.MetodosPago.Add(metodo);
+            return usuario;
+        }
+
+        public List<Producto> agregarCalificacion()
+        {
+
+            return null;
+        }
         public int modificarDireccion(Direccion direccionModificada)
         {
             return FabricaDAO.modificarDireccion(direccionModificada);
@@ -53,7 +60,6 @@ namespace AeiWebServices.Logica
                 int respuesta = FabricaDAO.setEstadoDeCompra(usuario.Carrito);
                 usuario.Compras.Add(compra);
                 usuario.Carrito = null;
-
             }
             return usuario;
         }
