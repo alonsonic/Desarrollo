@@ -8,11 +8,11 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
-        //static public int setCantidadProducto(int idProducto, int cantidad)
-        //{
-        //    SqlServerCompra resultado = new SqlServerCompra();
-        //    return resultado.cambiarCantidadProducto(idProducto, cantidad);
-        //}
+        static public int setCantidadProducto(int idProducto, int cantidad)
+        {
+            SqlServerCompra resultado = new SqlServerCompra();
+            return resultado.cambiarCantidadProducto(idProducto, cantidad);
+        }
 
         static public int modificarDireccion(Direccion direccionModificada)
         {
@@ -142,14 +142,6 @@ namespace AeiWebServices.Permanencia
             return tags;
         }
 
-        static public int setCantidadProducto(int idProducto, int cantidadEnExistencia)
-        {
-            SqlServerProducto resultado = new SqlServerProducto();
-            int respuesta= resultado.updateCantidad(idProducto, cantidadEnExistencia);
-             
-            return respuesta;
-        }
-
         static public List<Producto> getProductos()
         {
             SqlServerProducto lista = new SqlServerProducto();
@@ -197,11 +189,10 @@ namespace AeiWebServices.Permanencia
             return respuesta;
         }
 
-        static public int setEstadoDeCompra(String status, int idCompra)
+        static public int setEstadoDeCompra(Compra compra)
         {
-            SqlServerCompra resultado = new SqlServerCompra();
-            int respuesta= resultado.modificarEstadoDeCompra(status, idCompra);
-             
+            SqlServerProducto resultado = new SqlServerProducto();
+            int respuesta= resultado.modificarEstadoDeCompra(compra);             
             return respuesta;
         }
 

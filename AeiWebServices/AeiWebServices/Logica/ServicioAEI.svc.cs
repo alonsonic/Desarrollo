@@ -29,25 +29,32 @@ namespace AeiWebServices.Logica
             return FabricaDAO.modificarDireccion(direccionModificada);
         }
 
-        public List<Producto> disponibilidadProductos (List<DetalleCompra> detalle)
+        public bool disponibilidadProductos(List<DetalleCompra> detalle)
         {
-            List<Producto> resultado= new List<Producto>();
+            List<Producto> resultado = new List<Producto>();
+            bool respuesta=true;
             for (int index = 0; index < detalle.Count; index++)
             {
-                //detalle[index].Producto
-               //resultado.Add(null);
+                if (FabricaDAO.setCantidadProducto(detalle[index].Producto.Id, detalle[index].Producto.Cantidad)==0)
+                    return false;
             }
-            return resultado;
+            return respuesta;
         }
 
         public Usuario checkout(MetodoPago metodo, Direccion direccion, Usuario usuario)
         {
-            Compra compra = usuario.Carrito;
-            compra.Direccion = direccion;
-            compra.Pago = metodo;
-            compra.FechaSolicitud = DateTime.Now;
-            compra.Status = "P";
+            if (disponibilidadProductos(usuario.Carrito.Productos)==true)
+            {
+                Compra compra = usuario.Carrito;
+                compra.Direccion = direccion;
+                compra.Pago = metodo;
+                compra.FechaSolicitud = DateTime.Now;
+                compra.Status = "P";
+                int respuesta = FabricaDAO.setEstadoDeCompra(usuario.Carrito);
+                usuario.Compras.Add(compra);
+                usuario.Carrito = null;
 
+            }
             return usuario;
         }
 

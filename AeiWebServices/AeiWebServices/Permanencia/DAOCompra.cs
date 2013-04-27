@@ -10,7 +10,7 @@ namespace AeiWebServices.Permanencia
     {
         int modificarMontoCarrito(Compra compra, float montoNuevo);
         int agregarCompra(Compra compra, int idUsuario);
-        int modificarEstadoDeCompra(String Status, int idCompra);
+        int modificarEstadoDeCompra(Compra compra);
         Compra consultarCarrito(int idUsuario);
         List<Compra> consultarHistorialCompras(int idUsuario);
         List<Producto> busquedaProductos(string busqueda);
