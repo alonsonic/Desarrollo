@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}" Margin="-10,0,10,0">
 
         <Image x:Name="fondoPerfil" Source="ms-appx:///Imagenes/fondoPerfilAEI.png" Stretch="Fill" d:IsLocked="True"/>
         <Button x:Name="botonLupa" Content="" HorizontalAlignment="Left" Height="75" Margin="1090,10,0,0" VerticalAlignment="Top" Width="80" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="Transparent" Click="botonLupa_Click"/>
@@ -31,7 +31,6 @@
         </ListBox>
         <TextBox x:Name="textPasaporteEditable" HorizontalAlignment="Left" Margin="226,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="618"/>
         <TextBox x:Name="textCorreoEditable" HorizontalAlignment="Left" Margin="337,295,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="507"/>
-        <ComboBox x:Name="ComboDia" HorizontalAlignment="Left" Margin="338,333,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="ComboMes" HorizontalAlignment="Left" Margin="469,333,0,0" VerticalAlignment="Top" Width="161">
             <ComboBoxItem x:Name="Mes" Content="Mes"/>
             <ComboBoxItem x:Name="Enero" Content="Enero"/>
@@ -47,15 +46,18 @@
             <ComboBoxItem x:Name="Noviembre" Content="Noviembre"/>
             <ComboBoxItem x:Name="Diciembre" Content="Diciembre"/>
         </ComboBox>
-        <ComboBox x:Name="ComboAno" HorizontalAlignment="Left" Margin="641,333,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="buttonEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="399,619,0,104" VerticalAlignment="Stretch" FontSize="20" Visibility="Visible" Width="211" Click="buttonEnviar_Click"/>
-        <Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Stretch" Margin="636,619,519,104" VerticalAlignment="Stretch" FontSize="20" Visibility="Visible" Click="buttonCancelar_Click"/>
+        <Button x:Name="buttonEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="471,619,0,104" VerticalAlignment="Stretch" FontSize="20" Visibility="Visible" Width="179" Click="buttonEnviar_Click"/>
+        <Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Stretch" Margin="668,619,519,104" VerticalAlignment="Stretch" FontSize="20" Visibility="Visible" Click="buttonCancelar_Click"/>
+        <Button x:Name="botonAgregarDireccion" Content="Agregar Dirección" HorizontalAlignment="Left" Height="45" Margin="85,619,0,0" VerticalAlignment="Top" Width="206" FontSize="20" Click="botonAgregarDireccion_Click"/>
+
         <TextBlock x:Name="textApellido" HorizontalAlignment="Left" Height="32" Margin="469,188,0,0" TextWrapping="Wrap" Text="Apellido" VerticalAlignment="Top" Width="114" FontSize="26.667" FontFamily="Gill Sans MT"/>
         <TextBox x:Name="textBoxNombre" HorizontalAlignment="Left" Margin="204,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"/>
         <TextBox x:Name="textBoxApellido" HorizontalAlignment="Left" Margin="578.121,189.053,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Height="32" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Width="262.101" d:LayoutRounding="Auto">
-        	<TextBox.RenderTransform>
-        		<CompositeTransform Rotation="0.898"/>
-        	</TextBox.RenderTransform>
+            <TextBox.RenderTransform>
+                <CompositeTransform Rotation="0.898"/>
+            </TextBox.RenderTransform>
         </TextBox>
+        <ComboBox x:Name="comboDia" HorizontalAlignment="Left" Margin="337,333,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="comboAno" HorizontalAlignment="Left" Margin="646,333,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Page>
