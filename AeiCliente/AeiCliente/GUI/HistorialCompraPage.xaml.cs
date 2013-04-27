@@ -35,16 +35,49 @@ namespace AeiCliente
         public void cargarCompra()
         {
             listaItemProducto.Items.Clear();
+            string totalCompra;
+            string fechaSolicitud;
+            string fechaEntrega;
+            string status;
+
             if (BufferUsuario.Usuario == null && BufferUsuario.Usuario.Compras.ElementAt(indexCompra) != null)
                 return;
 
             Compra compra = BufferUsuario.Usuario.Compras.ElementAt(indexCompra);
             for (int indexProducto = 0; indexProducto < compra.Productos.Count; indexProducto++)
             {
-                ItemHistorial itemProducto = new ItemHistorial(compra.Productos.ElementAt(indexCompra),true);
+                ItemHistorial itemProducto = new ItemHistorial(compra.Productos.ElementAt(indexCompra));
                 listaItemProducto.Items.Add(itemProducto);
             }
-            textDescripcion.Text = "Total de la compra: 1000,00 Bs      Fecha de solicitud: 03/04/2013     Fecha de entrega: 05/06/2013 ENTER Estado: En proceso/Entregado       Dirección: La trinidad...";
+
+            totalCompra = compra.MontoTotal.ToString();
+
+            if(compra.FechaSolicitud == null)
+            {
+                fechaSolicitud = "---";
+            }
+            else
+            {
+                fechaSolicitud = compra.FechaSolicitud.ToString("yyyy-MM-dd");
+            }
+
+            if(compra.FechaEntrega == null)
+            {
+                fechaEntrega = "---";
+            }
+            else
+            {
+                fechaEntrega = compra.FechaEntrega.ToString("yyyy-MM-dd");
+            }
+
+            if (compra.Status.Equals("P"))
+                status = "Entregado";
+            else
+                status = "Por entregar";
+                
+
+            textDescripcion.Text = "Total de la compra: " + totalCompra + " Bs   Fecha de solicitud: "+fechaSolicitud + " Fecha de entrega: "+fechaEntrega+
+                                    " Status: " + status + @"  Dirección: " + compra.Direccion.Estado + ", " +compra.Direccion.Ciudad + ", " + compra.Direccion.Descripcion;
         }
 
         private void botonHome_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

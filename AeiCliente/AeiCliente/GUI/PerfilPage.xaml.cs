@@ -40,6 +40,26 @@ namespace AeiCliente
             bloquear(false);
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (BufferUsuario.Usuario != null)
+            {
+                validarStatusUsuario();
+            }
+        }
+
+        private void validarStatusUsuario()
+        {
+            if (BufferUsuario.Usuario != null)
+                if (BufferUsuario.Usuario.Status.Equals("I "))
+                {
+                    Popup popup = new Popup();
+                    CodigoConfirPopup direcPopup = new CodigoConfirPopup(popup);
+                    popup.Child = direcPopup;
+                    popup.IsOpen = true;
+                }
+        }
+
         public void cargarDireciones()
         {
             listBoxDireccion.Items.Clear();
@@ -85,12 +105,12 @@ namespace AeiCliente
             ComboAno.IsEnabled = boolean;
         }
 
-     
+
 
         private void botonEditarInformacion_Click(object sender, RoutedEventArgs e)
         {
-            bloquear(true);
-            this.Frame.Navigate(typeof(PerfilPageAgregar), "Editar informacion");
+            PerfilPageAgregar.padre = "Editar informacion";
+            this.Frame.Navigate(typeof(PerfilPageAgregar));
         }
 
         private void botonHome_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
