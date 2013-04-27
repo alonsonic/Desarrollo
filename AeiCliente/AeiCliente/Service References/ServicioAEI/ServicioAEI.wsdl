@@ -8,6 +8,30 @@
       <xsd:import schemaLocation="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices.Dominio" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IServicioAEI_modificarStatusCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarStatusCompra" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarStatusCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarStatusCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarMetodoPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarMetodoPago" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarMetodoPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarMetodoPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_generarXml_InputMessage">
+    <wsdl:part name="parameters" element="tns:generarXml" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_generarXml_OutputMessage">
+    <wsdl:part name="parameters" element="tns:generarXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_enviarCorreoDeFactura_InputMessage">
+    <wsdl:part name="parameters" element="tns:enviarCorreoDeFactura" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_enviarCorreoDeFactura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:enviarCorreoDeFacturaResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioAEI_agregarMetodoPago_InputMessage">
     <wsdl:part name="parameters" element="tns:agregarMetodoPago" />
   </wsdl:message>
@@ -147,6 +171,22 @@
     <wsdl:part name="parameters" element="tns:buscarDireccionUsuarioResponse" />
   </wsdl:message>
   <wsdl:portType name="IServicioAEI">
+    <wsdl:operation name="modificarStatusCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/modificarStatusCompra" message="tns:IServicioAEI_modificarStatusCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/modificarStatusCompraResponse" message="tns:IServicioAEI_modificarStatusCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarMetodoPago">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/modificarMetodoPago" message="tns:IServicioAEI_modificarMetodoPago_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/modificarMetodoPagoResponse" message="tns:IServicioAEI_modificarMetodoPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="generarXml">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/generarXml" message="tns:IServicioAEI_generarXml_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/generarXmlResponse" message="tns:IServicioAEI_generarXml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="enviarCorreoDeFactura">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeFactura" message="tns:IServicioAEI_enviarCorreoDeFactura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeFacturaResponse" message="tns:IServicioAEI_enviarCorreoDeFactura_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="agregarMetodoPago">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/agregarMetodoPago" message="tns:IServicioAEI_agregarMetodoPago_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/agregarMetodoPagoResponse" message="tns:IServicioAEI_agregarMetodoPago_OutputMessage" />
@@ -242,6 +282,42 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioAEI" type="tns:IServicioAEI">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="modificarStatusCompra">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/modificarStatusCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarMetodoPago">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/modificarMetodoPago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generarXml">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/generarXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enviarCorreoDeFactura">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/enviarCorreoDeFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="agregarMetodoPago">
       <soap:operation soapAction="http://tempuri.org/IServicioAEI/agregarMetodoPago" style="document" />
       <wsdl:input>

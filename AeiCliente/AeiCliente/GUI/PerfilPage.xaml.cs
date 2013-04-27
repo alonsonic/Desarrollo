@@ -167,5 +167,13 @@ namespace AeiCliente
                 mensajeError.ShowAsync();
             }
         }
+
+        private void botonGestionarMetodo_Click(object sender, RoutedEventArgs e)
+        {
+            Popup popup = new Popup();
+            AgregarMetodoPopup direcPopup = new AgregarMetodoPopup(popup);
+            popup.Child = direcPopup;
+            popup.IsOpen = true;
+        }
     }
 }
