@@ -16,7 +16,7 @@ using Windows.UI.Popups;
 
 namespace AeiCliente
 {
-    public sealed partial class DetallePopup : UserControl
+    public sealed partial class CheckoutPopup : UserControl
     {
         private Popup popup = null;
         private int cantidadProducto = 1;
@@ -25,7 +25,7 @@ namespace AeiCliente
         private DetalleCompra detalleCompra = new DetalleCompra();
         private Producto producto;
 
-        public DetallePopup(Popup padre, Producto producto)
+        public CheckoutPopup(Popup padre, Producto producto)
         {
             this.producto = producto;
             this.cantidadProductoMax = producto.Cantidad;
@@ -73,7 +73,7 @@ namespace AeiCliente
 
         private void botonBack_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	// TODO: Agregar implementación de controlador de eventos aquí.popup.IsOpen = false;
+            popup.IsOpen = false;
         }
     }
 }

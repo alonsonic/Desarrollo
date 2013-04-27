@@ -108,6 +108,12 @@
     <Compile Include="GUI\CodigoConfirPopup.xaml.cs">
       <DependentUpon>CodigoConfirPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\CheckoutPopup.xaml.cs">
+      <DependentUpon>CheckoutPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ItemHistorial.xaml.cs">
+      <DependentUpon>ItemHistorial.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\HistorialCompraPage.xaml.cs">
       <DependentUpon>HistorialCompraPage.xaml</DependentUpon>
     </Compile>
@@ -331,6 +337,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI\CodigoConfirPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\CheckoutPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\ItemHistorial.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
