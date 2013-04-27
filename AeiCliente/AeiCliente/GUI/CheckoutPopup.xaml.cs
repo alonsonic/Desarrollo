@@ -19,61 +19,30 @@ namespace AeiCliente
     public sealed partial class CheckoutPopup : UserControl
     {
         private Popup popup = null;
-        private int cantidadProducto = 1;
-        private int cantidadProductoMax = 0;
         private ServicioAEIClient servicioAei = new ServicioAEIClient();
-        private DetalleCompra detalleCompra = new DetalleCompra();
-        private Producto producto;
 
-        public CheckoutPopup(Popup padre, Producto producto)
+        public CheckoutPopup(Popup padre)
         {
-            this.producto = producto;
-            this.cantidadProductoMax = producto.Cantidad;
             if (padre == null) throw new ArgumentNullException("Debe asignar un Popup al controlador");
             this.popup = padre;
             this.InitializeComponent();
-            textCantidad.Text = cantidadProducto.ToString();
-        }
-		
-		private void botonMenosClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            if (cantidadProducto > 1)
-            {
-                cantidadProducto--;
-                textCantidad.Text = cantidadProducto.ToString();
-            }
-        }
-		
-		private void botonMasClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            if (cantidadProducto < cantidadProductoMax)
-            {
-                cantidadProducto++;
-                textCantidad.Text = cantidadProducto.ToString();
-            }
-        }
-
-        public int CantidadProducto
-        {
-            get { return cantidadProducto; }
-            set { cantidadProducto = value; }
-        }
-
-        private async void botonAddCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            detalleCompra.Cantidad = cantidadProducto;
-            detalleCompra.Producto = producto;
-            detalleCompra.Monto = producto.Precio * detalleCompra.Cantidad;
-
-            BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
-            MessageDialog mensajeError = new MessageDialog("Se agrego el poducto a su carrito con exito!");
-            mensajeError.ShowAsync();
-            popup.IsOpen = false;
+            cargarCombos();
         }
 
         private void botonBack_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             popup.IsOpen = false;
         }
+
+        private void cargarCombos()
+        {
+            
+        }
+
+        private void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+        	// TODO: Agregar implementación de controlador de eventos aquí.
+        }
+
     }
 }
