@@ -59,9 +59,12 @@ namespace AeiCliente
 
         private async void botonCompra_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	// TODO: Agregar implementación de controlador de eventos aquí.
-            ServicioAEIClient s = new ServicioAEIClient();
-            BufferUsuario.Usuario = await s.checkoutAsync(BufferUsuario.Usuario.MetodosPago[0], BufferUsuario.Usuario.Direcciones[0], BufferUsuario.Usuario);
+
+            if (BufferUsuario.Usuario.Carrito.Productos.Count() < 1)
+            {
+                new MessageDialog("Debe añadir algún producto a su carrito para finalizar su compra.").ShowAsync();
+                return;
+            }
         }
 
         private void botonPerfil_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

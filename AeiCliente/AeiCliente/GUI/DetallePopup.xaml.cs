@@ -63,7 +63,7 @@ namespace AeiCliente
         {
             detalleCompra.Cantidad = cantidadProducto;
             detalleCompra.Producto = producto;
-            detalleCompra.Monto = producto.Precio * detalleCompra.Cantidad;
+            detalleCompra.Monto = producto.Precio;
 
             BufferUsuario.Usuario = await servicioAei.agregarCarritoAsync(BufferUsuario.Usuario, detalleCompra);
             MessageDialog mensajeError = new MessageDialog("Se agrego el poducto a su carrito con exito!");

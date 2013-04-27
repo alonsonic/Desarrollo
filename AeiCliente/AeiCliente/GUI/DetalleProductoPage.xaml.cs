@@ -98,12 +98,6 @@ namespace AeiCliente
             }
             else
                 mensajeError1.ShowAsync();
-
-            
-
-            
-
-            
         }
 	}
 }

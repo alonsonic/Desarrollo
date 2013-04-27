@@ -11,22 +11,29 @@
     d:DesignWidth="413" Width="1366" Height="768">
 
     <custom:PopoverView Margin="57,0,-57,0">
-        <Grid Background="#FFF46526" Margin="-57,228,57,224">
+        <Grid Background="#FFF46526" Margin="-57,202,57,188">
         	<Grid.ColumnDefinitions>
         		<ColumnDefinition Width="344*"/>
         		<ColumnDefinition Width="339*"/>
         	</Grid.ColumnDefinitions>
-            <Rectangle x:Name="background" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="774" Margin="0,-234,0,-224" Stroke="Black" VerticalAlignment="Top" Width="1366">
+            <Rectangle x:Name="background" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="764" Margin="0,-202,0,-200" Stroke="Black" VerticalAlignment="Top" Width="1366">
             	<Rectangle.Fill>
             		<SolidColorBrush Color="Black" Opacity="0.15"/>
             	</Rectangle.Fill>
             </Rectangle>
-            <TextBlock HorizontalAlignment="Left" Margin="532,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="299" FontSize="35.556" Text="Ingrese la cantidad" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="textCantidad" HorizontalAlignment="Left" Height="90" Margin="532,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" IsReadOnly="True" Grid.ColumnSpan="2" Text="20" FontSize="57.333" TextAlignment="Center"/>
-            <Button x:Name="botonAddCarrito" Content="Agregar a Carrito" HorizontalAlignment="Left" Height="71" Margin="467,215,0,0" VerticalAlignment="Top" Width="430" FontSize="33.333" Grid.ColumnSpan="2" Click="botonAddCarrito_Click"/>
-            <Button x:Name="botonMas" Content="+" HorizontalAlignment="Left" Height="112" Margin="151,62,0,0" VerticalAlignment="Top" Width="86" FontSize="80" BorderBrush="{x:Null}" Grid.Column="1" Click="botonMasClick"/>
-            <Button x:Name="botonMenos" Content="-" HorizontalAlignment="Left" Height="112" Margin="441,62,0,0" VerticalAlignment="Top" Width="86" FontSize="80" BorderBrush="{x:Null}" Click="botonMenosClick"/>
+            <TextBlock HorizontalAlignment="Left" Margin="123,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="455" FontSize="35.556">
+            	<Run Text="Escoja la direcció"/>
+            	<Run Text="n"/>
+            	<Run Text=" de envio"/>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="123,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="417" FontSize="35.556">
+            	<Run Text="Escoja "/>
+            	<Run Text="su método de pago"/>
+            </TextBlock>
+            <Button x:Name="botonComprar" Content="Terminar Compra" HorizontalAlignment="Left" Height="71" Margin="467,285,0,0" VerticalAlignment="Top" Width="430" FontSize="33.333" Grid.ColumnSpan="2" Click="botonComprar_Click"/>
             <Button x:Name="botonBack" Content="Button" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="47" Style="{StaticResource BackButtonStyle}" Click="botonBack_Click"/>
+            <ComboBox x:Name="comboDireccion" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="53" Margin="123,79,0,0" VerticalAlignment="Top" Width="1201"/>
+            <ComboBox x:Name="comboMetodo" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="53" Margin="123,205,0,0" VerticalAlignment="Top" Width="1201"/>
         </Grid>
     </custom:PopoverView>
 
