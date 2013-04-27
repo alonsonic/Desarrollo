@@ -69,6 +69,7 @@ namespace AeiCliente
 
         private async void botonEliminar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
+            BufferUsuario.Usuario = await servicioAei.ConsultarUsuarioAsync(BufferUsuario.Usuario.Email);
             BufferUsuario.Usuario = await servicioAei.borrarDetalleCarritoAsync(BufferUsuario.Usuario, BufferUsuario.Usuario.Carrito.Productos.ElementAt(indexDetalle));
             padre.cargarCarrito();
         }

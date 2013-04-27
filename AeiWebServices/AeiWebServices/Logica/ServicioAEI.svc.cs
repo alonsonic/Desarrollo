@@ -31,18 +31,19 @@ namespace AeiWebServices.Logica
 
         public Usuario checkout(MetodoPago metodo, Direccion direccion, Usuario usuario)
         {
-            
             Compra compra = usuario.Carrito;
             compra.Direccion = direccion;
             compra.Pago = metodo;
             return usuario;
         }
+
         public bool checkearProductoCarrito (Usuario usuario, Producto producto)
         {
             DetalleCompra detallecompra = FabricaDAO.getDetalleCompraCarrito(producto.Id, usuario.Id);
             if (detallecompra != null) return true;
             return false;
         }
+
         public Usuario borrarDetalleCarrito(Usuario usuario, DetalleCompra detalle)
         {
             int respuesta = FabricaDAO.setEliminarDetalleCarrito(usuario.Carrito, detalle);
