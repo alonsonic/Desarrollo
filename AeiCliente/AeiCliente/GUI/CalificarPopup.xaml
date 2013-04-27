@@ -21,7 +21,7 @@
             		<SolidColorBrush Color="Black" Opacity="0.15"/>
             	</Rectangle.Fill>
             </Rectangle>
-            <Button x:Name="botonComprar" Content="Agregar" HorizontalAlignment="Left" Height="63" Margin="10,285,0,0" VerticalAlignment="Top" Width="368" FontSize="26.667" Click="botonComprar_Click" Grid.Column="1"/>
+            <Button x:Name="botonComprar" Content="Agregar" HorizontalAlignment="Left" Height="63" Margin="10,285,0,0" VerticalAlignment="Top" Width="368" FontSize="26.667" Grid.Column="1"/>
             <Button x:Name="botonBack" Content="Button" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="47" Style="{StaticResource BackButtonStyle}" Click="botonBack_Click"/>
             <TextBlock HorizontalAlignment="Left" Margin="309,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="185" FontSize="35.556" Text="Puntuación"/>
             <TextBlock HorizontalAlignment="Right" Margin="0,24,75,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="305" FontSize="35.556" Text="Comentario"/>
