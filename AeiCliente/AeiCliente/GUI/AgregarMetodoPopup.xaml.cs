@@ -26,7 +26,6 @@ namespace AeiCliente
             if (padre == null) throw new ArgumentNullException("Debe asignar un Popup al controlador");
             this.popup = padre;
             this.InitializeComponent();
-            cargarCombos();
         }
 
         private void cargarCombos()
@@ -61,4 +60,5 @@ namespace AeiCliente
         }
 
     }
+	
 }

@@ -182,8 +182,7 @@ namespace AeiWebServices.Permanencia
         static public int setCalificacion(int idProducto, int idUsuario, Calificacion calificacion)
         {
             SqlServerCalificacion resultado = new SqlServerCalificacion();
-            int respuesta= resultado.agregarCalificacion(calificacion, idUsuario, idProducto);
-             
+            int respuesta= resultado.agregarCalificacion(calificacion, idUsuario, idProducto);             
             return respuesta;
         }
         static public int setAgregarCompra(Compra compra, int idUsuario)
