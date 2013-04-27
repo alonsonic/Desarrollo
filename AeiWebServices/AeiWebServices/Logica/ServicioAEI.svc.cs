@@ -12,6 +12,7 @@ namespace AeiWebServices.Logica
    
     public class ServicioAEI : IServicioAEI
     {
+
         public int modificarStatusCompra (int idCompra)
         {
             return FabricaDAO.setEstadoCompra(idCompra);
