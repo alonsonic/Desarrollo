@@ -12,15 +12,19 @@
 
     <custom:PopoverView Margin="57,0,-57,0">
         <Grid Background="#FFF46526" Margin="-57,202,57,188">
-        	<Grid.ColumnDefinitions>
-        		<ColumnDefinition Width="344*"/>
-        		<ColumnDefinition Width="339*"/>
-        	</Grid.ColumnDefinitions>
-            <Rectangle x:Name="background" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="764" Margin="0,-202,0,-200" Stroke="Black" VerticalAlignment="Top" Width="1366">
-            	<Rectangle.Fill>
-            		<SolidColorBrush Color="Black" Opacity="0.15"/>
-            	</Rectangle.Fill>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="344*"/>
+                <ColumnDefinition Width="339*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle x:Name="background" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="764" Margin="0,-195,0,-191" Stroke="Black" VerticalAlignment="Top" Width="1366">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="Black" Opacity="0.15"/>
+                </Rectangle.Fill>
             </Rectangle>
+            <TextBox x:Name="Tweet" HorizontalAlignment="Left" Margin="668,80,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Height="187" Width="616" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="Usuario" HorizontalAlignment="Left" Margin="249,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243"/>
+            <Button x:Name="Enviar" Content="Enviar" Grid.Column="1" HorizontalAlignment="Left" Margin="374,290,0,0" VerticalAlignment="Top" Height="52" Width="222" Click="Enviar_Click" FontSize="25"/>
+            <TextBlock HorizontalAlignment="Left" Margin="57,148,0,0" TextWrapping="Wrap" Text="Usuario:" VerticalAlignment="Top" Height="32" Width="141" FontSize="25"/>
         </Grid>
     </custom:PopoverView>
 

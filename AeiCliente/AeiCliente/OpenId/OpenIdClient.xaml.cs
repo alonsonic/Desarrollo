@@ -172,7 +172,7 @@ namespace AeiCliente
             BufferUsuario.Usuario = await servicioUsuario.ConsultarUsuarioAsync(email);
             if (BufferUsuario.Usuario == null)
             {
-                MessageDialog mensajeError = new MessageDialog("Usteden no esta registrado en nuestro sistema con el correo electonico "+email+
+                MessageDialog mensajeError = new MessageDialog("Usted no esta registrado en nuestro sistema con el correo electonico "+email+
                                             " intente de nuevo con correo valido o registrese");
                 mensajeError.ShowAsync();
                 botonSender.Content = "Ingresar";

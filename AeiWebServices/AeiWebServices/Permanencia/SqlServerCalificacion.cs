@@ -373,6 +373,14 @@ namespace AeiWebServices.Permanencia
             return respuesta;
         }
 
+        public int modificarEstadoDeCompra(int idCompra)
+        {
+            ConexionSqlServer conexion = new ConexionSqlServer();
+            int respuesta = conexion.insertar("UPDATE COMPRA SET ESTADO= 'E' WHERE ID=" + idCompra.ToString() + ";");
+            conexion.cerrarConexion();
+            return respuesta;
+        }
+
         public int agregarMetodoPago(MetodoPago metodo, int idUsuario)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
