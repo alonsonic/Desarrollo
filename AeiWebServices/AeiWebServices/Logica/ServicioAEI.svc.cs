@@ -64,7 +64,7 @@ namespace AeiWebServices.Logica
             bool respuesta=true;
             for (int index = 0; index < detalle.Count; index++)
             {
-                if (FabricaDAO.setCantidadProducto(detalle[index].Producto.Id, detalle[index].Producto.Cantidad)==0)
+                if (FabricaDAO.setCantidadProducto(detalle[index].Producto.Id, detalle[index].Cantidad)==0)
                     return false;
             }
             return respuesta;
