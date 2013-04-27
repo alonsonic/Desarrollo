@@ -32,7 +32,7 @@ namespace AeiCliente
             cargarCarrito();
         }
 
-        private void cargarCarrito()
+        public void cargarCarrito()
         {
             listaItemProducto.Items.Clear();
             if (BufferUsuario.Usuario == null || BufferUsuario.Usuario.Carrito == null)
