@@ -56,6 +56,15 @@ namespace AeiCliente
             padre.Frame.Navigate(typeof(DetalleProductoPage), producto);
         }
 
+        private void botonTwitter_Click(object sender, RoutedEventArgs e)
+        {
+            TwitterPopup.tweet = "Hola! He visto este producto: " +producto.Nombre+ "en @aeiStore";
+            Popup popup = new Popup();
+            TwitterPopup twitterPopup = new TwitterPopup(popup,this);
+            popup.Child = twitterPopup;
+            popup.IsOpen = true;
+        }
+
     }
 
 }

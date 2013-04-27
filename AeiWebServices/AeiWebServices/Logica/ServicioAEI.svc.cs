@@ -12,11 +12,30 @@ namespace AeiWebServices.Logica
    
     public class ServicioAEI : IServicioAEI
     {
+
+        public int modificarStatusCompra (int idCompra)
+        {
+            return FabricaDAO.setEstadoCompra(idCompra);
+        }
+
+        public string generarXml(int idCompra)
+        {
+            CodigoQr xml = new CodigoQr();
+            return xml.generarXml(idCompra);
+        }
+
         public int enviarCorreoDeFactura(Usuario usuario, Compra compra)
         {
             Correo correo = new Correo();
             return correo.enviarCorreoDeFactura(usuario, compra);
 
+        }
+
+        public Usuario modificarMetodoPago(MetodoPago metodo, Usuario usuario, int metodoActual)
+        {
+            if (FabricaDAO.setModificarMetodoPago(metodo, metodoActual, usuario.Id) == 1)
+                usuario = ConsultarUsuario(usuario.Email);
+            return usuario;
         }
 
         public Usuario agregarMetodoPago(MetodoPago metodo, Usuario usuario)
@@ -59,6 +78,7 @@ namespace AeiWebServices.Logica
                 compra.Status = "P";
                 int respuesta = FabricaDAO.setEstadoDeCompra(usuario.Carrito);
                 usuario.Compras.Add(compra);
+                enviarCorreoDeFactura(usuario, compra);
                 usuario.Carrito = null;
             }
             return usuario;
@@ -178,7 +198,7 @@ namespace AeiWebServices.Logica
             if (carrito == null)
             {
                 DateTime fechaRegistro = DateTime.Today;
-                carrito = new Compra(1, detalleCompra.Monto,fechaRegistro,fechaRegistro, "C",null,null,null);
+                carrito = new Compra(1, detalleCompra.Monto*detalleCompra.Cantidad,fechaRegistro,fechaRegistro, "C",null,null,null);
                 FabricaDAO.setAgregarCompra(carrito, usuario.Id);
                 carrito = FabricaDAO.getCarrito(usuario.Id);
             }
@@ -188,7 +208,7 @@ namespace AeiWebServices.Logica
                 if (carrito.Productos == null) carrito.Productos = new List<DetalleCompra>();
                 carrito.AgregarDetallesCompra(detalleCompra);
                 usuario.Carrito = carrito;
-                usuario.Carrito.MontoTotal=carrito.MontoTotal + detalleCompra.Monto;
+                usuario.Carrito.MontoTotal=carrito.MontoTotal + (detalleCompra.Monto*detalleCompra.Cantidad);
                 int respuesta2 = FabricaDAO.setMontoTotalCarrito(carrito, usuario.Carrito.MontoTotal);
                 return usuario;
             }

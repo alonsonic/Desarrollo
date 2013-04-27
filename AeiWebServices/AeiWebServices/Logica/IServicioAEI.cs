@@ -12,6 +12,15 @@ namespace AeiWebServices.Logica
     public interface IServicioAEI
     {
         [OperationContract]
+        int modificarStatusCompra(int idCompra);
+
+        [OperationContract]
+        Usuario modificarMetodoPago(MetodoPago metodo, Usuario usuario, int metodoActual);
+
+        [OperationContract]
+        string generarXml(int idCompra);
+
+        [OperationContract]
         int enviarCorreoDeFactura(Usuario usuario, Compra compra);
 
         [OperationContract]

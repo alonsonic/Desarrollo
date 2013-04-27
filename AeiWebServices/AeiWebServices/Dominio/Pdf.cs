@@ -20,10 +20,10 @@ namespace AeiWebServices.Dominio
             CodigoQr codigoQr = new CodigoQr();
             codigoQr.generar(compra);
             string file = "C:/Factura"+compra.Id+".pdf";
-            string html = @"<img src='C:\Users\Liliana\Desktop\UCAB\aei-logo.png' alt='aei store - logo'>
+            string html = @"<img src = 'https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash4/381399_10201016661237859_441547910_n.jpg' />
 	                        <h2 align='right'><font color='#F05D13'>Pre-orden</font></h2>
 	                        <p align='right'>
-		                        <strong>Fecha: </strong>"+DateTime.Today.ToString("dd-MM-yyyy")+@"<br />
+		                        <strong>Fecha: </strong>" +DateTime.Today.ToString("dd-MM-yyyy")+@"<br />
 		                        <strong>Nro. Orden: </strong> 123124
 	                        </p>
 	                        <h2><font color='#F05D13'><strong>Datos del Cliente</strong></font></h2>
