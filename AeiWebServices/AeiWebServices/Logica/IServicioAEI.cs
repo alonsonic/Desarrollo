@@ -11,6 +11,8 @@ namespace AeiWebServices.Logica
     [ServiceContract]
     public interface IServicioAEI
     {
+        [OperationContract]
+        int modificarDireccion(Direccion direccionModificada);
 
         [OperationContract]
         Usuario checkout(MetodoPago metodo, Direccion direccion, Usuario usuario);

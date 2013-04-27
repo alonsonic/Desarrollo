@@ -1,4 +1,5 @@
-﻿using AeiCliente.ServicioAEI;
+﻿using AeiCliente.GUI;
+using AeiCliente.ServicioAEI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -84,18 +85,12 @@ namespace AeiCliente
             ComboAno.IsEnabled = boolean;
         }
 
-        private void botonAgregarDireccion_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-        	Popup popup = new Popup();
-            DireccionPopup direcPopup= new DireccionPopup(popup, this);
-            popup.Child = direcPopup;
-            popup.IsOpen = true;
-        }
+     
 
         private void botonEditarInformacion_Click(object sender, RoutedEventArgs e)
         {
             bloquear(true);
-
+            this.Frame.Navigate(typeof(PerfilPageAgregar), "Editar informacion");
         }
 
         private void botonHome_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -136,6 +131,20 @@ namespace AeiCliente
             else
             {
                 mensajeError.ShowAsync();
+            }
+        }
+
+        private void botonVerDetalleCompra_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBoxHistorial.SelectedIndex >= 0)
+            {
+                this.Frame.Navigate(typeof(HistorialCompraPage), listBoxHistorial.SelectedIndex);
+            }
+            else
+            {
+                MessageDialog mensajeError = new MessageDialog("Debe seleccionar un items del historial de compras");
+                mensajeError.ShowAsync();
+
             }
         }
     }

@@ -12,6 +12,7 @@ namespace AeiWebServices.Logica
 
     public class ServicioAEI : IServicioAEI
     {
+
         //public List<Producto> disponibilidadProductos (List<DetalleCompra> detalle)
         //{
         //    List<Producto> resultado= new List<Producto>();
@@ -23,8 +24,24 @@ namespace AeiWebServices.Logica
         //    return resultado;
         //}
 
+        public int modificarDireccion(Direccion direccionModificada)
+        {
+            return FabricaDAO.modificarDireccion(direccionModificada);
+        }
+
+        public List<Producto> disponibilidadProductos (List<DetalleCompra> detalle)
+        {
+            List<Producto> resultado= new List<Producto>();
+            for (int index = 0; index < detalle.Count; index++)
+            {
+                //detalle[index].Producto
+               //resultado.Add(null);
+            }
+            return resultado;
+        }
+
         public Usuario checkout(MetodoPago metodo, Direccion direccion, Usuario usuario)
-        {            
+        {
             Compra compra = usuario.Carrito;
             compra.Direccion = direccion;
             compra.Pago = metodo;
@@ -33,12 +50,14 @@ namespace AeiWebServices.Logica
 
             return usuario;
         }
+
         public bool checkearProductoCarrito (Usuario usuario, Producto producto)
         {
             DetalleCompra detallecompra = FabricaDAO.getDetalleCompraCarrito(producto.Id, usuario.Id);
             if (detallecompra != null) return true;
             return false;
         }
+
         public Usuario borrarDetalleCarrito(Usuario usuario, DetalleCompra detalle)
         {
             int respuesta = FabricaDAO.setEliminarDetalleCarrito(usuario.Carrito, detalle);

@@ -19,32 +19,32 @@ namespace AeiCliente
 {
     public sealed partial class HistorialCompraPage : Page
     {
-        bool isCarrito = true;
+        int indexCompra = 0;
 
         public HistorialCompraPage()
         {
             this.InitializeComponent();
-            cargarCarrito();
         }
        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            cargarCarrito();
+            int indexCompra = (int) e.Parameter;
+            cargarCompra();
         }
 
-        public void cargarCarrito()
+        public void cargarCompra()
         {
             listaItemProducto.Items.Clear();
-            if (BufferUsuario.Usuario == null || BufferUsuario.Usuario.Carrito == null)
+            if (BufferUsuario.Usuario == null && BufferUsuario.Usuario.Compras.ElementAt(indexCompra) != null)
                 return;
 
-            for (int indexProducto = 0; indexProducto < BufferUsuario.Usuario.Carrito.Productos.Count; indexProducto++)
+            Compra compra = BufferUsuario.Usuario.Compras.ElementAt(indexCompra);
+            for (int indexProducto = 0; indexProducto < compra.Productos.Count; indexProducto++)
             {
-                //ItemCompra itemProducto = new ItemCompra(indexProducto, this, true);
-                //listaItemProducto.Items.Add(itemProducto);
+                ItemHistorial itemProducto = new ItemHistorial(compra.Productos.ElementAt(indexCompra),true);
+                listaItemProducto.Items.Add(itemProducto);
             }
-            //text.Text = "Total de la compra: " + BufferUsuario.Usuario.Carrito.MontoTotal + "Bs";
-            
+            textDescripcion.Text = "Total de la compra: 1000,00 Bs      Fecha de solicitud: 03/04/2013     Fecha de entrega: 05/06/2013 ENTER Estado: En proceso/Entregado       Dirección: La trinidad...";
         }
 
         private void botonHome_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -55,11 +55,6 @@ namespace AeiCliente
         private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
         	this.Frame.Navigate(typeof(MainPage));
-        }
-
-        private void botonCompra_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-        	// TODO: Agregar implementación de controlador de eventos aquí.
         }
 
         private void botonPerfil_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

@@ -13,6 +13,13 @@ namespace AeiWebServices.Permanencia
         //    SqlServerCompra resultado = new SqlServerCompra();
         //    return resultado.cambiarCantidadProducto(idProducto, cantidad);
         //}
+
+        static public int modificarDireccion(Direccion direccionModificada)
+        {
+            SqlServerDireccion resultado = new SqlServerDireccion();
+            return resultado.modificarDireccion(direccionModificada.Id, direccionModificada);
+        }
+     
         static public Producto getCheckearDisponibilidadProducto(int idProducto)
         {
 

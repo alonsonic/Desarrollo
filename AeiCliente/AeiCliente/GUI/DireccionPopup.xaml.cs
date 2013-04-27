@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioAEI;
 using Windows.UI.Popups;
+using AeiCliente.GUI;
 
 namespace AeiCliente
 {
@@ -22,9 +23,9 @@ namespace AeiCliente
         private ServicioAEIClient servicio = new ServicioAEIClient();
         private List<Direccion> listaEstados = null;
         private  List<Direccion> listaCiudad = null;
-        PerfilPage pagina = new PerfilPage();
+        private PerfilPageAgregar pagina;
 
-        public DireccionPopup(Popup padre, PerfilPage pagina)
+        public DireccionPopup(Popup padre, PerfilPageAgregar pagina)
         {
             if (padre == null) throw new ArgumentNullException("Debe asignar un Popup al controlador");
             this.popup = padre;
@@ -32,6 +33,7 @@ namespace AeiCliente
             cargarEstados();
             this.pagina = pagina;
         }
+
 
         private async void cargarEstados()
         {

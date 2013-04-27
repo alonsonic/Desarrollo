@@ -19,34 +19,25 @@ using AeiCliente.ServicioAEI;
 
 namespace AeiCliente
 {
-    public sealed partial class ItemCompra : UserControl
+    public sealed partial class ItemHistorial : UserControl
     {
 
         private ServicioAEIClient servicioAei = new ServicioAEIClient();
         Producto producto = null;
         ListaCompraPage padre = null;
         bool isCompra = true;
-        int indexDetalle;
         DetalleCompra detalle = null;
 
-        public ItemCompra()
+        public ItemHistorial()
         {
             this.setImagenProducto("ms-appx:/App_Data/item.png.png");
             this.InitializeComponent();
         }
 
-        public ItemCompra(int indexProducto, ListaCompraPage padre, bool isCarrito)
+        public ItemHistorial(DetalleCompra detalle, bool isCarrito)
         {
             this.InitializeComponent();
-            this.padre = padre;
-            this.indexDetalle = indexProducto;
-
-            if(isCarrito)
-            {
-                producto = BufferUsuario.Usuario.Carrito.Productos.ElementAt(indexProducto).Producto;
-                detalle = BufferUsuario.Usuario.Carrito.Productos.ElementAt(indexProducto);
-            }
-
+            this.detalle = detalle;
 
             textoNombreProducto.Text = detalle.Cantidad + " " + producto.Nombre;
             //TODO: SETEAR LA IMAGEN
@@ -59,19 +50,6 @@ namespace AeiCliente
             newImage.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
             newImage.UriSource = new Uri(imageSource);
             this.imagenProducto.Source = newImage;
-        }
-
-        private void botonDetalle_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            DetalleProductoPage.isCompra = true;
-            padre.Frame.Navigate(typeof(DetalleProductoPage), producto);
-        }
-
-        private async void botonEliminar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            BufferUsuario.Usuario = await servicioAei.ConsultarUsuarioAsync(BufferUsuario.Usuario.Email);
-            BufferUsuario.Usuario = await servicioAei.borrarDetalleCarritoAsync(BufferUsuario.Usuario, BufferUsuario.Usuario.Carrito.Productos.ElementAt(indexDetalle));
-            padre.cargarCarrito();
         }
 
     }

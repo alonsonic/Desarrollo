@@ -128,7 +128,6 @@
     	<TextBlock x:Name="textDireccion" HorizontalAlignment="Left" Height="33" Margin="88,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" FontSize="26.667" Text="Dirección"/>
     	<Button x:Name="botonGestionarMetodo" Content="Gestionar Métodos de Pago" HorizontalAlignment="Left" Height="45" Margin="296,619,0,0" VerticalAlignment="Top" Width="334" FontSize="20"/>
     	<Button x:Name="botonEditarInformacion" Content="Editar Información" HorizontalAlignment="Left" Height="45" Margin="635,619,0,0" VerticalAlignment="Top" Width="211" FontSize="20" Click="botonEditarInformacion_Click"/>
-    	<Button x:Name="botonAgregarDireccion" Content="Agregar Dirección" HorizontalAlignment="Left" Height="45" Margin="85,619,0,0" VerticalAlignment="Top" Width="206" FontSize="20" Click="botonAgregarDireccion_Click"/>
     	<ListBox x:Name="listBoxDireccion" HorizontalAlignment="Left" Height="201" Margin="88,403,0,0" VerticalAlignment="Top" Width="756" BorderBrush="White">
     		<ListBox.Background>
     			<SolidColorBrush Color="White" Opacity="0.5"/>
@@ -139,7 +138,7 @@
     			<SolidColorBrush Color="White" Opacity="0.5"/>
     		</ListBox.Background>
     	</ListBox>
-    	<Button x:Name="botonVerDetalleCompra" Content="Ver detalle de compra" HorizontalAlignment="Left" Height="45" Margin="977,619,0,0" VerticalAlignment="Top" Width="233" FontSize="20"/>
+    	<Button x:Name="botonVerDetalleCompra" Content="Ver detalle de compra" HorizontalAlignment="Left" Height="45" Margin="977,619,0,0" VerticalAlignment="Top" Width="233" FontSize="20" Click="botonVerDetalleCompra_Click"/>
     	<TextBox x:Name="textPasaporteEditable" HorizontalAlignment="Left" Margin="226,257,0,0" TextWrapping="Wrap" Text="VE-481928831" VerticalAlignment="Top" Width="618" IsReadOnly="True"/>
     	<TextBox x:Name="textCorreoEditable" HorizontalAlignment="Left" Margin="337,295,0,0" TextWrapping="Wrap" Text="alonsonicxxx@gmail.com" VerticalAlignment="Top" Width="507" IsReadOnly="True"/>
     	<ComboBox x:Name="ComboDia" HorizontalAlignment="Left" Margin="338,333,0,0" VerticalAlignment="Top" Width="120"/>

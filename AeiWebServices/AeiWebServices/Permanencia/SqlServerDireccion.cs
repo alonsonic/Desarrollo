@@ -46,7 +46,10 @@ namespace AeiWebServices.Permanencia
 
         public int modificarDireccion(int idDireccion, Direccion direccionModificada)
         {
-            return 0;
+            ConexionSqlServer conexion = new ConexionSqlServer(); 
+            int respuesta = conexion.insertar("UPDATE DETALLE_DIRECCION SET STATUS='"+direccionModificada.Status +"'; ");
+            conexion.cerrarConexion();
+            return respuesta;
         }
 
         public List<Direccion> consultarEstados()
