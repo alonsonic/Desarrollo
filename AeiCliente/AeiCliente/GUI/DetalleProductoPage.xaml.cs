@@ -91,7 +91,6 @@ namespace AeiCliente
                     mensajeError2.ShowAsync();
                     return;
                 }
-
                 Popup popup = new Popup();
                 DetallePopup direcPopup = new DetallePopup(popup, producto);
                 popup.Child = direcPopup;

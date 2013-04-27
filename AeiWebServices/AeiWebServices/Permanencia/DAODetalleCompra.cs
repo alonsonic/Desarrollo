@@ -9,7 +9,6 @@ namespace AeiWebServices.Permanencia
     interface DAODetalleCompra
     {
         DetalleCompra buscarEnMiCarrito(int idProducto, int idUsuario);
-        int cambiarCantidadProducto(DetalleCompra detalleCompra, int cantidad);
         List<DetalleCompra> buscarDetalleCompra(int idCompra);
         int agregarDetalleCompra(int idCompra, DetalleCompra detalleCompra);
         int borrarDetalleCompra(Compra compra, DetalleCompra detalle);

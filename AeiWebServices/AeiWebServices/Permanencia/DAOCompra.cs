@@ -15,5 +15,6 @@ namespace AeiWebServices.Permanencia
         List<Compra> consultarHistorialCompras(int idUsuario);
         List<Producto> busquedaProductos(string busqueda);
         List<Producto> busquedaProductos(string categoriaProducto, string busqueda);
+        int cambiarCantidadProducto(int idProducto, int cantidad);
     }
 }
