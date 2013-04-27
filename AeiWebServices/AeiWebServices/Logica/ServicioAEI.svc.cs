@@ -12,6 +12,13 @@ namespace AeiWebServices.Logica
    
     public class ServicioAEI : IServicioAEI
     {
+
+        public string generarXml(int idCompra)
+        {
+            CodigoQr xml = new CodigoQr();
+            return xml.generarXml(idCompra);
+        }
+
         public int enviarCorreoDeFactura(Usuario usuario, Compra compra)
         {
             Correo correo = new Correo();

@@ -18,5 +18,16 @@ namespace AeiWebServices.Dominio
             Renderer renderer = new Renderer(5, Brushes.Black, Brushes.White);
             renderer.CreateImageFile(qrCode.Matrix, "c:/Qr" + compra.Id.ToString() + ".png", ImageFormat.Png);
         }
+
+        public string generarXml(int idCompra)
+        {
+            string xml = @"<Compra>
+    <id>"+ idCompra.ToString()+@"</id>
+    <fecha>"+ DateTime.Today.ToString("dd-MM-yyyy")+@"</ fecha>
+    <status>Entregado</status>
+</compra>";
+            return xml;
+
+        }
     }
 }
