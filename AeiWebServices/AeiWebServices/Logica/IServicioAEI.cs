@@ -11,12 +11,14 @@ namespace AeiWebServices.Logica
     [ServiceContract]
     public interface IServicioAEI
     {
+        [OperationContract]
+        int modificarDireccion(Direccion direccionModificada);
 
         [OperationContract]
         Usuario checkout(MetodoPago metodo, Direccion direccion, Usuario usuario);
 
-        [OperationContract]
-        List<Producto> disponibilidadProductos(List<DetalleCompra> detalle);
+        //[OperationContract]
+        //List<Producto> disponibilidadProductos(List<DetalleCompra> detalle);
 
         [OperationContract]
         Boolean checkearProductoCarrito(Usuario usuario, Producto producto);

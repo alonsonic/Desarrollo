@@ -9,6 +9,7 @@ namespace AeiWebServices.Permanencia
 {
     public class SqlServerCompra: DAOCompra, DAODetalleCompra, DAOProducto, DAOTag, DAOCategoria, DAODireccion, DAOMetodoPago
     {
+        
         public int modificarMontoCarrito(Compra compra, float montoNuevo)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
@@ -33,12 +34,12 @@ namespace AeiWebServices.Permanencia
             return null;
         }
 
-        public int cambiarCantidadProducto(DetalleCompra detalleCompra, int cantidad)
+        public int cambiarCantidadProducto(int idProducto, int cantidad)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("");
+            int respuesta = conexion.insertar("UPDATE Producto SET cantidad="+cantidad+" WHERE ID="+idProducto+"");
             conexion.cerrarConexion();
-            return 0;
+            return respuesta;
         }
 
         public int borrarDetalleCompra(Compra compra,DetalleCompra detalle)

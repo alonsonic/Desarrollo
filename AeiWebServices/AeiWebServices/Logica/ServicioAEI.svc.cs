@@ -12,6 +12,23 @@ namespace AeiWebServices.Logica
 
     public class ServicioAEI : IServicioAEI
     {
+
+        //public List<Producto> disponibilidadProductos (List<DetalleCompra> detalle)
+        //{
+        //    List<Producto> resultado= new List<Producto>();
+        //    for (int index = 0; index < detalle.Count; index++)
+        //    {
+        //        detalle[index].Producto
+        //        resultado.Add(null);
+        //    }
+        //    return resultado;
+        //}
+
+        public int modificarDireccion(Direccion direccionModificada)
+        {
+            return FabricaDAO.modificarDireccion(direccionModificada);
+        }
+
         public List<Producto> disponibilidadProductos (List<DetalleCompra> detalle)
         {
             List<Producto> resultado= new List<Producto>();
@@ -28,6 +45,9 @@ namespace AeiWebServices.Logica
             Compra compra = usuario.Carrito;
             compra.Direccion = direccion;
             compra.Pago = metodo;
+            compra.FechaSolicitud = DateTime.Now;
+            compra.Status = "P";
+
             return usuario;
         }
 

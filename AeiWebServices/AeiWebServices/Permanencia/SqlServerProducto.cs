@@ -456,6 +456,13 @@ namespace AeiWebServices.Permanencia
                 List<MetodoPago> metodoPago = consultarAllMetodosPago(int.Parse(tabla["ID"].ToString()));
                 Compra carrito = consultarCarrito(int.Parse(tabla["ID"].ToString()));
                 List<Compra> compras = consultarHistorialCompras(int.Parse(tabla["ID"].ToString()));
+                if (compras != null)
+                {
+                    for (int index = 0; index < compras.Count; index++)
+                    {
+                        compras[index].Productos = buscarDetalleCompra(compras[index].Id);
+                    }
+                }
                 Usuario usuario = new Usuario(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["APELLIDO"].ToString(),
                     tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
                     DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
@@ -478,6 +485,13 @@ namespace AeiWebServices.Permanencia
                 List<MetodoPago> metodoPago = consultarAllMetodosPago(int.Parse(tabla["ID"].ToString()));
                 Compra carrito = consultarCarrito(int.Parse(tabla["ID"].ToString()));
                 List<Compra> compras = consultarHistorialCompras(int.Parse(tabla["ID"].ToString()));
+                if (compras != null)
+                {
+                    for (int index = 0; index < compras.Count; index++)
+                    {
+                        compras[index].Productos = buscarDetalleCompra(compras[index].Id);
+                    }
+                }
                 Usuario usuario = new Usuario(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["APELLIDO"].ToString(),
                     tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
                     DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),
@@ -499,6 +513,13 @@ namespace AeiWebServices.Permanencia
                 List<MetodoPago> metodoPago = consultarAllMetodosPago(int.Parse(tabla["ID"].ToString()));
                 Compra carrito = consultarCarrito(int.Parse(tabla["ID"].ToString()));
                 List<Compra> compras = consultarHistorialCompras(int.Parse(tabla["ID"].ToString()));
+                if (compras != null)
+                {
+                    for (int index = 0; index < compras.Count; index++)
+                    {
+                        compras[index].Productos = buscarDetalleCompra(compras[index].Id);
+                    }
+                }
                 Usuario usuario = new Usuario(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["APELLIDO"].ToString(),
                     tabla["PASAPORTE"].ToString(), tabla["MAIL"].ToString(),
                     DateTime.ParseExact(tabla["FECHAING"].ToString(), "yyyy-MM-dd", null),

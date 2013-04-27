@@ -27,6 +27,7 @@ namespace AeiCliente.GUI
             this.InitializeComponent();
             agregarDia();
             agregarAño();
+            buttonElimanarDireccion.Visibility = Visibility.Collapsed;
             if (padre == "Agregar usuario")
             {    
                 ComboMes.SelectedIndex = 0;
@@ -158,10 +159,7 @@ namespace AeiCliente.GUI
                                                                         electrónico a aeiStoreSoporte@gmail.com reportando su caso");
                     mensajeError.ShowAsync();
                 }
-
-
             }
-
         }
 
 
@@ -178,6 +176,35 @@ namespace AeiCliente.GUI
         private void botonCarrito_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
         	// TODO: Agregar implementación de controlador de eventos aquí.
+        }
+
+        private void listBoxDireccion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            buttonElimanarDireccion.Visibility = Visibility.Collapsed;
+
+        }
+
+        private async void buttonElimanarDireccion_Click(object sender, RoutedEventArgs e)
+        {
+            int seleccionBoxDireccion = listBoxDireccion.SelectedIndex;
+            if(seleccionBoxDireccion>=0 )
+            {
+                Direccion direccion = BufferUsuario.Usuario.Direcciones[seleccionBoxDireccion];
+                direccion.Status = "E";
+                int error =  await servicio.modificarDireccionAsync(direccion);
+                if (error == 1)
+                {
+                    BufferUsuario.Usuario.Direcciones.RemoveAt(seleccionBoxDireccion);
+                    cargarDireciones();
+                }
+                else
+                {
+                    MessageDialog mensajeError = new MessageDialog(@"Error no se pudo eliminar la direcci{on. Envíe un correo 
+                                                                        electrónico a aeiStoreSoporte@gmail.com reportando su caso");
+                    mensajeError.ShowAsync();
+                }
+
+            }
         }
         
     }
