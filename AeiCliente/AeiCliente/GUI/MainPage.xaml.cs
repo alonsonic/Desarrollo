@@ -108,6 +108,11 @@ namespace AeiCliente
         {
             ListaProducto.ListaProductos = await servicio.BuscarProductoPorCategoriaAsync("figuras");
             BufferUsuario.Usuario = await servicio.ConsultarUsuarioAsync("ltrrsz@gmail.com");
+            MetodoPago metodo = new MetodoPago();
+            metodo.Marca = "nuevo";
+            metodo.Numero = "988938938383";
+            metodo.FechaVencimiento = DateTime.Now;
+            BufferUsuario.Usuario = await servicio.agregarMetodoPagoAsync(metodo, BufferUsuario.Usuario);
             this.Frame.Navigate(typeof(ListaProductoPage));
         }
 

@@ -254,7 +254,7 @@ namespace AeiWebServices.Permanencia
         public List<Producto> buscarPorCategoria(String nombreCategoria)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, CATEGORIA c WHERE p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%';");
+            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, CATEGORIA c WHERE p.cantidad!=0 AND p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%';");
             List<Tag> listaTag = new List<Tag>();
             List<Producto> listaProductos = new List<Producto>();
             while (tabla!=null && tabla.Read())
