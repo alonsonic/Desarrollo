@@ -18,6 +18,9 @@ namespace AeiWebServices.Logica
         Usuario modificarMetodoPago(MetodoPago metodo, Usuario usuario, int metodoActual);
 
         [OperationContract]
+        string generarXml(int idCompra);
+
+        [OperationContract]
         int enviarCorreoDeFactura(Usuario usuario, Compra compra);
 
         [OperationContract]

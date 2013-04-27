@@ -16,6 +16,13 @@ namespace AeiWebServices.Logica
         {
             return FabricaDAO.setEstadoCompra(idCompra);
         }
+
+        public string generarXml(int idCompra)
+        {
+            CodigoQr xml = new CodigoQr();
+            return xml.generarXml(idCompra);
+        }
+
         public int enviarCorreoDeFactura(Usuario usuario, Compra compra)
         {
             Correo correo = new Correo();
