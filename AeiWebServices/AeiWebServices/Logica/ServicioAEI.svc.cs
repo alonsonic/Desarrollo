@@ -48,10 +48,9 @@ namespace AeiWebServices.Logica
             return usuario;
         }
 
-        public List<Producto> agregarCalificacion(int idProducto,int idUsuario,Calificacion calificacion)
+        public int agregarCalificacion(int idProducto,int idUsuario,Calificacion calificacion)
         {
-            FabricaDAO.setCalificacion(idProducto, idUsuario, calificacion);
-            return null;
+            return FabricaDAO.setCalificacion(idProducto, idUsuario, calificacion);
         }
         public int modificarDireccion(Direccion direccionModificada)
         {

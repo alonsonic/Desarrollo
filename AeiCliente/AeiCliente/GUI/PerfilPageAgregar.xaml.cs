@@ -155,8 +155,9 @@ namespace AeiCliente.GUI
                 int error = await servicio.modificarUsuarioAsync(BufferUsuario.Usuario);
                 if (error == 1)
                 {
-                    this.Frame.Navigate(typeof(PerfilPage));
                     servicio.enviarCorreoDeModificacionAsync(BufferUsuario.Usuario);
+                    this.Frame.Navigate(typeof(PerfilPage));
+                    
                 }
                 else
                 {
@@ -208,6 +209,11 @@ namespace AeiCliente.GUI
                 }
 
             }
+        }
+
+        private void comboDia_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
         
     }

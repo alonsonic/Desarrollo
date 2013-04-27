@@ -21,11 +21,11 @@
             		<SolidColorBrush Color="Black" Opacity="0.15"/>
             	</Rectangle.Fill>
             </Rectangle>
-            <Button x:Name="botonComprar" Content="Agregar" HorizontalAlignment="Left" Height="71" Margin="467,285,0,0" VerticalAlignment="Top" Width="430" FontSize="33.333" Grid.ColumnSpan="2"/>
+            <Button x:Name="botonAgregar" Content="Agregar" HorizontalAlignment="Left" Height="71" Margin="467,285,0,0" VerticalAlignment="Top" Width="430" FontSize="33.333" Grid.ColumnSpan="2" Click="botonAgregar_Click"/>
             <Button x:Name="botonBack" Content="Button" HorizontalAlignment="Left" Height="51" Margin="10,10,0,0" VerticalAlignment="Top" Width="47" Style="{StaticResource BackButtonStyle}" Click="botonBack_Click"/>
             <TextBlock HorizontalAlignment="Right" Margin="0,36,109,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="271" FontSize="35.556" Text="Metodo de pago"/>
             <TextBlock HorizontalAlignment="Right" Margin="0,162,-175,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="1233" FontSize="35.556" Grid.ColumnSpan="2" Text="Numero de tarjeta"/>
-            <ComboBox x:Name="comboMetodo" HorizontalAlignment="Left" Height="53" Margin="308,83,0,0" VerticalAlignment="Top" Width="271" SelectedIndex="0" FontSize="26.667">
+            <ComboBox x:Name="comboMetodo" HorizontalAlignment="Left" Height="53" Margin="308,83,0,0" VerticalAlignment="Top" Width="271" SelectedIndex="0" FontSize="26.667" SelectionChanged="comboMetodo_SelectionChanged">
             	<ComboBoxItem Content="American Express" FontSize="26.667"/>
             	<ComboBoxItem Content="Master Card" FontSize="26.667"/>
             	<ComboBoxItem FontSize="26.667"/>
@@ -33,7 +33,11 @@
             <TextBox x:Name="textNumero" HorizontalAlignment="Left" Height="53" Margin="308,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="758" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="textFecha" HorizontalAlignment="Right" Margin="0,36,-491,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="1233" FontSize="35.556" Grid.ColumnSpan="2">
             	<Run Text="Fecha Vencimiento"/>
-            	<Run Text=" (mm-yy)"/>
+            	<Run Text=" ("/>
+            	<Run Text="yyyy"/>
+            	<Run Text="-"/>
+            	<Run Text="mm"/>
+            	<Run Text=")"/>
             </TextBlock>
             <TextBox Name="texBoxFechaVencimiento" HorizontalAlignment="Left" Height="53" Margin="614,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="452" Grid.ColumnSpan="2"/>
         </Grid>

@@ -12,6 +12,9 @@ namespace AeiWebServices.Logica
     public interface IServicioAEI
     {
         [OperationContract]
+        int agregarCalificacion(int idProducto, int idUsuario, Calificacion calificacion);
+
+        [OperationContract]
         int modificarStatusCompra(int idCompra);
 
         [OperationContract]

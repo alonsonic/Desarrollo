@@ -50,5 +50,13 @@ namespace AeiCliente
             this.imagenProducto.Source = newImage;
         }
 
+        private void BotonCalificacion_Click(object sender, RoutedEventArgs e)
+        {
+            Popup popup = new Popup();
+            CalificarPopup direcPopup = new CalificarPopup(popup,detalle.Producto);
+            popup.Child = direcPopup;
+            popup.IsOpen = true;
+        }
+
     }
 }

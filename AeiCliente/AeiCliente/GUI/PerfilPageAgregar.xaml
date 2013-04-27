@@ -57,7 +57,7 @@
                 <CompositeTransform Rotation="0.898"/>
             </TextBox.RenderTransform>
         </TextBox>
-        <ComboBox x:Name="comboDia" HorizontalAlignment="Left" Margin="337,333,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="comboDia" HorizontalAlignment="Left" Margin="337,333,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboDia_SelectionChanged"/>
         <ComboBox x:Name="comboAno" HorizontalAlignment="Left" Margin="646,333,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="buttonElimanarDireccion" Content="Eliminar" HorizontalAlignment="Left" Margin="296,619,0,0" VerticalAlignment="Top" Width="179" FontSize="20" Click="buttonElimanarDireccion_Click"/>
     </Grid>

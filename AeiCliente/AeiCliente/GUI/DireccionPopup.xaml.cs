@@ -56,7 +56,7 @@ namespace AeiCliente
             MessageDialog mensajeError = new MessageDialog("Los campos con * son OBLIGATORIOS");
             int error = -1;
 
-            if (comboBoxCiudad.SelectedIndex != 0 && comboBoxEstado.SelectedIndex != 0 && textboxCodigoPostal.Text.Length != 0)
+            if (comboBoxCiudad.SelectedIndex != 0 || comboBoxEstado.SelectedIndex != 0 || textboxCodigoPostal.Text.Length != 0)
             {
                 int idCiudad = listaCiudad[comboBoxCiudad.SelectedIndex-1].Id;
                 error = await servicio.agregarDireccionUsuarioAsync(BufferUsuario.Usuario.Id, idCiudad, textBoxDetalle.Text.ToString(), int.Parse(textboxCodigoPostal.Text));
@@ -90,11 +90,14 @@ namespace AeiCliente
             comboBoxCiudad.Items.Clear();
             comboBoxCiudad.Items.Add("Seleccion");
             comboBoxCiudad.SelectedIndex=0;
-            int idEstado = listaEstados[comboBoxEstado.SelectedIndex].Id;
-            listaCiudad = await servicio.consultarCiudadAsync(idEstado);
-            for (int i = 0; i < listaCiudad.Count(); i++)
+            if (comboBoxEstado.SelectedIndex != 0)
             {
-                comboBoxCiudad.Items.Add(listaCiudad[i].Ciudad);
+                int idEstado = listaEstados[comboBoxEstado.SelectedIndex - 1].Id;
+                listaCiudad = await servicio.consultarCiudadAsync(idEstado);
+                for (int i = 0; i < listaCiudad.Count(); i++)
+                {
+                    comboBoxCiudad.Items.Add(listaCiudad[i].Ciudad);
+                }
             }
         }
 

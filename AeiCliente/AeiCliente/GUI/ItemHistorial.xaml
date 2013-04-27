@@ -8,211 +8,212 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400" Width="1366" Height="132">
-	<UserControl.Resources>
+    <UserControl.Resources>
 
-		<ControlTemplate x:Key="ButtonDetail" TargetType="Button">
-			<Grid x:Name="grid" Margin="4,4,2,4">
-				<Grid.Background>
-					<ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/BotonDetalle.png"/>
-				</Grid.Background>
-				<VisualStateManager.VisualStateGroups>
-					<VisualStateGroup x:Name="CommonStates">
-						<VisualState x:Name="Pressed">
-							<Storyboard>
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
-									<DiscreteObjectKeyFrame KeyTime="0">
-										<DiscreteObjectKeyFrame.Value>
-											<ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/BotonDetalleNegativo.png"/>
-										</DiscreteObjectKeyFrame.Value>
-									</DiscreteObjectKeyFrame>
-								</ObjectAnimationUsingKeyFrames>
-							</Storyboard>
-						</VisualState>
-						<VisualState x:Name="Disabled"/>
-						<VisualState x:Name="PointerOver"/>
-					</VisualStateGroup>
-					<VisualStateGroup x:Name="FocusStates">
-						<VisualState x:Name="Focused"/>
-						<VisualState x:Name="PointerFocused"/>
-					</VisualStateGroup>
-				</VisualStateManager.VisualStateGroups>
-			</Grid>
-		</ControlTemplate>
-		<ControlTemplate x:Key="ButtonDislike" TargetType="Button">
-			<Grid x:Name="grid" Width="77" Height="77">
-				<Grid.Background>
-					<ImageBrush ImageSource="Assets/BotonCorazon.png"/>
-				</Grid.Background>
-				<VisualStateManager.VisualStateGroups>
-					<VisualStateGroup x:Name="CommonStates">
-						<VisualState x:Name="Pressed">
-							<Storyboard>
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
-									<DiscreteObjectKeyFrame KeyTime="0">
-										<DiscreteObjectKeyFrame.Value>
-											<ImageBrush ImageSource="Assets/BotonCorazonNegativo.png"/>
-										</DiscreteObjectKeyFrame.Value>
-									</DiscreteObjectKeyFrame>
-								</ObjectAnimationUsingKeyFrames>
-							</Storyboard>
-						</VisualState>
-						<VisualState x:Name="Disabled"/>
-						<VisualState x:Name="PointerOver"/>
-					</VisualStateGroup>
-					<VisualStateGroup x:Name="FocusStates">
-						<VisualState x:Name="Focused"/>
-						<VisualState x:Name="PointerFocused"/>
-					</VisualStateGroup>
-				</VisualStateManager.VisualStateGroups>
-			</Grid>
-		</ControlTemplate>
-		<ControlTemplate x:Key="ButtonRefresh" TargetType="Button">
-			<Grid x:Name="grid" Width="77" Height="77">
-				<Grid.Background>
-					<ImageBrush ImageSource="Assets/BotonRefrescar.png"/>
-				</Grid.Background>
-				<VisualStateManager.VisualStateGroups>
-					<VisualStateGroup x:Name="CommonStates">
-						<VisualState x:Name="Pressed">
-							<Storyboard>
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
-									<DiscreteObjectKeyFrame KeyTime="0">
-										<DiscreteObjectKeyFrame.Value>
-											<ImageBrush ImageSource="Assets/BotonRefrescarNegativo.png"/>
-										</DiscreteObjectKeyFrame.Value>
-									</DiscreteObjectKeyFrame>
-								</ObjectAnimationUsingKeyFrames>
-							</Storyboard>
-						</VisualState>
-						<VisualState x:Name="Disabled"/>
-						<VisualState x:Name="PointerOver"/>
-					</VisualStateGroup>
-					<VisualStateGroup x:Name="FocusStates">
-						<VisualState x:Name="Focused"/>
-						<VisualState x:Name="PointerFocused"/>
-					</VisualStateGroup>
-				</VisualStateManager.VisualStateGroups>
-			</Grid>
-		</ControlTemplate>
-		<ControlTemplate x:Key="ButtonCheck" TargetType="Button">
-			<Grid x:Name="grid" Width="77" Height="77">
-				<Grid.Background>
-					<ImageBrush ImageSource="Assets/BotonCheck.png"/>
-				</Grid.Background>
-				<VisualStateManager.VisualStateGroups>
-					<VisualStateGroup x:Name="CommonStates">
-						<VisualState x:Name="Pressed">
-							<Storyboard>
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
-									<DiscreteObjectKeyFrame KeyTime="0">
-										<DiscreteObjectKeyFrame.Value>
-											<ImageBrush ImageSource="Assets/BotonCheckNegativo.png"/>
-										</DiscreteObjectKeyFrame.Value>
-									</DiscreteObjectKeyFrame>
-								</ObjectAnimationUsingKeyFrames>
-							</Storyboard>
-						</VisualState>
-						<VisualState x:Name="Disabled"/>
-						<VisualState x:Name="PointerOver"/>
-					</VisualStateGroup>
-					<VisualStateGroup x:Name="FocusStates">
-						<VisualState x:Name="Focused"/>
-						<VisualState x:Name="PointerFocused"/>
-					</VisualStateGroup>
-				</VisualStateManager.VisualStateGroups>
-			</Grid>
-		</ControlTemplate>
-		<ControlTemplate x:Key="ButtonControlTemplate1" TargetType="Button">
-			<Grid x:Name="grid" Width="75" Height="76">
-				<Grid.Background>
-					<ImageBrush ImageSource="Assets/botonFamiliaAñadirMiembroNegativo.png"/>
-				</Grid.Background>
-				<VisualStateManager.VisualStateGroups>
-					<VisualStateGroup x:Name="CommonStates">
-						<VisualState x:Name="Normal">
-							<Storyboard>
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
-									<DiscreteObjectKeyFrame KeyTime="0">
-										<DiscreteObjectKeyFrame.Value>
-											<ImageBrush ImageSource="Assets/botonFamiliaAñadirMiembro.png"/>
-										</DiscreteObjectKeyFrame.Value>
-									</DiscreteObjectKeyFrame>
-								</ObjectAnimationUsingKeyFrames>
-							</Storyboard>
-						</VisualState>
-						<VisualState x:Name="Pressed"/>
-						<VisualState x:Name="Disabled"/>
-						<VisualState x:Name="PointerOver"/>
-					</VisualStateGroup>
-					<VisualStateGroup x:Name="FocusStates">
-						<VisualState x:Name="Focused"/>
-						<VisualState x:Name="PointerFocused"/>
-					</VisualStateGroup>
-				</VisualStateManager.VisualStateGroups>
-			</Grid>
-		</ControlTemplate>
-		<ControlTemplate x:Key="ButtonControlTemplate2" TargetType="Button">
-			<Grid x:Name="grid" Width="75" Height="75">
-				<Grid.Background>
-					<ImageBrush ImageSource="Assets/minusNegativo.png"/>
-				</Grid.Background>
-				<VisualStateManager.VisualStateGroups>
-					<VisualStateGroup x:Name="CommonStates">
-						<VisualState x:Name="Normal">
-							<Storyboard>
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
-									<DiscreteObjectKeyFrame KeyTime="0">
-										<DiscreteObjectKeyFrame.Value>
-											<ImageBrush ImageSource="Assets/minus.png"/>
-										</DiscreteObjectKeyFrame.Value>
-									</DiscreteObjectKeyFrame>
-								</ObjectAnimationUsingKeyFrames>
-							</Storyboard>
-						</VisualState>
-						<VisualState x:Name="Pressed"/>
-						<VisualState x:Name="Disabled"/>
-						<VisualState x:Name="PointerOver"/>
-					</VisualStateGroup>
-					<VisualStateGroup x:Name="FocusStates">
-						<VisualState x:Name="Focused"/>
-						<VisualState x:Name="PointerFocused"/>
-					</VisualStateGroup>
-				</VisualStateManager.VisualStateGroups>
-			</Grid>
-		</ControlTemplate>
-		<ControlTemplate x:Key="ButtonControlTemplate3" TargetType="Button">
-			<Grid x:Name="grid" Margin="4,4,2,4">
-				<Grid.Background>
-					<ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/delete.png"/>
-				</Grid.Background>
-				<VisualStateManager.VisualStateGroups>
-					<VisualStateGroup x:Name="CommonStates">
-						<VisualState x:Name="Pressed">
-							<Storyboard>
-								<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
-									<DiscreteObjectKeyFrame KeyTime="0">
-										<DiscreteObjectKeyFrame.Value>
-											<ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/deleteNegativo.png"/>
-										</DiscreteObjectKeyFrame.Value>
-									</DiscreteObjectKeyFrame>
-								</ObjectAnimationUsingKeyFrames>
-							</Storyboard>
-						</VisualState>
-						<VisualState x:Name="Disabled"/>
-						<VisualState x:Name="PointerOver"/>
-					</VisualStateGroup>
-					<VisualStateGroup x:Name="FocusStates">
-						<VisualState x:Name="Focused"/>
-						<VisualState x:Name="PointerFocused"/>
-					</VisualStateGroup>
-				</VisualStateManager.VisualStateGroups>
-			</Grid>
-		</ControlTemplate>
-	</UserControl.Resources>
-    
+        <ControlTemplate x:Key="ButtonDetail" TargetType="Button">
+            <Grid x:Name="grid" Margin="4,4,2,4">
+                <Grid.Background>
+                    <ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/BotonDetalle.png"/>
+                </Grid.Background>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Pressed">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/BotonDetalleNegativo.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Disabled"/>
+                        <VisualState x:Name="PointerOver"/>
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="FocusStates">
+                        <VisualState x:Name="Focused"/>
+                        <VisualState x:Name="PointerFocused"/>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ButtonDislike" TargetType="Button">
+            <Grid x:Name="grid" Width="77" Height="77">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Assets/BotonCorazon.png"/>
+                </Grid.Background>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Pressed">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <ImageBrush ImageSource="Assets/BotonCorazonNegativo.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Disabled"/>
+                        <VisualState x:Name="PointerOver"/>
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="FocusStates">
+                        <VisualState x:Name="Focused"/>
+                        <VisualState x:Name="PointerFocused"/>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ButtonRefresh" TargetType="Button">
+            <Grid x:Name="grid" Width="77" Height="77">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Assets/BotonRefrescar.png"/>
+                </Grid.Background>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Pressed">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <ImageBrush ImageSource="Assets/BotonRefrescarNegativo.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Disabled"/>
+                        <VisualState x:Name="PointerOver"/>
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="FocusStates">
+                        <VisualState x:Name="Focused"/>
+                        <VisualState x:Name="PointerFocused"/>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ButtonCheck" TargetType="Button">
+            <Grid x:Name="grid" Width="77" Height="77">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Assets/BotonCheck.png"/>
+                </Grid.Background>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Pressed">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <ImageBrush ImageSource="Assets/BotonCheckNegativo.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Disabled"/>
+                        <VisualState x:Name="PointerOver"/>
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="FocusStates">
+                        <VisualState x:Name="Focused"/>
+                        <VisualState x:Name="PointerFocused"/>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ButtonControlTemplate1" TargetType="Button">
+            <Grid x:Name="grid" Width="75" Height="76">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Assets/botonFamiliaAñadirMiembroNegativo.png"/>
+                </Grid.Background>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <ImageBrush ImageSource="Assets/botonFamiliaAñadirMiembro.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Pressed"/>
+                        <VisualState x:Name="Disabled"/>
+                        <VisualState x:Name="PointerOver"/>
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="FocusStates">
+                        <VisualState x:Name="Focused"/>
+                        <VisualState x:Name="PointerFocused"/>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ButtonControlTemplate2" TargetType="Button">
+            <Grid x:Name="grid" Width="75" Height="75">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Assets/minusNegativo.png"/>
+                </Grid.Background>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <ImageBrush ImageSource="Assets/minus.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Pressed"/>
+                        <VisualState x:Name="Disabled"/>
+                        <VisualState x:Name="PointerOver"/>
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="FocusStates">
+                        <VisualState x:Name="Focused"/>
+                        <VisualState x:Name="PointerFocused"/>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="ButtonControlTemplate3" TargetType="Button">
+            <Grid x:Name="grid" Margin="4,4,2,4">
+                <Grid.Background>
+                    <ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/delete.png"/>
+                </Grid.Background>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Pressed">
+                            <Storyboard>
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background)" Storyboard.TargetName="grid">
+                                    <DiscreteObjectKeyFrame KeyTime="0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <ImageBrush ImageSource="ms-appx:///Imagenes/Botones Varios/deleteNegativo.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Disabled"/>
+                        <VisualState x:Name="PointerOver"/>
+                    </VisualStateGroup>
+                    <VisualStateGroup x:Name="FocusStates">
+                        <VisualState x:Name="Focused"/>
+                        <VisualState x:Name="PointerFocused"/>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Resources>
+
     <Grid Width="1366" Height="132">
-    	<Image x:Name="imagenFondo" Source="ms-appx:///Imagenes/fondoItem.png" Stretch="Fill"/>
-    	<Image x:Name="imagenProducto" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="114" Source="Assets/tomato.png" Margin="20,0,0,0" Stretch="UniformToFill"/>
+        <Image x:Name="imagenFondo" Source="ms-appx:///Imagenes/fondoItem.png" Stretch="Fill"/>
+        <Image x:Name="imagenProducto" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="114" Source="Assets/tomato.png" Margin="20,0,0,0" Stretch="UniformToFill"/>
         <TextBlock x:Name="textoNombreProducto" HorizontalAlignment="Left" Height="103" Margin="224,10,0,0" TextWrapping="Wrap" Text="Rompecabezas" VerticalAlignment="Top" Width="875" FontSize="73.333" FontFamily="Gill Sans MT"/>
+        <Button x:Name="BotonCalificacion" Content="Calificacion" HorizontalAlignment="Left" Margin="844,39,0,0" VerticalAlignment="Top" Width="115" Click="BotonCalificacion_Click"/>
     </Grid>
 </UserControl>

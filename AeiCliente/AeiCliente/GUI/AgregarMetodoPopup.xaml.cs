@@ -39,31 +39,44 @@ namespace AeiCliente
             popup.IsOpen = false;
         }
 
-        private async void botonComprar_Click(object sender, RoutedEventArgs e)
+        private async void botonAgregar_Click(object sender, RoutedEventArgs e)
         {
             DateTime dateTime = new DateTime();
-            string fecha = texBoxFechaVencimiento + "01";
-            try
+            string fechaVenc = texBoxFechaVencimiento.Text + "-01";
+            if (texBoxFechaVencimiento.Text.Length != 0 && textNumero.Text.Length != 0)
             {
-                dateTime = DateTime.ParseExact(fecha, "yyyy-MM-dd", null);
+                try
+                {
+                    dateTime = DateTime.ParseExact(fechaVenc, "yyyy-MM-dd", null);
+                    MetodoPago metodo = new MetodoPago();
+                    metodo.Marca = comboMetodo.SelectedValue.ToString();
+                    metodo.Numero = textNumero.Text;
+                    metodo.FechaVencimiento = dateTime;
+                    BufferUsuario.Usuario = await servicioAei.agregarMetodoPagoAsync(metodo, BufferUsuario.Usuario);
+                    if (BufferUsuario.Usuario != null)
+                    {
+                        popup.IsOpen = false;
+                        MessageDialog mensajeError = new MessageDialog("Operación exitosa");
+                        mensajeError.ShowAsync();
+                    }
+                }
+                catch
+                {
+                    MessageDialog mensajeError = new MessageDialog("Error en la fecha no tiene el formato indicada");
+                    mensajeError.ShowAsync();
+                }
             }
-            catch
+            else
             {
-                MessageDialog mensajeError = new MessageDialog("Error en la fecha no tiene el formato indicada");
+                MessageDialog mensajeError = new MessageDialog("Error todos los campos son obligatorios");
                 mensajeError.ShowAsync();
+
             }
-            MetodoPago metodo = new MetodoPago();
-            metodo.Marca = comboMetodo.SelectedValue.ToString();
-            metodo.Numero = textNumero.Text;
-            metodo.FechaVencimiento = dateTime;
-            BufferUsuario.Usuario =  await servicioAei.agregarMetodoPagoAsync(metodo, BufferUsuario.Usuario);
-            if (BufferUsuario.Usuario != null)
-            {
-                popup.IsOpen = false;
-                MessageDialog mensajeError = new MessageDialog("Operación exitosa");
-                mensajeError.ShowAsync();
-            }
-        
+        }
+
+        private void comboMetodo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
     }
