@@ -46,8 +46,9 @@ namespace AeiWebServices.Permanencia
             }
             conexion.cerrarConexion();
             int respuesta = -1;
+            int cant = producto.Cantidad-cantidad;
             if (cantidad<=producto.Cantidad) 
-                 respuesta=conexion.insertar("UPDATE Producto SET cantidad="+cantidad+" WHERE ID="+idProducto+"");
+                 respuesta=conexion.insertar("UPDATE Producto SET cantidad="+ cant.ToString() +" WHERE ID="+idProducto+"");
             conexion.cerrarConexion();
             return respuesta;
         }
@@ -319,7 +320,7 @@ namespace AeiWebServices.Permanencia
         public List<Producto> buscarPorCategoria(String nombreCategoria)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, CATEGORIA c WHERE p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%';");
+            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, CATEGORIA c WHERE p.cantidad!=0 and p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%';");
             List<Tag> listaTag = new List<Tag>();
             List<Producto> listaProductos = new List<Producto>();
             while (tabla!=null && tabla.Read())

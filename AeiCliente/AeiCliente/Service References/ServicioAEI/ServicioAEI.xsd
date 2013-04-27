@@ -2,10 +2,25 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices" />
   <xs:import schemaLocation="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices.Dominio" />
+  <xs:element name="agregarMetodoPago">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="metodo" nillable="true" type="q1:MetodoPago" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q2:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="agregarMetodoPagoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="agregarMetodoPagoResult" nillable="true" type="q3:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="modificarDireccion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="direccionModificada" nillable="true" type="q1:Direccion" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="direccionModificada" nillable="true" type="q4:Direccion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -19,23 +34,23 @@
   <xs:element name="checkout">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="metodo" nillable="true" type="q2:MetodoPago" />
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="direccion" nillable="true" type="q3:Direccion" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q4:Usuario" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="metodo" nillable="true" type="q5:MetodoPago" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="direccion" nillable="true" type="q6:Direccion" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q7:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="checkoutResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="checkoutResult" nillable="true" type="q5:Usuario" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="checkoutResult" nillable="true" type="q8:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="disponibilidadProductos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="detalle" nillable="true" type="q6:ArrayOfDetalleCompra" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="detalle" nillable="true" type="q9:ArrayOfDetalleCompra" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -49,8 +64,8 @@
   <xs:element name="checkearProductoCarrito">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q7:Usuario" />
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="producto" nillable="true" type="q8:Producto" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q10:Usuario" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="producto" nillable="true" type="q11:Producto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -64,22 +79,22 @@
   <xs:element name="borrarDetalleCarrito">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q9:Usuario" />
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="detalle" nillable="true" type="q10:DetalleCompra" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q12:Usuario" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="detalle" nillable="true" type="q13:DetalleCompra" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="borrarDetalleCarritoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="borrarDetalleCarritoResult" nillable="true" type="q11:Usuario" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="borrarDetalleCarritoResult" nillable="true" type="q14:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="enviarCorreoDeModificacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q12:Usuario" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q15:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -93,7 +108,7 @@
   <xs:element name="enviarCorreoDeBienvenida">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q13:Usuario" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q16:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -107,7 +122,7 @@
   <xs:element name="modificarUsuario">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q14:Usuario" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q17:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -128,7 +143,7 @@
   <xs:element name="ConsultarUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="ConsultarUsuarioResult" nillable="true" type="q15:Usuario" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="ConsultarUsuarioResult" nillable="true" type="q18:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -146,7 +161,7 @@
   <xs:element name="agregarUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="agregarUsuarioResult" nillable="true" type="q16:Usuario" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="agregarUsuarioResult" nillable="true" type="q19:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -160,7 +175,7 @@
   <xs:element name="getTwitterResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/AeiWebServices.Dominio" minOccurs="0" name="getTwitterResult" nillable="true" type="q17:Twitter" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/AeiWebServices.Dominio" minOccurs="0" name="getTwitterResult" nillable="true" type="q20:Twitter" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -191,7 +206,7 @@
   <xs:element name="buscarCalificacionProductoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="buscarCalificacionProductoResult" nillable="true" type="q18:ArrayOfCalificacion" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="buscarCalificacionProductoResult" nillable="true" type="q21:ArrayOfCalificacion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -205,7 +220,7 @@
   <xs:element name="BuscarProductoPorCategoriaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BuscarProductoPorCategoriaResult" nillable="true" type="q19:ArrayOfProducto" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BuscarProductoPorCategoriaResult" nillable="true" type="q22:ArrayOfProducto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -220,7 +235,7 @@
   <xs:element name="BusquedaProductoConCategoriaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BusquedaProductoConCategoriaResult" nillable="true" type="q20:ArrayOfProducto" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BusquedaProductoConCategoriaResult" nillable="true" type="q23:ArrayOfProducto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -234,7 +249,7 @@
   <xs:element name="BusquedaProductoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BusquedaProductoResult" nillable="true" type="q21:ArrayOfProducto" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BusquedaProductoResult" nillable="true" type="q24:ArrayOfProducto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -246,7 +261,7 @@
   <xs:element name="BuscarTodasLasCategoriasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BuscarTodasLasCategoriasResult" nillable="true" type="q22:ArrayOfCategoria" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="BuscarTodasLasCategoriasResult" nillable="true" type="q25:ArrayOfCategoria" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -258,7 +273,7 @@
   <xs:element name="consultarEstadosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="consultarEstadosResult" nillable="true" type="q23:ArrayOfDireccion" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="consultarEstadosResult" nillable="true" type="q26:ArrayOfDireccion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -272,7 +287,7 @@
   <xs:element name="consultarCiudadResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="consultarCiudadResult" nillable="true" type="q24:ArrayOfDireccion" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="consultarCiudadResult" nillable="true" type="q27:ArrayOfDireccion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -296,15 +311,15 @@
   <xs:element name="agregarCarrito">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q25:Usuario" />
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="detalleCompra" nillable="true" type="q26:DetalleCompra" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="usuario" nillable="true" type="q28:Usuario" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="detalleCompra" nillable="true" type="q29:DetalleCompra" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="agregarCarritoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="agregarCarritoResult" nillable="true" type="q27:Usuario" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="agregarCarritoResult" nillable="true" type="q30:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -318,7 +333,7 @@
   <xs:element name="buscarDireccionUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="buscarDireccionUsuarioResult" nillable="true" type="q28:ArrayOfDireccion" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/AeiWebServices" minOccurs="0" name="buscarDireccionUsuarioResult" nillable="true" type="q31:ArrayOfDireccion" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

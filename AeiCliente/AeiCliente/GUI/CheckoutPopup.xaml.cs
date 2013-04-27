@@ -54,9 +54,10 @@ namespace AeiCliente
             comboMetodo.SelectedIndex = 0;
         }
 
-        private void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private async void botonComprar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	
+            BufferUsuario.Usuario = await servicioAei.checkoutAsync(BufferUsuario.Usuario.MetodosPago.ElementAt(comboMetodo.SelectedIndex), BufferUsuario.Usuario.Direcciones.ElementAt(comboDireccion.SelectedIndex), BufferUsuario.Usuario);
+            new MessageDialog("Gracias por su compra en aei Store, su compra entrara en proceso de envio.").ShowAsync();
         }
 
     }
