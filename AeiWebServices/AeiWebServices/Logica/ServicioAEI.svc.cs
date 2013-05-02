@@ -48,6 +48,13 @@ namespace AeiWebServices.Logica
             return usuario;
         }
 
+        public Usuario eliminarMetodoPago(MetodoPago metodo, Usuario usuario)
+        {
+            if (FabricaDAO.setEliminarMetodoPago(metodo.Id) == 1)
+                return ConsultarUsuario(usuario.Email);
+            return null;
+        }
+
         public int agregarCalificacion(int idProducto,int idUsuario,Calificacion calificacion)
         {
             return FabricaDAO.setCalificacion(idProducto, idUsuario, calificacion);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fb87d732-c05b-4f1b-ba69-aa49f66a9b94" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d0a84511-f917-4e24-8e9a-acd7a2ba4ded" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -24,12 +24,12 @@
     <MetadataSource Address="http://localhost:52896/Logica/ServicioAEI.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServicioAEI.xsd" MetadataType="Schema" ID="6e1098d5-c26e-4560-87f8-08546a711948" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd0" />
-    <MetadataFile FileName="ServicioAEI.wsdl" MetadataType="Wsdl" ID="987f39fb-5ded-4237-a053-e5610bbecd97" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?wsdl" />
-    <MetadataFile FileName="ServicioAEI1.xsd" MetadataType="Schema" ID="63d2665d-d087-49dc-9961-61d5525997d0" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd2" />
-    <MetadataFile FileName="ServicioAEI2.xsd" MetadataType="Schema" ID="b184cf2f-0e19-4e74-ac79-7fb4025a1f6e" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd3" />
-    <MetadataFile FileName="ServicioAEI3.xsd" MetadataType="Schema" ID="2357b5e1-9c61-4592-9580-b930334e9a47" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd1" />
-    <MetadataFile FileName="ServicioAEI.disco" MetadataType="Disco" ID="2ff43ce4-7190-4806-ba3e-f18931fd761f" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?disco" />
+    <MetadataFile FileName="ServicioAEI.xsd" MetadataType="Schema" ID="0f2fdd42-8119-4da3-baac-bb90499c1768" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioAEI.wsdl" MetadataType="Wsdl" ID="e3aba367-a9e2-4a69-a29b-0d4d0b3f7f3b" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?wsdl" />
+    <MetadataFile FileName="ServicioAEI1.xsd" MetadataType="Schema" ID="d700167a-e843-4f0e-ab97-2313438e5680" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioAEI2.xsd" MetadataType="Schema" ID="eaf6ddbd-16a0-47f4-9625-8cae95019ea3" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicioAEI3.xsd" MetadataType="Schema" ID="5fe3ed34-a5da-4be3-a7fb-f1a478676d21" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioAEI.disco" MetadataType="Disco" ID="c7e3528e-f7c6-4acd-bca2-2cb60cf474d1" SourceId="1" SourceUrl="http://localhost:52896/Logica/ServicioAEI.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

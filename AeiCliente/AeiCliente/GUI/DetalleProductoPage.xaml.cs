@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AeiCliente.ServicioAEI;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Media.Imaging;
+using AeiCliente.GUI;
 
 // La plantilla de elemento Página en blanco está documentada en http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -45,6 +47,7 @@ namespace AeiCliente
                 textCantidad.Text = "Producto Agotado";
             producto.Calificaciones = await servicioAei.buscarCalificacionProductoAsync(producto.Id);
             cargarComentarios();
+            this.setImagenProducto("http://" + Constante.Ip + ":8080/" + producto.ImagenDetalle);
         }
 
         private async void cargarComentarios()
@@ -109,6 +112,15 @@ namespace AeiCliente
             }
             else
                 mensajeError1.ShowAsync();
+        }
+
+        public void setImagenProducto(String imageSource)
+        {
+            BitmapImage newImage = new BitmapImage();
+            newImage.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
+            newImage.UriSource = new Uri(imageSource);
+            this.imagenDetalle.Source = newImage;
+            imagenDetalle.UpdateLayout();
         }
 	}
 }

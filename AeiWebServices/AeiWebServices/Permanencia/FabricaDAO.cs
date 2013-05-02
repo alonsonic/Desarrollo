@@ -8,6 +8,13 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
+        static public int setEliminarMetodoPago(int idMetodo)
+        {
+            SqlServerMetodoPago resultado = new SqlServerMetodoPago();
+            int respuesta = resultado.borrarMetodoPago(idMetodo);
+            return respuesta;
+        }
+
         static public int setEstadoCompra(int idCompra)
         {
             SqlServerCompra resultado = new SqlServerCompra();

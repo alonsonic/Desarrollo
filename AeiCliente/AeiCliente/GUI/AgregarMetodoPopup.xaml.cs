@@ -49,7 +49,7 @@ namespace AeiCliente
                 {
                     dateTime = DateTime.ParseExact(fechaVenc, "yyyy-MM-dd", null);
                     MetodoPago metodo = new MetodoPago();
-                    metodo.Marca = comboMetodo.SelectedValue.ToString();
+                    metodo.Marca = comboMetodo.SelectionBoxItem.ToString();
                     metodo.Numero = textNumero.Text;
                     metodo.FechaVencimiento = dateTime;
                     BufferUsuario.Usuario = await servicioAei.agregarMetodoPagoAsync(metodo, BufferUsuario.Usuario);

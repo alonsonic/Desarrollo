@@ -8,6 +8,12 @@
       <xsd:import schemaLocation="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices.Dominio" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IServicioAEI_eliminarMetodoPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMetodoPago" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_eliminarMetodoPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMetodoPagoResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioAEI_agregarCalificacion_InputMessage">
     <wsdl:part name="parameters" element="tns:agregarCalificacion" />
   </wsdl:message>
@@ -177,6 +183,10 @@
     <wsdl:part name="parameters" element="tns:buscarDireccionUsuarioResponse" />
   </wsdl:message>
   <wsdl:portType name="IServicioAEI">
+    <wsdl:operation name="eliminarMetodoPago">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/eliminarMetodoPago" message="tns:IServicioAEI_eliminarMetodoPago_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/eliminarMetodoPagoResponse" message="tns:IServicioAEI_eliminarMetodoPago_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="agregarCalificacion">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/agregarCalificacion" message="tns:IServicioAEI_agregarCalificacion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/agregarCalificacionResponse" message="tns:IServicioAEI_agregarCalificacion_OutputMessage" />
@@ -292,6 +302,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioAEI" type="tns:IServicioAEI">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="eliminarMetodoPago">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/eliminarMetodoPago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="agregarCalificacion">
       <soap:operation soapAction="http://tempuri.org/IServicioAEI/agregarCalificacion" style="document" />
       <wsdl:input>

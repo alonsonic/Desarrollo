@@ -9,7 +9,14 @@ using AeiWebServices.Logica;
 namespace AeiWebServices.Permanencia
 {
     public class SqlServerProducto: DAOProducto,DAOTag,DAOCategoria, DAOMetodoPago, DAOCalificacion, DAOUsuario
-    { 
+    {
+        public int borrarMetodoPago(int idMetodoPago)
+        {
+            ConexionSqlServer conexion = new ConexionSqlServer();
+            int respuesta = conexion.insertar("delete Metodo_Pago where id= " + idMetodoPago.ToString() + ";");
+            conexion.cerrarConexion();
+            return respuesta;
+        }
 
         public List<Categoria> categorias()
         {
@@ -351,7 +358,7 @@ namespace AeiWebServices.Permanencia
             List<MetodoPago> lista = new List<MetodoPago>();
             while (tabla!=null && tabla.Read())
             {
-                lista.Add(new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHA"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString()));
+                lista.Add(new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHA"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString(), tabla["STATUS"].ToString()));
             }
             conexion.cerrarConexion();
             return lista;
@@ -364,7 +371,7 @@ namespace AeiWebServices.Permanencia
             SqlDataReader tabla = conexion.consultar("SELECT mp.* , (SELECT CONVERT(VARCHAR(19), mp.fecha_vencimiento, 120)) as fechaVenc FROM Metodo_Pago mp, COMPRA c WHERE c.fk_METODOPAGO = mp.ID AND C.ID =" + idCompra + "");
             while (tabla!=null && tabla.Read())
             {
-                resultado = new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHAVENC"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString());
+                resultado = new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHAVENC"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString(), tabla["STATUS"].ToString());
             }
             conexion.cerrarConexion();
             return resultado;

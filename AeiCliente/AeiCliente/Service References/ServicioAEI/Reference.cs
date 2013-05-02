@@ -17,26 +17,28 @@ namespace AeiCliente.ServicioAEI {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Calificacion", Namespace="http://schemas.datacontract.org/2004/07/AeiWebServices")]
-    public partial class Calificacion : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.DataContractAttribute(Name="MetodoPago", Namespace="http://schemas.datacontract.org/2004/07/AeiWebServices")]
+    public partial class MetodoPago : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string ComentarioField;
+        private System.DateTime FechaVencimientoField;
         
         private int IdField;
         
-        private int PuntajeField;
+        private string MarcaField;
         
-        private AeiCliente.ServicioAEI.Usuario UsuarioField;
+        private string NumeroField;
+        
+        private string StatusField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Comentario {
+        public System.DateTime FechaVencimiento {
             get {
-                return this.ComentarioField;
+                return this.FechaVencimientoField;
             }
             set {
-                if ((object.ReferenceEquals(this.ComentarioField, value) != true)) {
-                    this.ComentarioField = value;
-                    this.RaisePropertyChanged("Comentario");
+                if ((this.FechaVencimientoField.Equals(value) != true)) {
+                    this.FechaVencimientoField = value;
+                    this.RaisePropertyChanged("FechaVencimiento");
                 }
             }
         }
@@ -55,27 +57,40 @@ namespace AeiCliente.ServicioAEI {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Puntaje {
+        public string Marca {
             get {
-                return this.PuntajeField;
+                return this.MarcaField;
             }
             set {
-                if ((this.PuntajeField.Equals(value) != true)) {
-                    this.PuntajeField = value;
-                    this.RaisePropertyChanged("Puntaje");
+                if ((object.ReferenceEquals(this.MarcaField, value) != true)) {
+                    this.MarcaField = value;
+                    this.RaisePropertyChanged("Marca");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public AeiCliente.ServicioAEI.Usuario Usuario {
+        public string Numero {
             get {
-                return this.UsuarioField;
+                return this.NumeroField;
             }
             set {
-                if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
-                    this.UsuarioField = value;
-                    this.RaisePropertyChanged("Usuario");
+                if ((object.ReferenceEquals(this.NumeroField, value) != true)) {
+                    this.NumeroField = value;
+                    this.RaisePropertyChanged("Numero");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
                 }
             }
         }
@@ -557,81 +572,6 @@ namespace AeiCliente.ServicioAEI {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MetodoPago", Namespace="http://schemas.datacontract.org/2004/07/AeiWebServices")]
-    public partial class MetodoPago : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.DateTime FechaVencimientoField;
-        
-        private int IdField;
-        
-        private string MarcaField;
-        
-        private string NumeroField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime FechaVencimiento {
-            get {
-                return this.FechaVencimientoField;
-            }
-            set {
-                if ((this.FechaVencimientoField.Equals(value) != true)) {
-                    this.FechaVencimientoField = value;
-                    this.RaisePropertyChanged("FechaVencimiento");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Marca {
-            get {
-                return this.MarcaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MarcaField, value) != true)) {
-                    this.MarcaField = value;
-                    this.RaisePropertyChanged("Marca");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Numero {
-            get {
-                return this.NumeroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NumeroField, value) != true)) {
-                    this.NumeroField = value;
-                    this.RaisePropertyChanged("Numero");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DetalleCompra", Namespace="http://schemas.datacontract.org/2004/07/AeiWebServices")]
     public partial class DetalleCompra : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -917,6 +857,81 @@ namespace AeiCliente.ServicioAEI {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Calificacion", Namespace="http://schemas.datacontract.org/2004/07/AeiWebServices")]
+    public partial class Calificacion : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string ComentarioField;
+        
+        private int IdField;
+        
+        private int PuntajeField;
+        
+        private AeiCliente.ServicioAEI.Usuario UsuarioField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Comentario {
+            get {
+                return this.ComentarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ComentarioField, value) != true)) {
+                    this.ComentarioField = value;
+                    this.RaisePropertyChanged("Comentario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Puntaje {
+            get {
+                return this.PuntajeField;
+            }
+            set {
+                if ((this.PuntajeField.Equals(value) != true)) {
+                    this.PuntajeField = value;
+                    this.RaisePropertyChanged("Puntaje");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AeiCliente.ServicioAEI.Usuario Usuario {
+            get {
+                return this.UsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
+                    this.UsuarioField = value;
+                    this.RaisePropertyChanged("Usuario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Tag", Namespace="http://schemas.datacontract.org/2004/07/AeiWebServices")]
     public partial class Tag : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1038,6 +1053,9 @@ namespace AeiCliente.ServicioAEI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioAEI.IServicioAEI")]
     public interface IServicioAEI {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/eliminarMetodoPago", ReplyAction="http://tempuri.org/IServicioAEI/eliminarMetodoPagoResponse")]
+        System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> eliminarMetodoPagoAsync(AeiCliente.ServicioAEI.MetodoPago metodo, AeiCliente.ServicioAEI.Usuario usuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAEI/agregarCalificacion", ReplyAction="http://tempuri.org/IServicioAEI/agregarCalificacionResponse")]
         System.Threading.Tasks.Task<int> agregarCalificacionAsync(int idProducto, int idUsuario, AeiCliente.ServicioAEI.Calificacion calificacion);
@@ -1165,6 +1183,10 @@ namespace AeiCliente.ServicioAEI {
         
         public ServicioAEIClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public System.Threading.Tasks.Task<AeiCliente.ServicioAEI.Usuario> eliminarMetodoPagoAsync(AeiCliente.ServicioAEI.MetodoPago metodo, AeiCliente.ServicioAEI.Usuario usuario) {
+            return base.Channel.eliminarMetodoPagoAsync(metodo, usuario);
         }
         
         public System.Threading.Tasks.Task<int> agregarCalificacionAsync(int idProducto, int idUsuario, AeiCliente.ServicioAEI.Calificacion calificacion) {
