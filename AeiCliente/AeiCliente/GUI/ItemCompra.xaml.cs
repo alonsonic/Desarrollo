@@ -27,6 +27,7 @@ namespace AeiCliente
         Producto producto = null;
         ListaCompraPage padre = null;
         bool isCompra = true;
+        int indexProducto;
         int indexDetalle;
         DetalleCompra detalle = null;
 
@@ -40,7 +41,7 @@ namespace AeiCliente
         {
             this.InitializeComponent();
             this.padre = padre;
-            this.indexDetalle = indexProducto;
+            this.indexProducto = indexProducto;
 
             if(isCarrito)
             {
@@ -70,7 +71,7 @@ namespace AeiCliente
         private async void botonEliminar_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             BufferUsuario.Usuario = await servicioAei.ConsultarUsuarioAsync(BufferUsuario.Usuario.Email);
-            BufferUsuario.Usuario = await servicioAei.borrarDetalleCarritoAsync(BufferUsuario.Usuario, BufferUsuario.Usuario.Carrito.Productos.ElementAt(indexDetalle));
+            BufferUsuario.Usuario = await servicioAei.borrarDetalleCarritoAsync(BufferUsuario.Usuario, BufferUsuario.Usuario.Carrito.Productos.ElementAt(indexProducto));
             padre.cargarCarrito();
         }
 

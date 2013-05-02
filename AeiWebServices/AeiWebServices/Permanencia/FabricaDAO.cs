@@ -280,8 +280,7 @@ namespace AeiWebServices.Permanencia
         static public Usuario getUsuario(string mail)
         {
             SqlServerUsuario resultado = new SqlServerUsuario();
-            Usuario usuario = resultado.consultarUsuario(mail);
-             
+            Usuario usuario = resultado.consultarUsuario(mail);             
             return usuario;
         }
 

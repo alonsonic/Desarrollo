@@ -256,7 +256,7 @@ namespace AeiWebServices.Permanencia
         public int agregarCalificacion(Calificacion calificacion, int idUsuario, int idProducto)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta= conexion.insertar("INSERT INTO id, puntaje, comentario, usuario, fecha VALUES(NEXT VALUE FOR SEQ_CALIFICACION," + calificacion.Puntaje.ToString() + ",'" + calificacion.Comentario + "'," + idUsuario.ToString() + ",'" + DateTime.Today.ToString("yyyy-MM-dd") + "'); ");
+            int respuesta= conexion.insertar("INSERT INTO id, puntaje, comentario, usuario, fecha VALUES(NEXT VALUE FOR SEQ_CALIFICACION," + calificacion.Puntaje.ToString() + ",'" + calificacion.Comentario + "'," + idUsuario.ToString() + ",'" + DateTime.Now.ToString("yyyy-MM-dd") + "'); ");
             conexion.cerrarConexion();
             return respuesta;
         }
@@ -549,7 +549,7 @@ namespace AeiWebServices.Permanencia
         public int agregarUsuario(Usuario usuario)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            DateTime fechaActual = DateTime.Today;
+            DateTime fechaActual = DateTime.Now;
             int respuesta= conexion.insertar("INSERT INTO Usuario (id, pasaporte, nombre, apellido, fecha_nac, mail, fecha_ing, status, codigoActivacion) VALUES (NEXT VALUE FOR SEQ_usuario,'" + usuario.Pasaporte + "','" + usuario.Nombre + "', '" + usuario.Apellido + "','" + usuario.FechaNacimiento.ToString("yyyy-MM-dd") + "','" + usuario.Email + "','" + fechaActual.ToString() + "','I',NEXT VALUE FOR seq_codigo_activacion);");
             conexion.cerrarConexion();
             return respuesta;

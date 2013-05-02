@@ -296,7 +296,7 @@ namespace AeiWebServices.Permanencia
         public int agregarCalificacion(Calificacion calificacion, int idUsuario, int idProducto)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("INSERT INTO id, puntaje, comentario, usuario, fecha VALUES(NEXT VALUE FOR SEQ_CALIFICACION," + calificacion.Puntaje.ToString() + ",'" + calificacion.Comentario + "'," + idUsuario.ToString() + ",'" + DateTime.Today.ToString("yyyy-MM-dd") + "'); ");
+            int respuesta = conexion.insertar("INSERT INTO id, puntaje, comentario, usuario, fecha VALUES(NEXT VALUE FOR SEQ_CALIFICACION," + calificacion.Puntaje.ToString() + ",'" + calificacion.Comentario + "'," + idUsuario.ToString() + ",'" + DateTime.Now.ToString("yyyy-MM-dd") + "'); ");
             conexion.cerrarConexion();
             return respuesta;
         }
@@ -324,7 +324,6 @@ namespace AeiWebServices.Permanencia
             {
                 Producto producto = buscarPorCompra(int.Parse(tabla["ID"].ToString()));
                 resultado.Add(new DetalleCompra(int.Parse(tabla["ID"].ToString()),float.Parse(tabla["MONTO"].ToString()), int.Parse(tabla["CANTIDAD"].ToString()), producto));
-    
             }
             conexion.cerrarConexion();
             return resultado;
@@ -337,10 +336,9 @@ namespace AeiWebServices.Permanencia
             while (tabla!=null && tabla.Read())
             {
                 List<DetalleCompra> listaDetalleCompra = buscarDetalleCompra(int.Parse(tabla["ID"].ToString()));
-                Compra resultado = new Compra(int.Parse(tabla["ID"].ToString()), float.Parse(tabla["MONTO_TOTAL"].ToString()), 
-                    DateTime.ParseExact(tabla["FECHASOL"].ToString(), "yyyy-MM-dd", null), 
+                Compra resultado = new Compra(int.Parse(tabla["ID"].ToString()), float.Parse(tabla["MONTO_TOTAL"].ToString()),
+                    DateTime.ParseExact(tabla["FECHASOL"].ToString(), "yyyy-MM-dd", null),
                     DateTime.ParseExact(tabla["FECHAENT"].ToString(), "yyyy-MM-dd", null), tabla["ESTADO"].ToString(), null, listaDetalleCompra, null);
-                resultado.Productos = buscarDetalleCompra(resultado.Id);
                 conexion.cerrarConexion();
                 return resultado;
             }

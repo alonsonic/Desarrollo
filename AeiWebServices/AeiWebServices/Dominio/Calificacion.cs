@@ -14,6 +14,8 @@ namespace AeiWebServices
         private int puntaje;
         private string comentario;
         private DateTime fecha;
+
+        
         private Usuario usuario;
 
 
@@ -24,6 +26,13 @@ namespace AeiWebServices
             this.comentario = comentario;
             this.fecha = fecha;
             this.usuario = usuario;
+        }
+
+        [DataMember]
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
         }
 
         [DataMember]

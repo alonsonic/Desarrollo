@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioAEI" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices" />
+      <xsd:import schemaLocation="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices.Dominio" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioAEI_eliminarMetodoPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMetodoPago" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_eliminarMetodoPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMetodoPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarCalificacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:agregarCalificacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarCalificacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:agregarCalificacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarStatusCompra_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarStatusCompra" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarStatusCompra_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarStatusCompraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarMetodoPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarMetodoPago" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarMetodoPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarMetodoPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_generarXml_InputMessage">
+    <wsdl:part name="parameters" element="tns:generarXml" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_generarXml_OutputMessage">
+    <wsdl:part name="parameters" element="tns:generarXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_enviarCorreoDeFactura_InputMessage">
+    <wsdl:part name="parameters" element="tns:enviarCorreoDeFactura" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_enviarCorreoDeFactura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:enviarCorreoDeFacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarMetodoPago_InputMessage">
+    <wsdl:part name="parameters" element="tns:agregarMetodoPago" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarMetodoPago_OutputMessage">
+    <wsdl:part name="parameters" element="tns:agregarMetodoPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarDireccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarDireccion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarDireccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarDireccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_checkout_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkout" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_checkout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_disponibilidadProductos_InputMessage">
+    <wsdl:part name="parameters" element="tns:disponibilidadProductos" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_disponibilidadProductos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:disponibilidadProductosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_checkearProductoCarrito_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkearProductoCarrito" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_checkearProductoCarrito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkearProductoCarritoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_borrarDetalleCarrito_InputMessage">
+    <wsdl:part name="parameters" element="tns:borrarDetalleCarrito" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_borrarDetalleCarrito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:borrarDetalleCarritoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_enviarCorreoDeModificacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:enviarCorreoDeModificacion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_enviarCorreoDeModificacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:enviarCorreoDeModificacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_enviarCorreoDeBienvenida_InputMessage">
+    <wsdl:part name="parameters" element="tns:enviarCorreoDeBienvenida" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_enviarCorreoDeBienvenida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:enviarCorreoDeBienvenidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:modificarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_modificarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:modificarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_ConsultarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_ConsultarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:agregarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:agregarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_getTwitter_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTwitter" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_getTwitter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTwitterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarTwitter_InputMessage">
+    <wsdl:part name="parameters" element="tns:agregarTwitter" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarTwitter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:agregarTwitterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_buscarCalificacionProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCalificacionProducto" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_buscarCalificacionProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCalificacionProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_BuscarProductoPorCategoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductoPorCategoria" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_BuscarProductoPorCategoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarProductoPorCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_BusquedaProductoConCategoria_InputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaProductoConCategoria" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_BusquedaProductoConCategoria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaProductoConCategoriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_BusquedaProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaProducto" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_BusquedaProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_BuscarTodasLasCategorias_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarTodasLasCategorias" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_BuscarTodasLasCategorias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarTodasLasCategoriasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_consultarEstados_InputMessage">
+    <wsdl:part name="parameters" element="tns:consultarEstados" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_consultarEstados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:consultarEstadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_consultarCiudad_InputMessage">
+    <wsdl:part name="parameters" element="tns:consultarCiudad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_consultarCiudad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:consultarCiudadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarDireccionUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:agregarDireccionUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarDireccionUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:agregarDireccionUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarCarrito_InputMessage">
+    <wsdl:part name="parameters" element="tns:agregarCarrito" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarCarrito_OutputMessage">
+    <wsdl:part name="parameters" element="tns:agregarCarritoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_buscarDireccionUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarDireccionUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_buscarDireccionUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarDireccionUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioAEI">
+    <wsdl:operation name="eliminarMetodoPago">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/eliminarMetodoPago" message="tns:IServicioAEI_eliminarMetodoPago_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/eliminarMetodoPagoResponse" message="tns:IServicioAEI_eliminarMetodoPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarCalificacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/agregarCalificacion" message="tns:IServicioAEI_agregarCalificacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/agregarCalificacionResponse" message="tns:IServicioAEI_agregarCalificacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarStatusCompra">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/modificarStatusCompra" message="tns:IServicioAEI_modificarStatusCompra_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/modificarStatusCompraResponse" message="tns:IServicioAEI_modificarStatusCompra_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarMetodoPago">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/modificarMetodoPago" message="tns:IServicioAEI_modificarMetodoPago_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/modificarMetodoPagoResponse" message="tns:IServicioAEI_modificarMetodoPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="generarXml">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/generarXml" message="tns:IServicioAEI_generarXml_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/generarXmlResponse" message="tns:IServicioAEI_generarXml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="enviarCorreoDeFactura">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeFactura" message="tns:IServicioAEI_enviarCorreoDeFactura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeFacturaResponse" message="tns:IServicioAEI_enviarCorreoDeFactura_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarMetodoPago">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/agregarMetodoPago" message="tns:IServicioAEI_agregarMetodoPago_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/agregarMetodoPagoResponse" message="tns:IServicioAEI_agregarMetodoPago_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarDireccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/modificarDireccion" message="tns:IServicioAEI_modificarDireccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/modificarDireccionResponse" message="tns:IServicioAEI_modificarDireccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/checkout" message="tns:IServicioAEI_checkout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/checkoutResponse" message="tns:IServicioAEI_checkout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="disponibilidadProductos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/disponibilidadProductos" message="tns:IServicioAEI_disponibilidadProductos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/disponibilidadProductosResponse" message="tns:IServicioAEI_disponibilidadProductos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="checkearProductoCarrito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/checkearProductoCarrito" message="tns:IServicioAEI_checkearProductoCarrito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/checkearProductoCarritoResponse" message="tns:IServicioAEI_checkearProductoCarrito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="borrarDetalleCarrito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/borrarDetalleCarrito" message="tns:IServicioAEI_borrarDetalleCarrito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/borrarDetalleCarritoResponse" message="tns:IServicioAEI_borrarDetalleCarrito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="enviarCorreoDeModificacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeModificacion" message="tns:IServicioAEI_enviarCorreoDeModificacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeModificacionResponse" message="tns:IServicioAEI_enviarCorreoDeModificacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="enviarCorreoDeBienvenida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeBienvenida" message="tns:IServicioAEI_enviarCorreoDeBienvenida_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/enviarCorreoDeBienvenidaResponse" message="tns:IServicioAEI_enviarCorreoDeBienvenida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/modificarUsuario" message="tns:IServicioAEI_modificarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/modificarUsuarioResponse" message="tns:IServicioAEI_modificarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/ConsultarUsuario" message="tns:IServicioAEI_ConsultarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/ConsultarUsuarioResponse" message="tns:IServicioAEI_ConsultarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/agregarUsuario" message="tns:IServicioAEI_agregarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/agregarUsuarioResponse" message="tns:IServicioAEI_agregarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTwitter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/getTwitter" message="tns:IServicioAEI_getTwitter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/getTwitterResponse" message="tns:IServicioAEI_getTwitter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarTwitter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/agregarTwitter" message="tns:IServicioAEI_agregarTwitter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/agregarTwitterResponse" message="tns:IServicioAEI_agregarTwitter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarCalificacionProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/buscarCalificacionProducto" message="tns:IServicioAEI_buscarCalificacionProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/buscarCalificacionProductoResponse" message="tns:IServicioAEI_buscarCalificacionProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductoPorCategoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/BuscarProductoPorCategoria" message="tns:IServicioAEI_BuscarProductoPorCategoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/BuscarProductoPorCategoriaResponse" message="tns:IServicioAEI_BuscarProductoPorCategoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaProductoConCategoria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/BusquedaProductoConCategoria" message="tns:IServicioAEI_BusquedaProductoConCategoria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/BusquedaProductoConCategoriaResponse" message="tns:IServicioAEI_BusquedaProductoConCategoria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/BusquedaProducto" message="tns:IServicioAEI_BusquedaProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/BusquedaProductoResponse" message="tns:IServicioAEI_BusquedaProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTodasLasCategorias">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/BuscarTodasLasCategorias" message="tns:IServicioAEI_BuscarTodasLasCategorias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/BuscarTodasLasCategoriasResponse" message="tns:IServicioAEI_BuscarTodasLasCategorias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarEstados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/consultarEstados" message="tns:IServicioAEI_consultarEstados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/consultarEstadosResponse" message="tns:IServicioAEI_consultarEstados_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarCiudad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/consultarCiudad" message="tns:IServicioAEI_consultarCiudad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/consultarCiudadResponse" message="tns:IServicioAEI_consultarCiudad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarDireccionUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/agregarDireccionUsuario" message="tns:IServicioAEI_agregarDireccionUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/agregarDireccionUsuarioResponse" message="tns:IServicioAEI_agregarDireccionUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="agregarCarrito">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/agregarCarrito" message="tns:IServicioAEI_agregarCarrito_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/agregarCarritoResponse" message="tns:IServicioAEI_agregarCarrito_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarDireccionUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/buscarDireccionUsuario" message="tns:IServicioAEI_buscarDireccionUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/buscarDireccionUsuarioResponse" message="tns:IServicioAEI_buscarDireccionUsuario_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioAEI" type="tns:IServicioAEI">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="eliminarMetodoPago">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/eliminarMetodoPago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarCalificacion">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/agregarCalificacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarStatusCompra">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/modificarStatusCompra" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarMetodoPago">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/modificarMetodoPago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generarXml">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/generarXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enviarCorreoDeFactura">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/enviarCorreoDeFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarMetodoPago">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/agregarMetodoPago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarDireccion">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/modificarDireccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkout">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/checkout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="disponibilidadProductos">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/disponibilidadProductos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkearProductoCarrito">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/checkearProductoCarrito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="borrarDetalleCarrito">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/borrarDetalleCarrito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enviarCorreoDeModificacion">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/enviarCorreoDeModificacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enviarCorreoDeBienvenida">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/enviarCorreoDeBienvenida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/modificarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/ConsultarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/agregarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTwitter">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/getTwitter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarTwitter">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/agregarTwitter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarCalificacionProducto">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/buscarCalificacionProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarProductoPorCategoria">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/BuscarProductoPorCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaProductoConCategoria">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/BusquedaProductoConCategoria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaProducto">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/BusquedaProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTodasLasCategorias">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/BuscarTodasLasCategorias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarEstados">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/consultarEstados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarCiudad">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/consultarCiudad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarDireccionUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/agregarDireccionUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarCarrito">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/agregarCarrito" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarDireccionUsuario">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/buscarDireccionUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioAEI">
+    <wsdl:port name="BasicHttpBinding_IServicioAEI" binding="tns:BasicHttpBinding_IServicioAEI">
+      <soap:address location="http://localhost:52896/Logica/ServicioAEI.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -12,10 +12,7 @@ namespace AeiWebServices.Logica
    
     public class ServicioAEI : IServicioAEI
     {
-        public void aregarCalificacion(Calificacion calificacion)
-        {
-            //FabricaDAO.setCalificacion(calificacion.);
-        }
+        
         public int modificarStatusCompra (int idCompra)
         {
             return FabricaDAO.setEstadoCompra(idCompra);
@@ -136,7 +133,7 @@ namespace AeiWebServices.Logica
 
         public Usuario agregarUsuario(string nombre, string apellido, string pasaporte, string mail, string fechaNacimiento)
         {
-            DateTime fechaRegistro = DateTime.Today;
+            DateTime fechaRegistro = DateTime.Now;
             Usuario usuario = new Usuario(1, nombre, apellido, pasaporte, mail, fechaRegistro, DateTime.ParseExact(fechaNacimiento, "yyyy-MM-dd", null), "I", null, null, null, null, 0);
             if (FabricaDAO.setNuevoUsuario(usuario) == 1)
             {
@@ -208,7 +205,7 @@ namespace AeiWebServices.Logica
             if (carrito == null)
             {
                 index = 1;
-                DateTime fechaRegistro = DateTime.Today;
+                DateTime fechaRegistro = DateTime.Now;
                 carrito = new Compra(1, detalleCompra.Monto*detalleCompra.Cantidad,fechaRegistro,fechaRegistro, "C",null,null,null);
                 FabricaDAO.setAgregarCompra(carrito, usuario.Id);
                 carrito = FabricaDAO.getCarrito(usuario.Id);
