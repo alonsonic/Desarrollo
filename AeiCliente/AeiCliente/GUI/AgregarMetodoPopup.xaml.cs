@@ -56,6 +56,9 @@ namespace AeiCliente
                     if (BufferUsuario.Usuario != null)
                     {
                         popup.IsOpen = false;
+                        Popup popupp = new Popup();
+                        VerMetodoPagoPopup ver = new VerMetodoPagoPopup(popupp);
+                        popupp.IsOpen = true;
                         MessageDialog mensajeError = new MessageDialog("Operación exitosa");
                         mensajeError.ShowAsync();
                     }

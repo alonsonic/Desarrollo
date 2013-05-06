@@ -41,7 +41,7 @@ namespace AeiWebServices.Logica
         public Usuario agregarMetodoPago(MetodoPago metodo, Usuario usuario)
         {
             if (FabricaDAO.setAgregarMetodoPago(metodo, usuario.Id) == 1)
-                usuario.MetodosPago.Add(metodo);
+                usuario = ConsultarUsuario(usuario.Email);
             return usuario;
         }
 

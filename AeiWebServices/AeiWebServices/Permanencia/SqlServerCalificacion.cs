@@ -399,7 +399,7 @@ namespace AeiWebServices.Permanencia
         public List<MetodoPago> consultarAllMetodosPago(int idUsuario)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("select m.*, (SELECT CONVERT(VARCHAR(19), m.fecha_vencimiento, 120)) as fecha from Metodo_Pago AS m where fk_usuario=" + idUsuario.ToString() + ";");
+            SqlDataReader tabla = conexion.consultar("select m.*, (SELECT CONVERT(VARCHAR(19), m.fecha_vencimiento, 120)) as fecha from Metodo_Pago AS m  where m.status is null and fk_usuario=" + idUsuario.ToString() + ";");
             List<MetodoPago> lista = new List<MetodoPago>();
             while (tabla!=null && tabla.Read())
             {

@@ -59,10 +59,11 @@ namespace AeiCliente
 
         private async void botonAgregar_Click(object sender, RoutedEventArgs e)
         {
-            Popup popup = new Popup();
-            AgregarMetodoPopup agregarPopup = new AgregarMetodoPopup(popup);
-            popup.Child = agregarPopup;
-            popup.IsOpen = true;
+            Popup popupp = new Popup();
+            AgregarMetodoPopup agregarPopup = new AgregarMetodoPopup(popupp);
+            popupp.Child = agregarPopup;
+            popupp.IsOpen = true;
+            popup.IsOpen = false;
         }
 
         private async void botonEliminar_Click(object sender, RoutedEventArgs e)
