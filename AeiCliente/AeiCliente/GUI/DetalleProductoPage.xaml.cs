@@ -57,7 +57,8 @@ namespace AeiCliente
             {
                 for (int indexCalificacion = 0; indexCalificacion < listaCalificacion.Count; indexCalificacion++)
                 {
-                    this.textComentarios.Text = this.textComentarios.Text + "\n \n" + listaCalificacion[indexCalificacion].Usuario.Nombre + " " + listaCalificacion[indexCalificacion].Usuario.Apellido + "\n" + listaCalificacion[indexCalificacion].Comentario;
+                    this.textComentarios.Text = this.textComentarios.Text + "\n \n" + listaCalificacion[indexCalificacion].Usuario.Nombre + " " + listaCalificacion[indexCalificacion].Usuario.Apellido + ". \n Fecha: "+listaCalificacion[indexCalificacion].Fecha.ToString("dd-MM-yyyy")+
+                        ".  Puntaje: " +listaCalificacion[indexCalificacion].Puntaje+ " estrella(s). \n Comentario: " + listaCalificacion[indexCalificacion].Comentario;
                 }
             }
             else this.textComentarios.Text = "\n \n Aun no tenemos calificaciones para este producto.";

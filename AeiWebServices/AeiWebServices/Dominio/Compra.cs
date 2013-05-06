@@ -34,6 +34,7 @@ namespace AeiWebServices
             this.status = status;
             this.pago = pago;
             this.direccion = direccion;
+            this.productos = productos;
         }
 
         public void AgregarDetallesCompra(DetalleCompra detallecompra)

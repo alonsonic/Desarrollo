@@ -23,7 +23,7 @@ namespace AeiWebServices.Dominio
         {
             string xml = @"<Compra>
     <id>"+ idCompra.ToString()+@"</id>
-    <fecha>"+ DateTime.Today.ToString("dd-MM-yyyy")+@"</ fecha>
+    <fecha>"+ DateTime.Now.ToString("dd-MM-yyyy")+@"</ fecha>
     <status>Entregado</status>
 </compra>";
             return xml;

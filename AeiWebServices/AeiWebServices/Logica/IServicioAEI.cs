@@ -12,6 +12,9 @@ namespace AeiWebServices.Logica
     public interface IServicioAEI
     {
         [OperationContract]
+        Usuario eliminarMetodoPago(MetodoPago metodo, Usuario usuario);
+
+        [OperationContract]
         int agregarCalificacion(int idProducto, int idUsuario, Calificacion calificacion);
 
         [OperationContract]

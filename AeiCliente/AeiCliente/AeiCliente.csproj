@@ -120,6 +120,9 @@
     <Compile Include="GUI\CalificarPopup.xaml.cs">
       <DependentUpon>CalificarPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\VerMetodoPagoPopup.xaml.cs">
+      <DependentUpon>VerMetodoPagoPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\TwittertPopup.xaml.cs">
       <DependentUpon>TwittertPopup.xaml</DependentUpon>
     </Compile>
@@ -222,7 +225,20 @@
     <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Usuario1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServicioAEI\ServicioAEI.wsdl" />
+    <None Include="Service References\ServicioAEI\ServicioAEI.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServicioAEI\ServicioAEI1.wsdl" />
+    <None Include="Service References\ServicioAEI\ServicioAEI1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioAEI\ServicioAEI2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServicioAEI\ServicioAEI3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServicioAEI\ServicioAEI4.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -349,6 +365,7 @@
     <Content Include="Imagenes\fondoPerfilAEI.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\ServicioAEI\ServicioAEI.disco" />
     <None Include="Service References\ServicioAEI\ServicioAEI1.disco" />
     <None Include="Service References\ServicioAEI\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
@@ -379,6 +396,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI\CalificarPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\VerMetodoPagoPopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

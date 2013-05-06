@@ -12,5 +12,6 @@ namespace AeiWebServices.Permanencia
         List<MetodoPago> consultarAllMetodosPago(int idUsuario);
         MetodoPago consultarMetodosPagoDeCompra(int idCompra);
         int modificarMetodoPago(MetodoPago metodoModificado, int idMetodoActual, int idUsuario);
+        int borrarMetodoPago(int idMetodoPago);
     }
 }

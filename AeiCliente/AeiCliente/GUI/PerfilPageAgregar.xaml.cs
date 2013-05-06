@@ -57,6 +57,7 @@ namespace AeiCliente.GUI
             DireccionPopup direcPopup = new DireccionPopup(popup, this);
             popup.Child = direcPopup;
             popup.IsOpen = true;
+
         }
 
         public void cargarDireciones()
@@ -123,7 +124,7 @@ namespace AeiCliente.GUI
                     int error = await servicio.enviarCorreoDeBienvenidaAsync(usuario);
                     if (error == 1)
                     {
-                        MessageDialog mensajeError = new MessageDialog("Se envió un código de activación a su correo");
+                        MessageDialog mensajeError = new MessageDialog("Se envió un código de activación a su correo, activelo y dirigase a su  perfil para completar su informacion");
                         mensajeError.ShowAsync();
 
                     }

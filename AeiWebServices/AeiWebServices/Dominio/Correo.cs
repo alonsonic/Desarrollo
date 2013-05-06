@@ -74,7 +74,7 @@ namespace AeiWebServices.Dominio
                                     <img src = 'https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash4/381399_10201016661237859_441547910_n.jpg' />
                                     <h2>Estimado(a)" + nombre+" "+apellido+@",</h2>
                                     <p>
-                                        Le informamos que el día "+DateTime.Today.ToString("dd-MM-yyyy")+@" se han hecho modificaciones en su perfil personal en su cuenta de aei Store.
+                                        Le informamos que el día "+DateTime.Now.ToString("dd-MM-yyyy")+@" se han hecho modificaciones en su perfil personal en su cuenta de aei Store.
                                     </p>
                                     <p>
                                          Si usted no reconoce haber realizado esta operación, comuníquese inmediatamente con nosotros a

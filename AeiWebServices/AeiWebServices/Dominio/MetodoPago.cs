@@ -14,18 +14,25 @@ namespace AeiWebServices
         private string numero;
         private DateTime fechaVencimiento;
         private string marca;
+        private string status;
 
         public MetodoPago()
         {
         }
-        public MetodoPago(int id, string numero, DateTime fechaVencimiento, string marca)
+        public MetodoPago(int id, string numero, DateTime fechaVencimiento, string marca, string status)
         {
             this.id = id;
             this.numero = numero;
             this.fechaVencimiento = fechaVencimiento;
             this.marca = marca;
+            this.status = status;
         }
-
+        [DataMember]
+        public string Status
+        {
+            get { return status; }
+            set { status = value; }
+        }
         [DataMember]
         public string Numero
         {

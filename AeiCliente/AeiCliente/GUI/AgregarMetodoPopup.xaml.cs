@@ -49,13 +49,16 @@ namespace AeiCliente
                 {
                     dateTime = DateTime.ParseExact(fechaVenc, "yyyy-MM-dd", null);
                     MetodoPago metodo = new MetodoPago();
-                    metodo.Marca = comboMetodo.SelectedValue.ToString();
+                    metodo.Marca = comboMetodo.SelectionBoxItem.ToString();
                     metodo.Numero = textNumero.Text;
                     metodo.FechaVencimiento = dateTime;
                     BufferUsuario.Usuario = await servicioAei.agregarMetodoPagoAsync(metodo, BufferUsuario.Usuario);
                     if (BufferUsuario.Usuario != null)
                     {
                         popup.IsOpen = false;
+                        Popup popupp = new Popup();
+                        VerMetodoPagoPopup ver = new VerMetodoPagoPopup(popupp);
+                        popupp.IsOpen = true;
                         MessageDialog mensajeError = new MessageDialog("Operación exitosa");
                         mensajeError.ShowAsync();
                     }

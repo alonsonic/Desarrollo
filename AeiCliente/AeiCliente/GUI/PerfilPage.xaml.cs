@@ -171,9 +171,14 @@ namespace AeiCliente
         private void botonGestionarMetodo_Click(object sender, RoutedEventArgs e)
         {
             Popup popup = new Popup();
-            AgregarMetodoPopup direcPopup = new AgregarMetodoPopup(popup);
-            popup.Child = direcPopup;
+            VerMetodoPagoPopup metodoPopup = new VerMetodoPagoPopup(popup);
+            popup.Child = metodoPopup;
             popup.IsOpen = true;
+        }
+
+        private void listBoxDireccion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
