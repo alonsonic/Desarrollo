@@ -21,15 +21,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/Prueba/Logica/ServicioAEI.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://alonso-laptop/Servicio/ServicioAEI.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ServicioAEI4.xsd" MetadataType="Schema" ID="062dda6c-34f5-41a5-9ab0-6e8ca2d15096" SourceId="1" SourceUrl="http://localhost/Prueba/Logica/ServicioAEI.svc?xsd=xsd3" />
-    <MetadataFile FileName="ServicioAEI41.xsd" MetadataType="Schema" ID="fba4428a-44df-41c6-a5df-9da4e3841220" SourceId="1" SourceUrl="http://localhost/Prueba/Logica/ServicioAEI.svc?xsd=xsd0" />
-    <MetadataFile FileName="ServicioAEI1.wsdl" MetadataType="Wsdl" ID="12578e36-70be-43f0-ab43-34c27b477f43" SourceId="1" SourceUrl="http://localhost/Prueba/Logica/ServicioAEI.svc?wsdl" />
-    <MetadataFile FileName="ServicioAEI1.disco" MetadataType="Disco" ID="7f0a7f59-9f04-444d-aeb1-97cf725f971c" SourceId="1" SourceUrl="http://localhost/Prueba/Logica/ServicioAEI.svc?disco" />
-    <MetadataFile FileName="ServicioAEI42.xsd" MetadataType="Schema" ID="28aa1d87-7937-479b-9b7a-b65346d6f459" SourceId="1" SourceUrl="http://localhost/Prueba/Logica/ServicioAEI.svc?xsd=xsd2" />
-    <MetadataFile FileName="ServicioAEI43.xsd" MetadataType="Schema" ID="f8666f9f-e952-48dc-9bef-dac28728231a" SourceId="1" SourceUrl="http://localhost/Prueba/Logica/ServicioAEI.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioAEI1.disco" MetadataType="Disco" ID="527fceec-42e2-43e2-9112-bad2fa844444" SourceId="1" SourceUrl="http://alonso-laptop/Servicio/ServicioAEI.svc?disco" />
+    <MetadataFile FileName="ServicioAEI4.xsd" MetadataType="Schema" ID="1b6a2db5-2a21-404b-8d26-0426cb558175" SourceId="1" SourceUrl="http://alonso-laptop/Servicio/ServicioAEI.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServicioAEI41.xsd" MetadataType="Schema" ID="eb605bfe-af12-4313-b3b5-42f695ab491f" SourceId="1" SourceUrl="http://alonso-laptop/Servicio/ServicioAEI.svc?xsd=xsd3" />
+    <MetadataFile FileName="ServicioAEI42.xsd" MetadataType="Schema" ID="4c87f504-7cf8-4d80-a93d-2331187baad9" SourceId="1" SourceUrl="http://alonso-laptop/Servicio/ServicioAEI.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServicioAEI43.xsd" MetadataType="Schema" ID="d2665909-1f63-4921-a56b-b607fa508338" SourceId="1" SourceUrl="http://alonso-laptop/Servicio/ServicioAEI.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServicioAEI1.wsdl" MetadataType="Wsdl" ID="5130a53d-8e74-4910-ad90-4ba71fb7b9f6" SourceId="1" SourceUrl="http://alonso-laptop/Servicio/ServicioAEI.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

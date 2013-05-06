@@ -9,7 +9,7 @@ namespace AeiWebServices
 {
     public class ConexionSqlServer
     {
-        SqlConnection miConexion = new SqlConnection(@"Data Source=alonso-laptop; Initial Catalog = AeiBD; Integrated Security=True;");
+        SqlConnection miConexion = new SqlConnection(@"Data Source=localhost; Initial Catalog = AeiBD;  User Id=admin; Password=admin;");
 
         public SqlConnection abrirConexion()
         {
@@ -18,9 +18,10 @@ namespace AeiWebServices
                 miConexion.Open();
                 return miConexion;
             }
-            catch 
+            catch (Exception e)
             {
-                Console.Write("error");
+                Console.WriteLine(e); 
+                Console.WriteLine("error"); 
                 return null;
             }
 

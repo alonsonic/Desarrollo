@@ -8,7 +8,7 @@ namespace AeiCliente.GUI
 {
     static class Constante
     {
-        static string ip = "localhost";
+        static string ip = "alonso-laptop";
 
         public static string Ip
         {

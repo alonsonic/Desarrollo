@@ -214,6 +214,6 @@
         <Image x:Name="imagenFondo" Source="ms-appx:///Imagenes/fondoItem.png" Stretch="Fill"/>
         <Image x:Name="imagenProducto" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="114" Source="Assets/tomato.png" Margin="20,0,0,0" Stretch="UniformToFill"/>
         <TextBlock x:Name="textoNombreProducto" HorizontalAlignment="Left" Height="103" Margin="224,10,0,0" TextWrapping="Wrap" Text="Rompecabezas" VerticalAlignment="Top" Width="875" FontSize="73.333" FontFamily="Gill Sans MT"/>
-        <Button x:Name="BotonCalificacion" Content="Calificacion" HorizontalAlignment="Left" Margin="844,39,0,0" VerticalAlignment="Top" Width="115" Click="BotonCalificacion_Click"/>
+        <Button x:Name="BotonCalificacion" Content="Calificar" HorizontalAlignment="Left" Margin="1107,20,0,0" VerticalAlignment="Top" Width="209" Click="BotonCalificacion_Click" Height="69" FontSize="33.333"/>
     </Grid>
 </UserControl>
