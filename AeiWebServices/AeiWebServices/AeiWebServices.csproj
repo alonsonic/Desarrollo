@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="App_Data\item.png" />
     <Content Include="Logica\ServicioAEI.svc" />
+    <Content Include="Logica\ServicioBusqueda.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -114,8 +115,12 @@
     <Compile Include="Dominio\Twitter.cs" />
     <Compile Include="Logica\Comparer.cs" />
     <Compile Include="Logica\IServicioAEI.cs" />
+    <Compile Include="Logica\IServicioBusqueda.cs" />
     <Compile Include="Logica\ServicioAEI.svc.cs">
       <DependentUpon>ServicioAEI.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Logica\ServicioBusqueda.svc.cs">
+      <DependentUpon>ServicioBusqueda.svc</DependentUpon>
     </Compile>
     <Compile Include="Permanencia\DAOCalificacion.cs" />
     <Compile Include="Permanencia\DAOCategoria.cs" />
