@@ -9,11 +9,8 @@ namespace AeiWebServices
 {
     public class ConexionSqlServer
     {
-<<<<<<< HEAD
-        SqlConnection miConexion = new SqlConnection(@"Data Source=localhost; Initial Catalog = AeiBD;  User Id=admin; Password=admin;");
-=======
         SqlConnection miConexion = new SqlConnection(@"Data Source=LYANA-PC\SQLEXPRESS; Initial Catalog = AeiBD; Integrated Security=True;");
->>>>>>> f1d165136cfe3c89c3fa0ee399fd8f7f7281d63f
+
 
         public SqlConnection abrirConexion()
         {

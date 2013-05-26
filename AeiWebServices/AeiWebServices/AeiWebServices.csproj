@@ -138,6 +138,7 @@
     <Compile Include="Permanencia\SqlServerTag.cs" />
     <Compile Include="Permanencia\SqlServerTwitter.cs" />
     <Compile Include="Permanencia\SqlServerUsuario.cs" />
+    <Compile Include="Permanencia\xmlLog.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dominio\Tag.cs" />

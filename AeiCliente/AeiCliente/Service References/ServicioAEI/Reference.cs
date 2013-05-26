@@ -1338,11 +1338,7 @@ namespace AeiCliente.ServicioAEI {
         
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration) {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IServicioAEI)) {
-<<<<<<< HEAD
-                return new System.ServiceModel.EndpointAddress("http://alonso-laptop/Servicio/ServicioAEI.svc");
-=======
                 return new System.ServiceModel.EndpointAddress("http://localhost:52896/Logica/ServicioAEI.svc");
->>>>>>> f1d165136cfe3c89c3fa0ee399fd8f7f7281d63f
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

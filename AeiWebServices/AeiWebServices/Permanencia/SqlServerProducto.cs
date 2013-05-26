@@ -51,6 +51,8 @@ namespace AeiWebServices.Permanencia
 
         public List<Producto> busquedaProductos(string busqueda)
         {
+            xmlLog log = new xmlLog();
+            log.escribir(busqueda,"Entrada");
             char[] separadores = { ' ', ',', '.', ':' };
             string[] tags = busqueda.Split(separadores);
             List<Producto> listaNombre = new List<Producto>();
@@ -68,6 +70,7 @@ namespace AeiWebServices.Permanencia
             List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
             listaResultado = listaResultado.Concat(listaTag).ToList();
             listaResultado = listaResultado.Distinct(new Comparer()).ToList();
+            log.escribir(busqueda, "Salida");
             return listaResultado;
         }
 
