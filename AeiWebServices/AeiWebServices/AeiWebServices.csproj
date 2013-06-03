@@ -116,6 +116,7 @@
     <Compile Include="Logica\Comparer.cs" />
     <Compile Include="Logica\IServicioAEI.cs" />
     <Compile Include="Logica\IServicioBusqueda.cs" />
+    <Compile Include="Logica\logicaBusqueda.cs" />
     <Compile Include="Logica\ServicioAEI.svc.cs">
       <DependentUpon>ServicioAEI.svc</DependentUpon>
     </Compile>

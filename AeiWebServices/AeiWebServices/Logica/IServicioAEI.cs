@@ -78,7 +78,7 @@ namespace AeiWebServices.Logica
         List<Producto> BusquedaProductoConCategoria(string categoriaProducto, string busqueda);
 
         [OperationContract]
-        List<Producto> BusquedaProducto(string busqueda);
+        List<Producto> BusquedaProducto(string busqueda, int pagina, int numeroArticulo);
 
         [OperationContract]
         List<Categoria> BuscarTodasLasCategorias();

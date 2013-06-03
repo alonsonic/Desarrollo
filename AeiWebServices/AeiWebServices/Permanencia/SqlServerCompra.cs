@@ -213,7 +213,7 @@ namespace AeiWebServices.Permanencia
             return respuesta;        
         }
 
-        public List<Producto> consultarProductos()
+        public List<Producto> consultarProductos(int pagina, int numeroArticulo)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
             SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO;");

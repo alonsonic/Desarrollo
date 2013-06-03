@@ -10,9 +10,11 @@ namespace AeiWebServices.Logica
 {
     public class ServicioBusqueda : IServicioBusqueda
     {
-        public List<Producto> BusquedaProducto(string busqueda)
+        public List<Producto> BusquedaProducto(string busqueda, int pagina, int numeroArticulo)
         {
-            return FabricaDAO.getBusquedaProducto(busqueda);
+            logicaBusqueda resultado = new logicaBusqueda();
+            return resultado.clasificarBusqueda(busqueda, pagina, numeroArticulo);
         }        
     }
+
 }

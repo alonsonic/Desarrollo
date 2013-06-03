@@ -32,6 +32,7 @@ namespace AeiCliente
         {
             comboMetodo.Items.Add("Visa");
             comboMetodo.Items.Add("Master Card");
+            comboMetodo.Items.Add("American Express");
             comboMetodo.SelectedIndex = 0;
         }
         private void botonBack_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

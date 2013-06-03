@@ -49,7 +49,29 @@ namespace AeiWebServices.Permanencia
             return null;
         }
 
-        public List<Producto> busquedaProductos(string busqueda)
+        public Boolean validarRango(int pagina, int limite)
+        {
+            double d = (double)limite / (double)pagina;
+            double resultado = Math.Round(d);
+            if (resultado < pagina) return false;
+            return true;
+        }
+        public List<Producto> enviarResultado(List<Producto> busqueda, int pagina, int numeroArticulo)
+        {
+            int limite = busqueda.Count;
+            int fin = (pagina * numeroArticulo);
+            int inicio = (pagina -1) * numeroArticulo;
+            List<Producto> resultado=null;
+            if (validarRango(pagina, limite))
+            {
+                if (fin > limite) resultado = busqueda.GetRange(inicio, numeroArticulo - (fin - limite));
+                else resultado = busqueda.GetRange(inicio, numeroArticulo);
+                return resultado;
+            }
+            return null;
+        }
+
+        public List<Producto> busquedaProductos(string busqueda, int pagina, int numeroArticulo)
         {
             xmlLog log = new xmlLog();
             log.escribir(busqueda,"Entrada");
@@ -71,7 +93,7 @@ namespace AeiWebServices.Permanencia
             listaResultado = listaResultado.Concat(listaTag).ToList();
             listaResultado = listaResultado.Distinct(new Comparer()).ToList();
             log.escribir(busqueda, "Salida");
-            return listaResultado;
+            return enviarResultado(listaResultado, pagina, numeroArticulo);
         }
 
         public List<Producto> busquedaProductos(string categoriaProducto, string busqueda)
@@ -159,7 +181,7 @@ namespace AeiWebServices.Permanencia
  
         }
 
-        public List<Producto> consultarProductos()
+        public List<Producto> consultarProductos(int pagina, int numeroArticulo)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
             SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO;");
@@ -177,7 +199,7 @@ namespace AeiWebServices.Permanencia
                 }
             }
             conexion.cerrarConexion();
-            return listaProductos;
+            return enviarResultado(listaProductos, pagina, numeroArticulo);
         }
 
 

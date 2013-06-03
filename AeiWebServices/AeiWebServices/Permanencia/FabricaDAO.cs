@@ -108,10 +108,10 @@ namespace AeiWebServices.Permanencia
             return respuesta;
         }
 
-        static public List<Producto> getBusquedaProducto(string busqueda)
+        static public List<Producto> getBusquedaProducto(string busqueda, int pagina, int numeroArticulo)
         {
             SqlServerProducto lista = new SqlServerProducto();
-            List<Producto> producto= lista.busquedaProductos(busqueda);
+            List<Producto> producto= lista.busquedaProductos(busqueda,pagina,numeroArticulo);
              
             return producto;
         }
@@ -154,11 +154,10 @@ namespace AeiWebServices.Permanencia
             return tags;
         }
 
-        static public List<Producto> getProductos()
+        static public List<Producto> getProductos(int pagina, int numeroArticulo)
         {
             SqlServerProducto lista = new SqlServerProducto();
-            List<Producto> producto= lista.consultarProductos();
-             
+            List<Producto> producto= lista.consultarProductos(pagina, numeroArticulo);             
             return producto;
         }
 
