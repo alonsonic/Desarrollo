@@ -118,6 +118,20 @@ namespace AeiWebServices
             set { id = value; }
         }
 
+        public bool comparacion(Producto producto)
+        {
+            if (producto!=null)
+            {
+                if (this.id == producto.id && this.nombre.Equals(producto.nombre) && this.descripcion.Equals(producto.descripcion)
+                && this.precio == producto.precio && this.cantidad == producto.cantidad && this.imagenMiniatura.Equals(producto.imagenMiniatura)
+                && this.imagenDetalle.Equals(producto.imagenDetalle) && this.categoria.Id == producto.categoria.Id
+                && this.categoria.Nombre.Equals(producto.categoria.Nombre) && this.etiquetas == producto.etiquetas && this.calificaciones == producto.calificaciones)
+                    return true;
+            }
+            return false;
+        }
 
+        
+        
     }
 }

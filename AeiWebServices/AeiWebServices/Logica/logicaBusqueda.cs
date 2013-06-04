@@ -10,7 +10,8 @@ namespace AeiWebServices.Logica
     {
         public List<Producto> clasificarBusqueda(string busqueda, int pagina, int numeroArticulo)
         {
-            if (busqueda.Equals("") || busqueda.Equals(" ") || busqueda == null) return FabricaDAO.getProductos(pagina,numeroArticulo);
+            if (busqueda == null) return null;
+            else if (busqueda.Equals("") || busqueda.Equals(" ")) return FabricaDAO.getProductos(pagina,numeroArticulo);
             else return FabricaDAO.getBusquedaProducto(busqueda, pagina, numeroArticulo);
         }
     }

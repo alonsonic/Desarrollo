@@ -73,27 +73,32 @@ namespace AeiWebServices.Permanencia
 
         public List<Producto> busquedaProductos(string busqueda, int pagina, int numeroArticulo)
         {
-            xmlLog log = new xmlLog();
-            log.escribir(busqueda,"Entrada");
-            char[] separadores = { ' ', ',', '.', ':' };
-            string[] tags = busqueda.Split(separadores);
-            List<Producto> listaNombre = new List<Producto>();
-            List<Producto> listaCategoria = new List<Producto>();
-            List<Producto> listaTag = new List<Producto>();
-            for (int index = 0; index < tags.Length; index++)
+            if (pagina != 0 && numeroArticulo != 0)
             {
-                listaNombre = listaNombre.Concat(buscarPorNombre(tags[index])).ToList();
-                listaCategoria = listaCategoria.Concat(buscarPorCategoria(tags[index])).ToList();
-                listaTag = listaTag.Concat(buscarPorTag(tags[index])).ToList();
-                listaNombre = listaNombre.Distinct(new Comparer()).ToList();
-                listaCategoria = listaCategoria.Distinct(new Comparer()).ToList();
-                listaTag = listaTag.Distinct(new Comparer()).ToList();
+
+                xmlLog log = new xmlLog();
+                log.escribir(busqueda, "Entrada");
+                char[] separadores = { ' ', ',', '.', ':' };
+                string[] tags = busqueda.Split(separadores);
+                List<Producto> listaNombre = new List<Producto>();
+                List<Producto> listaCategoria = new List<Producto>();
+                List<Producto> listaTag = new List<Producto>();
+                for (int index = 0; index < tags.Length; index++)
+                {
+                    listaNombre = listaNombre.Concat(buscarPorNombre(tags[index])).ToList();
+                    listaCategoria = listaCategoria.Concat(buscarPorCategoria(tags[index])).ToList();
+                    listaTag = listaTag.Concat(buscarPorTag(tags[index])).ToList();
+                    listaNombre = listaNombre.Distinct(new Comparer()).ToList();
+                    listaCategoria = listaCategoria.Distinct(new Comparer()).ToList();
+                    listaTag = listaTag.Distinct(new Comparer()).ToList();
+                }
+                List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
+                listaResultado = listaResultado.Concat(listaTag).ToList();
+                listaResultado = listaResultado.Distinct(new Comparer()).ToList();
+                log.escribir(busqueda, "Salida");
+                return enviarResultado(listaResultado, pagina, numeroArticulo);
             }
-            List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
-            listaResultado = listaResultado.Concat(listaTag).ToList();
-            listaResultado = listaResultado.Distinct(new Comparer()).ToList();
-            log.escribir(busqueda, "Salida");
-            return enviarResultado(listaResultado, pagina, numeroArticulo);
+            return null;
         }
 
         public List<Producto> busquedaProductos(string categoriaProducto, string busqueda)
