@@ -56,11 +56,23 @@ namespace AeiWebServices
             set { id = value; }
         }
 
-         [DataMember]
+        [DataMember]
         public Usuario Usuario
         {
             get { return usuario; }
             set { usuario = value; }
         }
+
+        //Sobre escribimos el metodo equals para ser usado en las pruebas unitarias
+         public override bool Equals(Object calificacion)
+         {
+             if (calificacion == null || GetType() != calificacion.GetType())
+                 return false;
+             Calificacion cal = calificacion as Calificacion;
+             if (this.puntaje == cal.puntaje && this.fecha.ToString("yyyy-MM-dd").Equals(cal.fecha.ToString("yyyy-MM-dd")) && this.comentario.Equals(cal.comentario))
+                 return true;
+             else
+                 return false;
+         }
     }
 }

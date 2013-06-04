@@ -51,5 +51,11 @@ namespace PruebaUnitariaBusqueda
                  respuesta= listaEsperada[0].comparacion(actual[0]);
             Assert.AreEqual<bool>(true, respuesta, "No paso la prueba");
         }
+
+        
+
+        
+
+        
     }
 }
