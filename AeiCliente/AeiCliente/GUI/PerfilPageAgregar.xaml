@@ -48,6 +48,7 @@
         </ComboBox>
         <Button x:Name="buttonEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="481,619,0,104" VerticalAlignment="Stretch" FontSize="20" Visibility="Visible" Width="179" Click="buttonEnviar_Click"/>
         <Button x:Name="buttonCancelar" Content="Cancelar" HorizontalAlignment="Stretch" Margin="668,619,519,104" VerticalAlignment="Stretch" FontSize="20" Visibility="Visible" Click="buttonCancelar_Click"/>
+        <Button x:Name="botonAgregarDireccion" Content="Agregar Dirección" HorizontalAlignment="Left" Height="45" Margin="85,619,0,0" VerticalAlignment="Top" Width="206" FontSize="20" Click="botonAgregarDireccion_Click"/>
 
         <TextBlock x:Name="textApellido" HorizontalAlignment="Left" Height="32" Margin="469,188,0,0" TextWrapping="Wrap" Text="Apellido" VerticalAlignment="Top" Width="114" FontSize="26.667" FontFamily="Gill Sans MT"/>
         <TextBox x:Name="textBoxNombre" HorizontalAlignment="Left" Margin="204,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"/>

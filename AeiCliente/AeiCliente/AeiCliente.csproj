@@ -192,53 +192,22 @@
     <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Calificacion.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Calificacion1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Categoria.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Categoria1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Direccion.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Direccion1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Producto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Producto1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Twitter.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Twitter1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Usuario1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServicioAEI\ServicioAEI.wsdl" />
-    <None Include="Service References\ServicioAEI\ServicioAEI.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ServicioAEI\ServicioAEI1.wsdl" />
-    <None Include="Service References\ServicioAEI\ServicioAEI1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServicioAEI\ServicioAEI2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServicioAEI\ServicioAEI3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\ServicioAEI\ServicioAEI4.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -365,7 +334,6 @@
     <Content Include="Imagenes\fondoPerfilAEI.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\ServicioAEI\ServicioAEI.disco" />
     <None Include="Service References\ServicioAEI\ServicioAEI1.disco" />
     <None Include="Service References\ServicioAEI\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
