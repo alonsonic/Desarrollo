@@ -9,7 +9,7 @@ namespace AeiWebServices.Permanencia
     interface DAOProducto
     {
         int updateCantidad(int idProducto, int cantidadEnExistencia);
-        List<Producto> consultarProductos();
+        List<Producto> consultarProductos(int pagina, int numeroArticulo);
         List<Producto> buscarPorNombre(String nombre);
         List<Producto> buscarPorNombre(String nombre, String categoria);
         List<Producto> buscarPorCategoria(String nombreCategoria);

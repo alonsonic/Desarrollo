@@ -4,6 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AeiWebServices", "AeiWebServices\AeiWebServices.csproj", "{5B1EB152-828E-43F6-B296-F2B27505791C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaUnitaria", "PruebaUnitaria\PruebaUnitaria.csproj", "{6D0338AD-1C43-422B-959F-5D5D9F48C370}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaUnitariaBusqueda", "PruebaUnitariaBusqueda\PruebaUnitariaBusqueda.csproj", "{D052730F-0967-4568-A1E4-F0485C418C7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,8 +38,21 @@ Global
 		{6D0338AD-1C43-422B-959F-5D5D9F48C370}.Release|ARM.ActiveCfg = Release|Any CPU
 		{6D0338AD-1C43-422B-959F-5D5D9F48C370}.Release|x64.ActiveCfg = Release|Any CPU
 		{6D0338AD-1C43-422B-959F-5D5D9F48C370}.Release|x86.ActiveCfg = Release|Any CPU
+		{D052730F-0967-4568-A1E4-F0485C418C7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D052730F-0967-4568-A1E4-F0485C418C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D052730F-0967-4568-A1E4-F0485C418C7D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{D052730F-0967-4568-A1E4-F0485C418C7D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D052730F-0967-4568-A1E4-F0485C418C7D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D052730F-0967-4568-A1E4-F0485C418C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D052730F-0967-4568-A1E4-F0485C418C7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D052730F-0967-4568-A1E4-F0485C418C7D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{D052730F-0967-4568-A1E4-F0485C418C7D}.Release|x64.ActiveCfg = Release|Any CPU
+		{D052730F-0967-4568-A1E4-F0485C418C7D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

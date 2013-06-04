@@ -75,10 +75,12 @@ namespace AeiWebServices.Permanencia
 
         public int agregarCalificacion(Calificacion calificacion, int idUsuario, int idProducto)
         {
-            ConexionSqlServer conexion= new ConexionSqlServer();
-            int respuesta = conexion.insertar("INSERT INTO calificacion (id, puntaje, detalle,  fk_usuario,fk_producto, fecha) VALUES(NEXT VALUE FOR SEQ_CALIFICACION," + calificacion.Puntaje.ToString() + ",'" + calificacion.Comentario + "'," + idUsuario.ToString() + ","+idProducto.ToString()+",'" + DateTime.Now.ToString("yyyy-MM-dd") + "'); ");
-            conexion.cerrarConexion(); 
-            return respuesta;
+            if (calificacion == null) 
+                return 0;
+            ConexionSqlServer conexion = new ConexionSqlServer();
+            int respuesta = conexion.insertar("INSERT INTO calificacion (id, puntaje, detalle,  fk_usuario,fk_producto, fecha) VALUES(NEXT VALUE FOR SEQ_CALIFICACION," + calificacion.Puntaje.ToString() + ",'" + calificacion.Comentario + "'," + idUsuario.ToString() + "," + idProducto.ToString() + ",'" + DateTime.Now.ToString("yyyy-MM-dd") + "'); ");
+            conexion.cerrarConexion();
+            return respuesta;            
         }
 
         public List<Calificacion> consultarCalificacionesPorProducto(int idProducto)
@@ -220,7 +222,7 @@ namespace AeiWebServices.Permanencia
             return respuesta;
         }
 
-        public List<Producto> consultarProductos()
+        public List<Producto> consultarProductos(int pagina, int numeroArticulo)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
             SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO;");

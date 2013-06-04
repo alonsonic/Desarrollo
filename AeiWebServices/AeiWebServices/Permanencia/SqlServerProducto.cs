@@ -49,26 +49,56 @@ namespace AeiWebServices.Permanencia
             return null;
         }
 
-        public List<Producto> busquedaProductos(string busqueda)
+        public Boolean validarRango(int pagina, int limite)
         {
-            char[] separadores = { ' ', ',', '.', ':' };
-            string[] tags = busqueda.Split(separadores);
-            List<Producto> listaNombre = new List<Producto>();
-            List<Producto> listaCategoria = new List<Producto>();
-            List<Producto> listaTag = new List<Producto>();
-            for (int index = 0; index < tags.Length; index++)
+            double d = (double)limite / (double)pagina;
+            double resultado = Math.Round(d);
+            if (resultado < pagina) return false;
+            return true;
+        }
+        public List<Producto> enviarResultado(List<Producto> busqueda, int pagina, int numeroArticulo)
+        {
+            int limite = busqueda.Count;
+            int fin = (pagina * numeroArticulo);
+            int inicio = (pagina -1) * numeroArticulo;
+            List<Producto> resultado=null;
+            if (validarRango(pagina, limite))
             {
-                listaNombre = listaNombre.Concat(buscarPorNombre(tags[index])).ToList();
-                listaCategoria = listaCategoria.Concat(buscarPorCategoria(tags[index])).ToList();
-                listaTag = listaTag.Concat(buscarPorTag(tags[index])).ToList();
-                listaNombre = listaNombre.Distinct(new Comparer()).ToList();
-                listaCategoria = listaCategoria.Distinct(new Comparer()).ToList();
-                listaTag = listaTag.Distinct(new Comparer()).ToList();
+                if (fin > limite) resultado = busqueda.GetRange(inicio, numeroArticulo - (fin - limite));
+                else resultado = busqueda.GetRange(inicio, numeroArticulo);
+                return resultado;
             }
-            List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
-            listaResultado = listaResultado.Concat(listaTag).ToList();
-            listaResultado = listaResultado.Distinct(new Comparer()).ToList();
-            return listaResultado;
+            return null;
+        }
+
+        public List<Producto> busquedaProductos(string busqueda, int pagina, int numeroArticulo)
+        {
+            if (pagina != 0 && numeroArticulo != 0)
+            {
+
+                xmlLog log = new xmlLog();
+                log.escribir(busqueda, "Entrada");
+                char[] separadores = { ' ', ',', '.', ':' };
+                string[] tags = busqueda.Split(separadores);
+                List<Producto> listaNombre = new List<Producto>();
+                List<Producto> listaCategoria = new List<Producto>();
+                List<Producto> listaTag = new List<Producto>();
+                for (int index = 0; index < tags.Length; index++)
+                {
+                    listaNombre = listaNombre.Concat(buscarPorNombre(tags[index])).ToList();
+                    listaCategoria = listaCategoria.Concat(buscarPorCategoria(tags[index])).ToList();
+                    listaTag = listaTag.Concat(buscarPorTag(tags[index])).ToList();
+                    listaNombre = listaNombre.Distinct(new Comparer()).ToList();
+                    listaCategoria = listaCategoria.Distinct(new Comparer()).ToList();
+                    listaTag = listaTag.Distinct(new Comparer()).ToList();
+                }
+                List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
+                listaResultado = listaResultado.Concat(listaTag).ToList();
+                listaResultado = listaResultado.Distinct(new Comparer()).ToList();
+                log.escribir(busqueda, "Salida");
+                return enviarResultado(listaResultado, pagina, numeroArticulo);
+            }
+            return null;
         }
 
         public List<Producto> busquedaProductos(string categoriaProducto, string busqueda)
@@ -156,7 +186,7 @@ namespace AeiWebServices.Permanencia
  
         }
 
-        public List<Producto> consultarProductos()
+        public List<Producto> consultarProductos(int pagina, int numeroArticulo)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
             SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO;");
@@ -174,7 +204,7 @@ namespace AeiWebServices.Permanencia
                 }
             }
             conexion.cerrarConexion();
-            return listaProductos;
+            return enviarResultado(listaProductos, pagina, numeroArticulo);
         }
 
 
