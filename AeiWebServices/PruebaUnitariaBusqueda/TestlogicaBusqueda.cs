@@ -18,13 +18,13 @@ namespace PruebaUnitariaBusqueda
         private List<Producto> listaActualBusquedaNula;
         private List<Producto> listaActualBusquedaConPaginaYCantidadCero;
 
-        [TestInitialize]        
+        [TestInitialize]
         public void inicio()
         {
             listaEsperadaNull = null;
             listaEsperadaBusquedaConResultado = new List<Producto>();
-            listaEsperadaBusquedaConResultado.Add(new Producto(130, "Password ", "Por fin, el juego más esperado del año. Diviértete con el juego del programa "+
-                ""+"de TV de Cuatro. Adivina todos los password y gana.", 3456, "mesa_130.jpg", "mesa_130.jpg", new Categoria(5, "Juegos de Mesa"), 1));
+            listaEsperadaBusquedaConResultado.Add(new Producto(130, "Password ", "Por fin, el juego más esperado del año. Diviértete con el juego del programa " +
+                "" + "de TV de Cuatro. Adivina todos los password y gana.", 3456, "mesa_130.jpg", "mesa_130.jpg", new Categoria(5, "Juegos de Mesa"), 1));
         }
 
         [TestMethod]
@@ -74,7 +74,8 @@ namespace PruebaUnitariaBusqueda
         [TestCleanup]
         public void final ()
         {
-
+            listaEsperadaNull = null;
+            listaEsperadaBusquedaConResultado = null;
         }
         
     }
