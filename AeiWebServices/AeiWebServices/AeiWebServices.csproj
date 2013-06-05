@@ -52,6 +52,9 @@
     <Reference Include="itextsharp.xtra">
       <HintPath>..\..\..\..\..\Desktop\iTextSharp\itextsharp.xtra.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -97,7 +100,9 @@
     <Content Include="App_Data\item.png" />
     <Content Include="Logica\ServicioAEI.svc" />
     <Content Include="Logica\ServicioBusqueda.svc" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion\ConexionSqlServer.cs" />
@@ -134,6 +139,7 @@
     <Compile Include="Permanencia\DAOTwitter.cs" />
     <Compile Include="Permanencia\DAOUsuario.cs" />
     <Compile Include="Permanencia\FabricaDAO.cs" />
+    <Compile Include="Permanencia\Log.cs" />
     <Compile Include="Permanencia\SqlServerDetalleCompra.cs" />
     <Compile Include="Permanencia\SqlServerDireccion.cs" />
     <Compile Include="Permanencia\SqlServerMetodoPago.cs" />

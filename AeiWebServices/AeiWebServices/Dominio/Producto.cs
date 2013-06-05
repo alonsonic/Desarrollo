@@ -131,6 +131,11 @@ namespace AeiWebServices
             return false;
         }
 
+        public override string ToString()
+        {
+            return this.id +" "+ this.nombre+"";
+        }
+
         
         
     }

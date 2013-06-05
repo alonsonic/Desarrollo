@@ -5,11 +5,18 @@ using System.Web;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using AeiWebServices.Logica;
+using AeiWebServices.Permanencia;
+using System.Text;
+using log4net;
+using log4net.Config;
 
 namespace AeiWebServices.Permanencia
 {
+    
+
     public class SqlServerProducto: DAOProducto,DAOTag,DAOCategoria, DAOMetodoPago, DAOCalificacion, DAOUsuario
     {
+
         public int borrarMetodoPago(int idMetodoPago)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
@@ -34,6 +41,7 @@ namespace AeiWebServices.Permanencia
 
         public Categoria buscarCategoriaPorProducto(int idProducto)
         {
+            Log.LogInstanciar().Debug("Iniciando busqueda de categorias del producto: "+idProducto);
             ConexionSqlServer conexion = new ConexionSqlServer();
             SqlDataReader tabla = conexion.consultar("select * from categoria c, producto p where p.fk_categoria = c.id AND p.id = " + idProducto + ";");
             if (tabla != null)
@@ -46,6 +54,8 @@ namespace AeiWebServices.Permanencia
                 }
             }
             conexion.cerrarConexion();
+            Log.LogInstanciar().Debug("Cerrando conexion en la base de datos");
+            Log.LogInstanciar().Debug("Terminando busqueda de categorias del producto: " + idProducto);
             return null;
         }
 
@@ -55,6 +65,13 @@ namespace AeiWebServices.Permanencia
             double resultado = Math.Round(d);
             if (resultado < pagina) return false;
             return true;
+        }
+        public void imprimirProducto(List<Producto> busqueda)
+        {
+            foreach (Producto item in busqueda)
+            {
+                Log.LogInstanciar().Info(item.ToString());
+            }
         }
         public List<Producto> enviarResultado(List<Producto> busqueda, int pagina, int numeroArticulo)
         {
@@ -66,18 +83,22 @@ namespace AeiWebServices.Permanencia
             {
                 if (fin > limite) resultado = busqueda.GetRange(inicio, numeroArticulo - (fin - limite));
                 else resultado = busqueda.GetRange(inicio, numeroArticulo);
+                Log.LogInstanciar().Info("Resultados de la busqueda:");
+                imprimirProducto(resultado);
+                Log.LogInstanciar().Info("Terminando busqueda- Exitosa");
                 return resultado;
             }
+            Log.LogInstanciar().Error("Busqueda Terminada. Rango de Paginas no valido");
             return null;
         }
 
         public List<Producto> busquedaProductos(string busqueda, int pagina, int numeroArticulo)
         {
+            
             if (pagina != 0 && numeroArticulo != 0)
             {
-
-                xmlLog log = new xmlLog();
-                log.escribir(busqueda, "Entrada");
+                Log.LogInstanciar().Info("Iniciacion de busqueda: " + busqueda + " pagina: " + pagina
+                + "Numero de Articulos: " + numeroArticulo);  
                 char[] separadores = { ' ', ',', '.', ':' };
                 string[] tags = busqueda.Split(separadores);
                 List<Producto> listaNombre = new List<Producto>();
@@ -95,9 +116,14 @@ namespace AeiWebServices.Permanencia
                 List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
                 listaResultado = listaResultado.Concat(listaTag).ToList();
                 listaResultado = listaResultado.Distinct(new Comparer()).ToList();
-                log.escribir(busqueda, "Salida");
+                if (listaResultado == null)
+                {
+                    Log.LogInstanciar().Error("Finalizacion de busqueda. Sin resultados. No exitosa"); 
+                    return null;
+                }
                 return enviarResultado(listaResultado, pagina, numeroArticulo);
             }
+            Log.LogInstanciar().Error("Finalizacion de busqueda. Numero de articulos y/o pagina invalidas (no puede ser 0)"); 
             return null;
         }
 
@@ -164,6 +190,7 @@ namespace AeiWebServices.Permanencia
 
         public List<Tag> buscarTagPorProducto(int idproducto)
         {
+            Log.LogInstanciar().Debug("Iniciando busqueda de los Tag del producto: "+idproducto);
             ConexionSqlServer conexion = new ConexionSqlServer();
             SqlDataReader tabla = conexion.consultar("select t.* from tag t, detalle_tag dt, producto p where t.id = dt.pk_tag AND p.id = dt.pk_producto AND p.id =" + idproducto.ToString() + ";");
             List<Tag> listaresultado = new List<Tag>();
@@ -173,6 +200,8 @@ namespace AeiWebServices.Permanencia
 
             }
             conexion.cerrarConexion();
+            Log.LogInstanciar().Debug("Cerrando conexion en la base de datos");
+            Log.LogInstanciar().Debug("Terminada busqueda de los Tag del producto: "+idproducto);
             return listaresultado;
         }
 
@@ -210,11 +239,12 @@ namespace AeiWebServices.Permanencia
 
         public List<Producto> buscarPorNombre(String nombre)
         {
+            Log.LogInstanciar().Debug("Iniciando busqueda por nombre");
             ConexionSqlServer conexion = new ConexionSqlServer();
             SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO WHERE NOMBRE LIKE '%" + nombre + "%';");
             List<Tag> listaTag = new List<Tag>();
             List<Producto> listaProductos = new List<Producto>();
-            while (tabla!=null && tabla.Read())
+            while (tabla != null && tabla.Read())
             {
                 listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
                 Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
@@ -223,12 +253,15 @@ namespace AeiWebServices.Permanencia
                     int.Parse(tabla["CANTIDAD"].ToString())));
             }
             conexion.cerrarConexion();
+            Log.LogInstanciar().Debug("Cerrando conexion en la base de datos");
+            Log.LogInstanciar().Debug("Terminada busqueda por nombre");
             return listaProductos;
         }
 
 
         public List<Producto> buscarPorCategoria(String nombreCategoria)
         {
+            Log.LogInstanciar().Debug("Iniciando busqueda por Categoria");
             ConexionSqlServer conexion = new ConexionSqlServer();
             SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, CATEGORIA c WHERE p.cantidad!=0 AND p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%';");
             List<Tag> listaTag = new List<Tag>();
@@ -242,11 +275,14 @@ namespace AeiWebServices.Permanencia
                     int.Parse(tabla["CANTIDAD"].ToString())));
             }
             conexion.cerrarConexion();
+            Log.LogInstanciar().Debug("Cerrando conexion en la base de datos");
+            Log.LogInstanciar().Debug("Terminada busqueda por Categoria");
             return listaProductos;
         }
 
         public List<Producto> buscarPorTag(String nombreTag)
         {
+            Log.LogInstanciar().Debug("Iniciando busqueda por Tag");
             ConexionSqlServer conexion = new ConexionSqlServer();
             SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd  WHERE dd.pk_producto=p.id and t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + "%';");
             List<Tag> listaTag = new List<Tag>();
@@ -260,6 +296,8 @@ namespace AeiWebServices.Permanencia
                     int.Parse(tabla["CANTIDAD"].ToString())));
             }
             conexion.cerrarConexion();
+            Log.LogInstanciar().Debug("Cerrando conexion en la base de datos");
+            Log.LogInstanciar().Debug("Terminada busqueda por nombre");
             return listaProductos;
         }
 
