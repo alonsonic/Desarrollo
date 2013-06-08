@@ -69,7 +69,7 @@ namespace AeiCliente
             MessageDialog mensajeError = new MessageDialog("Su búsqueda no retornó ningún resultado.");
             ServicioAEIClient servicioProducto = new ServicioAEIClient();
             if (comboCategoria.SelectedIndex == 0)
-                ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoAsync(textBoxBusqueda.Text);
+                ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoAplicacionAsync(textBoxBusqueda.Text);
             else
                 ListaProducto.ListaProductos = await servicioProducto.BusquedaProductoConCategoriaAsync(comboCategoria.SelectedItem.ToString(), textBoxBusqueda.Text);
 

@@ -29,6 +29,7 @@ namespace AeiCliente
 
         private async void buttonEnviar_Click(object sender, RoutedEventArgs e)
         {
+            //este codigo deberia verificarse contra la base de datos directamente?
             if (BufferUsuario.Usuario.CodigoActivacion != int.Parse(textCodigo.Text))
             {
                 MessageDialog mensajeError = new MessageDialog("El código de autorización no coincide");

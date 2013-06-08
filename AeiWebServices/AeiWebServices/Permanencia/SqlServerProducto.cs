@@ -126,6 +126,34 @@ namespace AeiWebServices.Permanencia
             Log.LogInstanciar().Error("Finalizacion de busqueda. Numero de articulos y/o pagina invalidas (no puede ser 0)"); 
             return null;
         }
+        public List<Producto> busquedaProductos(string busqueda)
+        {            
+            Log.LogInstanciar().Info("Iniciacion de busqueda: " + busqueda);
+            char[] separadores = { ' ', ',', '.', ':' };
+            string[] tags = busqueda.Split(separadores);
+            List<Producto> listaNombre = new List<Producto>();
+            List<Producto> listaCategoria = new List<Producto>();
+            List<Producto> listaTag = new List<Producto>();
+            for (int index = 0; index < tags.Length; index++)
+            {
+                listaNombre = listaNombre.Concat(buscarPorNombre(tags[index])).ToList();
+                listaCategoria = listaCategoria.Concat(buscarPorCategoria(tags[index])).ToList();
+                listaTag = listaTag.Concat(buscarPorTag(tags[index])).ToList();
+                listaNombre = listaNombre.Distinct(new Comparer()).ToList();
+                listaCategoria = listaCategoria.Distinct(new Comparer()).ToList();
+                listaTag = listaTag.Distinct(new Comparer()).ToList();
+            }
+            List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
+            listaResultado = listaResultado.Concat(listaTag).ToList();
+            listaResultado = listaResultado.Distinct(new Comparer()).ToList();
+            if (listaResultado == null)
+            {
+                Log.LogInstanciar().Error("Finalizacion de busqueda. Sin resultados. No exitosa");            
+                return null;
+            }           
+            Log.LogInstanciar().Error("Finalizacion de busqueda. Numero de articulos y/o pagina invalidas (no puede ser 0)");
+            return listaResultado; 
+        }
 
         public List<Producto> busquedaProductos(string categoriaProducto, string busqueda)
         {

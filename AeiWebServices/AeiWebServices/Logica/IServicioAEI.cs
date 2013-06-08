@@ -12,6 +12,9 @@ namespace AeiWebServices.Logica
     public interface IServicioAEI
     {
         [OperationContract]
+        List<Producto> BusquedaProductoAplicacion(string busqueda);
+
+        [OperationContract]
         Usuario eliminarMetodoPago(MetodoPago metodo, Usuario usuario);
 
         [OperationContract]
