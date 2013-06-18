@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
+using AeiWebServices.Permanencia;
 
 namespace AeiWebServices
 {
     public class ConexionSqlServer
     {
-        SqlConnection miConexion = new SqlConnection(@"Data Source=alonso-laptop; Initial Catalog = AeiBD;  User Id=admin; Password=admin;");
+        SqlConnection miConexion = new SqlConnection(@"Data Source=LYANA-PC\SQLEXPRESS; Initial Catalog = AEIBD; Integrated Security=True;");
 
 
 
@@ -22,7 +23,8 @@ namespace AeiWebServices
             }
             catch (Exception e)
             {
-                Console.WriteLine(e); 
+                Console.WriteLine(e);
+                Log.LogInstanciar().Fatal("No se pudo conectar la Base de Datos");
                 Console.WriteLine("error"); 
                 return null;
             }
@@ -43,6 +45,7 @@ namespace AeiWebServices
         }
         public SqlDataReader consultar(string query)
         {
+            Log.LogInstanciar().Debug("Iniciando conexion para consulta en la base de datos");
             SqlConnection miConexion = abrirConexion();
             if (miConexion != null)
             {
@@ -58,8 +61,10 @@ namespace AeiWebServices
                 catch
                 {
                     Console.Write("error");
+                    Log.LogInstanciar().Error("Comando de base de Datos incorrecto");
                 }
                 miConexion.Close();
+                Log.LogInstanciar().Debug("Cerrando conexion en la base de datos");
             }
             return null;
         }

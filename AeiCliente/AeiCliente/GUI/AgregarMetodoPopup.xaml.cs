@@ -30,6 +30,7 @@ namespace AeiCliente
 
         private void cargarCombos()
         {
+            //deberia estar en la logica
             comboMetodo.Items.Add("Visa");
             comboMetodo.Items.Add("Master Card");
             comboMetodo.Items.Add("American Express");

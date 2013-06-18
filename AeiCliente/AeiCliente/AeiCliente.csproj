@@ -207,17 +207,17 @@
     <None Include="Service References\ServicioAEI\AeiCliente.ServicioAEI.Usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\ServicioAEI1.wsdl" />
-    <None Include="Service References\ServicioAEI\ServicioAEI4.xsd">
+    <None Include="Service References\ServicioAEI\ServicioAEI.wsdl" />
+    <None Include="Service References\ServicioAEI\ServicioAEI.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioAEI\ServicioAEI41.xsd">
+    <None Include="Service References\ServicioAEI\ServicioAEI1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioAEI\ServicioAEI42.xsd">
+    <None Include="Service References\ServicioAEI\ServicioAEI2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicioAEI\ServicioAEI43.xsd">
+    <None Include="Service References\ServicioAEI\ServicioAEI3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -334,13 +334,13 @@
     <Content Include="Imagenes\fondoPerfilAEI.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\ServicioAEI\ServicioAEI1.disco" />
     <None Include="Service References\ServicioAEI\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\ServicioAEI\configuration.svcinfo" />
     <None Include="Service References\ServicioAEI\configuration91.svcinfo" />
+    <None Include="Service References\ServicioAEI\ServicioAEI.disco" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

@@ -107,7 +107,13 @@ namespace AeiWebServices.Permanencia
              
             return respuesta;
         }
+        static public List<Producto> getBusquedaProducto(string busqueda)
+        {
+            SqlServerProducto lista = new SqlServerProducto();
+            List<Producto> producto = lista.busquedaProductos(busqueda);
 
+            return producto;
+        }
         static public List<Producto> getBusquedaProducto(string busqueda, int pagina, int numeroArticulo)
         {
             SqlServerProducto lista = new SqlServerProducto();
