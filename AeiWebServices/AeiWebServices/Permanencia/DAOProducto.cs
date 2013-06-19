@@ -16,5 +16,7 @@ namespace AeiWebServices.Permanencia
         List<Producto> buscarPorTag(String nombreTag);
         List<Producto> buscarPorTag(String nombreTag, String categoria);
         Producto buscarPorCompra(int idCompra);
+        List<Producto> busquedaProductos(string busqueda, int pagina, int numeroArticulo);
+        List<Producto> busquedaProductos(string categoriaProducto, string busqueda);
     }
 }
