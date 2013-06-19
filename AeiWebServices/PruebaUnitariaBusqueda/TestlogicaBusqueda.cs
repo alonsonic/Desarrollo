@@ -67,7 +67,7 @@ namespace PruebaUnitariaBusqueda
         public void testBusquedaVacia()
         {
             var test_object = new logicaBusqueda();
-            listaActualBusquedaVacia = test_object.clasificarBusqueda("", 2, 3);
+            listaActualBusquedaVacia = test_object.clasificarBusqueda("***", 2, 3);
             Assert.AreEqual<List<Producto>>(listaEsperadaNull, listaActualBusquedaVacia, "No paso la prueba");
         }
 

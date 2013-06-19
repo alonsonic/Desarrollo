@@ -32,7 +32,6 @@ namespace PruebaUnitariaBusqueda
         [TestMethod]
         public void testAgregarCalificacion()
         {
-            Calificacion calificacion = new Calificacion(13, 4, "Buen juego", DateTime.Now, null);
             int respuesta = sqlCalificacion.agregarCalificacion(calificacion, 1, 1);
             Assert.AreEqual<int>(1, respuesta, "La calificación no fue agregada");
         }

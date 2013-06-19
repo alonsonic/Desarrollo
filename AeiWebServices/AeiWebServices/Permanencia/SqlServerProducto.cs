@@ -95,7 +95,7 @@ namespace AeiWebServices.Permanencia
         public List<Producto> busquedaProductos(string busqueda, int pagina, int numeroArticulo)
         {
             
-            if (pagina != 0 && numeroArticulo != 0)
+            if (pagina > 0 && numeroArticulo > 0)
             {
                 Log.LogInstanciar().Info("Iniciacion de busqueda: " + busqueda + " pagina: " + pagina
                 + "Numero de Articulos: " + numeroArticulo);  
@@ -118,12 +118,15 @@ namespace AeiWebServices.Permanencia
                 listaResultado = listaResultado.Distinct(new Comparer()).ToList();
                 if (listaResultado == null)
                 {
-                    Log.LogInstanciar().Error("Finalizacion de busqueda. Sin resultados. No exitosa"); 
+                    Log.LogInstanciar().Error("Finalizacion de busqueda. Sin resultados. No exitosa");
                     return null;
                 }
                 return enviarResultado(listaResultado, pagina, numeroArticulo);
             }
-            Log.LogInstanciar().Error("Finalizacion de busqueda. Numero de articulos y/o pagina invalidas (no puede ser 0)"); 
+            if (numeroArticulo<1)
+                Log.LogInstanciar().Error("Finalizacion de busqueda. Numero de articulos invalido (no puede ser menor a 1)"); 
+            if (pagina<1)
+                Log.LogInstanciar().Error("Finalizacion de busqueda. Numero de pagina invalido (no puede ser menor a 1)"); 
             return null;
         }
         public List<Producto> busquedaProductos(string busqueda)
