@@ -7,39 +7,12 @@ using AeiWebServices.Logica;
 
 namespace AeiWebServices.Permanencia
 {
-    public class SqlServerCompra: DAOCompra, DAODetalleCompra, DAOProducto, DAOTag, DAOCategoria, DAODireccion, DAOMetodoPago
+    public class SqlServerCompra: DAOCompra
     {
-        public int borrarMetodoPago(int idMetodoPago)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("delete Metodo_Pago where id= " + idMetodoPago.ToString() + ";");
-            conexion.cerrarConexion();
-            return respuesta;
-        }
+        private SqlServerProducto daoProducto = new SqlServerProducto();
+        private SqlServerDireccion daoDireccion = new SqlServerDireccion();
+        private SqlServerMetodoPago daoMetodoPago = new SqlServerMetodoPago();
 
-        public int modificarMontoCarrito(Compra compra, float montoNuevo)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("UPDATE COMPRA SET monto_total= "+montoNuevo.ToString()+" WHERE ID="+compra.Id.ToString()+";");
-            conexion.cerrarConexion();
-            return respuesta;
-        }
-
-        public DetalleCompra buscarEnMiCarrito(int idProducto, int idUsuario)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("");
-            SqlDataReader tabla = conexion.consultar("select dd.* from Detalle_Compra dd, Compra c where dd.fk_producto= " + idProducto.ToString() + " and c.fk_usuario= " + idUsuario + " and c.estado='C' and dd.fk_compra=c.id and dd.fk_compra=c.id;");
-            while (tabla != null && tabla.Read())
-            {
-                Producto producto = buscarPorCompra(int.Parse(tabla["ID"].ToString()));
-                DetalleCompra resultado = new DetalleCompra(int.Parse(tabla["ID"].ToString()), float.Parse(tabla["MONTO"].ToString()), int.Parse(tabla["CANTIDAD"].ToString()), producto);
-                conexion.cerrarConexion();
-                return resultado;
-            }
-            conexion.cerrarConexion();
-            return null;
-        }
 
         public int cambiarCantidadProducto(int idProducto, int cantidad)
         {
@@ -60,330 +33,10 @@ namespace AeiWebServices.Permanencia
             return respuesta;
         }
 
-        public int borrarDetalleCompra(Compra compra,DetalleCompra detalle)
+        public int modificarMontoCarrito(Compra compra, float montoNuevo)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            float montoNuevo=compra.MontoTotal-(detalle.Monto*detalle.Cantidad);
-            int respuesta = 0;
-            if (modificarMontoCarrito(compra, montoNuevo)==1)
-            {
-                respuesta = conexion.insertar("DELETE FROM DETALLE_COMPRA WHERE ID=" + detalle.Id.ToString() + "");
-            }
-            conexion.cerrarConexion();
-            return respuesta;
-        }
-
-        public int agregarDetalleCompra(int idCompra, DetalleCompra detalleCompra)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("INSERT INTO Detalle_Compra (id,monto,cantidad,fk_compra,fk_producto) VALUES (NEXT VALUE FOR seq_detalle_compra," + detalleCompra.Monto.ToString() + "," + detalleCompra.Cantidad.ToString() + "," + idCompra.ToString() + "," + detalleCompra.Producto.Id.ToString() + ");");
-            conexion.cerrarConexion();
-            return respuesta;
-        }
-
-        public int agregarMetodoPago(MetodoPago metodo, int idUsuario)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("INSERT INTO Metodo_Pago (id, numero,marca,fecha_vencimiento,fk_usuario) VALUES (NEXT VALUE FOR seq_metodo_pago," + metodo.Numero.ToString() + ",'" + metodo.Marca + "','" + metodo.FechaVencimiento.ToString("yyyy-MM-dd") + "'," + idUsuario + ")");
-            conexion.cerrarConexion();
-            return respuesta;
-        }
-
-        public List<MetodoPago> consultarAllMetodosPago(int idUsuario)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("select m.*, (SELECT CONVERT(VARCHAR(19), m.fecha_vencimiento, 120)) as fecha from Metodo_Pago AS m where m.status is null and m.fk_usuario=" + idUsuario.ToString() + ";");
-            List<MetodoPago> lista = new List<MetodoPago>();
-            while (tabla!=null && tabla.Read())
-            {
-                lista.Add(new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHA"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString(), tabla["STATUS"].ToString()));
-            }
-            conexion.cerrarConexion();
-            return lista;
-        }
-
-        public MetodoPago consultarMetodosPagoDeCompra(int idCompra)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            MetodoPago resultado = null;
-            SqlDataReader tabla = conexion.consultar("SELECT mp.* , (SELECT CONVERT(VARCHAR(19), mp.fecha_vencimiento, 120)) as fechaVenc FROM Metodo_Pago mp, COMPRA c WHERE c.fk_METODOPAGO = mp.ID AND C.ID =" + idCompra + "");
-            while (tabla!=null && tabla.Read())
-            {
-                resultado = new MetodoPago(int.Parse(tabla["ID"].ToString()), tabla["NUMERO"].ToString(), DateTime.ParseExact(tabla["FECHAVENC"].ToString(), "yyyy-MM-dd", null), tabla["MARCA"].ToString(), tabla["STATUS"].ToString());
-                conexion.cerrarConexion();
-                return resultado;
-            }
-            conexion.cerrarConexion();
-            return null;
-        }
-
-        public int modificarMetodoPago(MetodoPago metodoModificado, int idMetodoActual, int idUsuario)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("UPDATE METODO_PAGO SET numero=" + metodoModificado.Numero.ToString() + ",marca='" + metodoModificado.Marca + "',fecha_vencimiento='" + metodoModificado.FechaVencimiento.ToString() + "' where id=" + idMetodoActual.ToString() + " and fk_usuario=" + idUsuario.ToString() + "");
-            conexion.cerrarConexion();
-            return respuesta;
-        }
-        public int AgregarDireccionUsuario(int idUsuario, int idDireccion, Direccion direccion)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("INSERT INTO Detalle_Direccion (id,descripcion,codigo_postal,status,fk_direccion, fk_usuario)  VALUES (NEXT VALUE FOR seq_detalle_direccion, '" + direccion.Descripcion + "'," + direccion.CodigoPostal.ToString() + ",'" + direccion.Status + "'," + idDireccion.ToString() + "," + idUsuario.ToString() + ");");
-            conexion.cerrarConexion();
-            return respuesta;
-        }
-        public List<Direccion> ConsultarDireccion(int idUsuario)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("select dd.id AS id, p.nombre AS pais, e.nombre AS estado, c.nombre AS ciudad, dd.codigo_postal AS codigo_postal, dd.descripcion AS descripcion, dd.status AS status from detalle_direccion dd, direccion c, direccion e, direccion p where p.id=e.fk_id AND e.id=c.fk_id AND c.id=dd.fk_direccion AND dd.fk_usuario=" + idUsuario.ToString() + ";");
-            List<Direccion> lista = new List<Direccion>();
-            while (tabla!=null && tabla.Read())
-            {
-                lista.Add(new Direccion(int.Parse(tabla["ID"].ToString()), tabla["PAIS"].ToString(), tabla["ESTADO"].ToString(), tabla["CIUDAD"].ToString(), int.Parse(tabla["CODIGO_POSTAL"].ToString()), tabla["DESCRIPCION"].ToString(), tabla["STATUS"].ToString()));
-            }
-            conexion.cerrarConexion();
-            return lista;
-        }
-
-        public Direccion ConsultarDireccionDeCompra(int idCompra)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            Direccion resultado = null;
-            SqlDataReader tabla = conexion.consultar("select c.id AS id, p.nombre AS pais, e.nombre AS estado, c.nombre AS ciudad, dd.codigo_postal AS codigo_postal, dd.descripcion AS descripcion, dd.status AS status, cp.id AS idcompra from detalle_direccion dd, direccion c, direccion e, direccion p, COMPRA cp where p.id=e.fk_id AND e.id=c.fk_id AND c.id=dd.fk_direccion AND cp.ID=" + idCompra.ToString() + ";");
-            while (tabla!=null && tabla.Read())
-            {
-                resultado = new Direccion(int.Parse(tabla["ID"].ToString()), tabla["PAIS"].ToString(), tabla["ESTADO"].ToString(), tabla["CIUDAD"].ToString(), int.Parse(tabla["CODIGO_POSTAL"].ToString()), tabla["DESCRIPCION"].ToString(), tabla["STATUS"].ToString());
-            }
-            conexion.cerrarConexion();
-            return resultado;
-        }
-
-        public int modificarDireccion(int idDireccion, Direccion direccionModificada)
-        {
-            return 0;
-        }
-
-        public List<Tag> buscarTagPorProducto(int idproducto)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("select t.* from tag t, detalle_tag dt, producto p where t.id = dt.pk_tag AND p.id = dt.pk_producto and p.id =" + idproducto.ToString() + ";");
-            List<Tag> listaresultado = new List<Tag>();
-            while (tabla!=null && tabla.Read())
-            {
-                listaresultado.Add(new Tag(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString()));
-
-            }
-            conexion.cerrarConexion();
-            return listaresultado;
-        }
-
-        public List<Categoria> categorias()
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("select * from categoria;");
-            List<Categoria> listaresultado = new List<Categoria>();
-            while (tabla!=null && tabla.Read())
-            {
-                listaresultado.Add(new Categoria(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString()));
-
-            }
-            conexion.cerrarConexion();
-            return listaresultado;
-        }
-
-        public Categoria buscarCategoriaPorProducto(int idProducto)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("select * from categoria c, producto p where p.fk_categoria = c.id AND p.id = " + idProducto + ";");
-
-            while (tabla!=null && tabla.Read())
-            {
-                Categoria resultado = new Categoria(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString());
-                conexion.cerrarConexion();
-                return resultado;
-            }
-            conexion.cerrarConexion();
-            return null;
-        }
-
-        public int updateCantidad(int idProducto, int cantidadEnExistencia)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("UPDATE PRODUCTO SET CANTIDAD=" + cantidadEnExistencia + " WHERE ID=" + idProducto + ";");
-            conexion.cerrarConexion();
-            return respuesta;        
-        }
-
-        public List<Producto> consultarProductos(int pagina, int numeroArticulo)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO;");
-            List<Tag> listaTag = new List<Tag>();
-            List<Producto> listaProductos = new List<Producto>();
-            while (tabla!=null && tabla.Read())
-            {
-                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
-                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
-                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
-                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
-                    int.Parse(tabla["CANTIDAD"].ToString())));
-            }
-            conexion.cerrarConexion();
-            return listaProductos;
-        }
-        public List<Producto> busquedaProductos(string busqueda)
-        {
-            char[] separadores = { ' ', ',', '.', ':' };
-            string[] tags = busqueda.Split(separadores);
-            List<Producto> listaNombre = new List<Producto>();
-            List<Producto> listaCategoria = new List<Producto>();
-            List<Producto> listaTag = new List<Producto>();
-            for (int index = 0; index < tags.Length; index++)
-            {
-                listaNombre = listaNombre.Concat(buscarPorNombre(tags[index])).ToList();
-                listaCategoria = listaCategoria.Concat(buscarPorCategoria(tags[index])).ToList();
-                listaTag = listaTag.Concat(buscarPorTag(tags[index])).ToList();
-                listaNombre = listaNombre.Distinct(new Comparer()).ToList();
-                listaCategoria = listaCategoria.Distinct(new Comparer()).ToList();
-                listaTag = listaTag.Distinct(new Comparer()).ToList();
-            }
-            List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
-            listaResultado = listaResultado.Concat(listaTag).ToList();
-            listaResultado = listaResultado.Distinct(new Comparer()).ToList();
-            return listaResultado;
-        }
-        public List<Producto> busquedaProductos(string categoriaProducto, string busqueda)
-        {
-            char[] separadores = { ' ', ',', '.', ':' };
-            string[] tags = busqueda.Split(separadores);
-            List<Producto> listaNombre = new List<Producto>();
-            List<Producto> listaTag = new List<Producto>();
-            for (int index = 0; index < tags.Length; index++)
-            {
-                listaNombre = listaNombre.Concat(buscarPorNombre(tags[index], categoriaProducto)).ToList();
-                listaTag = listaTag.Concat(buscarPorTag(tags[index], categoriaProducto)).ToList();
-                listaNombre = listaNombre.Distinct(new Comparer()).ToList();
-                listaTag = listaTag.Distinct(new Comparer()).ToList();
-            }
-            List<Producto> listaResultado = listaNombre.Concat(listaTag).ToList();
-            listaResultado = listaResultado.Distinct(new Comparer()).ToList();
-            return listaResultado;
-
-        }
-
-        public List<Producto> buscarPorNombre(string nombre, string nombreCategoria)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO, CATEGORIA c WHERE NOMBRE LIKE '%" + nombre + "%' AND p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%'");
-            List<Tag> listaTag = new List<Tag>();
-            List<Producto> listaProductos = new List<Producto>();
-            while (tabla!=null && tabla.Read())
-            {
-                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
-                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
-                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
-                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
-                    int.Parse(tabla["CANTIDAD"].ToString())));
-            }
-            conexion.cerrarConexion();
-            return listaProductos;
-        }
-        public List<Producto> buscarPorTag(string nombreTag, string nombreCategoria)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd,Categoria c  WHERE p.FK_CATEGORIA = c.ID AND dd.pk_producto=p.id AND t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + " AND %'c.NOMBRE LIKE '%" + nombreCategoria + "%';");
-            List<Tag> listaTag = new List<Tag>();
-            List<Producto> listaProductos = new List<Producto>();
-            while (tabla!=null && tabla.Read())
-            {
-                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
-                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
-                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
-                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
-                    int.Parse(tabla["CANTIDAD"].ToString())));
-            }
-            conexion.cerrarConexion();
-            return listaProductos;
-        }
-
-        public List<Producto> buscarPorNombre(String nombre)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT * FROM PRODUCTO WHERE NOMBRE LIKE '%" + nombre + "%';");
-            List<Tag> listaTag = new List<Tag>();
-            List<Producto> listaProductos = new List<Producto>();
-            while (tabla!=null && tabla.Read())
-            {
-                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
-                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
-                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
-                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
-                    int.Parse(tabla["CANTIDAD"].ToString())));
-            }
-            conexion.cerrarConexion();
-            return listaProductos;
-        }
-
-
-        public List<Producto> buscarPorCategoria(String nombreCategoria)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, CATEGORIA c WHERE p.cantidad!=0 and p.FK_CATEGORIA = c.ID AND c.NOMBRE LIKE '%" + nombreCategoria + "%';");
-            List<Tag> listaTag = new List<Tag>();
-            List<Producto> listaProductos = new List<Producto>();
-            while (tabla!=null && tabla.Read())
-            {
-                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
-                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
-                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
-                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
-                    int.Parse(tabla["CANTIDAD"].ToString())));
-            }
-            conexion.cerrarConexion();
-            return listaProductos;
-        }
-
-        public Producto buscarPorCompra(int idDetalleCompra)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM COMPRA c, PRODUCTO p, DETALLE_COMPRA dc WHERE p.ID = dc.FK_PRODUCTO AND C.id = dc.FK_COMPRA AND dc.id=" + idDetalleCompra.ToString() + ";");
-            List<Tag> listaTag = new List<Tag>();
-            while (tabla!=null && tabla.Read())
-            {
-                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
-                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
-                Producto resultado = new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
-                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
-                    int.Parse(tabla["CANTIDAD"].ToString()));
-                resultado.Etiquetas = buscarTagPorProducto(resultado.Id);
-                conexion.cerrarConexion();
-                return resultado;
-            }
-            conexion.cerrarConexion();
-            return null;
-        }
-
-        public List<Producto> buscarPorTag(String nombreTag)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd  WHERE dd.pk_producto=p.id and t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + "%';");
-            List<Tag> listaTag = new List<Tag>();
-            List<Producto> listaProductos = new List<Producto>();
-            while (tabla!=null && tabla.Read())
-            {
-                listaTag = buscarTagPorProducto(int.Parse(tabla["ID"].ToString()));
-                Categoria categoria = buscarCategoriaPorProducto(int.Parse(tabla["ID"].ToString()));
-                listaProductos.Add(new Producto(int.Parse(tabla["ID"].ToString()), tabla["NOMBRE"].ToString(), tabla["DESCRIPCION"].ToString(),
-                    float.Parse(tabla["PRECIO"].ToString()), tabla["IMAGENMINIATURA"].ToString(), tabla["IMAGENDETALLE"].ToString(), categoria,
-                    int.Parse(tabla["CANTIDAD"].ToString())));
-            }
-            conexion.cerrarConexion();
-            return listaProductos;
-        }
-
-        public int agregarCalificacion(int idProducto, Calificacion calificacion)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer(); 
-            int respuesta = conexion.insertar("INSERT INTO Calificacion ( ID, DETALLE, PUNTAJE, FK_USUARIO, FK_PRODUCTO, FECHA) VALUES (NEXT VALUE FOR SEQ_CALIFICACION,'" + calificacion.Comentario + "', " + calificacion.Puntaje.ToString() + ", " + calificacion.Usuario.Id.ToString() + ", " + idProducto.ToString() + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "');");
+            int respuesta = conexion.insertar("UPDATE COMPRA SET monto_total= " + montoNuevo.ToString() + " WHERE ID=" + compra.Id.ToString() + ";");
             conexion.cerrarConexion();
             return respuesta;
         }
@@ -395,7 +48,7 @@ namespace AeiWebServices.Permanencia
             List<DetalleCompra> resultado = new List<DetalleCompra>();
             while (tabla!=null && tabla.Read())
             { 
-                Producto producto = buscarPorCompra(int.Parse(tabla["ID"].ToString()));
+                Producto producto = daoProducto.buscarPorCompra(int.Parse(tabla["ID"].ToString()));
                 resultado.Add(new DetalleCompra(int.Parse(tabla["ID"].ToString()),float.Parse(tabla["MONTO"].ToString()), int.Parse(tabla["CANTIDAD"].ToString()), producto));
             }
             conexion.cerrarConexion();
@@ -428,8 +81,8 @@ namespace AeiWebServices.Permanencia
             while (tabla!=null && tabla.Read())
             {
                 List<DetalleCompra> listaDetalleCompra = buscarDetalleCompra(int.Parse(tabla["ID"].ToString()));
-                Direccion direccion = ConsultarDireccionDeCompra(int.Parse(tabla["ID"].ToString()));
-                MetodoPago metodoPago = consultarMetodosPagoDeCompra(int.Parse(tabla["ID"].ToString()));
+                Direccion direccion = daoDireccion.ConsultarDireccionDeCompra(int.Parse(tabla["ID"].ToString()));
+                MetodoPago metodoPago = daoMetodoPago.consultarMetodosPagoDeCompra(int.Parse(tabla["ID"].ToString()));
                 listaCompras.Add(new Compra(int.Parse(tabla["ID"].ToString()), float.Parse(tabla["MONTO_TOTAL"].ToString()),
                     DateTime.ParseExact(tabla["FECHASOL"].ToString(), "yyyy-MM-dd", null),
                     DateTime.ParseExact(tabla["FECHAENT"].ToString(), "yyyy-MM-dd", null), tabla["ESTADO"].ToString(), metodoPago,
@@ -465,31 +118,6 @@ namespace AeiWebServices.Permanencia
             return respuesta;
         }
 
-        public List<Direccion> consultarEstados()
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT * FROM DIRECCION WHERE NIVEL = 'e';");
-            List<Direccion> listaDireccion = new List<Direccion>();
-            while (tabla!=null && tabla.Read())
-            {
-                listaDireccion.Add(new Direccion(int.Parse(tabla["ID"].ToString()), null, tabla["NOMBRE"].ToString(), null, -1, null, null));
-            }
-            conexion.cerrarConexion();
-            return listaDireccion;
-        }
-
-        public List<Direccion> consultarCiudad(int idEstado)
-        {
-            ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT e.NOMBRE as ESTADO , c.* FROM DIRECCION , DIRECCION c WHERE c.NIVEL = 'c' AND c.FKID = e.ID AND e.ID=" + idEstado.ToString() + ";");
-            List<Direccion> listaDireccion = new List<Direccion>();
-            while (tabla!=null && tabla.Read())
-            {
-                listaDireccion.Add(new Direccion(int.Parse(tabla["ID"].ToString()), null, tabla["ESTADO"].ToString(), tabla["NOMBRE"].ToString(), -1, null, null));
-            }
-            conexion.cerrarConexion();
-            return listaDireccion;
-        }
 
     }
 }

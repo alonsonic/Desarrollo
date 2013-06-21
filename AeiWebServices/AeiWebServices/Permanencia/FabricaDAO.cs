@@ -49,7 +49,7 @@ namespace AeiWebServices.Permanencia
         }
         static public int setEliminarDetalleCarrito(Compra compra, DetalleCompra detalle)
         {
-            SqlServerCompra resultado = new SqlServerCompra();
+            SqlServerDetalleCompra resultado = new SqlServerDetalleCompra();
             int respuesta = resultado.borrarDetalleCompra(compra, detalle);
             return respuesta;
         }
@@ -107,7 +107,13 @@ namespace AeiWebServices.Permanencia
              
             return respuesta;
         }
+        static public List<Producto> getBusquedaProducto(string busqueda)
+        {
+            SqlServerProducto lista = new SqlServerProducto();
+            List<Producto> producto = lista.busquedaProductos(busqueda);
 
+            return producto;
+        }
         static public List<Producto> getBusquedaProducto(string busqueda, int pagina, int numeroArticulo)
         {
             SqlServerProducto lista = new SqlServerProducto();
@@ -201,7 +207,7 @@ namespace AeiWebServices.Permanencia
 
         static public int setEstadoDeCompra(Compra compra)
         {
-            SqlServerProducto resultado = new SqlServerProducto();
+            SqlServerCompra resultado = new SqlServerCompra();
             int respuesta= resultado.modificarEstadoDeCompra(compra);             
             return respuesta;
         }

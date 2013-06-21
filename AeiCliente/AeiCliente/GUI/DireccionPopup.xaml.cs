@@ -89,7 +89,6 @@ namespace AeiCliente
 
         private async void comboBoxEstado_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-
             comboBoxCiudad.Items.Clear();
             comboBoxCiudad.Items.Add("Seleccion");
             comboBoxCiudad.SelectedIndex=0;
