@@ -12,18 +12,11 @@ using log4net.Config;
 
 namespace AeiWebServices.Permanencia
 {
-<<<<<<< HEAD
     public class SqlServerProducto: DAOProducto
     {
         private SqlServerTag daoTag = new SqlServerTag();
         private SqlServerCategoria daoCategotia = new SqlServerCategoria();
-        
-        private Boolean validarRango(int pagina, int limite)
-=======
     
-
-    public class SqlServerProducto: DAOProducto,DAOTag,DAOCategoria, DAOMetodoPago, DAOCalificacion, DAOUsuario
-    {
 
         public int borrarMetodoPago(int idMetodoPago)
         {
@@ -68,16 +61,13 @@ namespace AeiWebServices.Permanencia
         }
 
         public Boolean validarRango(int pagina, int limite)
->>>>>>> e0feaf8363fd88521504efaf81259d8e874da91a
         {
             double d = (double)limite / (double)pagina;
             double resultado = Math.Round(d);
             if (resultado < pagina) return false;
             return true;
         }
-<<<<<<< HEAD
-        private List<Producto> enviarResultado(List<Producto> busqueda, int pagina, int numeroArticulo)
-=======
+
         public void imprimirProducto(List<Producto> busqueda)
         {
             foreach (Producto item in busqueda)
@@ -86,7 +76,7 @@ namespace AeiWebServices.Permanencia
             }
         }
         public List<Producto> enviarResultado(List<Producto> busqueda, int pagina, int numeroArticulo)
->>>>>>> e0feaf8363fd88521504efaf81259d8e874da91a
+
         {
             int limite = busqueda.Count;
             int fin = (pagina * numeroArticulo);
@@ -232,9 +222,6 @@ namespace AeiWebServices.Permanencia
             return listaProductos;
         }
 
-<<<<<<< HEAD
-        
-=======
         public List<Tag> buscarTagPorProducto(int idproducto)
         {
             Log.LogInstanciar().Debug("Iniciando busqueda de los Tag del producto: "+idproducto);
@@ -252,8 +239,6 @@ namespace AeiWebServices.Permanencia
             return listaresultado;
         }
 
-
->>>>>>> e0feaf8363fd88521504efaf81259d8e874da91a
         public int updateCantidad(int idProducto, int cantidadEnExistencia)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
