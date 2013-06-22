@@ -9,6 +9,7 @@ namespace AeiWebServices.Permanencia
 {
     public class SqlServerCalificacion : DAOCalificacion
     {
+        private SqlServerUsuario daoUsuario = new SqlServerUsuario();
 
         public int agregarCalificacion(Calificacion calificacion, int idUsuario, int idProducto)
         {
@@ -28,7 +29,7 @@ namespace AeiWebServices.Permanencia
             Usuario usuario = new Usuario();
             while (tabla != null && tabla.Read())
             {
-                usuario = consultarUsuario(int.Parse(tabla["FK_USUARIO"].ToString()));
+                usuario = daoUsuario.consultarUsuario(int.Parse(tabla["FK_USUARIO"].ToString()));
                 listaresultado.Add(new Calificacion(int.Parse(tabla["ID"].ToString()), int.Parse(tabla["PUNTAJE"].ToString()), tabla["DETALLE"].ToString(), DateTime.ParseExact(tabla["FECHACALI"].ToString(), "yyyy-MM-dd", null), usuario));
             }
             conexion.cerrarConexion();
