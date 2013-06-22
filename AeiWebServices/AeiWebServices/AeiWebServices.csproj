@@ -72,6 +72,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Data.Services.Client.5.0.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Spatial, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -122,6 +125,7 @@
     <Compile Include="Logica\IServicioAEI.cs" />
     <Compile Include="Logica\IServicioBusqueda.cs" />
     <Compile Include="Logica\logicaBusqueda.cs" />
+    <Compile Include="Logica\RestLogicaBusqueda.cs" />
     <Compile Include="Logica\ServicioAEI.svc.cs">
       <DependentUpon>ServicioAEI.svc</DependentUpon>
     </Compile>
