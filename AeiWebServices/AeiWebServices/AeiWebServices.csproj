@@ -77,6 +77,8 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing.Design" />
@@ -129,6 +131,7 @@
     <Compile Include="Logica\IServicioAEI.cs" />
     <Compile Include="Logica\IServicioBusqueda.cs" />
     <Compile Include="Logica\logicaBusqueda.cs" />
+    <Compile Include="Logica\RestLogicaBusqueda.cs" />
     <Compile Include="Logica\ServicioAEI.svc.cs">
       <DependentUpon>ServicioAEI.svc</DependentUpon>
     </Compile>
