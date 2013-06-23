@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using AeiMobile.ServicioAEI;
 
 namespace AeiMobile
 {
@@ -31,6 +32,16 @@ namespace AeiMobile
                 StoryMenuAbrir.Begin();
                 menuAbierto = true;
             }
+        }
+
+        private void buttonBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(this.textBuscador.Text)==false)
+            {
+                NavigationService.Navigate(new Uri("/ProductosPage.xaml", UriKind.Relative));
+                
+            }
+
         }
     }
 }

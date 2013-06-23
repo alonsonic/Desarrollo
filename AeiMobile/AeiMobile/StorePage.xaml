@@ -108,7 +108,7 @@
 			<Rectangle x:Name="rectangulo" Fill="#FFF46526" HorizontalAlignment="Left" Height="73" Margin="0,153,0,0" Stroke="#FFF46526" VerticalAlignment="Top" Width="456"/>
 			<TextBox x:Name="textBuscador" HorizontalAlignment="Left" Height="72" Margin="0,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="337"/>
 			<TextBlock x:Name="textBlockBuscar" HorizontalAlignment="Left" Height="85" Margin="0,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" FontSize="53.333" Text="Buscar" Foreground="#FF3A3A3A"/>
-			<Button x:Name="buttonBuscar" Content="Buscar" HorizontalAlignment="Left" Height="72" Margin="323,153,-4,0" VerticalAlignment="Top" Width="137"/>
+			<Button x:Name="buttonBuscar" Content="Buscar" HorizontalAlignment="Left" Height="72" Margin="323,153,-4,0" VerticalAlignment="Top" Width="137" Click="buttonBuscar_Click"/>
 		</Grid>
 		<Grid x:Name="Menu" HorizontalAlignment="Left" Height="480" VerticalAlignment="Top" Width="480" Margin="0,-484,0,0" RenderTransformOrigin="0.5,0.5">
 			<Grid.ColumnDefinitions>

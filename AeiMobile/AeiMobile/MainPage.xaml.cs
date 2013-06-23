@@ -36,6 +36,7 @@ namespace AeiMobile
             {
                 usuario = a.Result;
                 Console.WriteLine("bLA");
+                NavigationService.Navigate(new Uri("/StorePage.xaml", UriKind.Relative));
             };
         }
     }
