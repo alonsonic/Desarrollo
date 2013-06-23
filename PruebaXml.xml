@@ -1,80 +1,173 @@
-<productoes>
-<producto>
-<id>53</id>
-<nombreProducto>
-Akribos XXIV Womens AK560WT Quartz Multi-Function Genuine Leather Watch
-</nombreProducto>
-<descripcionProducto>Reloj de mujer</descripcionProducto>
-<precioProducto>440.0</precioProducto>
-</producto>
-<producto>
-<id>39</id>
-<nombreProducto>
-Alessi Mens AL10012 Kaj Polyurethane Light Blue Designed by Karim Rashid Watch
-</nombreProducto>
-<descripcionProducto>Reloj de hombre</descripcionProducto>
-<precioProducto>320.0</precioProducto>
-</producto>
-<producto>
-<id>14</id>
-<nombreProducto>
-Alpinestars Mens (Betlen Classic Tee) Short Sleeve Graphic T-Shirt Black
-</nombreProducto>
-<descripcionProducto>Camisa de hombre</descripcionProducto>
-<precioProducto>200.0</precioProducto>
-</producto>
-<producto>
-<id>15</id>
-<nombreProducto>
-Alpinestars Mens (Chest Blaze Classic Tee) Graphic T-Shirt Navy Blue
-</nombreProducto>
-<descripcionProducto>Camisa de hombre</descripcionProducto>
-<precioProducto>220.0</precioProducto>
-</producto>
-<producto>
-<id>20</id>
-<nombreProducto>
-Alpinestars Mens (One Day Custom Tee) Short Sleeve Graphic T-Shirt Black
-</nombreProducto>
-<descripcionProducto>Camisa de hombre</descripcionProducto>
-<precioProducto>250.0</precioProducto>
-</producto>
-<producto>
-<id>43</id>
-<nombreProducto>
-Android Mens AD267BRL Octopuz Automatic Red Dial Watch
-</nombreProducto>
-<descripcionProducto>Reloj de hombre</descripcionProducto>
-<precioProducto>340.0</precioProducto>
-</producto>
-<producto>
-<id>126</id>
-<nombreProducto>Angry Birds Star Wars Fighter Pods Early Bird Pack</nombreProducto>
-<descripcionProducto>Juguete</descripcionProducto>
-<precioProducto>300.0</precioProducto>
-</producto>
-<producto>
-<id>91</id>
-<nombreProducto>
-Apple iPad 2 MC769LL/A Tablet (16GB, WiFi, Black) 2nd Generation
-</nombreProducto>
-<descripcionProducto>Tablet</descripcionProducto>
-<precioProducto>6000.0</precioProducto>
-</producto>
-<producto>
-<id>86</id>
-<nombreProducto>
-Apple iPad MC705LL/A (16GB, Wi-Fi, Black) 3rd Generation
-</nombreProducto>
-<descripcionProducto>Tablet</descripcionProducto>
-<precioProducto>7000.0</precioProducto>
-</producto>
-<producto>
-<id>92</id>
-<nombreProducto>
-Apple iPad Mini MD528LL/A, MD528E/A (16GB, Wi-Fi, Black)
-</nombreProducto>
-<descripcionProducto>Tablet</descripcionProducto>
-<precioProducto>5000.0</precioProducto>
-</producto>
-</productoes>
+<list>
+<productos id="57">
+<archivo>
+192.168.56.1:3306/GrailsApplication3/images/gps/garmin50_1.jpg
+</archivo>
+<calificaciones/>
+<categoria id="3"/>
+<descripcion>
+Free lifetime maps with over 6 million points of interest; Hear spoken street names
+</descripcion>
+<detalles/>
+<directorio>/images/gps</directorio>
+<imagenes>
+<imagen id="248"/>
+</imagenes>
+<nombre>GPS Garmin nüvi 50LM 5-Inch Portable GPS</nombre>
+<precio>1499</precio>
+</productos>
+<productos id="58">
+<archivo>
+192.168.56.1:3306/GrailsApplication3/images/gps/garmin40_1.jpg
+</archivo>
+<calificaciones/>
+<categoria id="3"/>
+<descripcion>Accepts data cards: microSD card (not included)</descripcion>
+<detalles/>
+<directorio>/images/gps</directorio>
+<imagenes>
+<imagen id="249"/>
+</imagenes>
+<nombre>GPS Garmin nüvi 40LM 4.3-Inch</nombre>
+<precio>1250</precio>
+</productos>
+<productos id="59">
+<archivo>
+192.168.56.1:3306/GrailsApplication3/images/gps/garmin50_1.jpg
+</archivo>
+<calificaciones/>
+<categoria id="3"/>
+<descripcion>
+Voice prompted turn-by-turn directions with spoken street names: "Turn right on Main Street"
+</descripcion>
+<detalles/>
+<directorio>/images/gps</directorio>
+<imagenes>
+<imagen id="250"/>
+</imagenes>
+<nombre>GPS Garmin nüvi 52LM 5-Inch Portable</nombre>
+<precio>1750</precio>
+</productos>
+<productos id="60">
+<archivo>
+192.168.56.1:3306/GrailsApplication3/images/gps/garmin1350_1.jpg
+</archivo>
+<calificaciones/>
+<categoria id="3"/>
+<descripcion>
+Sunlight-readable, 4.3-inch backlit TFT color touchscreen display with 480 x 272 WQVGA pixel resolution,Battery life: up to 4 hours
+</descripcion>
+<detalles/>
+<directorio>/images/gps</directorio>
+<imagenes>
+<imagen id="252"/>
+<imagen id="251"/>
+</imagenes>
+<nombre>GPS Garmin nüvi 1350LMT</nombre>
+<precio>2150</precio>
+</productos>
+<productos id="61">
+<archivo>
+192.168.56.1:3306/GrailsApplication3/images/gps/garmin2500_1.jpg
+</archivo>
+<calificaciones/>
+<categoria id="3"/>
+<descripcion>
+Lane assist with photoReal junction views,Display resolution: 480 x 272 pixels
+</descripcion>
+<detalles/>
+<directorio>/images/gps</directorio>
+<imagenes>
+<imagen id="254"/>
+<imagen id="253"/>
+</imagenes>
+<nombre>GPS Garmin nüvi 2555LMT 5-Inch</nombre>
+<precio>2490</precio>
+</productos>
+<productos id="62">
+<archivo>
+192.168.56.1:3306/GrailsApplication3/images/gps/garmin2597_1.jpg
+</archivo>
+<calificaciones/>
+<categoria id="3"/>
+<descripcion>
+Easy-to-use, dual orientation, touchscreen interface
+</descripcion>
+<detalles/>
+<directorio>/images/gps</directorio>
+<imagenes>
+<imagen id="255"/>
+<imagen id="256"/>
+</imagenes>
+<nombre>GPS Garmin nüvi 2597LMT</nombre>
+<precio>2170</precio>
+</productos>
+<productos id="63">
+<archivo>
+192.168.56.1:3306/GrailsApplication3/images/gps/garmin2400_1.jpg
+</archivo>
+<calificaciones/>
+<categoria id="3"/>
+<descripcion>
+Speed limit indicator unit displays speed limits for most major roads.
+</descripcion>
+<detalles/>
+<directorio>/images/gps</directorio>
+<imagenes>
+<imagen id="257"/>
+<imagen id="258"/>
+</imagenes>
+<nombre>GPS Garmin nüvi 2455LMT</nombre>
+<precio>2820</precio>
+</productos>
+<productos id="64">
+<archivo>
+192.168.56.1:3306/GrailsApplication3/images/gps/garmin3590_1.jpg
+</archivo>
+<calificaciones/>
+<categoria id="3"/>
+<descripcion>Dual-orientation 5.0" color touchscreen</descripcion>
+<detalles/>
+<directorio>/images/gps</directorio>
+<imagenes>
+<imagen id="259"/>
+<imagen id="260"/>
+</imagenes>
+<nombre>GPS Garmin nüvi 3590LMT</nombre>
+<precio>2990</precio>
+</productos>
+<productos id="65">
+<archivo>
+192.168.56.1:3306/GrailsApplication3/images/gps/garmin2595_1.jpg
+</archivo>
+<calificaciones/>
+<categoria id="3"/>
+<descripcion>Lane assist with photoReal junction views.</descripcion>
+<detalles/>
+<directorio>/images/gps</directorio>
+<imagenes>
+<imagen id="262"/>
+<imagen id="261"/>
+</imagenes>
+<nombre>GPS Garmin nüvi 2595LMT</nombre>
+<precio>1970</precio>
+</productos>
+<productos id="66">
+<archivo>
+192.168.56.1:3306/GrailsApplication3/images/gps/garmin1490_1.jpg
+</archivo>
+<calificaciones/>
+<categoria id="3"/>
+<descripcion>
+Sunlight-readable, 5-inch backlit TFT color touchscreen display with 480 x 272 WQVGA pixel resolution
+</descripcion>
+<detalles/>
+<directorio>/images/gps</directorio>
+<imagenes>
+<imagen id="263"/>
+<imagen id="264"/>
+</imagenes>
+<nombre>GPS Garmin nüvi 1490LMT</nombre>
+<precio>2150</precio>
+</productos>
+</list>

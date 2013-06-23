@@ -8,10 +8,10 @@ using System.Xml;
 
 namespace AeiWebServices.Logica
 {
-    public class RestLogicaBusqueda
+    public static class RestLogicaBusqueda
     {
 
-        private XmlDocument recibirXml(string ruta)
+        private static XmlDocument recibirXml(string ruta)
         {
             HttpWebRequest req = WebRequest.Create(ruta) as HttpWebRequest;
             string result = null;
@@ -26,18 +26,22 @@ namespace AeiWebServices.Logica
             return xmlRest;
         }
 
-        public List<Producto> listaProductos(string ipServidorRest, string parametrosBusquedad)
+        public static List<Producto> listaProductos(string ipWebServer, string puertoWebServer,string parametrosBusquedad, string pagina)
         {
             List<Producto> listaProductos = new List<Producto>();
-            string ruta = "http://" + ipServidorRest + ":3306/GrailsApplication3/productos/rest/"+ parametrosBusquedad;
+            string ruta = "http://" + ipWebServer + ":" + puertoWebServer + "/GrailsApplication3/productos/rest/" + parametrosBusquedad + "," + pagina;
             XmlDocument xmlRest = recibirXml(ruta);
  
-            /**** LOS PARAMETROS DEL XML HAY Q ARREGLARLOS PARA EL XML DEL EQUIPO Q NOS TOCO ******/
-            XmlNodeList Productos = xmlRest.GetElementsByTagName("productoes");
-            XmlNodeList lista = ((XmlElement)Productos[0]).GetElementsByTagName("producto");
+            /**** FAlTA MANEJAR LAS IMAGENES RECORDAR!!!!!! ******/
+            XmlNodeList productos = xmlRest.GetElementsByTagName("list");
+            XmlNodeList lista = ((XmlElement)productos[0]).GetElementsByTagName("productos");
             foreach (XmlElement nodo in lista)
             {
-                XmlNodeList lista1 = nodo.GetElementsByTagName("nombreProducto");
+                Producto auxProducto = new Producto();
+                auxProducto.Nombre = nodo.GetElementsByTagName("nombre")[0].InnerText;
+                auxProducto.Precio = float.Parse(nodo.GetElementsByTagName("precio")[0].InnerText);
+                auxProducto.Descripcion = nodo.GetElementsByTagName("descripcion")[0].InnerText;
+                listaProductos.Add(auxProducto);
             }
 
             return listaProductos;  
