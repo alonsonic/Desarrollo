@@ -11,6 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using AeiMobile.ServicioAEI;
+using System.Windows.Media.Imaging;
 
 namespace AeiMobile
 {
@@ -30,7 +31,9 @@ namespace AeiMobile
             this.textPrecio.Text = producto.Precio.ToString() + " Bs";
             this.textCantidad.Text = "Cantidad: " + producto.Cantidad.ToString();
             this.textDescripcion.Text = producto.Descripcion;
+            this.Title = producto.Nombre;
             cargarListaCalifiacion();
+            setImagenProducto();
         }
 
         private void cargarListaCalifiacion()
@@ -48,6 +51,15 @@ namespace AeiMobile
                this.listCalificacion.Items.Add("\n \n Aun no tenemos calificaciones para este producto.");
             }
             
+        }
+
+        public void setImagenProducto()
+        {
+            BitmapImage newImage = new BitmapImage();
+            newImage.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
+            newImage.UriSource = new Uri(producto.ImagenDetalle);
+            this.imagenProducto.Source = newImage;
+            imagenProducto.UpdateLayout();
         }
     }
 }

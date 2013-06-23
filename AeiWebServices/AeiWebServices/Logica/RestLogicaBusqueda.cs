@@ -32,7 +32,6 @@ namespace AeiWebServices.Logica
             string ruta = "http://" + ipWebServer + ":" + puertoWebServer + "/GrailsApplication3/productos/rest/" + parametrosBusquedad + "," + pagina;
             XmlDocument xmlRest = recibirXml(ruta);
  
-            /**** FAlTA MANEJAR LAS IMAGENES RECORDAR!!!!!! ******/
             XmlNodeList productos = xmlRest.GetElementsByTagName("list");
             XmlNodeList lista = ((XmlElement)productos[0]).GetElementsByTagName("productos");
             foreach (XmlElement nodo in lista)
@@ -41,6 +40,7 @@ namespace AeiWebServices.Logica
                 auxProducto.Nombre = nodo.GetElementsByTagName("nombre")[0].InnerText;
                 auxProducto.Precio = float.Parse(nodo.GetElementsByTagName("precio")[0].InnerText);
                 auxProducto.Descripcion = nodo.GetElementsByTagName("descripcion")[0].InnerText;
+                auxProducto.ImagenDetalle = nodo.GetElementsByTagName("archivo")[0].InnerText;
                 listaProductos.Add(auxProducto);
             }
 
