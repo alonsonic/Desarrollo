@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using AeiMobile.ServicioAEI;
 
 namespace AeiMobile
 {
@@ -19,6 +20,23 @@ namespace AeiMobile
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void  Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            //Declaramos el servicio
+            ServicioAEIClient servicio = new ServicioAEIClient();
+            Usuario usuario;
+
+            //Llamamos el metodo del servicio
+            servicio.ConsultarUsuarioAsync("alonsonic@gmail.com");
+
+            //Cuando se complete la llamada se disparara el evento
+            servicio.ConsultarUsuarioCompleted += (s, a) =>
+            {
+                usuario = a.Result;
+                Console.WriteLine("bLA");
+            };
         }
     }
 }

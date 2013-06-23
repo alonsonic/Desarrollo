@@ -8,7 +8,6 @@ using AeiWebServices.Logica;
 using AeiWebServices.Permanencia;
 using System.Text;
 using log4net;
-using log4net.Config;
 
 namespace AeiWebServices.Permanencia
 {
