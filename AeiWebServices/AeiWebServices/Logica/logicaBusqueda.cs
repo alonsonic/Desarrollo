@@ -13,7 +13,6 @@ namespace AeiWebServices.Logica
 
         public List<Producto> clasificarBusqueda(string busqueda, int pagina, int numeroArticulo)
         {
-            RestLogicaBusqueda.listaProductos(ipWebServerRest, puertoWebServerRest, busqueda, pagina.ToString());
             if (busqueda == null)
             {
                 return null;
