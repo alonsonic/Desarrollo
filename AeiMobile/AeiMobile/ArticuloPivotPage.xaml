@@ -38,14 +38,17 @@
                 	<TextBlock x:Name="textCantidad" HorizontalAlignment="Left" Height="45" Margin="234,119,0,0" TextWrapping="Wrap" Text="Cantidad: 10" VerticalAlignment="Top" Width="201" FontSize="30.667"/>
                 	<TextBlock x:Name="textPrecioNoEditable" HorizontalAlignment="Left" Height="45" Margin="234,24,0,0" TextWrapping="Wrap" Text="Precio" VerticalAlignment="Top" Width="201" FontSize="33.333"/>
                 	<TextBlock x:Name="textPrecio" HorizontalAlignment="Left" Height="45" Margin="234,74,0,0" TextWrapping="Wrap" Text="100 Bs" VerticalAlignment="Top" Width="201" FontSize="30.667"/>
-                	<TextBlock x:Name="textDescripcion" HorizontalAlignment="Left" Height="252" Margin="10,261,0,0" TextWrapping="Wrap" Text="Descripción" VerticalAlignment="Top" Width="448" FontSize="26.667"/>
+                	<TextBlock x:Name="textDescripcion" HorizontalAlignment="Left" Height="211" Margin="10,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="448" FontSize="26.667"/>
+                	<TextBlock x:Name="textTituloDescripcion" HorizontalAlignment="Left" Margin="10,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+                		<Run FontSize="26.6669998168945" Text="Descripción"/>
+                	</TextBlock>
                 </Grid>
             </controls:PivotItem>
 
             <!--Pivot item two-->
             <controls:PivotItem x:Name="pivotCalificaciones" Header="Calificaciones">
                 <Grid>
-                	<ListBox HorizontalAlignment="Left" Height="523" VerticalAlignment="Top" Width="458" Margin="10,0,0,0">
+                	<ListBox x:Name="listCalificacion" HorizontalAlignment="Left" Height="523" VerticalAlignment="Top" Width="458" Margin="10,0,0,0">
                 		<TextBlock Height="57" TextWrapping="Wrap" Text="Calificación 1" Width="458" Foreground="#FF2C2C2C" FontSize="26.667"/>
                 	</ListBox>
                 </Grid>
