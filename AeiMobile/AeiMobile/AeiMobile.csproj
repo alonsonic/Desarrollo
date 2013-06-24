@@ -129,6 +129,7 @@
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
     <None Include="Service References\AeiServicio\AeiMobile.AeiServicio.Calificacion.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Calificacion.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\AeiServicio\AeiMobile.AeiServicio.Categoria.datasource">

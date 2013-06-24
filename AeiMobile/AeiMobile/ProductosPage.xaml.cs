@@ -15,6 +15,7 @@ namespace AeiMobile
     public partial class ProductosPage : PhoneApplicationPage
     {
         public List<Producto> productos;
+        private List<String> listaString= new List<string>();
 
         public ProductosPage(List<Producto> productos)
         {
@@ -25,8 +26,11 @@ namespace AeiMobile
 
         private void cargarProductos()
         {
-            List<string> p= new List<string>();
-            //this.ListaProductos = p;
+            foreach (var producto in productos)
+            {
+                this.listaString.Add(producto.Nombre);                   
+            }
         }
+        
     }
 }
