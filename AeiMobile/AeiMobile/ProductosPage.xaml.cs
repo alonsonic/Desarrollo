@@ -14,7 +14,9 @@ namespace AeiMobile
 {
     public partial class ProductosPage : PhoneApplicationPage
     {
-        List<Producto> productos;
+        public List<Producto> productos;
+        private List<String> listaString= new List<string>();
+
         public ProductosPage(List<Producto> productos)
         {
             InitializeComponent();
@@ -24,7 +26,11 @@ namespace AeiMobile
 
         private void cargarProductos()
         {
-
+            foreach (var producto in productos)
+            {
+                this.listaString.Add(producto.Nombre);                   
+            }
         }
+        
     }
 }
