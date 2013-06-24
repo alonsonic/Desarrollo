@@ -10,16 +10,17 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
-using AeiMobile.AeiServicio;
+using AeiMobile.ServicioAEI;
 using System.Windows.Media.Imaging;
 
 namespace AeiMobile
 {
     public partial class ArticuloPivotPage : PhoneApplicationPage
     {
+
         private Producto producto;
 
-        public ArticuloPivotPage(Producto producto)
+        public ArticuloPivotPage()
         {
             InitializeComponent();
 
@@ -39,6 +40,7 @@ namespace AeiMobile
             //cargarInformacionProducto();
         }
 
+        
         private void cargarInformacionProducto()
         {
             this.textPrecio.Text = producto.Precio.ToString() + " Bs";
@@ -46,12 +48,12 @@ namespace AeiMobile
             this.textDescripcion.Text = producto.Descripcion;
             this.Title = producto.Nombre;
             cargarListaCalifiacion();
-            setImagenProducto();
+            //setImagenProducto();
         }
 
         private void cargarListaCalifiacion()
         {
-            if(producto.Calificaciones.Count > 0)
+            if(producto.Calificaciones != null && producto.Calificaciones.Count > 0)
             {
                 for (int i = 0; i < producto.Calificaciones.Count; i++)
                 {
@@ -61,7 +63,7 @@ namespace AeiMobile
             }
             else
             {
-               this.listCalificacion.Items.Add("\n \n Aun no tenemos calificaciones para este producto.");
+                this.listCalificacion.Items.Add("Aun no tenemos calificaciones para este producto.");
             }
             
         }
@@ -75,4 +77,5 @@ namespace AeiMobile
             imagenProducto.UpdateLayout();
         }
     }
+    
 }
