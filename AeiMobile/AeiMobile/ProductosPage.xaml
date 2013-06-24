@@ -40,10 +40,8 @@
         <Image Margin="0,-6,0,684" Source="menuMobilei.png" Stretch="Fill"/>
         <Grid x:Name="ContentPanel" Margin="10,93,10,-14">
         	<ListBox HorizontalAlignment="Left" Height="513" VerticalAlignment="Top" Width="489" Margin="-14,76,-15,0">
-        		<TextBox Height="76" TextWrapping="Wrap" Text="Producto 1" Width="489" Foreground="White" Background="#FFF16527" BorderBrush="#FFF16527"/>
-        		<TextBox Height="76" TextWrapping="Wrap" Text="Producto 2" Width="489" Foreground="White" Background="#FFF16527" BorderBrush="#FFF16527"/>
-        		<TextBox Height="76" TextWrapping="Wrap" Text="Producto 3" Width="489" Foreground="White" Background="#FFF16527" BorderBrush="#FFF16527"/>
-        	</ListBox>
+        		<TextBox x:Name="ListaProductos" Height="76" TextWrapping="Wrap" Text="Producto 1" Width="489" Foreground="White" Background="#FFF16527" BorderBrush="#FFF16527"/>
+            </ListBox>
         	<TextBlock x:Name="textArticulo" HorizontalAlignment="Left" Height="61" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="316" Foreground="#FF1D1D1D" FontSize="46.667" Text="Artículos"/>
         	<Button x:Name="buttonPagSiguiente" Content="&gt;" HorizontalAlignment="Left" Height="74" Margin="383,605,0,0" VerticalAlignment="Top" Width="77" BorderBrush="#FF252525" Foreground="#FF2B2B2B" FontSize="26.667"/>
         	<Button x:Name="buttonPagAnterior" Content="&lt;" HorizontalAlignment="Left" Height="74" Margin="0,605,0,0" VerticalAlignment="Top" Width="77" BorderBrush="#FF252525" Foreground="#FF2B2B2B" FontSize="26.667"/>
