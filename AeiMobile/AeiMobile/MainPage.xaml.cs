@@ -37,7 +37,7 @@ namespace AeiMobile
                 usuario = a.Result;
                 try
                 {
-                    NavigationService.Navigate(new Uri("/ArticuloPivotPage.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new Uri("/StorePage.xaml", UriKind.Relative));
                 }
                 catch (Exception ex)
                 {

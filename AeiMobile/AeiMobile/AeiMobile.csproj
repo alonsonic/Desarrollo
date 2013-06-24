@@ -73,9 +73,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ArticuloPage.xaml.cs">
-      <DependentUpon>ArticuloPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ArticuloPivotPage.xaml.cs">
       <DependentUpon>ArticuloPivotPage.xaml</DependentUpon>
     </Compile>
@@ -106,10 +103,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="ArticuloPage.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="ArticuloPivotPage.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -139,24 +132,31 @@
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Calificacion.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Calificacion1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Categoria.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Categoria1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Direccion.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Direccion1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Producto.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Producto1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Twitter.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Twitter1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Usuario.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Usuario1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServicioAEI\configuration91.svcinfo" />
+    <None Include="Service References\ServicioAEI\configuration.svcinfo" />
+    <None Include="Service References\ServicioAEI\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\ServicioAEI\ServicioAEI.wsdl" />
     <None Include="Service References\ServicioAEI\ServicioAEI.xsd">
       <SubType>Designer</SubType>
@@ -170,7 +170,6 @@
     <None Include="Service References\ServicioAEI\ServicioAEI3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationIcon.png">
@@ -191,18 +190,17 @@
     <Content Include="MenuAei.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\ServicioAEI\ServicioAEI.disco" />
-    <None Include="Service References\ServicioAEI\configuration91.svcinfo" />
-    <None Include="Service References\ServicioAEI\configuration.svcinfo" />
-    <None Include="Service References\ServicioAEI\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="menuMobilei.png" />
     <Resource Include="Untitled-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServicioAEI\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
