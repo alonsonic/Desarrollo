@@ -10,6 +10,8 @@ namespace AeiWebServices.Logica
     {
         private string ipWebServerRest = "192.168.1.1";
         private string puertoWebServerRest = "3306";
+        private string ipWebServerSOAP = "localhost";
+        private string puertoWebServerSOAP = "52896";
 
         public List<Producto> clasificarBusqueda(string busqueda, int pagina, int numeroArticulo)
         {
@@ -30,10 +32,20 @@ namespace AeiWebServices.Logica
                 }
                 else
                 {
+                    listaProducto = cambiarIpProductoSOAP(listaProducto);
                     return listaProducto;
                 }
 
             }
+        }
+
+        private List<Producto> cambiarIpProductoSOAP(List<Producto> listaProducto)
+        {
+            for (int i = 0; i < listaProducto.Count(); i++)
+            {
+                listaProducto[i].ImagenDetalle = ipWebServerSOAP + ":" + puertoWebServerSOAP + listaProducto[i].ImagenDetalle;
+            }
+            return listaProducto;
         }
     }
 }
