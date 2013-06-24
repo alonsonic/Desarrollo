@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
-using AeiMobile.ServicioAEI;
+using AeiMobile.AeiServicio;
 using System.Windows.Media.Imaging;
 
 namespace AeiMobile
@@ -22,8 +22,21 @@ namespace AeiMobile
         public ArticuloPivotPage(Producto producto)
         {
             InitializeComponent();
-            this.producto = producto;
-            cargarInformacionProducto();
+
+            ServicioAEIClient servicio = new ServicioAEIClient();
+            servicio.BusquedaProductoAsync("fifa", 1, 1);
+            servicio.BusquedaProductoCompleted += (s, a) =>
+            {
+
+                List<Producto> listaProducto = a.Result;
+                producto = listaProducto.First();
+                cargarInformacionProducto();
+
+            };
+
+
+            //this.producto = producto;
+            //cargarInformacionProducto();
         }
 
         private void cargarInformacionProducto()

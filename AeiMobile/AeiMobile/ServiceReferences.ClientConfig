@@ -6,12 +6,26 @@
                     maxReceivedMessageSize="2147483647">
                     <security mode="None" />
                 </binding>
+                <binding name="BasicHttpBinding_IServicioAEI1" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+                <binding name="BasicHttpBinding_IServicioAEI2" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
             </basicHttpBinding>
         </bindings>
         <client>
             <endpoint address="http://localhost:52896/Logica/ServicioAEI.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IServicioAEI"
                 contract="ServicioAEI.IServicioAEI" name="BasicHttpBinding_IServicioAEI" />
+            <endpoint address="http://localhost:52896/Logica/ServicioAEI.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IServicioAEI1"
+                contract="ServicioWebAei.IServicioAEI" name="BasicHttpBinding_IServicioAEI1" />
+            <endpoint address="http://localhost:52896/Logica/ServicioAEI.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IServicioAEI2"
+                contract="AeiServicio.IServicioAEI" name="BasicHttpBinding_IServicioAEI2" />
         </client>
     </system.serviceModel>
 </configuration>

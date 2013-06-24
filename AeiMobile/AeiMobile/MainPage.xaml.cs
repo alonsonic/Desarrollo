@@ -10,7 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
-using AeiMobile.ServicioAEI;
+using AeiMobile.AeiServicio;
+using System.ServiceModel;
 
 namespace AeiMobile
 {
@@ -34,9 +35,10 @@ namespace AeiMobile
             //Cuando se complete la llamada se disparara el evento
             servicio.ConsultarUsuarioCompleted += (s, a) =>
             {
+
                 usuario = a.Result;
-                Console.WriteLine("bLA");
-                NavigationService.Navigate(new Uri("/StorePage.xaml", UriKind.Relative));
+                NavigationService.Navigate(new Uri("/ArticuloPivotPage.xaml", UriKind.Relative));
+
             };
         }
     }
