@@ -35,8 +35,14 @@ namespace AeiMobile
             servicio.ConsultarUsuarioCompleted += (s, a) =>
             {
                 usuario = a.Result;
-                Console.WriteLine("bLA");
-                NavigationService.Navigate(new Uri("/StorePage.xaml", UriKind.Relative));
+                try
+                {
+                    NavigationService.Navigate(new Uri("/ArticuloPivotPage.xaml", UriKind.Relative));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
             };
         }
     }
