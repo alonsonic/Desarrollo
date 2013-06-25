@@ -64,13 +64,12 @@ namespace AeiMobile
             }
 
         }
-
-        private void buttonDeporte_Click(object sender, RoutedEventArgs e)
+        private void busqueda_calificacion(string calificacion)
         {
             ServicioAEIClient servicio = new ServicioAEIClient();
             List<Producto> resultado;
             //Llamamos el metodo del servicio
-            servicio.BusquedaProductoConCategoriaAsync("deportes",this.textBuscador.Text);
+            servicio.BusquedaProductoConCategoriaAsync(calificacion, this.textBuscador.Text);
 
             //Cuando se complete la llamada se disparara el evento
             servicio.BusquedaProductoConCategoriaCompleted += (s, a) =>
@@ -88,211 +87,53 @@ namespace AeiMobile
                     Console.WriteLine(ex);
                 }
             };
+        }
+
+        private void buttonDeporte_Click(object sender, RoutedEventArgs e)
+        {
+            busqueda_calificacion("deportes");
         }
 
         private void buttonMuñeca_Click(object sender, RoutedEventArgs e)
         {
-            ServicioAEIClient servicio = new ServicioAEIClient();
-            List<Producto> resultado;
-            //Llamamos el metodo del servicio
-            servicio.BusquedaProductoConCategoriaAsync("muñecas", this.textBuscador.Text);
-
-            //Cuando se complete la llamada se disparara el evento
-            servicio.BusquedaProductoConCategoriaCompleted += (s, a) =>
-            {
-                resultado = a.Result;
-                try
-                {
-                    ProductosPage.busqueda = this.textBuscador.Text;
-                    ProductosPage.productos = resultado;
-                    ProductosPage.origen = 1;
-                    NavigationService.Navigate(new Uri("/ProductosPage.xaml", UriKind.Relative));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            };
+            busqueda_calificacion("muñecas");
         }
 
         private void buttonJuegosMesa_Click(object sender, RoutedEventArgs e)
         {
-            ServicioAEIClient servicio = new ServicioAEIClient();
-            List<Producto> resultado;
-            //Llamamos el metodo del servicio
-            servicio.BusquedaProductoConCategoriaAsync("juegos de mesa", this.textBuscador.Text);
-
-            //Cuando se complete la llamada se disparara el evento
-            servicio.BusquedaProductoConCategoriaCompleted += (s, a) =>
-            {
-                resultado = a.Result;
-                try
-                {
-                    ProductosPage.busqueda = this.textBuscador.Text;
-                    ProductosPage.productos = resultado;
-                    ProductosPage.origen = 1;
-                    NavigationService.Navigate(new Uri("/ProductosPage.xaml", UriKind.Relative));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            };
-
+            busqueda_calificacion("juegos de mesa");
         }
 
         private void buttonBloque_Click(object sender, RoutedEventArgs e)
         {
-            ServicioAEIClient servicio = new ServicioAEIClient();
-            List<Producto> resultado;
-            //Llamamos el metodo del servicio
-            servicio.BusquedaProductoConCategoriaAsync("bloques", this.textBuscador.Text);
-
-            //Cuando se complete la llamada se disparara el evento
-            servicio.BusquedaProductoConCategoriaCompleted += (s, a) =>
-            {
-                resultado = a.Result;
-                try
-                {
-                    ProductosPage.busqueda = this.textBuscador.Text;
-                    ProductosPage.productos = resultado;
-                    ProductosPage.origen = 1;
-                    NavigationService.Navigate(new Uri("/ProductosPage.xaml", UriKind.Relative));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            };
+            busqueda_calificacion("bloques");
 
         }
 
         private void buttonFiguraAccion_Click(object sender, RoutedEventArgs e)
         {
-            ServicioAEIClient servicio = new ServicioAEIClient();
-            List<Producto> resultado;
-            //Llamamos el metodo del servicio
-            servicio.BusquedaProductoConCategoriaAsync("figuras de acción", this.textBuscador.Text);
-
-            //Cuando se complete la llamada se disparara el evento
-            servicio.BusquedaProductoConCategoriaCompleted += (s, a) =>
-            {
-                resultado = a.Result;
-                try
-                {
-                    ProductosPage.busqueda = this.textBuscador.Text;
-                    ProductosPage.productos = resultado;
-                    ProductosPage.origen = 1;
-                    NavigationService.Navigate(new Uri("/ProductosPage.xaml", UriKind.Relative));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            };
+            busqueda_calificacion("figuras de acción");
         }
 
         private void buttonNina_Click(object sender, RoutedEventArgs e)
         {
-            ServicioAEIClient servicio = new ServicioAEIClient();
-            List<Producto> resultado;
-            //Llamamos el metodo del servicio
-            servicio.BusquedaProductoConCategoriaAsync("juguetes para niñas", this.textBuscador.Text);
-
-            //Cuando se complete la llamada se disparara el evento
-            servicio.BusquedaProductoConCategoriaCompleted += (s, a) =>
-            {
-                resultado = a.Result;
-                try
-                {
-                    ProductosPage.busqueda = this.textBuscador.Text;
-                    ProductosPage.productos = resultado;
-                    ProductosPage.origen = 1;
-                    NavigationService.Navigate(new Uri("/ProductosPage.xaml", UriKind.Relative));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            };
+            busqueda_calificacion("juguetes para niñas");
         }
 
         private void buttonInfantil_Click(object sender, RoutedEventArgs e)
         {
-            ServicioAEIClient servicio = new ServicioAEIClient();
-            List<Producto> resultado;
-            //Llamamos el metodo del servicio
-            servicio.BusquedaProductoConCategoriaAsync("Juguetes Infantiles", this.textBuscador.Text);
-
-            //Cuando se complete la llamada se disparara el evento
-            servicio.BusquedaProductoConCategoriaCompleted += (s, a) =>
-            {
-                resultado = a.Result;
-                try
-                {
-                    ProductosPage.busqueda = this.textBuscador.Text;
-                    ProductosPage.productos = resultado;
-                    ProductosPage.origen = 1;
-                    NavigationService.Navigate(new Uri("/ProductosPage.xaml", UriKind.Relative));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            };
+            busqueda_calificacion("Juguetes Infantiles");
 
         }
 
         private void buttonAprendizaje_Click(object sender, RoutedEventArgs e)
         {
-            ServicioAEIClient servicio = new ServicioAEIClient();
-            List<Producto> resultado;
-            //Llamamos el metodo del servicio
-            servicio.BusquedaProductoConCategoriaAsync("aprendizaje", this.textBuscador.Text);
-
-            //Cuando se complete la llamada se disparara el evento
-            servicio.BusquedaProductoConCategoriaCompleted += (s, a) =>
-            {
-                resultado = a.Result;
-                try
-                {
-                    ProductosPage.busqueda = this.textBuscador.Text;
-                    ProductosPage.productos = resultado;
-                    ProductosPage.origen = 1;
-                    NavigationService.Navigate(new Uri("/ProductosPage.xaml", UriKind.Relative));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            };
-
+            busqueda_calificacion("aprendizaje");
         }
 
         private void buttonVideoJuego_Click(object sender, RoutedEventArgs e)
         {
-            ServicioAEIClient servicio = new ServicioAEIClient();
-            List<Producto> resultado;
-            //Llamamos el metodo del servicio
-            servicio.BusquedaProductoConCategoriaAsync("video juegos", this.textBuscador.Text);
-
-            //Cuando se complete la llamada se disparara el evento
-            servicio.BusquedaProductoConCategoriaCompleted += (s, a) =>
-            {
-                resultado = a.Result;
-                try
-                {
-                    ProductosPage.busqueda = this.textBuscador.Text;
-                    ProductosPage.productos = resultado;
-                    ProductosPage.origen = 1;
-                    NavigationService.Navigate(new Uri("/ProductosPage.xaml", UriKind.Relative));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            };
-
+            busqueda_calificacion("video juegos");
         }
     }
 }
