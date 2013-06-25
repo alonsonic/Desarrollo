@@ -73,7 +73,6 @@ namespace AeiCliente
 
         private void botonBack_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-        	
             popup.IsOpen = false;
         }
     }

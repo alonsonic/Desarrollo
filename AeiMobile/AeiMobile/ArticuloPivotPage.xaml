@@ -35,7 +35,7 @@
             <controls:PivotItem x:Name="pivotDetalles" Header="Detalles">
                 <Grid>
                 	<Image x:Name="imagenProducto" HorizontalAlignment="Left" Height="246" Margin="10,10,0,0" VerticalAlignment="Top" Width="206"/>
-                	<Button x:Name="buttonComprar" Content="Comprar" HorizontalAlignment="Left" Height="85" Margin="221,171,0,0" VerticalAlignment="Top" Width="214" Background="Transparent" BorderBrush="#FF2C2C2C" Foreground="#FF2C2C2C"/>
+                	<Button x:Name="buttonComprar" Content="Comprar" HorizontalAlignment="Left" Height="85" Margin="221,171,0,0" VerticalAlignment="Top" Width="214" Background="#FFF16527" BorderBrush="#FFEAEAEA" Foreground="White" Click="buttonComprar_Click"/>
                 	<TextBlock x:Name="textCantidad" HorizontalAlignment="Left" Height="45" Margin="234,119,0,0" TextWrapping="Wrap" Text="Cantidad: 10" VerticalAlignment="Top" Width="201" FontSize="30.667"/>
                 	<TextBlock x:Name="textPrecioNoEditable" HorizontalAlignment="Left" Height="45" Margin="234,24,0,0" TextWrapping="Wrap" Text="Precio" VerticalAlignment="Top" Width="201" FontSize="33.333"/>
                 	<TextBlock x:Name="textPrecio" HorizontalAlignment="Left" Height="45" Margin="234,74,0,0" TextWrapping="Wrap" Text="100 Bs" VerticalAlignment="Top" Width="201" FontSize="30.667"/>

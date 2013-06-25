@@ -73,14 +73,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ArticuloPage.xaml.cs">
-      <DependentUpon>ArticuloPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ArticuloPivotPage.xaml.cs">
       <DependentUpon>ArticuloPivotPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BufferUsuario.cs" />
     <Compile Include="ComprasPage.xaml.cs">
       <DependentUpon>ComprasPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmacionPage.xaml.cs">
+      <DependentUpon>ConfirmacionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -106,15 +107,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="ArticuloPage.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="ArticuloPivotPage.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ComprasPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConfirmacionPage.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
