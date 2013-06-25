@@ -18,26 +18,23 @@ namespace AeiMobile
     public partial class ArticuloPivotPage : PhoneApplicationPage
     {
 
-        private Producto producto;
+        public static Producto producto;
 
         public ArticuloPivotPage()
         {
             InitializeComponent();
 
-            ServicioAEIClient servicio = new ServicioAEIClient();
-            servicio.BusquedaProductoAsync("fifa", 1, 1);
-            servicio.BusquedaProductoCompleted += (s, a) =>
-            {
+            //ServicioAEIClient servicio = new ServicioAEIClient();
+            //servicio.BusquedaProductoAsync("fifa", 1, 1);
+            //servicio.BusquedaProductoCompleted += (s, a) =>
+            //{
 
-                List<Producto> listaProducto = a.Result;
-                producto = listaProducto.First();
-                cargarInformacionProducto();
+            //    List<Producto> listaProducto = a.Result;
+            //    producto = listaProducto.First();
+            //    cargarInformacionProducto();
 
-            };
-
-
-            //this.producto = producto;
-            //cargarInformacionProducto();
+            //};
+            cargarInformacionProducto();
         }
 
         

@@ -39,7 +39,7 @@
         </Grid>
         <Image Margin="0,-6,0,684" Source="menuMobilei.png" Stretch="Fill"/>
         <Grid x:Name="ContentPanel_Copy" Margin="10,93,10,-14">
-        	<ListBox HorizontalAlignment="Left" Height="513" VerticalAlignment="Top" Width="489" Margin="-14,76,-15,0">
+        	<ListBox x:Name="listBoxCompra" HorizontalAlignment="Left" Height="513" VerticalAlignment="Top" Width="489" Margin="-14,76,-15,0">
         		<TextBox Height="76" TextWrapping="Wrap" Text="Producto 1" Width="489" Foreground="White" Background="#FFF16527" BorderBrush="#FFF16527"/>
         		<TextBox Height="76" TextWrapping="Wrap" Text="Producto 2" Width="489" Foreground="White" Background="#FFF16527" BorderBrush="#FFF16527"/>
         		<TextBox Height="76" TextWrapping="Wrap" Text="Producto 3" Width="489" Foreground="White" Background="#FFF16527" BorderBrush="#FFF16527"/>
