@@ -41,6 +41,7 @@ namespace AeiWebServices.Logica
                 auxProducto.Precio = float.Parse(nodo.GetElementsByTagName("precio")[0].InnerText);
                 auxProducto.Descripcion = nodo.GetElementsByTagName("descripcion")[0].InnerText;
                 auxProducto.ImagenDetalle = nodo.GetElementsByTagName("archivo")[0].InnerText;
+                auxProducto.Categoria.Nombre = "Le cloud";
                 listaProductos.Add(auxProducto);
             }
 
