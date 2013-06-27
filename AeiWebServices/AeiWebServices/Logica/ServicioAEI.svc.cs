@@ -23,14 +23,14 @@ namespace AeiWebServices.Logica
             CodigoQr xml = new CodigoQr();
             return xml.generarXml(idCompra);
         }
-
+/*
         public int enviarCorreoDeFactura(Usuario usuario, Compra compra)
         {
             Correo correo = new Correo();
             return correo.enviarCorreoDeFactura(usuario, compra);
 
         }
-
+*/
         public Usuario modificarMetodoPago(MetodoPago metodo, Usuario usuario, int metodoActual)
         {
             if (FabricaDAO.setModificarMetodoPago(metodo, metodoActual, usuario.Id) == 1)
@@ -84,7 +84,7 @@ namespace AeiWebServices.Logica
                 compra.Status = "P";
                 int respuesta = FabricaDAO.setEstadoDeCompra(usuario.Carrito);
                 usuario.Compras.Add(compra);
-                enviarCorreoDeFactura(usuario, compra);
+                //enviarCorreoDeFactura(usuario, compra);
                 usuario.Carrito = null;
             }
             return usuario;
@@ -102,7 +102,7 @@ namespace AeiWebServices.Logica
             int respuesta = FabricaDAO.setEliminarDetalleCarrito(usuario.Carrito, detalle);
             return ConsultarUsuario(usuario.Email);
         }
-
+        /*
         public int enviarCorreoDeModificacion(Usuario usuario)
         {
             Correo correo = new Correo();
@@ -114,7 +114,7 @@ namespace AeiWebServices.Logica
             Correo correo = new Correo();
             return correo.enviarCorreoDeBienvenida(usuario.Email, usuario.Nombre, usuario.Apellido, usuario.CodigoActivacion);
         }
-
+        */
         public int modificarUsuario(Usuario usuario)
         {
             return FabricaDAO.setUsuario(usuario, usuario.Id);
