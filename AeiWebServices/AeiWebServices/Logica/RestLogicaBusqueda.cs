@@ -8,8 +8,6 @@ using System.Xml;
 
 namespace AeiWebServices.Logica
 {
-    public static class RestLogicaBusqueda
-    {
 
         private static XmlDocument recibirXml(string ruta)
         {
