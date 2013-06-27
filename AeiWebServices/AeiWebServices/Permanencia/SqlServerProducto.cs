@@ -118,7 +118,7 @@ namespace AeiWebServices.Permanencia
                 List<Producto> listaResultado = listaCategoria.Concat(listaNombre).ToList();
                 listaResultado = listaResultado.Concat(listaTag).ToList();
                 listaResultado = listaResultado.Distinct(new Comparer()).ToList();
-                if (listaResultado == null)
+                if (listaResultado.Count==0)
                 {
                     Log.LogInstanciar().Error("Finalizacion de busqueda. Sin resultados. No exitosa");
                     return null;

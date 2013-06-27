@@ -43,7 +43,7 @@ namespace AeiWebServices.Logica
         {
             for (int i = 0; i < listaProducto.Count(); i++)
             {
-                listaProducto[i].ImagenDetalle = ipWebServerSOAP + ":" + puertoWebServerSOAP + listaProducto[i].ImagenDetalle;
+                listaProducto[i].ImagenDetalle = ipWebServerSOAP + ":" + puertoWebServerSOAP +"/"+ listaProducto[i].ImagenDetalle;
             }
             return listaProducto;
         }
