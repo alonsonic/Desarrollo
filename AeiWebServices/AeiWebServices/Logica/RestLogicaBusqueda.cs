@@ -8,6 +8,8 @@ using System.Xml;
 
 namespace AeiWebServices.Logica
 {
+    public static class RestLogicaBusqueda
+    {
 
         private static XmlDocument recibirXml(string ruta)
         {
@@ -24,12 +26,12 @@ namespace AeiWebServices.Logica
             return xmlRest;
         }
 
-        public static List<Producto> listaProductos(string ipWebServer, string puertoWebServer,string parametrosBusquedad, string pagina)
+        public static List<Producto> listaProductos(string ipWebServer, string puertoWebServer, string parametrosBusquedad, string pagina)
         {
             List<Producto> listaProductos = new List<Producto>();
             string ruta = "http://" + ipWebServer + ":" + puertoWebServer + "/GrailsApplication3/productos/rest/" + parametrosBusquedad + "," + pagina;
             XmlDocument xmlRest = recibirXml(ruta);
- 
+
             XmlNodeList productos = xmlRest.GetElementsByTagName("list");
             XmlNodeList lista = ((XmlElement)productos[0]).GetElementsByTagName("productos");
             foreach (XmlElement nodo in lista)
@@ -39,10 +41,11 @@ namespace AeiWebServices.Logica
                 auxProducto.Precio = float.Parse(nodo.GetElementsByTagName("precio")[0].InnerText);
                 auxProducto.Descripcion = nodo.GetElementsByTagName("descripcion")[0].InnerText;
                 auxProducto.ImagenDetalle = nodo.GetElementsByTagName("archivo")[0].InnerText;
+                auxProducto.Categoria.Nombre = "Le cloud";
                 listaProductos.Add(auxProducto);
             }
 
-            return listaProductos;  
+            return listaProductos;
 
         }
 
