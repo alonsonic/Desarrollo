@@ -34,7 +34,7 @@ namespace AeiMobile
             //Cuando se complete la llamada se disparara el evento
             servicio.ConsultarUsuarioCompleted += (s, a) =>
             {
-                usuario = a.Result;
+                BufferUsuario.Usuario = a.Result;
                 try
                 {
                     NavigationService.Navigate(new Uri("/StorePage.xaml", UriKind.Relative));

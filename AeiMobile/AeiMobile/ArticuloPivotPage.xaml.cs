@@ -73,6 +73,31 @@ namespace AeiMobile
             this.imagenProducto.Source = newImage;
             imagenProducto.UpdateLayout();
         }
+
+        private void buttonComprar_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ServicioAEIClient servicioAei = new ServicioAEIClient();
+
+            if (producto.Cantidad == 0)
+            {
+                
+                return;
+            }
+
+            servicioAei.checkearProductoCarritoAsync(BufferUsuario.Usuario, producto);
+            servicioAei.checkearProductoCarritoCompleted += (s, a) =>
+            {
+                bool chequear = a.Result;
+                if (chequear)
+                {
+                    MessageBox.Show("Ya posee este producto en el carrito");
+                    return;
+                }
+
+                ConfirmacionPage.producto = producto;
+                NavigationService.Navigate(new Uri("/ConfirmacionPage.xaml", UriKind.Relative));
+            };
+        }
     }
     
 }
