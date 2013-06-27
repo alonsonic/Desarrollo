@@ -8,6 +8,8 @@ using System.Xml;
 
 namespace AeiWebServices.Logica
 {
+    public static class RestLogicaBusqueda
+    {
 
         private static XmlDocument recibirXml(string ruta)
         {
@@ -24,12 +26,12 @@ namespace AeiWebServices.Logica
             return xmlRest;
         }
 
-        public static List<Producto> listaProductos(string ipWebServer, string puertoWebServer,string parametrosBusquedad, string pagina)
+        public static List<Producto> listaProductos(string ipWebServer, string puertoWebServer, string parametrosBusquedad, string pagina)
         {
             List<Producto> listaProductos = new List<Producto>();
             string ruta = "http://" + ipWebServer + ":" + puertoWebServer + "/GrailsApplication3/productos/rest/" + parametrosBusquedad + "," + pagina;
             XmlDocument xmlRest = recibirXml(ruta);
- 
+
             XmlNodeList productos = xmlRest.GetElementsByTagName("list");
             XmlNodeList lista = ((XmlElement)productos[0]).GetElementsByTagName("productos");
             foreach (XmlElement nodo in lista)
@@ -42,7 +44,7 @@ namespace AeiWebServices.Logica
                 listaProductos.Add(auxProducto);
             }
 
-            return listaProductos;  
+            return listaProductos;
 
         }
 
