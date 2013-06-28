@@ -8,7 +8,7 @@ namespace AeiWebServices.Logica
 {
     public class logicaBusqueda
     {
-        private string ipWebServerRest = "192.168.1.1";
+        private string ipWebServerRest = "172.16.66.221";
         private string puertoWebServerRest = "3306";
         private string ipWebServerSOAP = "localhost";
         private string puertoWebServerSOAP = "52896";
@@ -43,7 +43,7 @@ namespace AeiWebServices.Logica
         {
             for (int i = 0; i < listaProducto.Count(); i++)
             {
-                listaProducto[i].ImagenDetalle = ipWebServerSOAP + ":" + puertoWebServerSOAP +"/"+ listaProducto[i].ImagenDetalle;
+                listaProducto[i].ImagenDetalle = "http://" + ipWebServerSOAP + ":" + puertoWebServerSOAP +"/"+ listaProducto[i].ImagenDetalle;
             }
             return listaProducto;
         }

@@ -20,13 +20,31 @@ namespace AeiMobile
         public static int origen; //1 con categoria, 0 sin categoria
         private List<String> listaString= new List<string>();
         int pagina=1;
+        double totalPaginas=0.0;
 
         public ProductosPage()
         {
             InitializeComponent();
+            this.textoError.Visibility = Visibility.Collapsed;
+            calcularPaginas();
             cargarProductos();
             Menu.Children.Add(new MenuControl());
         }
+        private void calcularPaginas()
+        {
+            //Declaramos el servicio
+            ServicioAEIClient servicio = new ServicioAEIClient();
+            //Llamamos el metodo del servicio
+            servicio.calcularPaginaPorBusquedaAsync(busqueda, 5);
+
+            //Cuando se complete la llamada se disparara el evento
+            servicio.calcularPaginaPorBusquedaCompleted += (s, a) =>
+            {
+                totalPaginas = a.Result;
+                if (totalPaginas == 0.0) totalPaginas = 1.0;
+            };
+        }
+
         private void cambiarPagina(int operacion)
         {
             //Declaramos el servicio
@@ -63,12 +81,18 @@ namespace AeiMobile
         private void cargarProductos()
         {
             this.listBoxProductos.Items.Clear();
-            for (int indexProducto = 0; indexProducto < productos.Count; indexProducto++)
+            if (productos != null)
             {
-                ItemProducto itemProducto = new ItemProducto(productos[indexProducto]);
-                listBoxProductos.Items.Add(itemProducto);
+                for (int indexProducto = 0; indexProducto < productos.Count; indexProducto++)
+                {
+                    ItemProducto itemProducto = new ItemProducto(productos[indexProducto]);
+                    listBoxProductos.Items.Add(itemProducto);
+                }
             }
-            
+            else
+            {
+                this.textoError.Visibility = Visibility.Visible;
+            }
         }
 
         private void buttonPagAnterior_Click(object sender, RoutedEventArgs e)
@@ -81,7 +105,7 @@ namespace AeiMobile
 
         private void buttonPagSiguiente_Click(object sender, RoutedEventArgs e)
         {
-            if (origen==0)
+            if (origen==0 && totalPaginas<pagina)
                 cambiarPagina(2);  
         }
 

@@ -12,6 +12,12 @@ namespace AeiWebServices.Logica
     public interface IServicioAEI
     {
         [OperationContract]
+        int agregarProducto(Producto producto);
+
+        [OperationContract]
+        double calcularPaginaPorBusqueda(string busqueda, int numeroArticulo);
+
+        [OperationContract]
         List<Producto> BusquedaProductoAplicacion(string busqueda);
 
         [OperationContract]

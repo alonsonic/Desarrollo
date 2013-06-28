@@ -15,7 +15,7 @@ namespace AeiWebServices.Permanencia
     {
         private SqlServerTag daoTag = new SqlServerTag();
         private SqlServerCategoria daoCategotia = new SqlServerCategoria();
-    
+
 
         public int borrarMetodoPago(int idMetodoPago)
         {
@@ -203,7 +203,7 @@ namespace AeiWebServices.Permanencia
         public List<Producto> buscarPorTag(string nombreTag, string nombreCategoria)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd,Categoria c  WHERE p.FK_CATEGORIA = c.ID AND dd.pk_producto=p.id AND t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + " AND %'c.NOMBRE LIKE '%" + nombreCategoria + "%';");
+            SqlDataReader tabla = conexion.consultar("SELECT p.* FROM PRODUCTO p, tag t,Detalle_Tag dd,Categoria c  WHERE p.FK_CATEGORIA = c.ID AND dd.pk_producto=p.id AND t.id=dd.pk_tag AND T.NOMBRE LIKE '%" + nombreTag + "%' AND c.NOMBRE LIKE '%" + nombreCategoria + "%';");
             List<Tag> listaTag = new List<Tag>();
             List<Producto> listaProductos = new List<Producto>();
             if (tabla != null)
@@ -246,7 +246,13 @@ namespace AeiWebServices.Permanencia
             return respuesta;
  
         }
-
+        public int agregarProducto(Producto producto)
+        {
+            ConexionSqlServer conexion = new ConexionSqlServer();
+            int respuesta = conexion.insertar("INSERT INTO Producto (id, nombre,fk_categoria,precio,cantidad,imagendetalle,imagenminiatura,descripcion) VALUES (NEXT VALUE FOR seq_producto, '"+producto.Nombre+"',9999,"+producto.Precio+","+producto.Cantidad+",'" + producto.ImagenDetalle + "','" + producto.ImagenDetalle + "','" + producto.Descripcion + "');");
+            conexion.cerrarConexion();
+            return respuesta;
+        }
         public List<Producto> consultarProductos(int pagina, int numeroArticulo)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();

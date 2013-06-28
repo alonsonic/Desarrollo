@@ -57,7 +57,6 @@ namespace AeiMobile
                 NavigationService.Navigate(new Uri("/StorePage.xaml", UriKind.Relative));
                 return;
             };
-            
 		}
 
     }

@@ -1069,6 +1069,16 @@ namespace AeiMobile.ServicioAEI {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicioAEI.IServicioAEI")]
     public interface IServicioAEI {
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServicioAEI/agregarProducto", ReplyAction="http://tempuri.org/IServicioAEI/agregarProductoResponse")]
+        System.IAsyncResult BeginagregarProducto(AeiMobile.ServicioAEI.Producto producto, System.AsyncCallback callback, object asyncState);
+        
+        int EndagregarProducto(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServicioAEI/calcularPaginaPorBusqueda", ReplyAction="http://tempuri.org/IServicioAEI/calcularPaginaPorBusquedaResponse")]
+        System.IAsyncResult BegincalcularPaginaPorBusqueda(string busqueda, int numeroArticulo, System.AsyncCallback callback, object asyncState);
+        
+        double EndcalcularPaginaPorBusqueda(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IServicioAEI/BusquedaProductoAplicacion", ReplyAction="http://tempuri.org/IServicioAEI/BusquedaProductoAplicacionResponse")]
         System.IAsyncResult BeginBusquedaProductoAplicacion(string busqueda, System.AsyncCallback callback, object asyncState);
         
@@ -1222,6 +1232,44 @@ namespace AeiMobile.ServicioAEI {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServicioAEIChannel : AeiMobile.ServicioAEI.IServicioAEI, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class agregarProductoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public agregarProductoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class calcularPaginaPorBusquedaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public calcularPaginaPorBusquedaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public double Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((double)(this.results[0]));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1798,6 +1846,18 @@ namespace AeiMobile.ServicioAEI {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ServicioAEIClient : System.ServiceModel.ClientBase<AeiMobile.ServicioAEI.IServicioAEI>, AeiMobile.ServicioAEI.IServicioAEI {
         
+        private BeginOperationDelegate onBeginagregarProductoDelegate;
+        
+        private EndOperationDelegate onEndagregarProductoDelegate;
+        
+        private System.Threading.SendOrPostCallback onagregarProductoCompletedDelegate;
+        
+        private BeginOperationDelegate onBegincalcularPaginaPorBusquedaDelegate;
+        
+        private EndOperationDelegate onEndcalcularPaginaPorBusquedaDelegate;
+        
+        private System.Threading.SendOrPostCallback oncalcularPaginaPorBusquedaCompletedDelegate;
+        
         private BeginOperationDelegate onBeginBusquedaProductoAplicacionDelegate;
         
         private EndOperationDelegate onEndBusquedaProductoAplicacionDelegate;
@@ -2031,6 +2091,10 @@ namespace AeiMobile.ServicioAEI {
             }
         }
         
+        public event System.EventHandler<agregarProductoCompletedEventArgs> agregarProductoCompleted;
+        
+        public event System.EventHandler<calcularPaginaPorBusquedaCompletedEventArgs> calcularPaginaPorBusquedaCompleted;
+        
         public event System.EventHandler<BusquedaProductoAplicacionCompletedEventArgs> BusquedaProductoAplicacionCompleted;
         
         public event System.EventHandler<eliminarMetodoPagoCompletedEventArgs> eliminarMetodoPagoCompleted;
@@ -2094,6 +2158,100 @@ namespace AeiMobile.ServicioAEI {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult AeiMobile.ServicioAEI.IServicioAEI.BeginagregarProducto(AeiMobile.ServicioAEI.Producto producto, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginagregarProducto(producto, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        int AeiMobile.ServicioAEI.IServicioAEI.EndagregarProducto(System.IAsyncResult result) {
+            return base.Channel.EndagregarProducto(result);
+        }
+        
+        private System.IAsyncResult OnBeginagregarProducto(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            AeiMobile.ServicioAEI.Producto producto = ((AeiMobile.ServicioAEI.Producto)(inValues[0]));
+            return ((AeiMobile.ServicioAEI.IServicioAEI)(this)).BeginagregarProducto(producto, callback, asyncState);
+        }
+        
+        private object[] OnEndagregarProducto(System.IAsyncResult result) {
+            int retVal = ((AeiMobile.ServicioAEI.IServicioAEI)(this)).EndagregarProducto(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnagregarProductoCompleted(object state) {
+            if ((this.agregarProductoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.agregarProductoCompleted(this, new agregarProductoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void agregarProductoAsync(AeiMobile.ServicioAEI.Producto producto) {
+            this.agregarProductoAsync(producto, null);
+        }
+        
+        public void agregarProductoAsync(AeiMobile.ServicioAEI.Producto producto, object userState) {
+            if ((this.onBeginagregarProductoDelegate == null)) {
+                this.onBeginagregarProductoDelegate = new BeginOperationDelegate(this.OnBeginagregarProducto);
+            }
+            if ((this.onEndagregarProductoDelegate == null)) {
+                this.onEndagregarProductoDelegate = new EndOperationDelegate(this.OnEndagregarProducto);
+            }
+            if ((this.onagregarProductoCompletedDelegate == null)) {
+                this.onagregarProductoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnagregarProductoCompleted);
+            }
+            base.InvokeAsync(this.onBeginagregarProductoDelegate, new object[] {
+                        producto}, this.onEndagregarProductoDelegate, this.onagregarProductoCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult AeiMobile.ServicioAEI.IServicioAEI.BegincalcularPaginaPorBusqueda(string busqueda, int numeroArticulo, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BegincalcularPaginaPorBusqueda(busqueda, numeroArticulo, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        double AeiMobile.ServicioAEI.IServicioAEI.EndcalcularPaginaPorBusqueda(System.IAsyncResult result) {
+            return base.Channel.EndcalcularPaginaPorBusqueda(result);
+        }
+        
+        private System.IAsyncResult OnBegincalcularPaginaPorBusqueda(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string busqueda = ((string)(inValues[0]));
+            int numeroArticulo = ((int)(inValues[1]));
+            return ((AeiMobile.ServicioAEI.IServicioAEI)(this)).BegincalcularPaginaPorBusqueda(busqueda, numeroArticulo, callback, asyncState);
+        }
+        
+        private object[] OnEndcalcularPaginaPorBusqueda(System.IAsyncResult result) {
+            double retVal = ((AeiMobile.ServicioAEI.IServicioAEI)(this)).EndcalcularPaginaPorBusqueda(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OncalcularPaginaPorBusquedaCompleted(object state) {
+            if ((this.calcularPaginaPorBusquedaCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.calcularPaginaPorBusquedaCompleted(this, new calcularPaginaPorBusquedaCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void calcularPaginaPorBusquedaAsync(string busqueda, int numeroArticulo) {
+            this.calcularPaginaPorBusquedaAsync(busqueda, numeroArticulo, null);
+        }
+        
+        public void calcularPaginaPorBusquedaAsync(string busqueda, int numeroArticulo, object userState) {
+            if ((this.onBegincalcularPaginaPorBusquedaDelegate == null)) {
+                this.onBegincalcularPaginaPorBusquedaDelegate = new BeginOperationDelegate(this.OnBegincalcularPaginaPorBusqueda);
+            }
+            if ((this.onEndcalcularPaginaPorBusquedaDelegate == null)) {
+                this.onEndcalcularPaginaPorBusquedaDelegate = new EndOperationDelegate(this.OnEndcalcularPaginaPorBusqueda);
+            }
+            if ((this.oncalcularPaginaPorBusquedaCompletedDelegate == null)) {
+                this.oncalcularPaginaPorBusquedaCompletedDelegate = new System.Threading.SendOrPostCallback(this.OncalcularPaginaPorBusquedaCompleted);
+            }
+            base.InvokeAsync(this.onBegincalcularPaginaPorBusquedaDelegate, new object[] {
+                        busqueda,
+                        numeroArticulo}, this.onEndcalcularPaginaPorBusquedaDelegate, this.oncalcularPaginaPorBusquedaCompletedDelegate, userState);
+        }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult AeiMobile.ServicioAEI.IServicioAEI.BeginBusquedaProductoAplicacion(string busqueda, System.AsyncCallback callback, object asyncState) {
@@ -3595,6 +3753,33 @@ namespace AeiMobile.ServicioAEI {
             
             public ServicioAEIClientChannel(System.ServiceModel.ClientBase<AeiMobile.ServicioAEI.IServicioAEI> client) : 
                     base(client) {
+            }
+            
+            public System.IAsyncResult BeginagregarProducto(AeiMobile.ServicioAEI.Producto producto, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = producto;
+                System.IAsyncResult _result = base.BeginInvoke("agregarProducto", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public int EndagregarProducto(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                int _result = ((int)(base.EndInvoke("agregarProducto", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BegincalcularPaginaPorBusqueda(string busqueda, int numeroArticulo, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = busqueda;
+                _args[1] = numeroArticulo;
+                System.IAsyncResult _result = base.BeginInvoke("calcularPaginaPorBusqueda", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public double EndcalcularPaginaPorBusqueda(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                double _result = ((double)(base.EndInvoke("calcularPaginaPorBusqueda", _args, result)));
+                return _result;
             }
             
             public System.IAsyncResult BeginBusquedaProductoAplicacion(string busqueda, System.AsyncCallback callback, object asyncState) {

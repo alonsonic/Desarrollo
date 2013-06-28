@@ -8,6 +8,18 @@
       <xsd:import schemaLocation="http://localhost:52896/Logica/ServicioAEI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AeiWebServices.Dominio" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IServicioAEI_agregarProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:agregarProducto" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_agregarProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:agregarProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_calcularPaginaPorBusqueda_InputMessage">
+    <wsdl:part name="parameters" element="tns:calcularPaginaPorBusqueda" />
+  </wsdl:message>
+  <wsdl:message name="IServicioAEI_calcularPaginaPorBusqueda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:calcularPaginaPorBusquedaResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioAEI_BusquedaProductoAplicacion_InputMessage">
     <wsdl:part name="parameters" element="tns:BusquedaProductoAplicacion" />
   </wsdl:message>
@@ -189,6 +201,14 @@
     <wsdl:part name="parameters" element="tns:buscarDireccionUsuarioResponse" />
   </wsdl:message>
   <wsdl:portType name="IServicioAEI">
+    <wsdl:operation name="agregarProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/agregarProducto" message="tns:IServicioAEI_agregarProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/agregarProductoResponse" message="tns:IServicioAEI_agregarProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="calcularPaginaPorBusqueda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/calcularPaginaPorBusqueda" message="tns:IServicioAEI_calcularPaginaPorBusqueda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/calcularPaginaPorBusquedaResponse" message="tns:IServicioAEI_calcularPaginaPorBusqueda_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="BusquedaProductoAplicacion">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioAEI/BusquedaProductoAplicacion" message="tns:IServicioAEI_BusquedaProductoAplicacion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioAEI/BusquedaProductoAplicacionResponse" message="tns:IServicioAEI_BusquedaProductoAplicacion_OutputMessage" />
@@ -312,6 +332,24 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioAEI" type="tns:IServicioAEI">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="agregarProducto">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/agregarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calcularPaginaPorBusqueda">
+      <soap:operation soapAction="http://tempuri.org/IServicioAEI/calcularPaginaPorBusqueda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="BusquedaProductoAplicacion">
       <soap:operation soapAction="http://tempuri.org/IServicioAEI/BusquedaProductoAplicacion" style="document" />
       <wsdl:input>

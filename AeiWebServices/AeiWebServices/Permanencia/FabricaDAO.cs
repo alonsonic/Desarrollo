@@ -8,6 +8,20 @@ namespace AeiWebServices.Permanencia
 {
     public static class FabricaDAO
     {
+        static public int agregarProducto(Producto producto)
+        {
+            SqlServerProducto resultado = new SqlServerProducto();
+            return resultado.agregarProducto(producto);
+        }
+        static public double calcularPaginaPorBusqueda(string busqueda, int numeroArticulo)
+        {
+            SqlServerProducto resultado = new SqlServerProducto();
+            List<Producto> listaProductos= resultado.busquedaProductos(busqueda);
+            double d = (double)listaProductos.Count / (double)numeroArticulo;
+            double r = Math.Round(d);
+            if (listaProductos.Count == 0) return -1.0;
+            return r;
+        }
         static public int setEliminarMetodoPago(int idMetodo)
         {
             SqlServerMetodoPago resultado = new SqlServerMetodoPago();
