@@ -34,6 +34,12 @@
 		<TextBlock HorizontalAlignment="Left" Height="118" Margin="35,640,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="408" Foreground="#FF151515" FontSize="26.667" Text="Nota: Para actualizar su información ingrese al portal de AEI Store desde la web."/>
 		<TextBlock HorizontalAlignment="Left" Height="46" Margin="35,313,0,0" TextWrapping="Wrap" Text="Nacimiento:" VerticalAlignment="Top" Width="145" Foreground="#FF151515" FontSize="26.667"/>
 		<TextBlock x:Name="textNacimiento" HorizontalAlignment="Left" Height="46" Margin="185,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Foreground="#FF151515" FontSize="26.667" Text="02/05/1193"/>
+		<TextBlock HorizontalAlignment="Left" Margin="35,359,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+			<Run Foreground="#FF151515" FontSize="26.6669998168945" Text="Direcci"/>
+			<Run Foreground="#FF151515" FontSize="26.6669998168945" Text="ones"/>
+			<Run Foreground="#FF151515" FontSize="26.6669998168945" Text=":"/>
+		</TextBlock>
+		<ListBox x:Name="listDireccion" HorizontalAlignment="Left" Height="182" Margin="35,399,0,0" VerticalAlignment="Top" Width="379"/>
         
 	</Grid>
 
