@@ -54,6 +54,7 @@ namespace AeiMobile
             {
                 BufferUsuario.Usuario = a.Result;
                 MessageBox.Show("Se agrego el poducto a su carrito con exito");
+                NavigationService.Navigate(new Uri("/StorePage.xaml", UriKind.Relative));
                 return;
             };
             

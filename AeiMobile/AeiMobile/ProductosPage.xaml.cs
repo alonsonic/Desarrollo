@@ -14,6 +14,7 @@ namespace AeiMobile
 {
     public partial class ProductosPage : PhoneApplicationPage
     {
+        private bool menuAbierto = false;
         public static List<Producto> productos;
         public static String busqueda;
         public static int origen; //1 con categoria, 0 sin categoria
@@ -24,6 +25,7 @@ namespace AeiMobile
         {
             InitializeComponent();
             cargarProductos();
+            Menu.Children.Add(new MenuControl());
         }
         private void cambiarPagina(int operacion)
         {
@@ -87,6 +89,20 @@ namespace AeiMobile
         {
             ArticuloPivotPage.producto = productos[this.listBoxProductos.SelectedIndex];
             NavigationService.Navigate(new Uri("/ArticuloPivotPage.xaml", UriKind.Relative));            
+        }
+
+        private void botonMenu_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (menuAbierto)
+            {
+                StoryMenuCerrar.Begin();
+                menuAbierto = false;
+            }
+            else
+            {
+                StoryMenuAbrir.Begin();
+                menuAbierto = true;
+            }
         }
         
     }

@@ -13,12 +13,13 @@ namespace AeiMobile
 {
     public partial class CarritoPage : PhoneApplicationPage
     {
+        private bool menuAbierto = false;
 
         public CarritoPage()
         {
             InitializeComponent();
             cargarProductos();
-
+            Menu.Children.Add(new MenuControl());
         }
 
         private void cargarProductos()
@@ -31,6 +32,20 @@ namespace AeiMobile
             }
             
 
+        }
+
+        private void botonMenu_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (menuAbierto)
+            {
+                StoryMenuCerrar.Begin();
+                menuAbierto = false;
+            }
+            else
+            {
+                StoryMenuAbrir.Begin();
+                menuAbierto = true;
+            }
         }
 
 

@@ -6,8 +6,7 @@
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="480" d:DesignWidth="480" Width="475" Height="50">
+    Foreground="{StaticResource PhoneForegroundBrush}" d:DesignWidth="480" Width="475" Height="67">
     
     <Grid x:Name="LayoutRoot" Width="475" Height="50" Background="#FFF16527">
     	<Button x:Name="boton" Content="Producto" HorizontalAlignment="Left" Height="72" Margin="-12,-11,0,-11" VerticalAlignment="Top" Width="420" BorderBrush="Transparent" Click="boton_Click"/>

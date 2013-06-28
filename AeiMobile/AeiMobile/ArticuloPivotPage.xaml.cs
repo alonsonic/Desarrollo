@@ -17,24 +17,16 @@ namespace AeiMobile
 {
     public partial class ArticuloPivotPage : PhoneApplicationPage
     {
-
+        private bool menuAbierto = false;
         public static Producto producto;
 
         public ArticuloPivotPage()
         {
             InitializeComponent();
+            Menu.Children.Add(new MenuControl());
 
             ServicioAEIClient servicio = new ServicioAEIClient();
-            servicio.BusquedaProductoAsync("fifa", 1, 1);
-            servicio.BusquedaProductoCompleted += (s, a) =>
-            {
-
-                List<Producto> listaProducto = a.Result;
-                producto = listaProducto.First();
-                cargarInformacionProducto();
-
-            };
-            //cargarInformacionProducto();
+            cargarInformacionProducto();
         }
 
         
@@ -43,7 +35,7 @@ namespace AeiMobile
             this.textPrecio.Text = producto.Precio.ToString() + " Bs";
             this.textCantidad.Text = "Cantidad: " + producto.Cantidad.ToString();
             this.textDescripcion.Text = producto.Descripcion;
-            this.Title = producto.Nombre;
+            this.pivotProducto.Title = producto.Nombre;
             cargarListaCalifiacion();
             //setImagenProducto();
         }
@@ -80,7 +72,7 @@ namespace AeiMobile
 
             if (producto.Cantidad == 0)
             {
-                
+                MessageBox.Show("Este articulo esta agotado, buscaremos en otra tienda");
                 return;
             }
 
@@ -97,6 +89,20 @@ namespace AeiMobile
                 ConfirmacionPage.producto = producto;
                 NavigationService.Navigate(new Uri("/ConfirmacionPage.xaml", UriKind.Relative));
             };
+        }
+
+        private void botonMenu_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (menuAbierto)
+            {
+                StoryMenuCerrar.Begin();
+                menuAbierto = false;
+            }
+            else
+            {
+                StoryMenuAbrir.Begin();
+                menuAbierto = true;
+            }
         }
     }
     
