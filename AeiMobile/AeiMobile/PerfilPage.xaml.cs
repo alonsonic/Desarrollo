@@ -15,6 +15,23 @@ namespace AeiMobile
         public PerfilPage()
         {
             InitializeComponent();
+            cargarInformacionUsuario();
+        }
+
+        private void cargarInformacionUsuario()
+        {
+            this.textUsuario.Text = BufferUsuario.Usuario.Nombre +" "+BufferUsuario.Usuario.Apellido;
+            this.textCorreo.Text = BufferUsuario.Usuario.Email;
+            this.textNacimiento.Text = BufferUsuario.Usuario.FechaNacimiento.ToString("yyyy-MM-dd");
+            cargarListaDirecciones();
+        }
+
+        private void cargarListaDirecciones()
+        {
+            foreach (var item in BufferUsuario.Usuario.Direcciones)
+            {
+                this.listDireccion.Items.Add("Estado: " + item.Estado + " Ciudad: " + item.Ciudad + "/n Descripción: " +item.Descripcion );
+            }
         }
     }
 }
