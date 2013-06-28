@@ -64,7 +64,7 @@ namespace AeiMobile
             }
 
         }
-        private void busqueda_calificacion(string calificacion)
+        private void busqueda_categoria(string calificacion)
         {
             ServicioAEIClient servicio = new ServicioAEIClient();
             List<Producto> resultado;
@@ -91,49 +91,49 @@ namespace AeiMobile
 
         private void buttonDeporte_Click(object sender, RoutedEventArgs e)
         {
-            busqueda_calificacion("deportes");
+            busqueda_categoria("deportes");
         }
 
         private void buttonMuñeca_Click(object sender, RoutedEventArgs e)
         {
-            busqueda_calificacion("muñecas");
+            busqueda_categoria("muñecas");
         }
 
         private void buttonJuegosMesa_Click(object sender, RoutedEventArgs e)
         {
-            busqueda_calificacion("juegos de mesa");
+            busqueda_categoria("juegos de mesa");
         }
 
         private void buttonBloque_Click(object sender, RoutedEventArgs e)
         {
-            busqueda_calificacion("bloques");
+            busqueda_categoria("bloques");
 
         }
 
         private void buttonFiguraAccion_Click(object sender, RoutedEventArgs e)
         {
-            busqueda_calificacion("figuras de acción");
+            busqueda_categoria("figuras de acción");
         }
 
         private void buttonNina_Click(object sender, RoutedEventArgs e)
         {
-            busqueda_calificacion("juguetes para niñas");
+            busqueda_categoria("juguetes para niñas");
         }
 
         private void buttonInfantil_Click(object sender, RoutedEventArgs e)
         {
-            busqueda_calificacion("Juguetes Infantiles");
+            busqueda_categoria("Juguetes Infantiles");
 
         }
 
         private void buttonAprendizaje_Click(object sender, RoutedEventArgs e)
         {
-            busqueda_calificacion("aprendizaje");
+            busqueda_categoria("aprendizaje");
         }
 
         private void buttonVideoJuego_Click(object sender, RoutedEventArgs e)
         {
-            busqueda_calificacion("video juegos");
+            busqueda_categoria("video juegos");
         }
     }
 }

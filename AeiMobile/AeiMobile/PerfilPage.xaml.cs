@@ -28,9 +28,11 @@ namespace AeiMobile
 
         private void cargarListaDirecciones()
         {
+            int contador = 0;
             foreach (var item in BufferUsuario.Usuario.Direcciones)
             {
-                this.listDireccion.Items.Add("Estado: " + item.Estado + " Ciudad: " + item.Ciudad + "/n Descripción: " +item.Descripcion );
+                contador++;
+                this.listDireccion.Items.Add(contador.ToString()+") Estado: " + item.Estado + " Ciudad: " + item.Ciudad +"\nDescripción: " + item.Descripcion);
             }
         }
     }

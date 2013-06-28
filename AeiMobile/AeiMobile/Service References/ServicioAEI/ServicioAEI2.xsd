@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AeiWebServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AeiWebServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfProducto">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Producto" nillable="true" type="tns:Producto" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfProducto" nillable="true" type="tns:ArrayOfProducto" />
   <xs:complexType name="Producto">
     <xs:sequence>
       <xs:element minOccurs="0" name="Calificaciones" nillable="true" type="tns:ArrayOfCalificacion" />
@@ -143,6 +137,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Tag" nillable="true" type="tns:Tag" />
+  <xs:complexType name="ArrayOfProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Producto" nillable="true" type="tns:Producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProducto" nillable="true" type="tns:ArrayOfProducto" />
   <xs:complexType name="ArrayOfCategoria">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Categoria" nillable="true" type="tns:Categoria" />

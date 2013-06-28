@@ -12,7 +12,16 @@ namespace AeiWebServices.Logica
    
     public class ServicioAEI : IServicioAEI
     {
-        
+        public int agregarProducto(Producto producto)
+        {
+            if (producto.Categoria.Id==9999) return FabricaDAO.agregarProducto(producto);
+            return 0;
+        }
+
+        public double calcularPaginaPorBusqueda(string busqueda, int numeroArticulo)
+        {
+            return FabricaDAO.calcularPaginaPorBusqueda(busqueda, numeroArticulo);
+        }
         public int modificarStatusCompra (int idCompra)
         {
             return FabricaDAO.setEstadoCompra(idCompra);

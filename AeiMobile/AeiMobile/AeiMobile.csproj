@@ -168,22 +168,22 @@
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Calificacion1.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Calificacion.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Categoria1.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Categoria.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Direccion1.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Direccion.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Producto1.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Producto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Twitter1.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Twitter.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Usuario1.datasource">
+    <None Include="Service References\ServicioAEI\AeiMobile.ServicioAEI.Usuario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServicioAEI\configuration91.svcinfo" />
@@ -231,6 +231,12 @@
   <ItemGroup>
     <Resource Include="menuMobilei.png" />
     <Resource Include="Untitled-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServicioAEI\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

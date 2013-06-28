@@ -23,18 +23,7 @@ namespace AeiMobile
         public ArticuloPivotPage()
         {
             InitializeComponent();
-
-            ServicioAEIClient servicio = new ServicioAEIClient();
-            servicio.BusquedaProductoAsync("fifa", 1, 1);
-            servicio.BusquedaProductoCompleted += (s, a) =>
-            {
-
-                List<Producto> listaProducto = a.Result;
-                producto = listaProducto.First();
-                cargarInformacionProducto();
-
-            };
-            //cargarInformacionProducto();
+            cargarInformacionProducto();
         }
 
         
@@ -43,9 +32,9 @@ namespace AeiMobile
             this.textPrecio.Text = producto.Precio.ToString() + " Bs";
             this.textCantidad.Text = "Cantidad: " + producto.Cantidad.ToString();
             this.textDescripcion.Text = producto.Descripcion;
-            this.Title = producto.Nombre;
+            this.pivotProducto.Title = producto.Nombre;
             cargarListaCalifiacion();
-            //setImagenProducto();
+            setImagenProducto();
         }
 
         private void cargarListaCalifiacion()

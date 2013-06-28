@@ -39,7 +39,7 @@
 			<Run Foreground="#FF151515" FontSize="26.6669998168945" Text="ones"/>
 			<Run Foreground="#FF151515" FontSize="26.6669998168945" Text=":"/>
 		</TextBlock>
-		<ListBox x:Name="listDireccion" HorizontalAlignment="Left" Height="182" Margin="35,399,0,0" VerticalAlignment="Top" Width="379"/>
+		<ListBox x:Name="listDireccion" HorizontalAlignment="Left" Height="182" Margin="35,399,0,0" VerticalAlignment="Top" Width="379" Foreground="Black"/>
         
 	</Grid>
 

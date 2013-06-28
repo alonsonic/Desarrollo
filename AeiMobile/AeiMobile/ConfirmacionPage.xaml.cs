@@ -56,7 +56,6 @@ namespace AeiMobile
                 MessageBox.Show("Se agrego el poducto a su carrito con exito");
                 return;
             };
-            
 		}
 
     }
