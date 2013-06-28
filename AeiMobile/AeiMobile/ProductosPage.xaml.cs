@@ -61,10 +61,12 @@ namespace AeiMobile
         private void cargarProductos()
         {
             this.listBoxProductos.Items.Clear();
-            foreach (var producto in productos)
+            for (int indexProducto = 0; indexProducto < productos.Count; indexProducto++)
             {
-                listBoxProductos.Items.Add(producto.Nombre);
+                ItemProducto itemProducto = new ItemProducto(productos[indexProducto]);
+                listBoxProductos.Items.Add(itemProducto);
             }
+            
         }
 
         private void buttonPagAnterior_Click(object sender, RoutedEventArgs e)
@@ -84,8 +86,7 @@ namespace AeiMobile
         private void nombreProducto_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             ArticuloPivotPage.producto = productos[this.listBoxProductos.SelectedIndex];
-            NavigationService.Navigate(new Uri("/ArticuloPivotPage.xaml", UriKind.Relative));
-            
+            NavigationService.Navigate(new Uri("/ArticuloPivotPage.xaml", UriKind.Relative));            
         }
         
     }

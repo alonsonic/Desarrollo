@@ -11,7 +11,7 @@
     
     <Grid x:Name="LayoutRoot" Background="#FFF16527">
     	<Button x:Name="botonPerfil" Content="Mi Perfil" HorizontalAlignment="Left" Height="84" Margin="0,10,0,0" VerticalAlignment="Top" Width="479"/>
-    	<Button x:Name="botonCarrito" Content="Carrito" HorizontalAlignment="Left" Height="84" Margin="0,94,0,0" VerticalAlignment="Top" Width="479"/>
+    	<Button x:Name="botonCarrito" Content="Carrito" HorizontalAlignment="Left" Height="84" Margin="10,99,-9,0" VerticalAlignment="Top" Width="479" Click="botonCarrito_Click"/>
     	<Button Content="Button" HorizontalAlignment="Left" Height="84" Margin="0,178,0,0" VerticalAlignment="Top" Width="479"/>
     	<Button Content="Button" HorizontalAlignment="Left" Height="84" Margin="0,262,0,0" VerticalAlignment="Top" Width="479"/>
     </Grid>

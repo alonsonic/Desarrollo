@@ -26,6 +26,8 @@ namespace AeiMobile
         private void boton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
         	// TODO: Navegar hacia pantalla detalle del producto
+            ArticuloPivotPage.producto = producto;
+           (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri("//ArticuloPivotPage.xaml", UriKind.Relative));
         }
     }
 }
