@@ -29,7 +29,7 @@ namespace AeiMobile
             Usuario usuario;
 
             //Llamamos el metodo del servicio
-            servicio.ConsultarUsuarioAsync("alonsonic@gmail.com");
+            servicio.ConsultarUsuarioAsync("ltrrsz@gmail.com");
 
             //Cuando se complete la llamada se disparara el evento
             servicio.ConsultarUsuarioCompleted += (s, a) =>

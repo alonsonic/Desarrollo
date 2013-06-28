@@ -22,5 +22,10 @@ namespace AeiMobile
             (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri("/CarritoPage.xaml", UriKind.Relative));
            
         }
+
+        private void botonPerfil_Click(object sender, RoutedEventArgs e)
+        {
+            (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri("/PerfilPage.xaml", UriKind.Relative));
+        }
     }
 }
