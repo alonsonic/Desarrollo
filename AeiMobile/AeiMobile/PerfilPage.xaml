@@ -1,0 +1,42 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="AeiMobile.PerfilPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<!--Pivot Control-->
+        
+    <!--Pivot Control-->
+		<Image x:Name="image" Margin="0,0,0,-14" Source="/MainStoreAei.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" d:IsLocked="True">
+			<Image.RenderTransform>
+				<CompositeTransform/>
+			</Image.RenderTransform>
+		</Image>
+		<Image Margin="0,-6,0,684" Source="menuMobilei.png" Stretch="Fill" d:IsLocked="True"/>
+		<Button x:Name="botonMenu" Content="Menu&#xA;Menu&#xA;" HorizontalAlignment="Left" Height="98" Margin="255,-10,0,0" VerticalAlignment="Top" Width="225" Background="#FFF16527" BorderBrush="#FFF16527" Foreground="White" RenderTransformOrigin="0.5,0.5" FontSize="46.667" d:IsLocked="True">
+			<Button.RenderTransform>
+				<CompositeTransform/>
+			</Button.RenderTransform>
+		</Button>
+		<TextBlock HorizontalAlignment="Left" Height="87" Margin="35,120,0,0" TextWrapping="Wrap" Text="Bienvenido" VerticalAlignment="Top" Width="392" Foreground="#FF151515" FontSize="64"/>
+		<TextBlock x:Name="textUsuario" HorizontalAlignment="Left" Height="60" Margin="35,207,0,0" TextWrapping="Wrap" Text="Nombre Usuario" VerticalAlignment="Top" Width="392" Foreground="#FF151515" FontSize="42.667"/>
+		<TextBlock HorizontalAlignment="Left" Height="46" Margin="35,267,0,0" TextWrapping="Wrap" Text="Correo:" VerticalAlignment="Top" Width="115" Foreground="#FF151515" FontSize="32"/>
+		<TextBlock x:Name="textCorreo" HorizontalAlignment="Left" Height="46" Margin="150,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305" Foreground="#FF151515" FontSize="26.667" Text="alonsonic@gmail.com"/>
+		<TextBlock HorizontalAlignment="Left" Height="118" Margin="35,640,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="408" Foreground="#FF151515" FontSize="26.667" Text="Nota: Para actualizar su información ingrese al portal de AEI Store desde la web."/>
+		<TextBlock HorizontalAlignment="Left" Height="46" Margin="35,313,0,0" TextWrapping="Wrap" Text="Nacimiento:" VerticalAlignment="Top" Width="145" Foreground="#FF151515" FontSize="26.667"/>
+		<TextBlock x:Name="textNacimiento" HorizontalAlignment="Left" Height="46" Margin="185,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" Foreground="#FF151515" FontSize="26.667" Text="02/05/1193"/>
+        
+	</Grid>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+
+</phone:PhoneApplicationPage>

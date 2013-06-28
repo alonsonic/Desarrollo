@@ -77,17 +77,29 @@
       <DependentUpon>ArticuloPivotPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="BufferUsuario.cs" />
+    <Compile Include="CarritoPage.xaml.cs">
+      <DependentUpon>CarritoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ComprasPage.xaml.cs">
       <DependentUpon>ComprasPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConfirmacionPage.xaml.cs">
       <DependentUpon>ConfirmacionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ItemProductoCarrito.xaml.cs">
+      <DependentUpon>ItemProductoCarrito.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ItemProducto.xaml.cs">
+      <DependentUpon>ItemProducto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MenuControl.xaml.cs">
       <DependentUpon>MenuControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilPage.xaml.cs">
+      <DependentUpon>PerfilPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProductosPage.xaml.cs">
       <DependentUpon>ProductosPage.xaml</DependentUpon>
@@ -111,6 +123,10 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="CarritoPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ComprasPage.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -119,11 +135,23 @@
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="ItemProductoCarrito.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ItemProducto.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MenuControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PerfilPage.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -203,12 +231,6 @@
   <ItemGroup>
     <Resource Include="menuMobilei.png" />
     <Resource Include="Untitled-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServicioAEI\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
