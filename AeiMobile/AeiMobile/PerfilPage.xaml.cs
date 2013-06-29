@@ -18,6 +18,7 @@ namespace AeiMobile
         {
             InitializeComponent();
             cargarInformacionUsuario();
+            Menu.Children.Add(new MenuControl());
         }
 
         private void cargarInformacionUsuario()

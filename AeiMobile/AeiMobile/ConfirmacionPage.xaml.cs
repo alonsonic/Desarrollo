@@ -57,6 +57,22 @@ namespace AeiMobile
                 NavigationService.Navigate(new Uri("/StorePage.xaml", UriKind.Relative));
                 return;
             };
+
+            servicioAei.ConsultarUsuarioAsync(BufferUsuario.Usuario.Email);
+
+            //Cuando se complete la llamada se disparara el evento
+            servicioAei.ConsultarUsuarioCompleted += (s, a) =>
+            {
+                BufferUsuario.Usuario = a.Result;
+                try
+                {
+                    NavigationService.Navigate(new Uri("/StorePage.xaml", UriKind.Relative));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            };
 		}
 
     }

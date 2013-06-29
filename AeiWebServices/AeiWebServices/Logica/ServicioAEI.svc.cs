@@ -109,7 +109,8 @@ namespace AeiWebServices.Logica
         public Usuario borrarDetalleCarrito(Usuario usuario, DetalleCompra detalle)
         {
             int respuesta = FabricaDAO.setEliminarDetalleCarrito(usuario.Carrito, detalle);
-            return ConsultarUsuario(usuario.Email);
+            Usuario us=ConsultarUsuario(usuario.Email);
+            return us;
         }
         
         public int enviarCorreoDeModificacion(Usuario usuario)

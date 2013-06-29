@@ -92,6 +92,11 @@
         	<Button x:Name="buttonPagAnterior" Content="&lt;" HorizontalAlignment="Left" Height="74" Margin="0,605,0,0" VerticalAlignment="Top" Width="77" BorderBrush="#FF252525" Foreground="#FF2B2B2B" FontSize="26.667" Click="buttonPagAnterior_Click"/>
         	<TextBlock x:Name="textPagina" HorizontalAlignment="Left" Height="45" Margin="174,618,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" FontSize="26.667" Foreground="#FF232323" Text="Página"/>
         	<TextBlock x:Name="textNumeroPagina" HorizontalAlignment="Left" Height="45" Margin="271,620,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="107" FontSize="26.667" Foreground="#FF2C2C2C"/>
+            <TextBlock x:Name="textoError" HorizontalAlignment="Center" Margin="10,239,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="96" Width="440" Foreground="Black" FontSize="24" TextAlignment="Center" FontWeight="Bold">
+                <Span FontFamily="Consolas">
+        			<Run Text="No se encuentran productos relacionados a esta busqueda."/>
+        		</Span>
+            </TextBlock>
         </Grid>
         <Grid x:Name="Menu" HorizontalAlignment="Left" Height="365" VerticalAlignment="Top" Width="480" Margin="0,-371,0,0" RenderTransformOrigin="0.5,0.5">
         	<Grid.ColumnDefinitions>
