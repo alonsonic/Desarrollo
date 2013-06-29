@@ -41,7 +41,7 @@ namespace AeiWebServices.Logica
             List<Producto> listaProductos = new List<Producto>();
 
             string ruta = "http://" + ipWebServer + ":" + puertoWebServer + "/GrailsApplication3/productos/rest/" + parametrosBusquedad + "," + pagina;
-            Log.LogInstanciar().Info("Iniciando conexion al API /GrailsApplication3/productos/rest/ con IP: " + ipWebServer + "y puerto: " + puertoWebServer);
+            Log.LogInstanciar().Info("Iniciando conexion al API /GrailsApplication3/productos/rest/ con IP: " + ipWebServer + " y puerto: " + puertoWebServer);
             XmlDocument xmlRest = recibirXml(ruta);
             if (xmlRest != null)
             {
@@ -49,11 +49,12 @@ namespace AeiWebServices.Logica
 
                 XmlNodeList productos = xmlRest.GetElementsByTagName("list");
                 XmlNodeList lista = ((XmlElement)productos[0]).GetElementsByTagName("productos");
+                Log.LogInstanciar().Info("Recibiendo producto del API");
                 foreach (XmlElement nodo in lista)
                 {
                     Producto auxProducto = new Producto();
                     string[] rutaImagen = nodo.GetElementsByTagName("archivo")[0].InnerText.Split(separadores);
-
+                    Log.LogInstanciar().Info("Producto: "+auxProducto.Nombre);
                     auxProducto.Nombre = nodo.GetElementsByTagName("nombre")[0].InnerText;
                     auxProducto.Precio = float.Parse(nodo.GetElementsByTagName("precio")[0].InnerText);
                     auxProducto.Descripcion = nodo.GetElementsByTagName("descripcion")[0].InnerText;
@@ -67,6 +68,7 @@ namespace AeiWebServices.Logica
             }
             else
             {
+                Log.LogInstanciar().Error("Se recibio un Xml null.");
                 return null;
             }
 

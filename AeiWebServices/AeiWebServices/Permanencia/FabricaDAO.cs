@@ -138,7 +138,7 @@ namespace AeiWebServices.Permanencia
         static public List<Producto> getBusquedaProductoConCategoria(string categoriaProducto, string busqueda)
         {
             SqlServerProducto lista = new SqlServerProducto();
-            List<Producto> producto= lista.busquedaProductos(categoriaProducto, busqueda);
+            List<Producto> producto = lista.busquedaProductos(categoriaProducto, busqueda);
              
             return producto;
         }

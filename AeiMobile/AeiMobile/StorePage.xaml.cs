@@ -17,6 +17,7 @@ namespace AeiMobile
         public StorePage()
         {
             InitializeComponent();
+            this.textBuscador.Text = "";
             Menu.Children.Add(new MenuControl());
         }
 
@@ -112,7 +113,7 @@ namespace AeiMobile
 
         private void buttonFiguraAccion_Click(object sender, RoutedEventArgs e)
         {
-            busqueda_categoria("figuras de acción");
+            busqueda_categoria("figuras de");
         }
 
         private void buttonNina_Click(object sender, RoutedEventArgs e)
@@ -134,6 +135,11 @@ namespace AeiMobile
         private void buttonVideoJuego_Click(object sender, RoutedEventArgs e)
         {
             busqueda_categoria("video juegos");
+        }
+
+        private void buttonFiguraAccion_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
