@@ -22,11 +22,6 @@
         	</Image.RenderTransform>
         </Image>
         <Image Margin="0,-6,0,684" Source="menuMobilei.png" Stretch="Fill" d:IsLocked="True"/>
-        <Button x:Name="botonMenu" Content="Menu&#xA;Menu&#xA;" HorizontalAlignment="Left" Height="98" Margin="255,-10,0,0" VerticalAlignment="Top" Width="225" Background="#FFF16527" BorderBrush="#FFF16527" Foreground="White" RenderTransformOrigin="0.5,0.5" FontSize="46.667" d:IsLocked="True">
-        	<Button.RenderTransform>
-        		<CompositeTransform/>
-        	</Button.RenderTransform>
-        </Button>
         <Button x:Name="botonComprar" Content="Confirmar Compra" HorizontalAlignment="Left" Height="121" Margin="10,515,0,0" VerticalAlignment="Top" Width="460" Background="#FFF16527" Click="botonComprar_Click"/>
         <TextBlock HorizontalAlignment="Left" Height="80" Margin="23,200,0,0" TextWrapping="Wrap" Text="Seleccione la cantidad " VerticalAlignment="Top" Width="447" Foreground="#FF212121" FontSize="42.667"/>
         <TextBox x:Name="textCantidad" HorizontalAlignment="Left" Height="116" Margin="150,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Text="1" FontSize="48"/>

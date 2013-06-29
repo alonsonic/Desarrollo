@@ -27,5 +27,15 @@ namespace AeiMobile
         {
             (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri("/PerfilPage.xaml", UriKind.Relative));
         }
+
+        private void botonInicio_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri("/StorePage.xaml", UriKind.Relative));
+        }
+
+        private void botonCerrar_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+        }
     }
 }

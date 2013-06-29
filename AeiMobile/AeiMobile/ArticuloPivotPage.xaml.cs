@@ -17,12 +17,15 @@ namespace AeiMobile
 {
     public partial class ArticuloPivotPage : PhoneApplicationPage
     {
-
+        private bool menuAbierto = false;
         public static Producto producto;
 
         public ArticuloPivotPage()
         {
             InitializeComponent();
+            Menu.Children.Add(new MenuControl());
+
+            ServicioAEIClient servicio = new ServicioAEIClient();
             cargarInformacionProducto();
         }
 
@@ -34,7 +37,7 @@ namespace AeiMobile
             this.textDescripcion.Text = producto.Descripcion;
             this.pivotProducto.Title = producto.Nombre;
             cargarListaCalifiacion();
-            setImagenProducto();
+            //setImagenProducto();
         }
 
         private void cargarListaCalifiacion()
@@ -69,7 +72,7 @@ namespace AeiMobile
 
             if (producto.Cantidad == 0)
             {
-                
+                MessageBox.Show("Este articulo esta agotado, buscaremos en otra tienda");
                 return;
             }
 
@@ -86,6 +89,20 @@ namespace AeiMobile
                 ConfirmacionPage.producto = producto;
                 NavigationService.Navigate(new Uri("/ConfirmacionPage.xaml", UriKind.Relative));
             };
+        }
+
+        private void botonMenu_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (menuAbierto)
+            {
+                StoryMenuCerrar.Begin();
+                menuAbierto = false;
+            }
+            else
+            {
+                StoryMenuAbrir.Begin();
+                menuAbierto = true;
+            }
         }
     }
     

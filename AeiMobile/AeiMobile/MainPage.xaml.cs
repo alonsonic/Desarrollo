@@ -27,7 +27,7 @@ namespace AeiMobile
             //Declaramos el servicio
             ServicioAEIClient servicio = new ServicioAEIClient();
             //Llamamos el metodo del servicio
-            servicio.ConsultarUsuarioAsync("ltrrsz@gmail.com");
+            servicio.ConsultarUsuarioAsync("alonsonic@gmail.com");
 
             //Cuando se complete la llamada se disparara el evento
             servicio.ConsultarUsuarioCompleted += (s, a) =>

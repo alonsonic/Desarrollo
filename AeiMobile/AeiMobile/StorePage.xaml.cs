@@ -13,7 +13,7 @@ namespace AeiMobile
 {
     public partial class StorePage : PhoneApplicationPage
     {
-        bool menuAbierto = false;
+        private bool menuAbierto = false;
         public StorePage()
         {
             InitializeComponent();

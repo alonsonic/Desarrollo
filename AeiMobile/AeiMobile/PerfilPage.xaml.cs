@@ -12,6 +12,8 @@ namespace AeiMobile
 {
     public partial class PerfilPage : PhoneApplicationPage
     {
+        private bool menuAbierto = false;
+
         public PerfilPage()
         {
             InitializeComponent();
@@ -34,6 +36,11 @@ namespace AeiMobile
                 contador++;
                 this.listDireccion.Items.Add(contador.ToString()+") Estado: " + item.Estado + " Ciudad: " + item.Ciudad +"\nDescripción: " + item.Descripcion);
             }
+        }
+
+        private void botonMenu_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
         }
     }
 }
