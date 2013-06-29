@@ -48,6 +48,28 @@ namespace AeiMobile
             }
         }
 
+        private void botonComprar_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (BufferUsuario.Usuario.MetodosPago == null && BufferUsuario.Usuario.MetodosPago.ElementAt(0) == null)
+            {
+                MessageBox.Show("Disculpe, no tiene metodos de pago registrados");
+                return;
+            }
+
+            if (BufferUsuario.Usuario.Direcciones == null && BufferUsuario.Usuario.Direcciones.ElementAt(0) == null)
+            {
+                MessageBox.Show("Disculpe, no tiene direcciones registradas");
+                return;
+            }
+            ServicioAEIClient servicioAei = new ServicioAEIClient();
+            servicioAei.checkoutAsync(BufferUsuario.Usuario.MetodosPago.ElementAt(0), BufferUsuario.Usuario.Direcciones.ElementAt(0), BufferUsuario.Usuario);
+
+            servicioAei.checkoutCompleted += (s, a) =>
+            {
+                BufferUsuario.Usuario = a.Result;
+                MessageBox.Show("Su compra fue procesada exitosamente");
+            };
+        }
 
     }
 }

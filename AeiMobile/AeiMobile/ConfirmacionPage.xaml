@@ -22,7 +22,7 @@
         	</Image.RenderTransform>
         </Image>
         <Image Margin="0,-6,0,684" Source="menuMobilei.png" Stretch="Fill" d:IsLocked="True"/>
-        <Button x:Name="botonComprar" Content="Confirmar Compra" HorizontalAlignment="Left" Height="121" Margin="10,515,0,0" VerticalAlignment="Top" Width="460" Background="#FFF16527" Click="botonComprar_Click"/>
+        <Button x:Name="botonComprar" Content="Agregar a Carrito" HorizontalAlignment="Left" Height="121" Margin="10,533,0,0" VerticalAlignment="Top" Width="460" Background="#FFF16527" Click="botonComprar_Click"/>
         <TextBlock HorizontalAlignment="Left" Height="80" Margin="23,200,0,0" TextWrapping="Wrap" Text="Seleccione la cantidad " VerticalAlignment="Top" Width="447" Foreground="#FF212121" FontSize="42.667"/>
         <TextBox x:Name="textCantidad" HorizontalAlignment="Left" Height="116" Margin="150,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Text="1" FontSize="48"/>
         <Button x:Name="botonMenos" Content="-" HorizontalAlignment="Left" Height="116" Margin="23,329,0,0" VerticalAlignment="Top" Width="122" Background="#FFF16527" FontSize="48" Click="botonMenos_Click"/>

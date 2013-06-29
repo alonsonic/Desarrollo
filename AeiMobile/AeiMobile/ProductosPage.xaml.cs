@@ -25,7 +25,7 @@ namespace AeiMobile
         public ProductosPage()
         {
             InitializeComponent();
-            this.textoError.Visibility = Visibility.Collapsed;
+            //this.textoError.Visibility = Visibility.Collapsed;
             calcularPaginas();
             cargarProductos();
             Menu.Children.Add(new MenuControl());
@@ -91,7 +91,7 @@ namespace AeiMobile
             }
             else
             {
-                this.textoError.Visibility = Visibility.Visible;
+                //this.textoError.Visibility = Visibility.Visible;
             }
         }
 

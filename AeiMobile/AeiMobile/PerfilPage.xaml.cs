@@ -40,7 +40,16 @@ namespace AeiMobile
 
         private void botonMenu_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-        	// TODO: Add event handler implementation here.
+            if (menuAbierto)
+            {
+                StoryMenuCerrar.Begin();
+                menuAbierto = false;
+            }
+            else
+            {
+                StoryMenuAbrir.Begin();
+                menuAbierto = true;
+            }
         }
     }
 }

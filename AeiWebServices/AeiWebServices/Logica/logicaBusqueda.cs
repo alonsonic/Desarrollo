@@ -11,7 +11,7 @@ namespace AeiWebServices.Logica
         private string ipWebServerRest = "172.16.66.221";
         private string puertoWebServerRest = "3306";
         private string ipWebServerSOAP = "localhost";
-        private string puertoWebServerSOAP = "52896";
+        private string puertoWebServerSOAP = "3030";
 
         public List<Producto> clasificarBusqueda(string busqueda, int pagina, int numeroArticulo)
         {
