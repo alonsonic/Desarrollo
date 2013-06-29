@@ -43,8 +43,8 @@
     <Reference Include="Elmah">
       <HintPath>Referencia\Elmah.dll</HintPath>
     </Reference>
-    <Reference Include="Gma.QrCodeNet.Encoding">
-      <HintPath>..\packages\QrCode.Net.0.4.0.0\lib\net45\Gma.QrCodeNet.Encoding.dll</HintPath>
+    <Reference Include="Gma.QrCodeNet.Encoding.Net45">
+      <HintPath>.\Gma.QrCodeNet.Encoding.Net45.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp">
       <HintPath>Referencia\itextsharp.dll</HintPath>

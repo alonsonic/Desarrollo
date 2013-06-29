@@ -25,13 +25,15 @@ namespace AeiMobile
         private void cargarProductos()
         {
             this.listBoxProductos.Items.Clear();
-            for (int indexProducto = 0; indexProducto < BufferUsuario.Usuario.Carrito.Productos.Count; indexProducto++)
+            if (BufferUsuario.Usuario.Carrito != null)
             {
-                ItemProductoCarrito itemProducto = new ItemProductoCarrito(BufferUsuario.Usuario.Carrito.Productos[indexProducto].Producto, indexProducto);
-                listBoxProductos.Items.Add(itemProducto);
-            }
-            
+                for (int indexProducto = 0; indexProducto < BufferUsuario.Usuario.Carrito.Productos.Count; indexProducto++)
+                {
+                    ItemProductoCarrito itemProducto = new ItemProductoCarrito(BufferUsuario.Usuario.Carrito.Productos[indexProducto].Producto, indexProducto);
+                    listBoxProductos.Items.Add(itemProducto);
+                }
 
+            }
         }
 
         private void botonMenu_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -69,6 +71,7 @@ namespace AeiMobile
                 BufferUsuario.Usuario = a.Result;
                 MessageBox.Show("Su compra fue procesada exitosamente");
             };
+            listBoxProductos.Items.Clear();
         }
 
     }

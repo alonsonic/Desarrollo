@@ -105,7 +105,7 @@ namespace AeiWebServices.Permanencia
         public int modificarEstadoDeCompra(Compra compra)
         {
             ConexionSqlServer conexion = new ConexionSqlServer();
-            int respuesta = conexion.insertar("UPDATE COMPRA SET FECHA_SOLICITUD= '" + compra.FechaSolicitud.ToString("yyyy-MM-dd") + "' AND ESTADO= '" + compra.Status + "' AND FK_METODOPAGO " + compra.Pago.Id.ToString() + " AND FK_DET_DIRECCION= " + compra.Direccion.Id.ToString() + " WHERE ID=" + compra.Id.ToString() + ";");
+            int respuesta = conexion.insertar("UPDATE COMPRA SET FECHA_SOLICITUD= '" + compra.FechaSolicitud.ToString("yyyy-MM-dd") + "', ESTADO= '" + compra.Status + "', FK_METODOPAGO =" + compra.Pago.Id.ToString() + ", FK_DET_DIRECCION= " + compra.Direccion.Id.ToString() + " WHERE ID=" + compra.Id.ToString() + ";");
             conexion.cerrarConexion();
             return respuesta;
         }

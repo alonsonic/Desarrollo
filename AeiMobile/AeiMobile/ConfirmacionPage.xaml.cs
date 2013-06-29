@@ -54,25 +54,16 @@ namespace AeiMobile
             {
                 BufferUsuario.Usuario = a.Result;
                 MessageBox.Show("Se agrego el poducto a su carrito con exito");
-                NavigationService.Navigate(new Uri("/StorePage.xaml", UriKind.Relative));
-                return;
-            };
-
-            servicioAei.ConsultarUsuarioAsync(BufferUsuario.Usuario.Email);
-
-            //Cuando se complete la llamada se disparara el evento
-            servicioAei.ConsultarUsuarioCompleted += (s, a) =>
-            {
-                BufferUsuario.Usuario = a.Result;
-                try
+                servicioAei.ConsultarUsuarioAsync(BufferUsuario.Usuario.Email);
+                servicioAei.ConsultarUsuarioCompleted += (t, b) =>
                 {
+                    BufferUsuario.Usuario = b.Result;
                     NavigationService.Navigate(new Uri("/StorePage.xaml", UriKind.Relative));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
+
+                };
             };
+
+            
 		}
 
     }
