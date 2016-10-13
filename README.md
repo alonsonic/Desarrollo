@@ -1,4 +1,9 @@
-Desarrollo
-==========
+Software Development - Final Project
+====================================
 
-Proyecto de Desarrollo del Software UCAB Semestre 201322
+Software Development Final Project - UCAB 201322
+
+Windows 8 SE Toy Store App
+Windows 8 Client
+Windows Server Backend
+Windows SQL Server Database
